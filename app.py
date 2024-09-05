@@ -1,9 +1,13 @@
+# Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
 
+# Instanciando o WebService
 app = Flask(__name__)
 
+# Criando uma senha para criptografar sessão
 app.secret_key = "capivara"
 
+# Criando rotas para as páginas
 @app.route("/")
 def pg_inicio():
     return render_template("index.html")
@@ -48,4 +52,5 @@ def pg_fim_chamado():
 def pg_relatorio():
     return render_template("RF009-relatorio.html")
 
+#Rodando o WebService
 app.run(debug=True)
