@@ -4,7 +4,7 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 # Instanciando o WebService
 app = Flask(__name__)
 
-# Criando uma senha para 
+# Criando uma senha para criptografar sessão
 app.secret_key = "capivara"
 
 # Criando rotas para as páginas
