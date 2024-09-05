@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Normalização */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Define o tamanho da fonte base */
+html {
+    font-size: 62.5%; /* 62.5% de 16px (padrão) é igual a 10px */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Váriaveis de Cor do Site*/
+:root {
+    --color01: rgb(255, 255, 255);
+    --color02: rgb(0, 0, 0);
+    --color03: #FFCD11;
+    --color04: #F0F0F0;
+    --color05: #ED7203;
+    --color06: #2C2E41;
+    --colorRed:#C61606;
+    --colorGreen:#04A61C;
+  }
