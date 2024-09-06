@@ -28,7 +28,7 @@ main{
     z-index: 1;
     background-color: var(--color01);
     width: 35rem;
-    height: 33rem;
+    height: 32rem;
     border-radius: 5rem;
     position: absolute;
     
@@ -45,7 +45,7 @@ main{
 
 /* Estilo do Titulo Login */
 .container-form form h1{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 3.5rem;
 }
 
@@ -64,4 +64,28 @@ main{
     width: 100%;
 }
 
+#container-form__inp-SN{
+    margin-bottom: 2rem;
+}
 
+button{
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    background-color: var(--color03); 
+    border: 2px solid var(--color03); 
+    color: var(--color01); 
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.container-footer{
+    background-color: var(--color01);
+}
