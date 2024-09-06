@@ -44,11 +44,28 @@ def pg_cadastro():
                 return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
         else:
             return {'mensagem':'ERRO'}, 500
-    # return render_template("RF001-cad.html")
 
 @app.route("/RF002")
 def pg_login():
-    return render_template("RF002-log.html")
+    usuario = Usuario()
+    if request.method == "GET":
+        if session.get("usuario","erro") == "Autenticado":   
+            return render_template("chat.html")
+        else:
+            return render_template("RF002-log.html")
+    else:
+        telefone = request.form["telefone"]
+        senha = request.form["senha"]
+
+        usuario.logar(telefone, senha)
+
+        if usuario.logado:
+            session["usuario"] = {"nome":usuario.nome, "telefone":telefone}
+            return redirect("/chat")
+        else:
+            session.clear()
+            return redirect("/login")
+    # return render_template("RF002-log.html")
 
 @app.route("/RF003")
 def pg_solicitacao():
