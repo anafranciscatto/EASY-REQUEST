@@ -118,11 +118,49 @@ footer{
 
 /* -------------RESPONSIVIDADE-------------- */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 450px) {
     .container-form{
-        width: 20rem;
-        height: 32rem; 
+        width: 70%;
+        height: 90%; 
+        transition: 0.2s;
     }
+    .container-form form h1{
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        transition: 0.2s;
+    }
+
+    #inp-SN , #inp-senha{
+        padding: 0.5rem;
+        width: 100%;
+        transition: 0.2s;
+    }
+    
+    #inp-SN{
+        margin-bottom: 1rem;
+        transition: 0.2s;
+    }
+
+    .container-form form label{
+        margin:1rem 15rem 1rem 0;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+
+    .container-form form,input{
+        font-size: 1rem;
+        transition: 0.2s;
+    }
+
+    button{
+        width: 25rem;
+        padding: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 2rem;
+    }
+    
 }
 
 
