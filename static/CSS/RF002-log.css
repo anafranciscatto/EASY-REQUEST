@@ -1,0 +1,67 @@
+body{
+    background-color: var(--color06);
+}
+
+/* Estilo da Imagem no Topo */
+.container-main{
+    z-index: -1;
+    background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 30rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+}
+
+/* Estilo do Forms */
+main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container-form{
+    position: absolute;
+    top:20rem ;
+    z-index: 1;
+    background-color: var(--color01);
+    width: 35rem;
+    height: 33rem;
+    border-radius: 5rem;
+    position: absolute;
+    
+}
+
+.container-form form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem;
+   
+}
+
+/* Estilo do Titulo Login */
+.container-form form h1{
+    margin-bottom: 2rem;
+    font-size: 3.5rem;
+}
+
+.container-form form label{
+    margin:1rem 23rem 1rem 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Estilo dos Input (Chamado Por ID) */
+#container-form__inp-SN , #container-form__inp-email{
+    background-color: var(--color04);
+    border: none;
+    border-radius: 5rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+
