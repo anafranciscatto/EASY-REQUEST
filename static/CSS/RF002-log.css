@@ -72,6 +72,7 @@ main{
     margin-bottom: 2rem;
 }
 
+/* Estilo do Botão "Confirmar Login" */
 button{
     display: inline-block;
     width: 30rem;
@@ -90,6 +91,7 @@ button{
     margin-top: 1rem;
 }
 
+/* Estilo da Logo */
 footer{
     width: 100vw;
     display: flex;
@@ -113,3 +115,21 @@ footer{
     width: 14rem;
     height: auto;
 }
+
+/* -------------RESPONSIVIDADE-------------- */
+
+@media only screen and (max-width: 600px) {
+    .container-form{
+        width: 20rem;
+        height: 32rem; 
+    }
+}
+
+
+@media only screen and (min-width: 768px) {...}
+
+
+@media only screen and (min-width: 992px) {...}
+
+
+@media only screen and (min-width: 1200px) {...}
