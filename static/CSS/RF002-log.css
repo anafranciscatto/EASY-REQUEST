@@ -1,5 +1,9 @@
 body{
     background-color: var(--color06);
+    display: flex;
+   align-items: center;
+   justify-content: center;
+    flex-direction: column;
 }
 
 /* Estilo da Imagem no Topo */
@@ -56,7 +60,7 @@ main{
 }
 
 /* Estilo dos Input (Chamado Por ID) */
-#container-form__inp-SN , #container-form__inp-email{
+#inp-SN , #inp-senha{
     background-color: var(--color04);
     border: none;
     border-radius: 5rem;
@@ -64,7 +68,7 @@ main{
     width: 100%;
 }
 
-#container-form__inp-SN{
+#inp-SN{
     margin-bottom: 2rem;
 }
 
@@ -86,6 +90,26 @@ button{
     margin-top: 1rem;
 }
 
+footer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
 .container-footer{
     background-color: var(--color01);
+    width: 50vw;
+    height: 10rem;
+    position: fixed;
+    bottom: 0;
+    border-top-right-radius: 6rem;
+    border-top-left-radius:6rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-footer img{
+    width: 14rem;
+    height: auto;
 }
