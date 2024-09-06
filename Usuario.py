@@ -48,7 +48,7 @@ class Usuario:
         self.senha = senha
         senha_criptografada = sha256(self.senha.encode()).hexdigest()
 
-        mycursor.execute(f"SELECT nome, email, senha, permissao FROM tb_funcionarios WHERE email = '{email}' AND permissao = '{permissao}' AND BINARY senha = '{senha_criptografada}';")
+        mycursor.execute(f"SELECT nome, SN, senha, permissao FROM tb_funcionarios WHERE email = '{email}' AND permissao = '{permissao}' AND BINARY senha = '{senha_criptografada}';")
 
         resultado = mycursor.fetchone()
 

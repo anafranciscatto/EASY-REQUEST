@@ -1,6 +1,8 @@
 # Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
 
+from Usuario import Usuario
+
 # Instanciando o WebService
 app = Flask(__name__)
 
@@ -14,11 +16,56 @@ def pg_inicio():
 
 @app.route("/RF001")
 def pg_cadastro():
-    return render_template("RF001-cad.html")
+    if session.get("usuario","erro") == "Autenticado":
+        return render_template("RF001-cad.html")
+    else:
+        dados = request.get_json()
+        cpf = dados["CPF"]
+        nome = dados["nome"]
+        email = dados["email"]
+        senha = dados["senha"]
+        sn = dados["SN"]
+        foto = dados["foto"]
+        permissao = dados["permissao"]
+        id_funcao = dados["id_funcao"]
+
+        usuario = Usuario()
+
+        if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
+            session["usuario"] = {"nome":nome,"sn":sn, "foto":foto, "permissao":permissao}
+
+            if session["usuario"]["permissao"] == "administrador":
+                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+            
+            elif session["usuario"]["permissao"] == "manutencao":
+                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+            
+            elif session["usuario"]["permissao"] == "solicitante":
+                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+        else:
+            return {'mensagem':'ERRO'}, 500
 
 @app.route("/RF002")
 def pg_login():
-    return render_template("RF002-log.html")
+    usuario = Usuario()
+    if request.method == "GET":
+        if session.get("usuario","erro") == "Autenticado":   
+            return render_template("chat.html")
+        else:
+            return render_template("RF002-log.html")
+    else:
+        telefone = request.form["telefone"]
+        senha = request.form["senha"]
+
+        usuario.logar(telefone, senha)
+
+        if usuario.logado:
+            session["usuario"] = {"nome":usuario.nome, "telefone":telefone}
+            return redirect("/chat")
+        else:
+            session.clear()
+            return redirect("/login")
+    # return render_template("RF002-log.html")
 
 @app.route("/RF003")
 def pg_solicitacao():
