@@ -45,7 +45,7 @@ def pg_cadastro():
         else:
             return {'mensagem':'ERRO'}, 500
 
-@app.route("/RF002")
+@app.route("/RF002",methods=["GET","POST"])
 def pg_login():
     usuario = Usuario()
     if request.method == "GET":
@@ -72,7 +72,7 @@ def pg_login():
                 return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
         else:
             session.clear()
-            return redirect("/login")
+            return redirect("/RF002")
     # return render_template("RF002-log.html")
 
 @app.route("/RF003")
