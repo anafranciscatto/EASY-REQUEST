@@ -1,3 +1,4 @@
+/* Container principal na parte inferior da tela */
 .container-abaixo{
     width: 100vw;
     height: 50rem;
@@ -15,18 +16,93 @@
     flex-direction: column;
     align-content: center;
     flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
+
+/* Texto centralizado dentro do container */
 .container__abaixo--conteudotxt{
     width: 100%;
     text-align: center;
     font-size: 2.4rem;
     margin-top: 3rem;
 }
+
+/* Estilo do título dentro do texto */
 .container__abaixo--conteudotxt h2{
     color: var(--color01);
 }
+
+/* Descrição com estilo específico */
 .container__abaixo--descricao{
     font-size: 2rem;
     margin-top: 2rem;
     color: var(--color01);
+}
+
+/* COR DO TXT VAZADO (REQUEST) */
+.container__abaixo--txtVazado{
+    color: var(--color06);
+    text-shadow:
+      1.5px 1.5px 0 #ffffff,
+      -1.5px 1.5px 0 #ffffff,
+      -1.5px -1.5px 0 #ffffff,
+      1.5px -1.5px 0 #ffffff;
+}
+
+/* Container para os botões na parte inferior */
+.container__abaixo--botoes {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* Estilos dos botões */
+.botao {
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+}
+
+/* Estilo específico para o botão de login */
+.botao-login {
+    background-color: var(--color03); 
+    border: 2px solid var(--color03); 
+    color: var(--color06); 
+    margin-bottom: 1rem;
+}
+
+/* Estilo do botão de login ao passar o mouse */
+.botao-login:hover {
+    background-color: transparent; 
+    color: var(--color03);
+    box-shadow: 0px 8px 15px rgba(224, 223, 163, 0.2); 
+    transform: scale(1.05); 
+}
+
+/* Estilo específico para o botão de cadastro */
+.botao-cadastro {
+    background-color: transparent;
+    border: 2px solid var(--color03); 
+    color: var(--color03); 
+}
+
+/* Estilo do botão de cadastro ao passar o mouse */
+.botao-cadastro:hover {
+    background-color: var(--color03); 
+    color: var(--color06); 
+    box-shadow: 0px 8px 15px rgba(224, 223, 163, 0.2); 
+    transform: scale(1.05); 
+}
+
+/* Estilo do texto dentro do container de botões */
+.container__abaixo--botoes p {
+    font-size: 1.6rem;
+    color: var(--color01);
+    margin: 1rem 0;
 }
