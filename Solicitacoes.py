@@ -30,3 +30,24 @@ class Solicitacoes:
             return True
         except:
             return False
+    def recebimento_servico(self,id_servico,id_sala,descricao,outros_locais,CPF_funcionario):
+
+        try:
+            myBD = Connection.conectar()
+            mycursor = myBD.cursor()
+
+            self.id_servico = id_servico
+            self.id_sala = id_sala
+            self.descricao = descricao
+            self.outros_locais = outros_locais
+            self.CPF_funcionario = CPF_funcionario
+            
+            mycursor.execute(f"SELECT tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}';")
+
+            
+
+            resultado= mycursor.fetchall()
+        
+            return True
+        except:
+            return False
