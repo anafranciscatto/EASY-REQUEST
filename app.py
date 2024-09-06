@@ -1,6 +1,7 @@
-# Criando as importações do Flask
+# Importando o Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
 
+# Importando a classe Usuario
 from Usuario import Usuario
 
 # Instanciando o WebService
