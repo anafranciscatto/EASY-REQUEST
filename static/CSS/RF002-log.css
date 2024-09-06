@@ -1,0 +1,27 @@
+body{
+    background-color: var(--color06);
+}
+
+/* Estilo da Imagem no Topo */
+.container-header{
+    
+    background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 30rem;
+    border-bottom-left-radius: 10rem;
+    border-bottom-right-radius: 10rem;
+}
+
+/* Estilo do Forms */
+main{
+    position: relative;
+}
+.container-form{
+    background-color: var(--color01);
+    width: 30rem;
+    height: 30rem;
+    border-radius: 5rem;
+    position: absolute;
+}
