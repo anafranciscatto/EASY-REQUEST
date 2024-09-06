@@ -45,12 +45,12 @@ main{
 
 /* Estilo do Titulo Login */
 .container-form form h1{
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     font-size: 3.5rem;
 }
 
 .container-form form label{
-    margin-right: 24rem;
+    margin:1rem 23rem 1rem 0;
     font-weight: bold;
     font-size: 1.5rem;
 }
@@ -63,3 +63,5 @@ main{
     padding: 1rem;
     width: 100%;
 }
+
+
