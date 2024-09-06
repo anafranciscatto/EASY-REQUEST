@@ -9,13 +9,14 @@ app = Flask(__name__)
 # Criando uma senha para criptografar sessão
 app.secret_key = "capivara"
 
-# Criando rotas para as páginas
+# Criando rota para a página inicial
 @app.route("/")
 def pg_inicio():
     return render_template("index.html")
 
+# Criando rota para a tela de cadastro
 @app.route("/RF001")
-def pg_cadastro():
+def pg_cadastro(): # Função que executa o cadastro
     if session.get("usuario","erro") == "Autenticado":
         return render_template("RF001-cad.html")
     else:
@@ -45,8 +46,9 @@ def pg_cadastro():
         else:
             return {'mensagem':'ERRO'}, 500
 
+# Criando a rota para tela de login
 @app.route("/RF002")
-def pg_login():
+def pg_login(): # Função que executa o login
     usuario = Usuario()
     if request.method == "GET":
         if session.get("usuario","erro") == "Autenticado": 
@@ -73,7 +75,6 @@ def pg_login():
         else:
             session.clear()
             return redirect("/login")
-    # return render_template("RF002-log.html")
 
 @app.route("/RF003")
 def pg_solicitacao():
