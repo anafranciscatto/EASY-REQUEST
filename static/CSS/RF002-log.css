@@ -1,5 +1,9 @@
 body{
     background-color: var(--color06);
+    display: flex;
+   align-items: center;
+   justify-content: center;
+    flex-direction: column;
 }
 
 /* Estilo da Imagem no Topo */
@@ -28,7 +32,7 @@ main{
     z-index: 1;
     background-color: var(--color01);
     width: 35rem;
-    height: 33rem;
+    height: 32rem;
     border-radius: 5rem;
     position: absolute;
     
@@ -45,7 +49,7 @@ main{
 
 /* Estilo do Titulo Login */
 .container-form form h1{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: 3.5rem;
 }
 
@@ -56,7 +60,7 @@ main{
 }
 
 /* Estilo dos Input (Chamado Por ID) */
-#container-form__inp-SN , #container-form__inp-email{
+#inp-SN , #inp-senha{
     background-color: var(--color04);
     border: none;
     border-radius: 5rem;
@@ -64,4 +68,68 @@ main{
     width: 100%;
 }
 
+#inp-SN{
+    margin-bottom: 2rem;
+}
 
+/* Estilo do Botão "Confirmar Login" */
+button{
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    background-color: var(--color03); 
+    border: 2px solid var(--color03); 
+    color: var(--color01); 
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+/* Estilo da Logo */
+footer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.container-footer{
+    background-color: var(--color01);
+    width: 50vw;
+    height: 10rem;
+    position: fixed;
+    bottom: 0;
+    border-top-right-radius: 6rem;
+    border-top-left-radius:6rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-footer img{
+    width: 14rem;
+    height: auto;
+}
+
+/* -------------RESPONSIVIDADE-------------- */
+
+@media only screen and (max-width: 600px) {
+    .container-form{
+        width: 20rem;
+        height: 32rem; 
+    }
+}
+
+
+@media only screen and (min-width: 768px) {...}
+
+
+@media only screen and (min-width: 992px) {...}
+
+
+@media only screen and (min-width: 1200px) {...}
