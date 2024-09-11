@@ -12,6 +12,8 @@
          <link rel="stylesheet" href="/static/CSS/RF003-solic.css">
         <!-- Link Arquivo JS -->
          <script defer src="/static/JS/RF003-solic.js"></script>
+         <!-- Link para os ICONS -->
+         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -19,10 +21,10 @@
         <header>
             <section class="container-header">
                 <div class="container-header_btn">
-                    <button class="container-header_btn-voltar" href=''>Voltar</button>
+                    <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
                 </div>
                 <div class="container-header_data">
-                    <p class="dia-semana">QUi</p><p class="dia">10</p><p class="mes">Set</p>
+                    <p class="dia-semana">Qui</p><p class="dia">10</p><p class="mes">Set</p>
                 </div>
             </section>
             <section class="container-header-user">
@@ -34,25 +36,29 @@
             </section>
         </header>
         <main>
-            <div class="main-titulo-subtitulo">
-                <h1>Área de Solicitação</h1>
-                <p>Coloque as Informações sobre o Serviço...</p>
-            </div>
             <section class="container-main">
+                <div class="main-titulo-subtitulo">
+                    <h1>Área de <p>Solicitação</p></h1>
+                    <p class="subtitulo">Coloque as Informações sobre o Serviço...</p>
+                </div>
                 <div class="container-main_form">
                     <form action="" method="POST">
-                        <select name="tipo-serviço" id="tipo-serviço">
-                            <option value="/">Tipo de Serviço</option>
-                        </select>
-                        <select name="local" id="local">
-                            <option value="/">Local</option>
-                        </select>
+                        <div class="form_select">
+                            <select name="tipo-serviço" id="tipo-serviço">
+                                <option value="/">Tipo de Serviço</option>
+                            </select>
+                            <select name="local" id="local">
+                                <option value="/">Local</option>
+                            </select>
+                        </div>
                         <div class="form_input-arquivo">
                             <label for="arquivo">Foto (Opcional):</label>
                             <input type="file" name="arquivo" id="arquivo">
                         </div>
-                        <label for="adendo">Adendo:</label>
-                        <input type="text" placeholder="Digite informações adicionais..." maxlength="50">
+                        <div class="form_adendo">
+                            <label for="adendo">Adendo:</label>
+                            <input type="text" id="adendo" name="adendo" placeholder="Digite informações adicionais..." maxlength="60">
+                        </div>
                         <button type="submit" class="form_btn-enviar">Enviar Solicitação</button>
                     </form>
                 </div>
