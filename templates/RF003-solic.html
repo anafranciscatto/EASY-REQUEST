@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Solicitação</title>
+
+        <!-- Link Arquivo CSS Global -->
+        <link rel="stylesheet" href="/static/CSS/global.css">
+        <!-- Link Arquivo CSS -->
+         <link rel="stylesheet" href="/static/CSS/RF003-solic.css">
+        <!-- Link Arquivo JS -->
+         <script defer src="/static/JS/RF003-solic.js"></script>
+
+    </head>
+    <body>
+        <!-- Área de Informação do Usuario -->
+        <header>
+            <section class="container-header">
+                <div class="container-header_btn">
+                    <button class="container-header_btn-voltar" href=''>Voltar</button>
+                </div>
+                <div class="container-header_data">
+                    <p class="dia-semana">QUi</p><p class="dia">10</p><p class="mes">Set</p>
+                </div>
+            </section>
+            <section class="container-header-user">
+                <img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil">
+                <div class="container-header-user_info">
+                    <h2 class="container-header-user_nome">Paulo de Oliveira</h2>
+                    <p class="container-header-user_cargo">Professor</p>
+                </div>
+            </section>
+        </header>
+        <main>
+            <div class="main-titulo-subtitulo">
+                <h1>Área de Solicitação</h1>
+                <p>Coloque as Informações sobre o Serviço...</p>
+            </div>
+            <section class="container-main">
+                <div class="container-main_form">
+                    <form action="" method="POST">
+                        <select name="tipo-serviço" id="tipo-serviço">
+                            <option value="/">Tipo de Serviço</option>
+                        </select>
+                        <select name="local" id="local">
+                            <option value="/">Local</option>
+                        </select>
+                        <div class="form_input-arquivo">
+                            <label for="arquivo">Foto (Opcional):</label>
+                            <input type="file" name="arquivo" id="arquivo">
+                        </div>
+                        <label for="adendo">Adendo:</label>
+                        <input type="text" placeholder="Digite informações adicionais..." maxlength="50">
+                        <button type="submit" class="form_btn-enviar">Enviar Solicitação</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
