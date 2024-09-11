@@ -7,7 +7,7 @@ input,select{
 /* Estilo da Área do bnt-voltar e Data */
 .container-header{
     width: 100vw;
-    height: 10vh;
+    height: 5vh;
     display: flex;
     justify-content: space-between;
 }
@@ -59,10 +59,10 @@ input,select{
 /* Estilo da Área Usuario */
 .container-header-user{
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     display: flex;
     align-items: center;
-    margin: 0rem 0rem 2rem 5rem;
+    padding: 0rem 0rem 0rem 5rem;
 }
 
 .container-header-user img{
@@ -71,6 +71,18 @@ input,select{
     border-radius: 100%;
 }
 
+.container-header-user_nome{
+    font-size: 2rem;
+}
+
+.container-header-user_cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 5rem;
+}
 
 /* Estilo da Área de Solicitação */
 .container-main{
@@ -91,27 +103,30 @@ input,select{
     margin-bottom: 1rem;
 }
 
-.main-titulo-subtitulo p{
-   font-weight: 10;
+.subtitulo{
+   font-weight: 100;
+   font-size:1.5rem;
 }
 
 .container-main h1 p{
-    margin-left: 0.5rem;
+    
+    margin-left: 1rem;
     font-weight: 700;
 }
 
 .container-main h1{
+    
     margin: 1.5rem;
     font-size: 3rem;
     font-weight: 100;
     display: flex;
+    justify-content: center;
 }
 
 
 /* Estilo do Formulario de envio de Solicitação */
 .container-main_form{
     text-align: center;
-
 
 }
 
@@ -137,7 +152,11 @@ input,select{
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin:  3rem 0.5rem 2rem 0.5rem;
+    margin:  2rem 0.5rem 2rem 0.5rem;
+}
+
+.form_input-arquivo label{
+    font-size: 1.5rem;
 }
 
 .form_input-arquivo input{
@@ -154,14 +173,16 @@ input,select{
     border: none;
 }
 
-  
-
 .form_adendo{
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin:  1rem;
+    margin:  0.5rem;
     color: var(--color04);
+}
+
+.form_adendo label{
+    font-size: 1.5rem;
 }
 
 #adendo{
@@ -170,7 +191,6 @@ input,select{
     border-radius: 2rem;  
     margin-top: 1rem;  
 }
-
 
 /* Estilo do Botão "Enviar Solicitação" */
 .form_btn-enviar{
@@ -188,5 +208,5 @@ input,select{
     border: 2px solid var(--color03); 
     color: var(--color01); 
     margin-bottom: 1rem;
-    margin-top: 5rem;
+    margin-top: 1.5rem;
 }
