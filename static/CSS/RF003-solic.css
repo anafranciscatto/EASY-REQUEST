@@ -1,8 +1,29 @@
-/* Estilo da Área do Usuario e Data */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+input,select{
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Estilo da Área do bnt-voltar e Data */
 .container-header{
     width: 100vw;
     height: 20vh;
+    display: flex;
+    justify-content: space-between;
 }
+
+/* Estilo da Área Usuario */
+.container-header-user{
+    width: 100%;
+    display: flex;
+}
+
+.container-header-user img{
+    width: 5rem;
+    height: auto;
+    border-radius: 100%;
+}
+
 
 /* Estilo da Área de Solicitação */
 .container-main{
@@ -20,6 +41,11 @@
 
 .main-titulo-subtitulo{
     text-align: center;
+    margin-bottom: 1rem;
+}
+
+.main-titulo-subtitulo p{
+   font-weight: 10;
 }
 
 .container-main h1 p{
@@ -29,41 +55,66 @@
 
 .container-main h1{
     margin: 1.5rem;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 100;
     display: flex;
 }
 
 
 /* Estilo do Formulario de envio de Solicitação */
-
 .container-main_form{
     text-align: center;
 
 
 }
 
+/* Estilo dos Input Select*/
 .form_select{
     display: flex;
     flex-direction: column;
-    margin: 2rem;
-    gap: 2rem;
+    margin: 0.5rem;
+    gap: 4rem;
 }
 
+.form_select select{
+    background-color: var(--color04);
+    color: var(--color06);
+    font-weight: 700;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+/* Estilo input Arquivo */
 .form_input-arquivo{
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin:  0rem 2rem 0rem 2rem;
+    margin:  3rem 0.5rem 2rem 0.5rem;
 }
 
+.form_input-arquivo input{
+    background-color: var(--color04);
+    padding: 0.5rem;
+    color: var(--color06);
+    border-radius: 2rem;
+    margin-top: 1rem;
 
+}
+
+#arquivo{
+    background-color: var(--color01);
+    border: none;
+}
+
+  
 
 .form_adendo{
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin:  2rem 3rem 0rem 3rem;
+    margin:  1rem;
+    color: var(--color04);
 }
 
 #adendo{
@@ -74,13 +125,10 @@
 }
 
 
-
-
-
 /* Estilo do Botão "Enviar Solicitação" */
 .form_btn-enviar{
     display: inline-block;
-    width: 30rem;
+    width: 20rem;
     padding: 1.2rem;
     text-align: center;
     border-radius: 50px;
