@@ -34,25 +34,29 @@
             </section>
         </header>
         <main>
-            <div class="main-titulo-subtitulo">
-                <h1>Área de Solicitação</h1>
-                <p>Coloque as Informações sobre o Serviço...</p>
-            </div>
             <section class="container-main">
+                <div class="main-titulo-subtitulo">
+                    <h1>Área de <p>Solicitação</p></h1>
+                    <p>Coloque as Informações sobre o Serviço...</p>
+                </div>
                 <div class="container-main_form">
                     <form action="" method="POST">
-                        <select name="tipo-serviço" id="tipo-serviço">
-                            <option value="/">Tipo de Serviço</option>
-                        </select>
-                        <select name="local" id="local">
-                            <option value="/">Local</option>
-                        </select>
+                        <div class="form_select">
+                            <select name="tipo-serviço" id="tipo-serviço">
+                                <option value="/">Tipo de Serviço</option>
+                            </select>
+                            <select name="local" id="local">
+                                <option value="/">Local</option>
+                            </select>
+                        </div>
                         <div class="form_input-arquivo">
                             <label for="arquivo">Foto (Opcional):</label>
                             <input type="file" name="arquivo" id="arquivo">
                         </div>
-                        <label for="adendo">Adendo:</label>
-                        <input type="text" placeholder="Digite informações adicionais..." maxlength="50">
+                        <div class="form_adendo">
+                            <label for="adendo">Adendo:</label>
+                            <input type="text" id="adendo" name="adendo" placeholder="Digite informações adicionais..." maxlength="50">
+                        </div>
                         <button type="submit" class="form_btn-enviar">Enviar Solicitação</button>
                     </form>
                 </div>

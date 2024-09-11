@@ -1,0 +1,97 @@
+/* Estilo da Área do Usuario e Data */
+.container-header{
+    width: 100vw;
+    height: 20vh;
+}
+
+/* Estilo da Área de Solicitação */
+.container-main{
+    width: 100vw;
+    height: 80vh;
+    background-color: var(--color06);
+    color: var(--color01);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+
+}
+
+.main-titulo-subtitulo{
+    text-align: center;
+}
+
+.container-main h1 p{
+    margin-left: 0.5rem;
+    font-weight: 800;
+}
+
+.container-main h1{
+    margin: 1.5rem;
+    font-size: 2rem;
+    font-weight: 100;
+    display: flex;
+}
+
+
+/* Estilo do Formulario de envio de Solicitação */
+
+.container-main_form{
+    text-align: center;
+
+
+}
+
+.form_select{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+    gap: 2rem;
+}
+
+.form_input-arquivo{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin:  0rem 2rem 0rem 2rem;
+}
+
+
+
+.form_adendo{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin:  2rem 3rem 0rem 3rem;
+}
+
+#adendo{
+    width: 100%;
+    height: 10rem;
+    border-radius: 2rem;  
+    margin-top: 1rem;  
+}
+
+
+
+
+
+/* Estilo do Botão "Enviar Solicitação" */
+.form_btn-enviar{
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    background-color: var(--color03); 
+    border: 2px solid var(--color03); 
+    color: var(--color01); 
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
