@@ -1,0 +1,121 @@
+body{
+    background-color: var(--color06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Estilo da Imagem no Topo */
+.container-main{
+    z-index: -1;
+    background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 30rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+}
+
+/* Estilo do Forms */
+main{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container-form{
+    position: absolute;
+    top:20rem ;
+    z-index: 1;
+    background-color: var(--color01);
+    width: 37rem;
+    height: 40rem;
+    border-radius: 5rem;
+    position: absolute;
+    box-shadow:  5px 10px 18px black;
+    
+}
+
+.container-form form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 3rem;
+   
+}
+
+/* Estilo do Titulo Login */
+.container-form form h1{
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+}
+
+.container-form form label{
+    margin:1rem 23rem 1rem 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Estilo dos Input (Chamado Por ID) */
+#inp-SN , #inp-senha{
+    background-color: var(--color04);
+    border: none;
+    border-radius: 5rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+#inp-SN{
+    margin-bottom: 2rem;
+}
+
+/* Estilo do Botão "Confirmar Login" */
+button{
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    background-color: var(--color03); 
+    border: 2px solid var(--color03); 
+    color: var(--color01); 
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+}
+
+/* Estilo da Logo */
+footer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.container-footer{
+    background-color: var(--color01);
+    width: 50vw;
+    height: 10rem;
+    position: fixed;
+    bottom: 0;
+    border-top-right-radius: 6rem;
+    border-top-left-radius:6rem ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-footer img{
+    width: 14rem;
+    height: auto;
+}
+
+/* -------------RESPONSIVIDADE-------------- */
+

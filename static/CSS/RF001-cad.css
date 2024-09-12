@@ -1,0 +1,171 @@
+/* Classe para esconder elementos quando necessário */
+.hidden {
+    display: none;
+}
+
+/* Classe para ocultar a rolagem horizontal */
+body {
+    overflow-x: hidden;
+}
+
+/* Container principal do formulário, define o layout da página */
+.form-container {
+    width: 100vw; 
+    height: auto; 
+    padding: 3.6rem;
+    background-color: var(--color06); 
+    color: var(--color01); 
+    border-bottom-left-radius: 8rem;  
+    border-bottom-right-radius: 8rem;
+    overflow: hidden; 
+}
+
+/* Estilo do título do formulário */
+.form-container__title {
+    font-size: 3.3rem;
+    text-align: center; 
+    margin-bottom: 1rem; 
+}
+
+/* Estilo do campo de seleção (dropdown) */
+.form-container__select {
+    width: 100%;
+    padding: 0.5rem; 
+    border-radius: 5px; 
+    border: 1px solid var(--color03);
+}
+
+/* Container das imagens, define o alinhamento */
+.form-container__images {
+    display: flex;
+    width: 110px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* Estilo das imagens dentro do formulário */
+.form-container__image {
+    max-width: 100px; 
+    margin: 0 10px; 
+}
+
+/* Container para os campos de input */
+.form-container__input {
+    margin-bottom: 1rem; 
+}
+
+/* Estilo dos rótulos dos campos */
+.form-container__label {
+    color: var(--color03); 
+    font-size: 1.3rem; 
+}
+
+
+/* Estilo dos campos de texto do formulário */
+.form-container__input-text, .form-container__input-file{
+    width: 100%; 
+    padding: 0.5rem; 
+    border-radius: 5px; 
+    border: 1px solid var(--color03); 
+}
+
+/* Estilo do campo de upload de arquivos */
+.form-container__input-file {
+    padding: 5px; 
+}
+
+/* CSS do btn */
+.form-container__button {
+    width: 100%;
+    background-color: var(--color03);
+    border: 2px solid var(--color03);
+    color: var(--color06);
+    margin-bottom: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box; 
+}
+
+/* Estilo do botão ao passar o mouse (hover) */
+.form-container__button:hover {
+    background-color: transparent; 
+    color: var(--color03);
+    box-shadow: 0px 8px 15px rgba(224, 223, 163, 0.2); 
+    transform: scale(1.02); 
+    border: 2px solid var(--color03);
+}
+
+/* ------MEDIA------ */
+/* Estilo para telas de notebook e computadores */
+@media (min-width: 768px) {
+    .form-container {
+        width: 100vw; 
+        max-width: 800px; 
+        padding: 2rem; 
+        margin: 0 auto;
+    }
+
+    .form-container__input {
+        margin-bottom: 0.8rem; 
+    }
+
+    .form-container__input-text, .form-container__input-file {
+        padding: 1rem; 
+        font-size: 0.9rem; 
+    }
+
+    .form-container__select {
+        padding: 1rem; 
+    }
+
+    .form-container__button {
+        padding: 8px; 
+        font-size: 1rem; 
+        margin-bottom: 3rem;
+    }
+
+    .form-container__button:hover {
+        transform: scale(1.02); /* Mantém o botão dentro do contêiner */
+    }
+}
+
+/* Media Query para telas (acima de 1200px) */
+@media (min-width: 1200px) {
+    .form-container {
+        width: 70vw; 
+        max-width: 1000px; 
+        padding: 2.4rem; 
+    }
+
+    .form-container__input {
+        display: flex; 
+        flex-direction: column; 
+        margin-bottom: 1rem; 
+    }
+
+    .form-container__label {
+        margin-bottom: 0.5rem; 
+    }
+
+    .form-container__input-text, .form-container__input-file {
+        padding: 1rem; 
+        font-size: 1rem; 
+    }
+
+    .form-container__select {
+
+        padding: 1rem; 
+    }
+    .form-container__button {
+        padding: 12px; 
+        font-size: 1.1rem; 
+        margin-bottom: 3rem;
+    }
+
+    .form-container__button:hover {
+        transform: scale(1.02); 
+    }
+}

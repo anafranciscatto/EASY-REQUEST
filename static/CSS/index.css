@@ -1,3 +1,18 @@
+/* Container nav */
+nav {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    padding: 1rem; 
+}
+
+/* Estilo para a imagem dentro da nav */
+.nav-img img {
+    max-width: 150px; 
+    width: 100%; 
+    height: auto; 
+}
+
 /* Container principal na parte inferior da tela */
 .container-abaixo{
     width: 100vw;
