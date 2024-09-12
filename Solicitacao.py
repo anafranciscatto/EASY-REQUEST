@@ -30,7 +30,7 @@ class Solicitacao:
             return True
         except:
             return False
-        
+
          # Função que mostra a  solicitação de servico no Banco de Dados
     def recebimento_servico(self,id_servico,id_sala,descricao,outros_locais,CPF_funcionario):
 

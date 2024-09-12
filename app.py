@@ -102,14 +102,25 @@ def pg_login():
 def pg_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-
-
-
     return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/retorna_servicos")
+def retorna_servicos():
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT * FROM tb_servicos")
+
+    servicos = mycursor.fetchall()
+
+    print(servicos)
+
+    return jsonify(servicos), 200
 
 @app.route("/RF004")
 def pg_ADM_recebe_solicitacao():
-    servico = Solicitacoes()
+    servico = Solicitacao()
     recebimento = servico.recebimento_servico()
 
     return render_template("RF004-ADMrecbSolic.html",recebimento = recebimento)
