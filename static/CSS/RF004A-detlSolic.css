@@ -1,0 +1,153 @@
+body{
+    overflow-x: hidden;
+}
+nav{
+    width: 100vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-header_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-header_btn-voltar{
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 10rem;
+    border-color: var(--color02);
+    border-radius: 5rem;
+    background: none;
+    font-weight: 700;
+    
+    transition-duration: 0.2s;
+}
+
+.container-header_btn-voltar i{
+    margin-right: 0.5rem;
+ }
+
+ /* Mudança de Cor do botão ao passar o cursor por cima */
+.container-header_btn-voltar:hover{
+    border-color: none;
+    background-color: var(--color02);
+    color: var(--color01);
+}
+
+
+
+/* Seção de detalhes da solicitação */
+.detalhes-solicitacao {
+    width: 100vw;
+    height: 55rem;
+    background-color: var(--color06);
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    border-top-left-radius: 10rem;  
+    border-top-right-radius: 10rem; 
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+
+.detalhes-solicitacao__cabecalho {
+    text-align: center;
+}
+
+.detalhes-solicitacao__titulo {
+    font-size: 4rem;
+    color: var(--color05);
+    margin-bottom: 0.5rem;
+}
+
+.detalhes-solicitacao__autor {
+    font-size: 3.5rem;
+    color: var(--color01);
+}
+
+.detalhes-solicitacao__divisor {
+    border: none;
+    border-top: 2px solid var(--color05);
+    margin: 1.8rem 0;
+}
+
+.detalhes-solicitacao__corpo {
+    padding: 0 3rem;
+    font-size: 2.3rem;
+    text-align: justify;
+}
+
+.detalhes-solicitacao__rotulo-descricao {
+    font-weight: bold;
+    color: var(--color01);
+    font-size: 3rem;
+}
+
+.detalhes-solicitacao__texto-descricao {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--color04);
+    text-overflow: ellipsis;
+    font-size: 1.7rem;
+}
+
+/* Estilos dos botões */
+.botao {
+    display: inline-block;
+    width: 30rem;
+    padding: 1.2rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+    cursor: pointer;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botao-cadastro {
+    background-color: transparent;
+    border: 2px solid var(--color03); 
+    color: var(--color03); 
+}
+
+/* Estilo do botão de cadastro ao passar o mouse */
+.botao-cadastro:hover {
+    background-color: var(--color03); 
+    color: var(--color06); 
+    box-shadow: 0px 8px 15px rgba(224, 223, 163, 0.2); 
+    transform: scale(1.05); 
+}
+
+
+
+/* Responsividade */
+@media (max-width: 700px) {
+    .detalhes-solicitacao {
+
+    }
+
+    .detalhes-solicitacao__titulo {
+        font-size: 1.5rem;
+    }
+
+    .detalhes-solicitacao__texto-descricao {
+        font-size: 0.9rem;
+    }
+    .detalhes-solicitacao{
+        max-width: 70rem;
+    }
+}
