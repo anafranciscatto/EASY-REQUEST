@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/global.css">
+    <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
+    <title>EASY-REQUEST - Inicial</title>
+</head>
+<body>
+    <!-- Área de Informação do Usuario -->
+    <header class="header">
+        <div class="header__date-container">
+            <div class="header__button"></div>
+            <div class="header__date">
+                <p class="header__day-of-week">Qui</p>
+                <p class="header__day">10</p>
+                <p class="header__month">Set</p>
+            </div>
+        </div>
+        <section class="header__user-info">
+            <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil" class="header__user-image">
+            <div class="header__user-details">
+                <h2 class="header__user-name">Claudio Silva</h2>
+                <p class="header__user-position">Chefe da manutenção</p>
+            </div>
+        </section>
+    </header>
+    <!-- Área Inferior do site -->
+    <div class="sectionBaixo">
+        <!-- Barra de Pesquisa -->
+        <div class="sectionBaixo__search-container">
+            <input type="search" id="search" name="search" placeholder="Pesquisar..." class="sectionBaixo__search-input">
+            <button type="submit" class="sectionBaixo__search-button">Pesquisar</button>
+        </div>
+    
+        <!-- Filtro -->
+        <div class="sectionBaixo__filter-container">
+            <select class="sectionBaixo__filter-select">
+                <option value="recent">Mais recente</option>
+                <option value="buildingA">Prédio A</option>
+                <option value="buildingB">Prédio B</option>
+                <option value="buildingC">Prédio C</option>
+            </select>
+        </div>
+        <div class="sectionBaixo__grid-section">
+            <div class="sectionBaixo__grid-item">
+                <div class="card">
+                    <div class="card__header">
+                        <span class="card__building">prédio A</span>
+                    </div>
+                    <div class="card__body">
+                        <p class="card__service">SERVIÇO/outros</p>
+                        <p class="card__responsavel">PESSOA QUE FEZ A SOLICITAÇÃO</p>
+                        <hr class="card__linha">
+                        <p class="card__descricao">DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃO</p>
+                    </div>
+                    <div class="card__footer">
+                        <button class="card__button">Encaminhar</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
