@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>EASY-REQUEST - Inicial</title>
 </head>
 <body>
@@ -28,6 +29,7 @@
     </header>
     <!-- Área Inferior do site -->
     <div class="sectionBaixo">
+        
         <!-- Barra de Pesquisa -->
         <div class="sectionBaixo__search-container">
             <input type="search" id="search" name="search" placeholder="Pesquisar..." class="sectionBaixo__search-input">
@@ -46,17 +48,18 @@
         <div class="sectionBaixo__grid-section">
             <div class="sectionBaixo__grid-item">
                 <div class="card">
+                    {%for recebe in recebimento_servico%}
                     <div class="card__header">
-                        <span class="card__building">prédio A</span>
+                        <span class="card__building">{{recebe['id_sala'}}</span>
                     </div>
                     <div class="card__body">
-                        <p class="card__service">SERVIÇO/outros</p>
-                        <p class="card__responsavel">PESSOA QUE FEZ A SOLICITAÇÃO</p>
+                        <p class="card__service">{{recebe['CPF_funcionario']}}</p>
+                        <p class="card__responsavel">{{recebe['CPF_funcionario']}}</p>
                         <hr class="card__linha">
-                        <p class="card__descricao">DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃO</p>
+                        <p class="card__descricao">{{recebe['descricao']}}</p>
                     </div>
                     <div class="card__footer">
-                        <button class="card__button">Encaminhar</button>
+                        <a href="/saibaMais?servico={{servico['id_servico']}}"> <button class="card__button">Encaminhar</button></a>
                     </div>
                 </div>
             </div>
@@ -64,4 +67,37 @@
         </div>
     </div>
 </body>
+
 </html>
+<script type="text/javascript">
+    function mostraAnimes() {
+        // Obter a URL atual
+        var url_atual = window.location.href;
+    
+        // Criar um objeto URLSearchParams com a query string da URL
+        var params = new URLSearchParams(new URL(url_atual).search);
+    
+        // Obter o valor do parâmetro 'anime'
+        var anime = params.get('anime');
+    
+        $.ajax({
+            url:"/api/get_rf004/" + card__header,
+            type: "GET",
+            success: function(servicos){
+                console.log(servicos);
+
+                var tag_local="<span>" + servicos['id_sala']+"</span>"
+                var tag_funcao="<p>" + servicos['CPF_funcionario']+"</p>"
+                var tag_funcionario="<p>" + servicos['CPF_funcionario']+"</p>"
+                var tag_descricao="<p>" + servicos['descricao']+"</p>"
+
+                $(".card__building").html(tag_local);
+                $(".card__service").html(tag_funcao);
+                $(".card__responsavel").html(tag_funcionario);
+                $(".card__descricao").html(tag_descricao);
+
+            }
+        })
+    }
+            
+</script>

@@ -2,7 +2,7 @@
 from conexao_SQL import Connection
 
 # Crição da Classe Solicitacoes, que executa as funções relacionadas as solicitações de serviço
-class Solicitacoes:
+class Solicitacao:
     def __init__(self) -> None: # Criação de uma solicitação de servico com sua informações vazias.
         self.id_servico = None
         self.id_sala = None
@@ -38,8 +38,8 @@ class Solicitacoes:
             mycursor = myBD.cursor()
 
 
-            sql =(f"SELECT tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}';")
-            mycursor.execute(sql)
+            sql =(f"SELECT tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}' = %s;")
+            mycursor.execute(sql,(id_servico))
             recebimento= mycursor.fetchall()
 
 
@@ -51,9 +51,12 @@ class Solicitacoes:
                     "descricao":recebe[2],
                     "outros_locais": recebe[3],
                     "CPF_funcionario":recebe[4],
-                })
+                })                      
+                return self.recebimento_servico
+            else:
+                return None
 
 
-            return self.recebimento_servico
+            
 
             

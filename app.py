@@ -1,7 +1,7 @@
 
 # Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
-from Solicitacoes import Solicitacoes
+from Solicitacao import Solicitacao
 
 # Importando o Flask
 
@@ -78,27 +78,35 @@ def pg_login():
                 return redirect("/")
             
             elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/")
+                return redirect("/RF004")
             
             elif session["usuario"]["permissao"] == "solicitante":
                 return redirect("/")
         else:
             session.clear()
-            return redirect("/RF001")
+            return redirect("/RF004")
 
 @app.route("/RF003")
 def pg_solicitacao():
     return render_template("RF003-solic.html")
 
-@app.route("/RF004")
+@app.route("/RF004",methods=["GET"])
 def pg_ADM_recebe_solicitacao():
-    servico = Solicitacoes()
-    recebimento = servico.recebimento_servico()
+    id_solicitacao=request.args.get(servico)
+    servico = Solicitacao()
+    recebimento = servico.recebimento_servico(id_solicitacao)
+
 
     return render_template("RF004-ADMrecbSolic.html",recebimento = recebimento)
 
 
-@app.route("/RF004A")
+@app.route("/api/get_rf004/<id_servico>',methods=['GET']")
+def api_get_solicitacao(id_servico):
+    rf004=Solicitacao()
+    solicitacoes=rf004.recebimento_servico(id_solicitacao=id_servico)
+    servico=rf004.recebimento_servico(id_servico=id_servico)
+    return jsonify(solicitacoes),200
+                                           
 def pg_detalhe_solicitacao():
     return render_template("RF004A-detlSolic.html")
 
