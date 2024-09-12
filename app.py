@@ -16,36 +16,41 @@ def pg_inicio():
     return render_template("index.html")
 
 # Criando rota para a tela de cadastro
-@app.route("/RF001")
+@app.route("/RF001", methods=["GET", "POST"])
 def pg_cadastro(): # Função que executa o cadastro
     if request.method == "GET":
-        if session.get("usuario","erro") == "Autenticado":
-            return render_template("RF001-cad.html")
+        return render_template("RF001-cad.html")
+    else:
+        cpf = request.form["cpf"]
+        nome = request.form["nome"]
+        email = request.form["email"]
+        senha = request.form["senha"]
+        sn = request.form["sn"]
+        foto = request.form["foto"]
+        id_funcao = int(request.form["funcao"])
+
+        print(id_funcao)
+
+        if id_funcao >= 2 and id_funcao <= 7:
+            permissao = "solicitante"
+        elif id_funcao == 1:
+            permissao = "manutencao"
+
+        usuario = Usuario()
+
+        if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
+            session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "permissao":permissao}
+
+            if session["usuario"]["permissao"] == "administrador":
+                return redirect("/RF002")
+            
+            elif session["usuario"]["permissao"] == "manutencao":
+                return redirect("/RF002")
+            
+            elif session["usuario"]["permissao"] == "solicitante":
+                return redirect("/RF002")
         else:
-            cpf = request.form["cpf"]
-            nome = request.form["nome"]
-            email = request.form["email"]
-            senha = request.form["senha"]
-            sn = request.form["SN"]
-            foto = request.form["foto"]
-            permissao = request.form["permissao"]
-            id_funcao = request.form["id_funcao"]
-
-            usuario = Usuario()
-
-            if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
-                session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "permissao":permissao}
-
-                if session["usuario"]["permissao"] == "administrador":
-                    return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
-                
-                elif session["usuario"]["permissao"] == "manutencao":
-                    return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
-                
-                elif session["usuario"]["permissao"] == "solicitante":
-                    return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
-            else:
-                return {'mensagem':'ERRO'}, 500
+            return redirect("/")
 
 # Criando a rota para tela de login
 @app.route("/RF002")

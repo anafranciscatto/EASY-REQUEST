@@ -32,7 +32,7 @@ class Usuario:
             self.logado = True
             senha_criptografada = sha256(self.senha.encode()).hexdigest()
 
-            mycursor.execute(f"INSERT INTO tb_funcionarios (CPF_funcionario, nome, email, senha, SN, foto, permissao) VALUES ('{cpf}','{nome}', '{email}', '{senha_criptografada}', '{sn}', '{foto}', '{permissao}', {id_funcao});")
+            mycursor.execute(f"INSERT INTO tb_funcionarios (CPF_funcionario, nome, email, senha, SN, foto, permissao, id_funcao) VALUES ('{cpf}','{nome}', '{email}', '{senha_criptografada}', '{sn}', '{foto}', '{permissao}', {id_funcao});")
 
             myBD.commit()
 
