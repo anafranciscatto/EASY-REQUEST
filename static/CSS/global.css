@@ -9,12 +9,12 @@
 /* Define o tamanho da fonte base */
 html {
     font-size: 62.5%; /* 62.5% de 16px (padrão) é igual a 10px */
+    
 }
 
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
     font-family: "Montserrat", sans-serif;
 }
 
