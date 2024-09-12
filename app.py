@@ -52,9 +52,8 @@ def pg_cadastro(): # Função que executa o cadastro
         else:
             return redirect("/")
 
-# Criando a rota para tela de login
-@app.route("/RF002")
-def pg_login(): # Função que executa o login
+@app.route("/RF002",methods=["GET","POST"])
+def pg_login():
     usuario = Usuario()
     if request.method == "GET":
         if session.get("usuario","erro") == "Autenticado": 
@@ -71,16 +70,16 @@ def pg_login(): # Função que executa o login
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto, "permissao":usuario.permissao}
             
             if session["usuario"]["permissao"] == "administrador":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
             
             elif session["usuario"]["permissao"] == "manutencao":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
             
             elif session["usuario"]["permissao"] == "solicitante":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
         else:
             session.clear()
-            return redirect("/login")
+            return redirect("/RF001")
 
 @app.route("/RF003")
 def pg_solicitacao():
