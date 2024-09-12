@@ -63,16 +63,16 @@ def pg_login():
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto, "permissao":usuario.permissao}
             
             if session["usuario"]["permissao"] == "administrador":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
             
             elif session["usuario"]["permissao"] == "manutencao":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
             
             elif session["usuario"]["permissao"] == "solicitante":
-                return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/")
+                return redirect("/")
         else:
             session.clear()
-            return redirect("/RF002")
+            return redirect("/RF001")
     # return render_template("RF002-log.html")
 
 @app.route("/RF003")
