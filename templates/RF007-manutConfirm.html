@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    <link rel="stylesheet" href="/static/CSS/global.css">
+
+    <script src="/static/JS/RF007-manutConfirm.js"></script>
+
+    <title></title>
+</head>
+<body>
+    
+    <nav>
+        <div class="usuario">
+            <h4>Administrador</h4>
+            <img src="" alt="" class="usuario__imagem">
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h3>Confirmar finalização de serviço</h3>
+
+            <div class="container__caixa-de-texto">
+                <label for="texto">Inserir informações adicionais</label><br>
+                <textarea id="texto" class="caixa-texto" placeholder="Digite aqui"></textarea><br>
+                <button class="botao-enviar" onclick="enviarTexto()">Enviar</button>
+            </div>
+
+            <div class="container__situacao-tarefa">
+                <p><strong>Escolha as opções:</strong></p>
+                <div id="opcoes" class="opcoes">
+                    <label><input type="checkbox" value="opcao01"> Não foi possível realizar a tarefa.</label><br>
+                    <label><input type="checkbox" value="opcao02"> Foi realizado mas necessita de outros cuidados.</label><br>
+                    <label><input type="checkbox" value="opcao03"> Tarefa foi totalmente realizada.</label><br>
+                </div>
+            </div>
+
+            <button class="container__botao-finalizar"><p>Finalizar tarefa</p></button>
+            
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+</html>

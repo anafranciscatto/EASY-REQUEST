@@ -1,8 +1,8 @@
 body{
     background-color: var(--color06);
     display: flex;
-   align-items: center;
-   justify-content: center;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
 
@@ -31,10 +31,11 @@ main{
     top:20rem ;
     z-index: 1;
     background-color: var(--color01);
-    width: 35rem;
-    height: 32rem;
+    width: 37rem;
+    height: 40rem;
     border-radius: 5rem;
     position: absolute;
+    box-shadow:  5px 10px 18px black;
     
 }
 
@@ -88,7 +89,7 @@ button{
     border: 2px solid var(--color03); 
     color: var(--color01); 
     margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: 5rem;
 }
 
 /* Estilo da Logo */
@@ -118,18 +119,3 @@ footer{
 
 /* -------------RESPONSIVIDADE-------------- */
 
-@media only screen and (max-width: 600px) {
-    .container-form{
-        width: 20rem;
-        height: 32rem; 
-    }
-}
-
-
-@media only screen and (min-width: 768px) {...}
-
-
-@media only screen and (min-width: 992px) {...}
-
-
-@media only screen and (min-width: 1200px) {...}

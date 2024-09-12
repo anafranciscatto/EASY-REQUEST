@@ -1,0 +1,80 @@
+
+
+
+.container{
+    background-color: var(--color06);
+    width: 40rem;
+    height: 60rem;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+}
+
+.container h3{
+ 
+    font-size: 1.9em;
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
+
+}
+
+.container__caixa-de-texto {
+    margin: 20px;
+text-align: center;
+}
+.caixa-texto {
+    width: 100%;
+    height: 100px; /* Altura da caixa de texto */
+    padding: 10px;
+    box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Bordas arredondadas */
+}
+.botao-enviar {
+    width: 15rem;
+    margin-top: 50rem;
+    padding: 15px 15px;
+    border: none;
+    background-color: var(--color03);
+    color: white;
+    border-radius: 3rem;
+    cursor: pointer;
+    margin: 2rem;
+    
+
+}
+.botao-enviar:hover {
+    background-color: #ffdd00;
+}
+
+
+.container__situacao-tarefa {
+    margin: 20px;
+}
+.selected-options {
+    margin-top: 20px;
+}
+
+
+.container__situacao-tarefa{
+
+    width: 35rem;
+    height: 20rem;
+    background-color: aqua;
+
+
+}
+
+
+
+.container__situacao-tarefa .opcoes label{
+
+    margin-left: 2rem;
+    margin-left: 2rem;
+    margin-top: 5rem;
+
+}
