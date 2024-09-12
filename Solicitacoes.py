@@ -14,7 +14,7 @@ class Solicitacoes:
     def solicitar_servico(self, id_servico, id_sala, descricao, outros_locais, CPF_funcionario):
         try:
             myBD = Connection.conectar()
-            
+
             mycursor = myBD.cursor()
 
             self.id_servico = id_servico
