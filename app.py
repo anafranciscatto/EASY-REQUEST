@@ -1,5 +1,10 @@
+
+# Criando as importações do Flask
+from flask import Flask, render_template, request, redirect, session, jsonify,
+from Solicitacoes import Solicitacoes
+
 # Importando o Flask
-from flask import Flask, render_template, request, redirect, session, jsonify
+
 
 # Importando a classe Usuario
 from Usuario import Usuario
@@ -87,7 +92,11 @@ def pg_solicitacao():
 
 @app.route("/RF004")
 def pg_ADM_recebe_solicitacao():
-    return render_template("RF004-ADMrecbSolic.html")
+    servico = Solicitacoes()
+    recebimento = servico.recebimento_servico()
+
+    return render_template("RF004-ADMrecbSolic.html",recebimento = recebimento)
+
 
 @app.route("/RF004A")
 def pg_detalhe_solicitacao():

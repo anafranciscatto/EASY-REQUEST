@@ -30,3 +30,30 @@ class Solicitacoes:
             return True
         except:
             return False
+        
+         # Função que mostra a  solicitação de servico no Banco de Dados
+    def recebimento_servico(self,id_servico,id_sala,descricao,outros_locais,CPF_funcionario):
+
+            myBD = Connection.conectar()
+            mycursor = myBD.cursor()
+
+
+            sql =(f"SELECT tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}';")
+            mycursor.execute(sql)
+            recebimento= mycursor.fetchall()
+
+
+            self.recebimento_servico = []
+            for recebe in recebimento:
+                self.recebimento_servico.append({
+                    "id_servico": recebe[0],
+                    "id_sala": recebe[1],
+                    "descricao":recebe[2],
+                    "outros_locais": recebe[3],
+                    "CPF_funcionario":recebe[4],
+                })
+
+
+            return self.recebimento_servico
+
+            
