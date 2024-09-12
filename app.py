@@ -118,6 +118,45 @@ def retorna_servicos():
 
     return jsonify(servicos), 200
 
+@app.route("/retorna_blocos")
+def retorna_blocos():
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT bloco FROM tb_salas")
+
+    blocos = mycursor.fetchall()
+
+    return jsonify(blocos), 200
+
+# def retorna_blocos():
+#     try:
+#         myBD = Connection.conectar()
+#         mycursor = myBD.cursor()
+#         mycursor.execute("SELECT bloco FROM tb_salas")
+#         blocos = [row[0] for row in mycursor.fetchall()]
+
+#         # Filtra blocos únicos usando set
+#         blocos_unicos = list(set(blocos))
+#     except Exception as e:
+#         return jsonify({"error": str(e)}), 500
+#     finally:
+#         myBD.close()
+#     return jsonify(blocos_unicos), 200
+
+@app.route("/retorna_salas")
+def retorna_salas():
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
+
+    sala = mycursor.fetchall()
+
+    return jsonify(sala), 200
+
 @app.route("/RF004")
 def pg_ADM_recebe_solicitacao():
     servico = Solicitacao()
