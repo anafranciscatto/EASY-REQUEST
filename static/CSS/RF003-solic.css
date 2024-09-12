@@ -210,3 +210,39 @@ input,select{
     margin-bottom: 1rem;
     margin-top: 1.5rem;
 }
+
+.form_btn-enviar:hover{
+    background-color: transparent; 
+    color: var(--color03);
+    box-shadow: 0px 8px 15px rgba(224, 223, 163, 0.2); 
+    transform: scale(1.02); 
+    border: 2px solid var(--color03);
+}
+
+/* ------------RESPONSIVIDADE------------------- */
+
+
+
+@media (min-width:900px){
+    .container-main{
+        height:80vh ;
+    }
+
+    .form_select{
+        gap: 2rem;
+        display: flex;
+    }
+
+    .form_input-arquivo{
+        margin:  1rem 0.5rem 1rem 0.5rem;
+    }
+    
+    .form_btn-enviar{
+        display: inline-block;
+        width: 20rem;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1.5rem;
+    }
+   
+}
