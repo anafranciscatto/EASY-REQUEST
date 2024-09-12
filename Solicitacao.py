@@ -2,7 +2,7 @@
 from conexao_SQL import Connection
 
 # Crição da Classe Solicitacoes, que executa as funções relacionadas as solicitações de serviço
-class Solicitacoes:
+class Solicitacao:
     def __init__(self) -> None: # Criação de uma solicitação de servico com sua informações vazias.
         self.id_servico = None
         self.id_sala = None

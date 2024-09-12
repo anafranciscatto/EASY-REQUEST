@@ -1,11 +1,8 @@
 
 # Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
-from Solicitacoes import Solicitacoes
+from Solicitacao import Solicitacao
 from conexao_SQL import Connection
-
-# Importando o Flask
-
 
 # Importando a classe Usuario
 from Usuario import Usuario
@@ -105,6 +102,9 @@ def pg_login():
 def pg_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
+
+
+
     return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/RF004")
