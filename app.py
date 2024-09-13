@@ -102,7 +102,23 @@ def pg_login():
 def pg_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
+
     return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/fazer_solicitacao", methods=["POST"])
+def fazer_solicitacao():
+    dados = request.get_json()
+    id_servico = int(dados["id_servico"])
+    id_sala = dados["id_sala"]
+    descricao = dados["descricao"]
+    cpf = session["usuario"]["CPF"]
+
+    solicitacao = Solicitacao()
+
+    if solicitacao.solicitar_servico(id_servico, id_sala, descricao, cpf):
+        return jsonify({'mensagem':'Cadastro OK'}), 200
+    else:
+        return {'mensagem':'ERRO'}, 500
 
 @app.route("/retorna_servicos")
 def retorna_servicos():
@@ -124,34 +140,24 @@ def retorna_blocos():
 
     mycursor = myBD.cursor()
 
-    mycursor.execute(f"SELECT bloco FROM tb_salas")
+    mycursor.execute(f"SELECT DISTINCT bloco FROM tb_salas")
 
     blocos = mycursor.fetchall()
 
     return jsonify(blocos), 200
 
-# def retorna_blocos():
-#     try:
-#         myBD = Connection.conectar()
-#         mycursor = myBD.cursor()
-#         mycursor.execute("SELECT bloco FROM tb_salas")
-#         blocos = [row[0] for row in mycursor.fetchall()]
-
-#         # Filtra blocos únicos usando set
-#         blocos_unicos = list(set(blocos))
-#     except Exception as e:
-#         return jsonify({"error": str(e)}), 500
-#     finally:
-#         myBD.close()
-#     return jsonify(blocos_unicos), 200
-
-@app.route("/retorna_salas")
-def retorna_salas():
+@app.route("/retorna_salas/<bloco>")
+def retorna_salas(bloco):
     myBD = Connection.conectar()
 
     mycursor = myBD.cursor()
 
-    mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
+    print(f"Bloco: {bloco}")
+
+    if bloco == "0":
+        mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
+    else:
+        mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas WHERE bloco = '{bloco}'")
 
     sala = mycursor.fetchall()
 
