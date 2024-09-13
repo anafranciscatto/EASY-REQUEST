@@ -18,7 +18,7 @@ function fazerSolicitacao() {
         data: JSON.stringify(dados),
         contentType: 'application/json',
         success: function(){
-            alert('CADASTRO REALIZADO COM SUCESSO!')
+            window.location.href = '/RF004';
         },
         error: function(){
             alert("ERRO AO CADASTRAR!")
