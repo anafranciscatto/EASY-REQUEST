@@ -49,7 +49,9 @@ header{
 /* Estilo do Botão Voltar */
 nav{
   width: 100vw;
-  height: 5vh;
+  height: 6vh;
+  display: flex;
+  align-items: center;
 }
 
 nav button{
@@ -73,12 +75,65 @@ nav button:hover{
   color: var(--color01);
 }
 
-.option {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+/* Estilo da Escolha de Funcionario */
+main{
+  width: 100vw;
+  height: 84vh;
+ 
+}
+
+.caixa-option {
+    padding: 8px;
+    margin: 0rem 15rem 2rem 15rem 0rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color01);
+    background-color: var(--color06);
+    border: none;
+    border-radius: 5rem;
+    
+    
+}
+.caixa-option img{
+  width: auto;
+  height: 7rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.option_user{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.option_user p{
+  background-color: var(--color05);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 5rem;
+  font-weight: 600;
+}
+
+.option.selected {
+    border: 2px solid var(--color03);
   }
-  .option.selected {
-    border: 2px solid yellow;
-  }
+
+.status_disponivel{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: var(--colorGreen);
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.status_n-disponivel{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: var(--colorRed);
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  display: none;
+}
