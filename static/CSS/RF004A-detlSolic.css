@@ -1,6 +1,9 @@
 body{
     overflow-x: hidden;
 }
+a{
+    text-decoration: none
+}
 nav{
     width: 100vw;
     height: 5vh;
