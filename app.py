@@ -97,7 +97,7 @@ def pg_login(): # Função que executa o login
                 return redirect("/RF003")
         else:
             session.clear()
-            return redirect("/RF001")
+            return redirect("/RF004")
 
 # Criando rota para a tela de solicitacao
 @app.route("/RF003")
@@ -169,15 +169,33 @@ def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
 
     return jsonify(sala), 200
 
-@app.route("/RF004")
+@app.route("/RF004",methods=["GET"])
 def pg_ADM_recebe_solicitacao():
+    # id_solicitacao=request.args.get(servico)
     servico = Solicitacao()
     recebimento = servico.recebimento_servico()
 
-    return render_template("RF004-ADMrecbSolic.html",recebimento = recebimento)
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+
+    return render_template("RF004-ADMrecbSolic.html",campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
 
-@app.route("/RF004A")
+@app.route("/api/get_rf004/",methods=['GET'])
+def api_get_solicitacao(id_servico):
+    rf004=Solicitacao()
+    solicitacoes=rf004.recebimento_servico(id_solicitacao=id_servico)
+    servico=rf004.recebimento_servico(id_servico=id_servico)
+    return jsonify(solicitacoes),200
+
+@app.route("/api/get_rf004v2/",methods=['GET'])
+def api_get_solicitacaov2():
+    rf004v2=Solicitacao()
+    Solicitacao=rf004v2.recebimento_servico()
+    return jsonify (Solicitacao)
+
+
+                                           
 def pg_detalhe_solicitacao():
     return render_template("RF004A-detlSolic.html")
 

@@ -1,10 +1,69 @@
 
 
+html{
+    width: 40rem;
+}
 
-.container{
+
+/*                                FORMATAÇÃO NAV                                 */ 
+
+.container-nav{
+    height: 100px;
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*      formataçao area do adm      */
+.usuario{
+    text-align: right;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.usuario h4{
+    justify-content: end;
+    align-self: self-end;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+.usuario__imagem{
+    justify-content: end;
+    align-self: self-end;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 3rem;
+    margin-right: 1rem;
+    padding: 3px;
+}
+
+
+/*       botao de voltar     */
+.botaoVoltar{
+    height: 50%;
+    justify-content: start;
+    align-self: self-start;
+    font-size: 2.3rem;
+    margin-left: 2rem;
+}
+.botaoVoltar button{
+    background: none;
+    border: none;
+    font-size: 2.1rem;
+}
+
+
+
+/*                                 FORMATAÇÃO MAIN                                 */ 
+
+/*  formatação container do main   */
+.container-main{
     background-color: var(--color06);
     width: 40rem;
-    height: 60rem;
+    height: 90vh;
     margin-bottom: 0;
     position: absolute;
     bottom: 0;
@@ -13,68 +72,179 @@
     border-top-right-radius: 4rem;
 }
 
-.container h3{
- 
-    font-size: 1.9em;
-    text-align: center;
-    color: white;
-    margin-top: 2rem;
 
+
+/*      Formatação da area de escolha - situaçao da tarefa */
+
+.opcoes{
+    margin-top: 1rem;
+    width: 37rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+.opcoes label{
+    font-size: 17px;
+    padding: 0.70rem;
 }
 
+
+
+/*       formataçao da area da caixa de texto         */
+
+.container-main .texto-confirmar{
+    font-size: 2.4rem;
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+.container__situacao-tarefa{
+    margin-top: 35px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 37rem;
+    height: 20rem;
+    color: #ccc;
+}
+.container__situacao-tarefa strong{
+    font-size: 17px;
+}
+.container__caixa-de-texto h3{
+    text-align: left;
+    margin-top: 13px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+
+
+/*       formatação caixa de texto         */
 .container__caixa-de-texto {
-    margin: 20px;
-text-align: center;
+    margin-top: 2px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
 }
 .caixa-texto {
     width: 100%;
-    height: 100px; /* Altura da caixa de texto */
+    height: 150px; /* Altura da caixa de texto */
     padding: 10px;
     box-sizing: border-box; /* Inclui padding e bordas no tamanho total */
     border: 1px solid #ccc;
     border-radius: 4px; /* Bordas arredondadas */
+    margin-top: 14px;
 }
-.botao-enviar {
-    width: 15rem;
-    margin-top: 50rem;
-    padding: 15px 15px;
+
+
+
+/*     Formataçao botao de finalizar tarefa        */
+
+.container__botao-finalizar {
+    width: 40rem;
+    margin-top: 0.3em;
+    text-align: center;
+}
+.container__botao-finalizar button{
+    padding: 15px 20px;
     border: none;
     background-color: var(--color03);
     color: white;
     border-radius: 3rem;
     cursor: pointer;
-    margin: 2rem;
-    
-
+    margin: 0.3rem;
+    margin-top: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-.botao-enviar:hover {
+.container__botao-finalizar:hover button{
     background-color: #ffdd00;
 }
 
 
-.container__situacao-tarefa {
-    margin: 20px;
-}
-.selected-options {
-    margin-top: 20px;
-}
 
 
-.container__situacao-tarefa{
-
-    width: 35rem;
-    height: 20rem;
-    background-color: aqua;
+/*                                   RESPONSIVIDADE                                */
 
 
-}
+/*  ate 576px (menores que isso)    */
+@media screen and (max-width: 576px) {
+
+       /*                                 FORMATAÇÃO MAIN                                 */ 
+
+        /*  formatação container do main   */
+        .container-main{
+            width: 100%;
+            height: 85%;
+        }
+
+
+        /*       formataçao da area da caixa de texto         */
+
+        .container-main .texto-confirmar{
+            font-size: 2.4rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .container__situacao-tarefa{
+            width: 37rem;
+            height: 20rem;
+        }
+        .container__situacao-tarefa strong{
+            font-size: 17px;
+        }
+        .container__caixa-de-texto h3{
+            margin-top: 13px;
+            font-size: 1.3rem;
+        }
 
 
 
-.container__situacao-tarefa .opcoes label{
+        /*       formatação caixa de texto         */
+        .container__caixa-de-texto {
+            margin-top: 2px;
+            margin-left: 20px;
+            margin-right: 20px;
+            text-align: center;
+        }
+        .caixa-texto {
+            width: 100%;
+            height: 150px; /* Altura da caixa de texto */
+            padding: 10px;
+            margin-top: 14px;
+        }
+   
 
-    margin-left: 2rem;
-    margin-left: 2rem;
-    margin-top: 5rem;
+        /*     Formataçao botao de finalizar tarefa        */
 
-}
+        .container__botao-finalizar {
+            width: 40rem;
+            margin-top: 0.3em;
+            text-align: center;
+        }
+        .container__botao-finalizar button{
+            padding: 15px 20px;
+            border: none;
+            background-color: var(--color03);
+            color: white;
+            border-radius: 3rem;
+            cursor: pointer;
+            margin: 0.3rem;
+            margin-top: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container__botao-finalizar:hover button{
+            background-color: #ffdd00;
+        }
+
+
+
+    }
+
+
+
+
+/* igual e maior que 600px */
+@media screen and (min-width: 600px) {}
