@@ -122,6 +122,11 @@ main{
   font-weight: 600;
 }
 
+/* Transição do select */
+.option{
+  transition-duration: 0.2s;
+}
+
 .option.selected {
     border: 2px solid var(--color03);
     box-shadow: none;
