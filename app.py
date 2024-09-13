@@ -119,7 +119,7 @@ def fazer_solicitacao(): # Função que executa a solicitação
     solicitacao = Solicitacao()
 
     if solicitacao.solicitar_servico(id_servico, id_sala, descricao, cpf):
-        return jsonify({'mensagem':'Cadastro OK'}), 200, redirect("/RF004")
+        return jsonify({'mensagem':'Cadastro OK'}), 200
     else:
         return {'mensagem':'ERRO'}, 500
 
