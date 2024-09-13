@@ -1,51 +1,52 @@
 /* Importação de fonte */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Aplicação da fonte Montserrat para inputs e selects */
 input, select {
     font-family: "Montserrat", sans-serif;
 }
 
 /* Estilo do Header */
 .header {
-    width: 100vw;
+    width: 100vw; 
 }
 
 /* Container da Data e Botão */
 .header__date-container {
-    height: 5vh;
-    display: flex;
-    justify-content: space-between;
+    height: 5vh; 
+    display: flex; 
+    justify-content: space-between; 
 }
 
 /* Estilo da Data */
 .header__date {
-    margin: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
+    margin: 1rem; 
+    display: flex; 
+    gap: 0.5rem; 
+    justify-content: center; 
+    align-items: center; 
+    font-size: 1.5rem; 
 }
 
 .header__day-of-week {
-    color: var(--color05);
-    font-weight: 600;
+    color: var(--color05); 
+    font-weight: 600; 
 }
 
 /* Área do Usuário */
 .header__user-info {
-    height: 15vh;
+    height: 15vh; 
     display: flex;
-    align-items: center;
+    align-items: center; 
     justify-content: flex-start;
-    width: 100vw;
-    padding-left: 4rem;
+    width: 100vw; 
+    padding-left: 4rem; 
 }
 
 .header__user-image {
-    height: 8rem;
-    border-radius: 100%;
-    margin-right: 1.5rem;
+    height: 8rem; 
+    border-radius: 100%; 
+    margin-right: 1.5rem; 
 }
 
 .header__user-name {
@@ -53,11 +54,11 @@ input, select {
 }
 
 .header__user-position {
-    background-color: var(--color05);
-    color: var(--color01);
-    margin-right: 10rem;
-    text-align: center;
-    padding: 0.4rem;
+    background-color: var(--color05); 
+    color: var(--color01); 
+    margin-right: 10rem; 
+    text-align: center; 
+    padding: 0.4rem; 
     border-radius: 5rem;
 }
 
@@ -65,107 +66,104 @@ input, select {
 /* ------------------------------------------------------------------------------------------------ */
 .sectionBaixo {
     width: 100vw;
-    height: calc(100vh - 5vh - 15vh); /* Ajuste a altura conforme necessário */
-    background-color: var(--color06);
+    height: calc(100vh - 5vh - 15vh); 
+    background-color: var(--color06); 
     margin-bottom: 0;
     position: relative; 
-    border-top-left-radius: 5rem;
+    border-top-left-radius: 5rem; 
     border-top-right-radius: 5rem;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    flex-wrap: nowrap;
+    padding: 1.5rem; 
+    display: flex; 
+    flex-direction: column; 
+    align-content: center; 
+    flex-wrap: nowrap; 
     overflow-y: auto; 
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
-
 
 /* Estilo da Barra de Pesquisa */
 .sectionBaixo__search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 1rem; 
 }
 
 .sectionBaixo__search-input {
-    width: 100%;
-    max-width: 1000rem;
-    padding: 1rem;
-    font-size: 1.2rem;
-    border: 1px solid var(--color05);
-    border-radius: 5px;
-    outline: none;
+    width: 100%; 
+    max-width: 1000rem; 
+    padding: 1rem; 
+    font-size: 1.2rem; 
+    border: 1px solid var(--color05); 
+    border-radius: 5px; 
+    outline: none; 
 }
 
 .sectionBaixo__search-button {
-    background-color: var(--color05);
-    color: var(--color01);
-    border: 1px solid var(--color05);
-    border-radius: 5px;
-    padding: 1rem 1.5rem;
+    background-color: var(--color05); 
+    color: var(--color01); 
+    border: 1px solid var(--color05); 
+    border-radius: 5px; 
+    padding: 1rem 1.5rem; 
     font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 0.5rem;
+    cursor: pointer; 
+    margin-left: 0.5rem; 
 }
 
 .sectionBaixo__search-button:hover {
-    background-color: var(--color07);
-    color: var(--color05);
+    background-color: var(--color07); 
+    color: var(--color05); 
 }
 
 /* CSS Filtro */
 .sectionBaixo__filter-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1rem;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin: 1rem; 
 }
 
 .sectionBaixo__filter-select {
-    width: 100%;
-    max-width: 1000rem;
-    padding: 1rem;
-    font-size: 1.2rem;
-    border: 1px solid var(--color05);
-    border-radius: 5px;
+    width: 100%; 
+    max-width: 1000rem; 
+    padding: 1rem; 
+    font-size: 1.2rem; 
+    border: 1px solid var(--color05); 
+    border-radius: 5px; 
     outline: none;
 }
 
-
 /* Grid padrão - 1 coluna para telas pequenas */
 .sectionBaixo__grid-section {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 1rem; 
+    padding: 1rem; 
 }
-
 
 /* Estilo para os itens do grid */
 .sectionBaixo__grid-item {
-    padding: 1rem;
-    text-align: center;
-    border-radius: 5px;
+    padding: 1rem; 
+    text-align: center; 
+    border-radius: 5px; 
 }
 
 /* Estilo do Card */
 .card {
     background-color: var(--color04); 
-    border-radius: 1rem; 
-    padding: 1.5rem;  
-    max-width: 30rem;
-    margin: 1rem auto; 
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 1rem;
+    padding: 1.5rem; 
+    max-width: 30rem; 
+    margin: 1rem auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     position: relative; 
 }
 
 /* Estilo do Header do Card */
 .card__header {
-    background-color: var(--color05); 
+    background-color: var(--color05);
     color: var(--color01); 
-    padding: 0.7rem 1.2rem; 
+    padding: 0.7rem 1.2rem;
     border-top-left-radius: 0.8rem; 
     border-bottom-right-radius: 0.5rem; 
     font-weight: bold; 
@@ -178,49 +176,48 @@ input, select {
 /* Corpo do Card */
 .card__body {
     margin-top: 2rem; 
-    text-align: left;
+    text-align: left; 
     font-size: 1.6rem; 
 }
 
 .card__service, .card__responsavel {
     font-weight: bold; 
-    margin-bottom: 0.5rem; 
+    margin-bottom: 0.5rem;
 }
 
 .card__descricao {
     margin-top: 1rem; 
-    line-height: 1.5;
-    overflow-wrap: break-word;
-
-    overflow: hidden; /* remove o estouro do elemento */
-    text-overflow: ellipsis; /* adiciona “...” no final */
-    display: -webkit-box;
-    -webkit-line-clamp: 4; /* quantidade de linhas */
-    -webkit-box-orient: vertical; /* conteúdo será apresentado verticalmente */
+    line-height: 1.5; 
+    overflow-wrap: break-word; 
     
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical; 
 }
 
 /* Linha Divisória */
 .card__linha {
-    border: none; 
+    border: none;
     border-top: 0.3rem solid var(--color06); 
     margin: 1rem 0; 
 }
 
 /* Rodapé do Card */
 .card__footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 1.5rem;
+    display: flex; 
+    justify-content: center; 
+    margin-top: 1.5rem; 
 }
 
 .card__button {
     background-color: var(--color03); 
-    color: var(--color02); 
+    color: var(--color02);
     padding: 0.8rem 2rem; 
-    border: none; 
+    border: none;
     border-radius: 0.5rem; 
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .card__button:hover {
@@ -228,24 +225,22 @@ input, select {
     color: var(--color02); 
 }
 
-
 /* 2 colunas para telas médias */
 @media (min-width: 740px) {
     .sectionBaixo__grid-section {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; 
     }
     .card { 
-        max-width: 33rem;
+        max-width: 33rem; 
     }
 }
+
 /* 3 colunas para telas grandes */
 @media (min-width: 1030px) {
     .sectionBaixo__grid-section {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr; 
     }
     .card { 
-        max-width: 31.5rem;
+        max-width: 31.5rem; 
     }
 }
-
-
