@@ -19,7 +19,7 @@
     <body>
         <header>
             <section class="container-header">
-                <img src="" alt="Imagem de Perfil">
+                <figure><img src="/" alt="Imagem de Perfil"></figure>
                 <div class="container-header_user-info">
                     <h2 class="container-header-user_nome">Paulo de Oliveira</h2>
                     <p class="container-header-user_cargo">Professor</p>
@@ -40,9 +40,19 @@
 
                     <div value="form_select-user" id="form_select-user" name="form_select-user" data-name="Heitor Lima" data-cargo="Pintor">
                         <figure><img src="/" alt="Imagem de Perfil"></figure>
-                        <div class="option">Heitor Lima <p>Pintor</p></div>
-                        <p class="status_disponivel">Disponível</p>
-                        <p class="status_n-disponivel">Não Disponível</p>
+                        <div class="option">Heitor Lima 
+                            <p>Pintor</p>
+                            <p class="status_disponivel">Disponível</p>
+                            <p class="status_n-disponivel">Não Disponível</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form_btn-emergencia">
+                        <div class="form_btn-emergencia__titulo">Prioridade:</div>
+                        <div class="option urgency" data-urgency="baixa">Baixa Urgência</div>
+                        <div class="option urgency" data-urgency="media">Média Urgência</div>
+                        <div class="option urgency" data-urgency="alta">Alta Urgência</div>
+                        <button href="/" type="submit">Enviar Solicitação</button>
                     </div>
 
                 </form>
