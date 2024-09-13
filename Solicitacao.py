@@ -2,7 +2,7 @@
 from conexao_SQL import Connection
 
 # Crição da Classe Solicitacoes, que executa as funções relacionadas as solicitações de serviço
-class Solicitacoes:
+class Solicitacao:
     def __init__(self) -> None: # Criação de uma solicitação de servico com sua informações vazias.
         self.id_servico = None
         self.id_sala = None
@@ -32,13 +32,13 @@ class Solicitacoes:
             return False
         
          # Função que mostra a  solicitação de servico no Banco de Dados
-    def recebimento_servico(self,id_servico,id_sala,descricao,outros_locais,CPF_funcionario):
+    def recebimento_servico(self):
 
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
 
-            sql =(f"SELECT tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}';")
+            sql =(f"SELECT id_solicitacao,id_servico,id_sala,descricao,outros_locais,CPF_funcionario from tb_solicitacoes;")
             mycursor.execute(sql)
             recebimento= mycursor.fetchall()
 
@@ -46,14 +46,18 @@ class Solicitacoes:
             self.recebimento_servico = []
             for recebe in recebimento:
                 self.recebimento_servico.append({
-                    "id_servico": recebe[0],
-                    "id_sala": recebe[1],
-                    "descricao":recebe[2],
-                    "outros_locais": recebe[3],
-                    "CPF_funcionario":recebe[4],
-                })
+                     "id_solicitacao": recebe[0],
+                    "id_servico": recebe[1],
+                    "id_sala": recebe[2],
+                    "descricao":recebe[3],
+                    "outros_locais": recebe[4],
+                    "CPF_funcionario":recebe[5]
+                })                      
+                return self.recebimento_servico
+            else:
+                return None
 
 
-            return self.recebimento_servico
+            
 
             

@@ -12,8 +12,7 @@
     <header class="header">
         <!-- Container para a data e botão de menu -->
         <div class="header__date-container">
-            <!-- Espaço reservado para o botão do menu, adicione um rótulo acessível se necessário -->
-            <div class="header__button" aria-label="Menu"></div>
+            <div class="header__button"></div>
             <div class="header__date">
                 <!-- Dia da semana -->
                 <p class="header__day-of-week" aria-label="Dia da semana">Qui</p>
@@ -35,9 +34,10 @@
             </div>
         </section>
     </header>
+
     <main>
         <!-- Área Inferior do site -->
-        <div class="sectionBaixo">
+        <section class="sectionBaixo">
             <!-- Barra de Pesquisa -->
             <div class="sectionBaixo__search-container">
                 <!-- Campo de pesquisa com espaço para inserir texto -->
@@ -47,7 +47,7 @@
             </div>
 
             <!-- Filtro -->
-            <div class="sectionBaixo__filter-container">
+            <aside class="sectionBaixo__filter-container">
                 <!-- Selecionar filtro com descrição para leitores de tela -->
                 <select id="filter" class="sectionBaixo__filter-select" aria-label="Filtro de resultados">
                     <option value="recent">Mais recente</option>
@@ -55,33 +55,40 @@
                     <option value="buildingB">Prédio B</option>
                     <option value="buildingC">Prédio C</option>
                 </select>
-            </div>
+            </aside>
+
             <!-- Seção de Cards -->
-            <div class="sectionBaixo__grid-section">
-                <div class="sectionBaixo__grid-item">
+            <section class="sectionBaixo__grid-section">
+                <article class="sectionBaixo__grid-item">
+                    
                     <div class="card">
+                        {%for receba in campo_recebimento%}
                         <!-- Cabeçalho do card com localização do prédio -->
-                        <div class="card__header">
-                            <span class="card__building" aria-label="Localização do prédio">Prédio A</span>
-                        </div>
+                        <header class="card__header">
+                            <span class="card__building" aria-label="Localização do prédio">{{receba['id_sala']}}</span>
+                        </header>
                         <div class="card__body">
                             <!-- Serviço descrito no card -->
-                            <p class="card__service" aria-label="Serviço">SERVIÇO/outros</p>
+                            <p class="card__service" aria-label="Serviço">{{campo_funcao}}</p>
                             <!-- Pessoa que fez a solicitação -->
-                            <p class="card__responsavel" aria-label="Responsável pela solicitação">PESSOA QUE FEZ A SOLICITAÇÃO</p>
+                            <p class="card__responsavel" aria-label="Responsável pela solicitação">{{campo_nome}}</p>
                             <!-- Linha horizontal para separação visual -->
                             <hr class="card__linha" aria-hidden="true">
                             <!-- Descrição do serviço -->
-                            <p class="card__descricao" aria-label="Descrição do serviço">DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃO,DESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃODESCRIÇÃO</p>
+                            <p class="card__descricao" aria-label="Descrição do serviço">
+                                {{receba['descricao']}}
+                            </p>
                         </div>
                         <!-- Rodapé do card com botão de ação -->
-                        <div class="card__footer">
-                            <button class="card__button" aria-label="Encaminhar solicitação">Encaminhar</button>
-                        </div>
+                        <footer class="card__footer">
+                            <button class="card__button" aria-label="Encaminhar solicitação"><a href="/api/get_rf004v2/{{receba['id_solicitacao']}}">Encaminhar</a></button>
+                        </footer>
                     </div>
-                </div>
-            </div>
-        </div> 
+                    {%endfor%}
+                </article>
+
+            </section>
+        </section>
     </main>
 </body>
 </html>
