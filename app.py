@@ -1,6 +1,6 @@
 
 # Criando as importações do Flask
-from flask import Flask, render_template, request, redirect, session, jsonify,
+from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacoes import Solicitacoes
 
 # Importando o Flask
