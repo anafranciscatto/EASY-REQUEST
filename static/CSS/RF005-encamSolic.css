@@ -1,0 +1,139 @@
+
+/* Estilo da Topo da Tela (nome do Usuario e data */
+header{
+  width: 100vw;
+  height: 10vh;
+  background-color: var(--color04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.container-header{
+  display: flex;
+  align-items: center;
+}
+
+.container-header img{
+    width: auto;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 100%;
+}
+
+.container-header_user-cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.2rem;
+    border-radius: 5rem;
+}
+
+/* Estilo da data */
+
+.data{
+  margin: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.dia-semana{
+    color: var(--color05);
+    font-weight: 600;
+}
+
+/* Estilo do Botão Voltar */
+nav{
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+}
+
+nav button{
+  margin: 1rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border-color: var(--color02);
+  border-radius: 5rem;
+  background: none;
+  font-weight: 700;
+  transition-duration: 0.2s;
+}
+
+nav button i{
+  margin-right: 0.5rem;
+}
+
+nav button:hover{
+  border-color: none;
+  background-color: var(--color02);
+  color: var(--color01);
+}
+
+/* Estilo da Escolha de Funcionario */
+main{
+  width: 100vw;
+  height: 84vh;
+ 
+}
+
+.caixa-option {
+    padding: 8px;
+    margin: 0rem 15rem 2rem 15rem 0rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color01);
+    background-color: var(--color06);
+    border: none;
+    border-radius: 5rem;
+    
+    
+}
+.caixa-option img{
+  width: auto;
+  height: 7rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.option_user{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.option_user p{
+  background-color: var(--color05);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 5rem;
+  font-weight: 600;
+}
+
+.option.selected {
+    border: 2px solid var(--color03);
+  }
+
+.status_disponivel{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: var(--colorGreen);
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.status_n-disponivel{
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  background-color: var(--colorRed);
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  display: none;
+}
