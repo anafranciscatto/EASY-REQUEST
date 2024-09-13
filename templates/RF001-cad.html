@@ -9,7 +9,7 @@
 </head>
 <body>
     <main class="main">
-        <div class="form-container">
+        <section class="form-container">
             <h2 class="form-container__title">Cadastro</h2>
             <form class="form-container__form" action="/RF001" method="post">
                 
@@ -25,7 +25,6 @@
                     <label for="funcao" class="form-container__label">Informe sua profissão:</label>
                     <!-- Campo de seleção com opções de profissão -->
                     <select id="funcao" name="funcao" class="form-container__select" onchange="toggleImages()">
-                        <!-- Opção padrão (não selecionada) -->
                         <option value="">Selecione...</option>
                         <option value="1">Técnico de Manutenção</option>
                         <option value="2">Instrutor</option>
@@ -49,7 +48,7 @@
                     <input type="text" id="cpf" name="cpf" class="form-container__input-text" placeholder="Informe seu CPF">
                 </div>
 
-                <!-- Campo de entrada para o CPF -->
+                <!-- Campo de entrada para o SN -->
                 <div class="form-container__input">
                     <label for="sn" class="form-container__label">SN:</label>
                     <input type="text" id="sn" name="sn" class="form-container__input-text" placeholder="Informe seu SN">
@@ -76,7 +75,7 @@
                 <!-- Botão de submissão do formulário -->
                 <button type="submit" class="form-container__button">Cadastrar</button>
             </form>
-        </div>
+        </section>
     </main>
     <script src="/static/JS/RF001-cad.js"></script>
 </body>
