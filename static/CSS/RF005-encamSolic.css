@@ -1,3 +1,26 @@
+header{
+  width: 100vw;
+  height: 10vh;
+  background-color: var(--color04);
+
+}
+
+.container-header{
+  display: flex;
+}
+
+.container-header_user-cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 5rem;
+}
+
+
+
+
 .option {
     border: 1px solid #ccc;
     padding: 10px;
