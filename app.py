@@ -3,8 +3,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacao import Solicitacao
 from conexao_SQL import Connection
-# Importando o Flask
-
 
 # Importando a classe Usuario
 from Usuario import Usuario
@@ -34,31 +32,38 @@ def pg_cadastro(): # Função que executa o cadastro
         foto = request.form["foto"]
         id_funcao = int(request.form["funcao"])
 
-        print(id_funcao)
-
         if id_funcao >= 2 and id_funcao <= 7:
             permissao = "solicitante"
         elif id_funcao == 1:
             permissao = "manutencao"
 
+        myBD = Connection.conectar()
+
+        mycursor = myBD.cursor()
+
+        mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {id_funcao}")
+
+        funcao = mycursor.fetchone()
+
         usuario = Usuario()
 
         if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
-            session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "permissao":permissao}
+            session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
 
             if session["usuario"]["permissao"] == "administrador":
                 return redirect("/RF002")
             
             elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/RF002")
+                return redirect("/RF003")
             
             elif session["usuario"]["permissao"] == "solicitante":
-                return redirect("/RF002")
+                return redirect("/RF003")
         else:
             return redirect("/")
 
+# Criando rota para a tela de login
 @app.route("/RF002",methods=["GET","POST"])
-def pg_login():
+def pg_login(): # Função que executa o login
     usuario = Usuario()
     if request.method == "GET":
         if session.get("usuario","erro") == "Autenticado": 
@@ -78,24 +83,91 @@ def pg_login():
 
             mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {usuario.id_funcao}")
 
+            funcao = mycursor.fetchone()
 
-            session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto, "permissao":usuario.permissao}
+            session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":funcao[0], "permissao":usuario.permissao}
             
             if session["usuario"]["permissao"] == "administrador":
                 return redirect("/")
             
             elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/RF004")
+                return redirect("/RF003")
             
             elif session["usuario"]["permissao"] == "solicitante":
-                return redirect("/")
+                return redirect("/RF003")
         else:
             session.clear()
             return redirect("/RF004")
 
+# Criando rota para a tela de solicitacao
 @app.route("/RF003")
-def pg_solicitacao():
-    return render_template("RF003-solic.html")
+def pg_solicitacao(): # Função que abre a tela de fazer solicitação
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+
+    return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
+
+# Criando rota para a função que executa a solicitação
+@app.route("/fazer_solicitacao", methods=["POST"])
+def fazer_solicitacao(): # Função que executa a solicitação
+    dados = request.get_json()
+    id_servico = int(dados["id_servico"])
+    id_sala = dados["id_sala"]
+    descricao = dados["descricao"]
+    cpf = session["usuario"]["CPF"]
+
+    solicitacao = Solicitacao()
+
+    if solicitacao.solicitar_servico(id_servico, id_sala, descricao, cpf):
+        return jsonify({'mensagem':'Cadastro OK'}), 200
+    else:
+        return {'mensagem':'ERRO'}, 500
+
+# Criando rota para a função que retorna os serviços possíveis
+@app.route("/retorna_servicos")
+def retorna_servicos(): # Função que retorna os serviços possíveis
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT * FROM tb_servicos")
+
+    servicos = mycursor.fetchall()
+
+    print(servicos)
+
+    return jsonify(servicos), 200
+
+# Criando rota para a função que retorna todos os blocos do SENAI
+@app.route("/retorna_blocos")
+def retorna_blocos(): # Função que retorna todos os blocos do SENAI
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT DISTINCT bloco FROM tb_salas")
+
+    blocos = mycursor.fetchall()
+
+    return jsonify(blocos), 200
+
+# Criando rota para a função que retorna todas as salas do SENAI
+@app.route("/retorna_salas/<bloco>")
+def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    print(f"Bloco: {bloco}")
+
+    if bloco == "0":
+        mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
+    else:
+        mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas WHERE bloco = '{bloco}'")
+
+    sala = mycursor.fetchall()
+
+    return jsonify(sala), 200
 
 @app.route("/RF004",methods=["GET"])
 def pg_ADM_recebe_solicitacao():

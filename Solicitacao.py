@@ -7,23 +7,21 @@ class Solicitacao:
         self.id_servico = None
         self.id_sala = None
         self.descricao = None
-        self.outros_locais = None
         self.CPF_funcionario = None
         
     # Função que adiciona uma nova solicitação de servico no Banco de Dados
-    def solicitar_servico(self, id_servico, id_sala, descricao, outros_locais, CPF_funcionario):
+    def solicitar_servico(self, id_servico, id_sala, descricao, CPF_funcionario):
         try:
             myBD = Connection.conectar()
-            
+
             mycursor = myBD.cursor()
 
             self.id_servico = id_servico
             self.id_sala = id_sala
             self.descricao = descricao
-            self.outros_locais = outros_locais
             self.CPF_funcionario = CPF_funcionario
             
-            mycursor.execute(f"INSERT INTO tb_solicitacoes (id_servico, id_sala, descricao, outros_locais, CPF_funcionario) VALUES ('{id_servico}','{id_sala}', '{descricao}', '{outros_locais}', '{CPF_funcionario}';")
+            mycursor.execute(f"INSERT INTO tb_solicitacoes (id_servico, id_sala, descricao, CPF_funcionario) VALUES ({id_servico},'{id_sala}', '{descricao}', '{CPF_funcionario}');")
 
             myBD.commit()
 
@@ -33,11 +31,9 @@ class Solicitacao:
         
          # Função que mostra a  solicitação de servico no Banco de Dados
     def recebimento_servico(self):
-
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
-
-
+          
             sql =(f"SELECT id_solicitacao,id_servico,id_sala,descricao,outros_locais,CPF_funcionario from tb_solicitacoes;")
             mycursor.execute(sql)
             recebimento= mycursor.fetchall()
@@ -56,8 +52,3 @@ class Solicitacao:
                 return self.recebimento_servico
             else:
                 return None
-
-
-            
-
-            
