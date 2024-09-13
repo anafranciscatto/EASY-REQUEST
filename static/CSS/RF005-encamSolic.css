@@ -1,0 +1,9 @@
+.option {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .option.selected {
+    border: 2px solid yellow;
+  }
