@@ -46,8 +46,32 @@ header{
     font-weight: 600;
 }
 
+/* Estilo do Botão Voltar */
+nav{
+  width: 100vw;
+  height: 5vh;
+}
 
+nav button{
+  margin: 1rem;
+  padding: 0.5rem;
+  width: 10rem;
+  border-color: var(--color02);
+  border-radius: 5rem;
+  background: none;
+  font-weight: 700;
+  transition-duration: 0.2s;
+}
 
+nav button i{
+  margin-right: 0.5rem;
+}
+
+nav button:hover{
+  border-color: none;
+  background-color: var(--color02);
+  color: var(--color01);
+}
 
 .option {
     border: 1px solid #ccc;
