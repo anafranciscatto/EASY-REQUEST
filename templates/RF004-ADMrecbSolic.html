@@ -59,13 +59,12 @@
 
             <!-- Seção de Cards -->
             <section class="sectionBaixo__grid-section">
+                {%for x in campo_recebimento%}
                 <article class="sectionBaixo__grid-item">
-                    
                     <div class="card">
-                        {%for receba in campo_recebimento%}
                         <!-- Cabeçalho do card com localização do prédio -->
                         <header class="card__header">
-                            <span class="card__building" aria-label="Localização do prédio">{{receba['id_sala']}}</span>
+                            <span class="card__building" aria-label="Localização do prédio">{{x[2]}}</span>
                         </header>
                         <div class="card__body">
                             <!-- Serviço descrito no card -->
@@ -76,17 +75,17 @@
                             <hr class="card__linha" aria-hidden="true">
                             <!-- Descrição do serviço -->
                             <p class="card__descricao" aria-label="Descrição do serviço">
-                                {{receba['descricao']}}
+                                {{x[3]}}
                             </p>
                         </div>
                         <!-- Rodapé do card com botão de ação -->
                         <footer class="card__footer">
-                            <button class="card__button" aria-label="Encaminhar solicitação"><a href="/api/get_rf004v2/{{receba['id_solicitacao']}}">Encaminhar</a></button>
+                            <button class="card__button" aria-label="Encaminhar solicitação"><a href="/api/get_rf004v2/{{x[0]}}">Encaminhar</a></button>
                         </footer>
                     </div>
-                    {%endfor%}
-                </article>
 
+                </article>
+                {%endfor%}
             </section>
         </section>
     </main>
