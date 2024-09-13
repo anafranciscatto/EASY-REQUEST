@@ -34,19 +34,8 @@ class Solicitacao:
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
-            sql =(f"SELECT id_solicitacao,id_servico,id_sala,descricao,CPF_funcionario from tb_solicitacoes;")
+            sql =(f"SELECT id_solicitacao,id_servico,id_sala,descricao, f.nome, fn.nome from tb_solicitacoes s, tb_funcionarios f, tb_funcoes fn WHERE f.CPF_funcionario = s.CPF_funcionario AND fn.id_funcao = f.id_funcao;")
             mycursor.execute(sql)
             recebimento= mycursor.fetchall()
 
-            # recebimento_solicitacao = []
-            # solicitacao = []
-            # for recebe in recebimento:
-            #     solicitacao.append({
-            #          "id_solicitacao": recebe[0],
-            #         "id_servico": recebe[1],
-            #         "id_sala": recebe[2],
-            #         "descricao":recebe[3],
-            #         "CPF_funcionario":recebe[4]
-            #     })
-            #     recebimento_solicitacao.append(solicitacao)
             return recebimento

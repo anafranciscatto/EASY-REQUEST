@@ -134,8 +134,6 @@ def retorna_servicos(): # Função que retorna os serviços possíveis
 
     servicos = mycursor.fetchall()
 
-    print(servicos)
-
     return jsonify(servicos), 200
 
 # Criando rota para a função que retorna todos os blocos do SENAI
@@ -174,8 +172,6 @@ def pg_ADM_recebe_solicitacao():
     # id_solicitacao=request.args.get(servico)
     servico = Solicitacao()
     recebimento = servico.recebimento_solicitacao()
-
-    print(recebimento)
 
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
