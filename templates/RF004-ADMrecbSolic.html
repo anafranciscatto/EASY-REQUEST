@@ -5,99 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>EASY-REQUEST - Inicial</title>
 </head>
 <body>
-    <!-- Área de Informação do Usuario -->
+    <!-- Área de Informação do Usuário -->
     <header class="header">
+        <!-- Container para a data e botão de menu -->
         <div class="header__date-container">
-            <div class="header__button"></div>
+            <!-- Espaço reservado para o botão do menu, adicione um rótulo acessível se necessário -->
+            <button class="header__button" aria-label="Menu"></button>
             <div class="header__date">
-                <p class="header__day-of-week">Qui</p>
-                <p class="header__day">10</p>
-                <p class="header__month">Set</p>
+                <!-- Dia da semana -->
+                <p class="header__day-of-week" aria-label="Dia da semana">Qui</p>
+                <!-- Dia do mês -->
+                <p class="header__day" aria-label="Dia do mês">10</p>
+                <!-- Mês -->
+                <p class="header__month" aria-label="Mês">Set</p>
             </div>
         </div>
+        <!-- Informações do usuário logado -->
         <section class="header__user-info">
-            <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil" class="header__user-image">
+            <!-- Imagem de perfil do usuário com descrição acessível -->
+            <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil de Claudio Silva" class="header__user-image">
             <div class="header__user-details">
+                <!-- Nome do usuário -->
                 <h2 class="header__user-name">Claudio Silva</h2>
+                <!-- Cargo do usuário -->
                 <p class="header__user-position">Chefe da manutenção</p>
             </div>
         </section>
     </header>
-    <!-- Área Inferior do site -->
-    <div class="sectionBaixo">
-        
-        <!-- Barra de Pesquisa -->
-        <div class="sectionBaixo__search-container">
-            <input type="search" id="search" name="search" placeholder="Pesquisar..." class="sectionBaixo__search-input">
-            <button type="submit" class="sectionBaixo__search-button">Pesquisar</button>
-        </div>
-    
-        <!-- Filtro -->
-        <div class="sectionBaixo__filter-container">
-            <select class="sectionBaixo__filter-select">
-                <option value="recent">Mais recente</option>
-                <option value="buildingA">Prédio A</option>
-                <option value="buildingB">Prédio B</option>
-                <option value="buildingC">Prédio C</option>
-            </select>
-        </div>
-        <div class="sectionBaixo__grid-section">
-            <div class="sectionBaixo__grid-item">
-                <div class="card">
-                    {%for recebe in recebimento_servico%}
-                    <div class="card__header">
-                        <span class="card__building">{{recebe['id_sala'}}</span>
-                    </div>
-                    <div class="card__body">
-                        <p class="card__service">{{recebe['CPF_funcionario']}}</p>
-                        <p class="card__responsavel">{{recebe['CPF_funcionario']}}</p>
-                        <hr class="card__linha">
-                        <p class="card__descricao">{{recebe['descricao']}}</p>
-                    </div>
-                    <div class="card__footer">
-                        <a href="/saibaMais?servico={{servico['id_servico']}}"> <button class="card__button">Encaminhar</button></a>
-                    </div>
-                </div>
+
+    <main>
+        <!-- Área Inferior do site -->
+        <section class="sectionBaixo">
+            <!-- Barra de Pesquisa -->
+            <div class="sectionBaixo__search-container">
+                <!-- Campo de pesquisa com espaço para inserir texto -->
+                <input type="search" id="search" name="search" placeholder="Pesquisar..." class="sectionBaixo__search-input" aria-label="Campo de pesquisa">
+                <!-- Botão de pesquisa -->
+                <button type="submit" class="sectionBaixo__search-button" aria-label="Pesquisar">Pesquisar</button>
             </div>
 
-        </div>
-    </div>
+            <!-- Filtro -->
+            <aside class="sectionBaixo__filter-container">
+                <!-- Selecionar filtro com descrição para leitores de tela -->
+                <select id="filter" class="sectionBaixo__filter-select" aria-label="Filtro de resultados">
+                    <option value="recent">Mais recente</option>
+                    <option value="buildingA">Prédio A</option>
+                    <option value="buildingB">Prédio B</option>
+                    <option value="buildingC">Prédio C</option>
+                </select>
+            </aside>
+
+            <!-- Seção de Cards -->
+            <section class="sectionBaixo__grid-section">
+                <article class="sectionBaixo__grid-item">
+                    
+                    <div class="card">
+                        {%for receba in campo_recebimento%}
+                        <!-- Cabeçalho do card com localização do prédio -->
+                        <header class="card__header">
+                            <span class="card__building" aria-label="Localização do prédio">{{receba['id_sala']}}</span>
+                        </header>
+                        <div class="card__body">
+                            <!-- Serviço descrito no card -->
+                            <p class="card__service" aria-label="Serviço">{{campo_funcao}}</p>
+                            <!-- Pessoa que fez a solicitação -->
+                            <p class="card__responsavel" aria-label="Responsável pela solicitação">{{campo_nome}}</p>
+                            <!-- Linha horizontal para separação visual -->
+                            <hr class="card__linha" aria-hidden="true">
+                            <!-- Descrição do serviço -->
+                            <p class="card__descricao" aria-label="Descrição do serviço">
+                                {{receba['descricao']}}
+                            </p>
+                        </div>
+                        <!-- Rodapé do card com botão de ação -->
+                        <footer class="card__footer">
+                            <button class="card__button" aria-label="Encaminhar solicitação"><a href="/api/get_rf004v2/{{receba['id_solicitacao']}}">Encaminhar</a></button>
+                        </footer>
+                    </div>
+                    {%endfor%}
+                </article>
+
+            </section>
+        </section>
+    </main>
 </body>
-
 </html>
-<script type="text/javascript">
-    function mostraAnimes() {
-        // Obter a URL atual
-        var url_atual = window.location.href;
-    
-        // Criar um objeto URLSearchParams com a query string da URL
-        var params = new URLSearchParams(new URL(url_atual).search);
-    
-        // Obter o valor do parâmetro 'anime'
-        var anime = params.get('anime');
-    
-        $.ajax({
-            url:"/api/get_rf004/" + card__header,
-            type: "GET",
-            success: function(servicos){
-                console.log(servicos);
-
-                var tag_local="<span>" + servicos['id_sala']+"</span>"
-                var tag_funcao="<p>" + servicos['CPF_funcionario']+"</p>"
-                var tag_funcionario="<p>" + servicos['CPF_funcionario']+"</p>"
-                var tag_descricao="<p>" + servicos['descricao']+"</p>"
-
-                $(".card__building").html(tag_local);
-                $(".card__service").html(tag_funcao);
-                $(".card__responsavel").html(tag_funcionario);
-                $(".card__descricao").html(tag_descricao);
-
-            }
-        })
-    }
-            
-</script>

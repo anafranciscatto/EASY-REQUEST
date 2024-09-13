@@ -72,6 +72,8 @@ def pg_login():
         usuario.logar(sn, senha)
 
         if usuario.logado:
+        
+
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto, "permissao":usuario.permissao}
             
             if session["usuario"]["permissao"] == "administrador":
@@ -92,20 +94,30 @@ def pg_solicitacao():
 
 @app.route("/RF004",methods=["GET"])
 def pg_ADM_recebe_solicitacao():
-    id_solicitacao=request.args.get(servico)
+    # id_solicitacao=request.args.get(servico)
     servico = Solicitacao()
-    recebimento = servico.recebimento_servico(id_solicitacao)
+    recebimento = servico.recebimento_servico()
+
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+
+    return render_template("RF004-ADMrecbSolic.html",campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
 
-    return render_template("RF004-ADMrecbSolic.html",recebimento = recebimento)
-
-
-@app.route("/api/get_rf004/<id_servico>',methods=['GET']")
+@app.route("/api/get_rf004/",methods=['GET'])
 def api_get_solicitacao(id_servico):
     rf004=Solicitacao()
     solicitacoes=rf004.recebimento_servico(id_solicitacao=id_servico)
     servico=rf004.recebimento_servico(id_servico=id_servico)
     return jsonify(solicitacoes),200
+
+@app.route("/api/get_rf004v2/",methods=['GET'])
+def api_get_solicitacaov2():
+    rf004v2=Solicitacao()
+    Solicitacao=rf004v2.recebimento_servico()
+    return jsonify (Solicitacao)
+
+
                                            
 def pg_detalhe_solicitacao():
     return render_template("RF004A-detlSolic.html")
