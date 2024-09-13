@@ -1,4 +1,5 @@
 
+
 html{
     width: 40rem;
 }
@@ -247,4 +248,3 @@ html{
 
 /* igual e maior que 600px */
 @media screen and (min-width: 600px) {}
-
