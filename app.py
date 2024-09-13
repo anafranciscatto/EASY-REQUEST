@@ -61,8 +61,9 @@ def pg_cadastro(): # Função que executa o cadastro
         else:
             return redirect("/")
 
+# Criando rota para a tela de login
 @app.route("/RF002",methods=["GET","POST"])
-def pg_login():
+def pg_login(): # Função que executa o login
     usuario = Usuario()
     if request.method == "GET":
         if session.get("usuario","erro") == "Autenticado": 
@@ -98,15 +99,17 @@ def pg_login():
             session.clear()
             return redirect("/RF001")
 
+# Criando rota para a tela de solicitacao
 @app.route("/RF003")
-def pg_solicitacao():
+def pg_solicitacao(): # Função que abre a tela de fazer solicitação
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
 
     return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
 
+# Criando rota para a função que executa a solicitação
 @app.route("/fazer_solicitacao", methods=["POST"])
-def fazer_solicitacao():
+def fazer_solicitacao(): # Função que executa a solicitação
     dados = request.get_json()
     id_servico = int(dados["id_servico"])
     id_sala = dados["id_sala"]
@@ -120,8 +123,9 @@ def fazer_solicitacao():
     else:
         return {'mensagem':'ERRO'}, 500
 
+# Criando rota para a função que retorna os serviços possíveis
 @app.route("/retorna_servicos")
-def retorna_servicos():
+def retorna_servicos(): # Função que retorna os serviços possíveis
     myBD = Connection.conectar()
 
     mycursor = myBD.cursor()
@@ -134,8 +138,9 @@ def retorna_servicos():
 
     return jsonify(servicos), 200
 
+# Criando rota para a função que retorna todos os blocos do SENAI
 @app.route("/retorna_blocos")
-def retorna_blocos():
+def retorna_blocos(): # Função que retorna todos os blocos do SENAI
     myBD = Connection.conectar()
 
     mycursor = myBD.cursor()
@@ -146,8 +151,9 @@ def retorna_blocos():
 
     return jsonify(blocos), 200
 
+# Criando rota para a função que retorna todas as salas do SENAI
 @app.route("/retorna_salas/<bloco>")
-def retorna_salas(bloco):
+def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
     myBD = Connection.conectar()
 
     mycursor = myBD.cursor()

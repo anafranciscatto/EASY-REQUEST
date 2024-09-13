@@ -1,8 +1,10 @@
+// Coleta de elementos do formulário
 inputServico = document.getElementById('tipo-servico');
 inputBloco = document.getElementById('bloco');
 inputSalas = document.getElementById('sala');
 inputAdendo = document.getElementById('adendo');
 
+// Função que usa os dados do formulário para cadastrar uma solicitação
 function fazerSolicitacao() {
     var dados = {
         id_servico:inputServico.value,
@@ -25,6 +27,7 @@ function fazerSolicitacao() {
     })
 }
 
+// Função que coloca os tipos de serviço no campo do formulário
 function retornaServicos() {
     $.ajax({
         url: '/retorna_servicos',
@@ -43,6 +46,7 @@ function retornaServicos() {
     });
 }
 
+// Função que retorna todos os blocos do SENAI no campo do formulário
 function retornaBlocos() {
     $.ajax({
         url: '/retorna_blocos',
@@ -61,6 +65,7 @@ function retornaBlocos() {
     });
 }
 
+// Função que retorna todas as salas do SENAI no campo do formulário
 function retornaSalas(bloco) {
     inputSalas.innerHTML = '<option value="0">Sala</option>';
     $.ajax({
@@ -80,9 +85,11 @@ function retornaSalas(bloco) {
     });
 }
 
+// Executando todas as funções
 retornaServicos();
 retornaBlocos();
 retornaSalas();
+// Executando a função retornaSalas somente quando o campo bloco for alterado
 inputBloco.addEventListener('change', function() {
     retornaSalas(inputBloco.value)
 });
