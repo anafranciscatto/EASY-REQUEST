@@ -63,6 +63,7 @@ nav button{
   background: none;
   font-weight: 700;
   transition-duration: 0.2s;
+  color: var(--color02);
 }
 
 nav button i{
@@ -78,13 +79,14 @@ nav button:hover{
 /* Estilo da Escolha de Funcionario */
 main{
   width: 100vw;
-  height: 84vh;
- 
+  height: 74vh;
+  overflow-x: auto;
+  position: relative;
 }
 
 .caixa-option {
     padding: 8px;
-    margin: 2rem 3rem 2rem 3rem;
+    margin: 1rem 3rem 2rem 3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -120,8 +122,14 @@ main{
   font-weight: 600;
 }
 
+/* Transição do select */
+.option{
+  transition-duration: 0.2s;
+}
+
 .option.selected {
     border: 2px solid var(--color03);
+    box-shadow: none;
   }
 
 .status_disponivel{
@@ -137,4 +145,64 @@ main{
   border-radius: 0.5rem;
   font-size: 1.5rem;
   display: none;
+}
+
+/* Estilo da Escolha da urgencia/emergencia */
+
+.form_btn-emergencia{
+  width: 100vw;
+  height: 18vh;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  background-color: var(--color06);
+  border-top-left-radius: 4rem ;
+  border-top-right-radius: 4rem;
+  color: var(--color01);
+  
+}
+
+.form_btn-emergencia__titulo{
+  margin: 1rem 0rem 0rem 3rem;
+  font-size: 1.2rem;
+}
+
+.botoes{
+  display: flex;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 1rem;
+
+}
+
+.urgency{
+    padding: 1rem;
+    border: solid 2px var(--color01);
+    border-radius: 1rem;
+}
+
+.urgency.selected{
+  color: var(--color03);
+}
+
+/* Estilo do botão 'Enviar Solicitação' */
+button{
+    width: 20rem;
+    padding: 0.9rem;
+    text-align: center;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--color03); 
+    color: var(--color01); 
+    margin: 1rem 10rem 0rem 10rem;
+    transition-duration: 0.2s;
+}
+
+button:hover{
+      background: none;
+      border: 1px solid var(--color03);
+      color: var(--color03);
 }
