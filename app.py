@@ -2,7 +2,7 @@
 # Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacao import Solicitacao
-
+from conexao_SQL import Connection
 # Importando o Flask
 
 
@@ -72,7 +72,12 @@ def pg_login():
         usuario.logar(sn, senha)
 
         if usuario.logado:
-        
+            myBD = Connection.conectar()
+
+            mycursor = myBD.cursor()
+
+            mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {usuario.id_funcao}")
+
 
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto, "permissao":usuario.permissao}
             
