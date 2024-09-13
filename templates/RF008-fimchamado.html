@@ -19,31 +19,39 @@
     <main class="conteudo-principal">
         <h2 class="conteudo-principal__titulo">Finalizar Chamado</h2>
         <h4 class="conteudo-principal__subtitulo">Finalize os chamados que ja foram concluidos</h4>
+        <!-- Barra de Filtro -->
+        <div class="filtro">
+            <label for="status" class="filtro__label">Filtrar por status:</label>
+            <select id="status" class="filtro__select">
+                <option value="todos">Todos</option>
+                <option value="aberto">Aberto</option>
+                <option value="em-andamento">Em Andamento</option>
+                <option value="concluido">Concluído</option>
+            </select>
+            
+            <label for="tipo" class="filtro__label">Filtrar por tipo:</label>
+            <select id="tipo" class="filtro__select">
+                <option value="todos">Todos</option>
+                <option value="manutencao">Manutenção</option>
+                <option value="limpeza">Limpeza</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
         <div class="galeria">
             <article class="galeria__item">
-                <a class="galeria__link" target="_blank" href="img_5terre.jpg">
-                    <img class="galeria__imagem" src="img_5terre.jpg" alt="Vista panorâmica da Cinque Terre" width="600" height="400">
-                </a>
-                <div class="galeria__descricao">Descrição da imagem aqui</div>
-            </article>
-            <article class="galeria__item">
-                <a class="galeria__link" target="_blank" href="img_forest.jpg">
-                    <img class="galeria__imagem" src="img_forest.jpg" alt="Floresta" width="600" height="400">
-                </a>
-                <div class="galeria__descricao">Descrição da imagem aqui</div>
-            </article>
-            <article class="galeria__item">
-                <a class="galeria__link" target="_blank" href="img_lights.jpg">
-                    <img class="galeria__imagem" src="img_lights.jpg" alt="Aurora Boreal" width="600" height="400">
-                </a>
-                <div class="galeria__descricao">Descrição da imagem aqui</div>
-            </article>
-            <article class="galeria__item">
-                <a class="galeria__link" target="_blank" href="img_mountains.jpg">
-                    <img class="galeria__imagem" src="img_mountains.jpg" alt="Montanhas" width="600" height="400">
-                </a>
-                <div class="galeria__descricao">Descrição da imagem aqui</div>
-            </article>
+                <div class="galeria__topo">
+                    <img class="galeria__imagem-perfil" src="https://miro.medium.com/v2/resize:fit:1200/1*g09N-jl7JtVjVZGcd-vL2g.jpeg" alt="Foto de perfil do responsável pelo chamado" width="100">
+                    <div class="galeria__info">
+                        <div class="galeria__status" aria-label="Status do chamado">STATUS</div>
+                        <div class="galeria__tipo" aria-label="Tipo de chamado">Tipo</div>
+                        <div class="galeria__localizacao" aria-label="Localização do chamado">Aonde está</div>
+                    </div>
+                </div>
+                <div class="galeria__descricao" aria-label="Descrição do chamado">Descrição do chamado</div>
+                <button class="galeria__botao-encerrar" aria-label="Botão para encerrar o chamado">Encerrar chamado</button>
+                <button class="galeria__botao-Mais " aria-label="Botão para encerrar o chamado">Mais</button>
+            </article>  
+          
         </div>
     </main>
 </body>
