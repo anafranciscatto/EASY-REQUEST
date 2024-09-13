@@ -84,7 +84,7 @@ main{
 
 .caixa-option {
     padding: 8px;
-    margin: 0rem 15rem 2rem 15rem 0rem;
+    margin: 2rem 3rem 2rem 3rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -93,6 +93,7 @@ main{
     background-color: var(--color06);
     border: none;
     border-radius: 5rem;
+    box-shadow:  5px 8px 18px var(--color02);
     
     
 }
