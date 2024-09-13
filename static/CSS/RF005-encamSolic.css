@@ -1,12 +1,25 @@
+
+/* Estilo da Topo da Tela (nome do Usuario e data */
 header{
   width: 100vw;
   height: 10vh;
   background-color: var(--color04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
 .container-header{
   display: flex;
+  align-items: center;
+}
+
+.container-header img{
+    width: auto;
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 100%;
 }
 
 .container-header_user-cargo{
@@ -14,8 +27,23 @@ header{
     color: var(--color01);
     margin-right: 10rem;
     text-align: center;
-    padding: 0.4rem;
+    padding: 0.2rem;
     border-radius: 5rem;
+}
+
+/* Estilo da data */
+
+.data{
+  margin: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.dia-semana{
+    color: var(--color05);
+    font-weight: 600;
 }
 
 
