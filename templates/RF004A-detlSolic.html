@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004A-detlSolic.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <!-- Link para os ICONS -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
@@ -21,19 +22,14 @@
     <main class="conteudo-principal">
         <section class="detalhes-solicitacao">
             <div class="detalhes-solicitacao__cabecalho">
-                <h1 class="detalhes-solicitacao__titulo">TÍTULO</h1>
-                <p class="detalhes-solicitacao__autor">Quem fez a solicitação</p>
+                <h1 class="detalhes-solicitacao__titulo">{{campo_sala}} - {{campo_servico}}</h1>
+                <p class="detalhes-solicitacao__autor">{{campo_nome_solicitante}} - {{campo_funcao_solicitante}}</p>
             </div>
             <hr class="detalhes-solicitacao__divisor">
             <div class="detalhes-solicitacao__corpo">
                 <p class="detalhes-solicitacao__rotulo-descricao">Descrição</p>
                 <p class="detalhes-solicitacao__texto-descricao">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis natus iste, non in optio minus incidunt. 
-                    Blanditiis ad quidem nisi voluptatem dolores, laudantium adipisci, soluta vitae at accusamus ullam. Doloribus.
-                </p>
-                <p class="detalhes-solicitacao__texto-descricao">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi aut animi magnam atque consequuntur repudiandae possimus aspernatur 
-                    fugiat expedita est dolorum officia, sed blanditiis nihil sunt cupiditate porro excepturi repellat.
+                    {{campo_descricao}}
                 </p>
                 <a href=""><button class=" botao botao-cadastro">Encaminhar</button></a>
             </div>
@@ -41,7 +37,7 @@
     </main>
 </body>
 </html>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function mostraSolicitacao() {
         // Obter a URL atual
         var url_atual = window.location.href;
@@ -49,11 +45,11 @@
         // Criar um objeto URLSearchParams com a query string da URL
         var params = new URLSearchParams(new URL(url_atual).search);
     
-        // Obter o valor do parâmetro 'anime'
+        // Obter o valor do parâmetro 'solicitacao'
         var solicitacao = params.get('solicitacao');
         
         $.ajax({
-        url: "/api/get_saibaMais/" + solicitacao,
+        url: "('/api/RF004A/" + solicitacao,
         type: "GET",
         success: function (encaminha){
             console.log(encaminha);
@@ -66,3 +62,5 @@
         }
         })
     }
+    $(document).ready(mostraSolicitacao); -->
+    </script>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Designação</title>
+
+        <!-- Link Arquivo CSS Global -->
+        <link rel="stylesheet" href="/static/CSS/global.css">
+        <!-- Link Arquivo CSS -->
+        <link rel="stylesheet" href="/static/CSS/RF005-encamSolic.css">
+        <!-- Link Arquivo JS -->
+        <script defer src="/static/JS/RF005-encamSolic.js"></script>
+        <!-- Link para os ICONS -->
+        <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <header>
+            <section class="container-header">
+                <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                <div class="container-header_user-info">
+                    <h2 class="container-header_user-nome">Paulo de Oliveira</h2>
+                    <p class="container-header_user-cargo">Supervisor de Manutenção</p>
+                </div>
+            </section>
+            <section class="container-header-data">
+                <div class="data">
+                    <p class="dia-semana">Qui</p><p class="dia">10</p><p class="mes">Set</p>
+                </div>
+            </section>
+        </header>
+        <nav>
+            <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+        </nav>
+        <main>
+            <section class="container-main">
+                <form action="" method="POST">
+
+                    <div value="form_select-user" id="form_select-user" name="form_select-user" data-name="Heitor Lima" data-cargo="Pintor">
+                        
+                        <div class="option caixa-option">
+                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
+                            <p class="status_disponivel">Disponível</p>
+                            <p class="status_n-disponivel">Não Disponível</p>
+                        </div>
+
+                    </div>
+                    
+                    <div class="form_btn-emergencia">
+                        <div class="form_btn-emergencia__titulo">Prioridade:</div>
+                        <div class="botoes">
+                            <div class="option urgency" data-urgency="baixa">Baixa Urgência</div>
+                            <div class="option urgency" data-urgency="media">Média Urgência</div>
+                            <div class="option urgency" data-urgency="alta">Alta Urgência</div>
+                        </div>
+                        <div class="btn-enviar">
+                            <button href="/" type="submit">Enviar Solicitação</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+        </main>        
+    </body>
+</html>

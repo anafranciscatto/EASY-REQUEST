@@ -193,7 +193,7 @@ input, select {
     overflow: hidden; 
     text-overflow: ellipsis; 
     display: -webkit-box; 
-    -webkit-line-clamp: 4; 
+    -webkit-line-clamp: 2; 
     -webkit-box-orient: vertical; 
 }
 
@@ -225,6 +225,11 @@ input, select {
     color: var(--color02); 
 }
 
+.card__button a{
+    color: var(--color02);
+    text-decoration: none;
+}
+
 /* 2 colunas para telas médias */
 @media (min-width: 740px) {
     .sectionBaixo__grid-section {
@@ -244,3 +249,7 @@ input, select {
         max-width: 31.5rem; 
     }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 1e08111336b064b1f7c9487922fe7240d7721cfe
