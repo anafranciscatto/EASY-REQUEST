@@ -104,15 +104,14 @@ body{
 }
 .galeria__topo{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
 }
 .galeria__imagem-perfil {
-    border-radius: 1000%;
-    margin-right: 1rem;
-    height: 8rem;
+    max-height: 10rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+
 }
 .galeria__imagem-perfil img{
     object-fit: cover;
@@ -124,19 +123,20 @@ body{
 
 .galeria__status{
     background-color: var(--color03);
-    padding: 0.1rem 0;
+    padding: 0.5rem 0;
     font-size: 1.6rem;
     text-align: center;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.5rem;
     border-radius: 1rem;
     font-weight: bold;
+}.galeria__tipo p{
+    margin-bottom: 0.5rem;
 }
-
 .galeria__tipo{
     font-size: 1.5rem;
     color: var(--color01);
     padding: 0.2rem 0;
-    margin: 0.4rem;
+    margin-bottom: 0.5rem;
     border-bottom: 2px solid var(--color03);
     font-weight: bold;
 }
@@ -194,7 +194,7 @@ body{
     transition: background-color 0.3s, transform 0.2s ease-in-out;
     position: relative;
     overflow: hidden;
-    margin: 0 1rem;
+    margin: 0.9rem 1rem;
 }
 .galeria__botao-Mais:hover{
     background-color: transparent;
@@ -208,20 +208,28 @@ body{
 /* Estilos para telas maiores que 900px */
 @media (min-width: 900px) {
     .galeria {
-        
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste para telas maiores */
+        grid-template-columns: repeat(2, 1fr); /* Define 2 colunas */
     }
-    /* Estilos para a barra de filtro */
-    .filtro {
 
+    html {
+        font-size: 62.5%; /* 62.5% de 16px (padrão) é igual a 10px */
+    }
+
+    .filtro {
         margin: 0.5rem 5rem;
     }
 }
 
 /* Responsividade adicional para telas maiores que 1200px */
 @media (min-width: 1200px) {
+
+    html {
+        font-size: 72.5%; /* 62.5% de 16px (padrão) é igual a 10px */
+        
+    }
+
     .galeria {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajuste para telas ainda maiores */
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
     }
 
         /* Estilos para a barra de filtro */
