@@ -3,61 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
-      <!-- Link para o CSS global -->
     <link rel="stylesheet" href="/static/CSS/global.css">
-     <!-- Link para os ICONS -->
-     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
-
-    <script src="/static/JS/RF007-manutConfirm.js"></script>
-
-    <title></title>
+    <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    <title>Document</title>
 </head>
 <body>
-
+     <!-- Área de Informação do Usuário -->
+     <header class="header">
+        <div class="container-header_btn">
+            <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+        </div>
+        <!-- Informações do usuário logado -->
+        <section class="header__user-info">
+            <!-- Imagem de perfil do usuário com descrição acessível -->
+            <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil de Claudio Silva" class="header__user-image">
+            <div class="header__user-details">
+                <!-- Nome do usuário -->
+                <h2 class="header__user-name">João Vitor</h2>
+                <!-- Cargo do usuário -->
+                <p class="header__user-position">Chefe de manutenção</p>
+            </div>
+        </section>
+    </header>
     <main>
 
-        <nav>
-            <div class="container-nav">
-                <div class="usuario">
-                    <h4>Administrador</h4><img src="https://i.pinimg.com/564x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" alt="" class="usuario__imagem">
-                </div>
-          
-                <div class="botaoVoltar">
-                    <button><i class="fa-solid fa-chevron-left"></i></button>
-                </div>
-            </div>
-        </nav>
-    
-
-
-        <div class="container-main">
-            <h3 class="texto-confirmar">Confirmar finalização de serviço</h3>
-
-            <div class="container__situacao-tarefa">
-                <p><strong>Escolha uma das opções:</strong></p>
-                <div id="opcoes" class="opcoes">
-                    <label for="naoFoiPossivel"><input type="radio" name="escolhaFinalizacao" id="naoFoiPossivel" value="opcao01" class="opcoes-input">  Não foi possível realizar a tarefa.</label><br>
-                    <label for="necessitaOutrosCuidados"><input type="radio" name="escolhaFinalizacao" id="necessitaOutrosCuidados" value="opcao02" class="opcoes-input">  Foi realizado mas necessita de outros cuidados.</label><br>
-                    <label for="totalmenteRealizada"><input type="radio" name="escolhaFinalizacao" id="totalmenteRealizada" value="opcao03" class="opcoes-input">  Tarefa foi totalmente realizada.</label><br>
-                </div>
-            </div>
-
-      
-            <div class="container__caixa-de-texto">
-                <h3 class="texto-infoAdici">Inserir informações adicionais (caso houver)</h3>
-                <textarea id="texto" class="caixa-texto" placeholder="Digite aqui"></textarea><br>
-            </div>
-
-            <div  class="container__botao-finalizar">
-                <button onclick="enviarTexto()">Finalizar tarefa</button>
-            </div>
-
-        </div>
     </main>
-
-    <footer>
-    </footer>
-
 </body>
 </html>
