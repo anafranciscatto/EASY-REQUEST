@@ -34,7 +34,8 @@ class Solicitacao:
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
-            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, fn.nome from tb_solicitacoes s, tb_funcionarios f, tb_funcoes fn, tb_servicos sv WHERE f.CPF_funcionario = s.CPF_funcionario AND fn.id_funcao = f.id_funcao AND sv.id_servico = s.id_servico;") 
+            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, fn.nome from tb_solicitacoes s, tb_funcionarios f, tb_funcoes fn, tb_servicos sv WHERE f.CPF_funcionario = s.CPF_funcionario AND fn.id_funcao = f.id_funcao AND sv.id_servico = s.id_servico 
+            order by s.id_solicitacao desc;") 
             mycursor.execute(sql)
             recebimento= mycursor.fetchall()
 
