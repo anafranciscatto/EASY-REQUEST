@@ -3,7 +3,6 @@
 from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacao import Solicitacao
 from conexao_SQL import Connection
-
 # Importando a classe Usuario
 from Usuario import Usuario
 
@@ -97,7 +96,8 @@ def pg_login(): # Função que executa o login
                 return redirect("/RF003")
         else:
             session.clear()
-            return redirect("/RF004")
+            return redirect("/")
+
 
 # Criando rota para a tela de solicitacao
 @app.route("/RF003")
@@ -171,7 +171,7 @@ def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
 def pg_ADM_recebe_solicitacao():
     # id_solicitacao=request.args.get(servico)
     servico = Solicitacao()
-    recebimento = servico.recebimento_solicitacao()
+    recebimento = servico.recebimento_solicitacoes()
 
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
@@ -193,8 +193,24 @@ def pg_ADM_recebe_solicitacao():
 
 
                                            
-def pg_detalhe_solicitacao():
-    return render_template("RF004A-detlSolic.html")
+
+@app.route('/RF004A/<rowid>')
+def pg_ver_solicitacao(rowid):
+     saibamais=Solicitacao()
+     encaminha = saibamais.recebimento_solicitacao(id_solicitacao=rowid)
+
+     print(encaminha)
+
+     return render_template("RF004A-detlSolic.html", campo_sala = encaminha[2], campo_servico = encaminha[1], campo_nome_solicitante = encaminha[4], campo_funcao_solicitante = encaminha[5], campo_descricao = encaminha[3])
+
+
+# @app.route('/api/RF004A/<id_solicitacao>',methods=['GET'])
+# def api_get_solicitacao(id_solicitacao):
+#     saibamais=Solicitacao()
+#     encaminha=saibamais.recebimento_solicitacao(id_solicitacao=id_solicitacao)
+#     # Modificar a lista de produtos para incluir os trailers
+    
+#     return jsonify(encaminha),200
 
 @app.route("/RF005")
 def pg_encaminhar_solicitacao():
