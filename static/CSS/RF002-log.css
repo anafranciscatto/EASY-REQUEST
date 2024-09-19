@@ -8,12 +8,12 @@ body{
 
 /* Estilo da Imagem no Topo */
 .container-main{
+    width: 100vw;
+    height: 30vh;
     z-index: -1;
     background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100vw;
-    height: 30rem;
     border-bottom-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
 }
@@ -119,3 +119,32 @@ footer{
 
 /* -------------RESPONSIVIDADE-------------- */
 
+
+@media (max-width: 926px){
+    button {
+        width: 25rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+
+    .container-form{
+        top: 10rem;
+        width: 32rem;
+        height: 31rem;
+    }
+
+    
+    #inp-SN {
+        margin-bottom: 1rem;
+    }
+}
+
+@media(min-width: 1024px){
+    .container-form{
+        top: 10rem;
+        width: 35rem;
+        height: 37rem;
+    }
+}
