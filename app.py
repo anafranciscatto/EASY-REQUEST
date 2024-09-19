@@ -1,6 +1,6 @@
 
 # Criando as importações do Flask
-from flask import Flask, render_template, request, redirect, session, jsonify,
+from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacoes import Solicitacoes
 
 # Importando o Flask
@@ -84,7 +84,7 @@ def pg_login():
                 return redirect("/")
         else:
             session.clear()
-            return redirect("/RF001")
+            return redirect("/RF003")
 
 @app.route("/RF003")
 def pg_solicitacao():
@@ -100,7 +100,19 @@ def pg_ADM_recebe_solicitacao():
 
 @app.route("/RF004A")
 def pg_detalhe_solicitacao():
-    return render_template("RF004A-detlSolic.html")
+    id_servico = request.args.get("solicitacao")
+    saiba_mais = Solicitacoes()
+   
+    solicitacoes = saiba_mais.retornaAnimes(id_servico)
+    return render_template("RF004A-detlSolic.html", solicitacoes=solicitacoes)
+    
+@app.route('/api/RF004A/<id_servico>',methods=['GET'])
+def api_get_animes(id_servico):
+    saibamais=Solicitacoes()
+    encaminha=saibamais.recebimento_servico(id_servico=id_servico)
+    # Modificar a lista de produtos para incluir os trailers
+    
+    return jsonify(encaminha),200
 
 @app.route("/RF005")
 def pg_encaminhar_solicitacao():

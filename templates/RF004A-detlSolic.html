@@ -41,3 +41,28 @@
     </main>
 </body>
 </html>
+<script type="text/javascript">
+    function mostraSolicitacao() {
+        // Obter a URL atual
+        var url_atual = window.location.href;
+    
+        // Criar um objeto URLSearchParams com a query string da URL
+        var params = new URLSearchParams(new URL(url_atual).search);
+    
+        // Obter o valor do parâmetro 'anime'
+        var solicitacao = params.get('solicitacao');
+        
+        $.ajax({
+        url: "/api/get_saibaMais/" + solicitacao,
+        type: "GET",
+        success: function (encaminha){
+            console.log(encaminha);
+        var tag_nome = "<p>" + encaminha['nome'] + "</p>";
+        var tag_descricao = "<p>" + encaminha['descricao'] + "</p>";
+        $(".detalhes-solicitacao__autor").html(tag_nome);
+        $(".detalhes-solicitacao__texto-descricao").html(tag_descricao);
+
+
+        }
+        })
+    }
