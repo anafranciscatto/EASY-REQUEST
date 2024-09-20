@@ -161,7 +161,7 @@ def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
         mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
     else:
         mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas WHERE bloco = '{bloco}'")
-
+    
     sala = mycursor.fetchall()
 
     return jsonify(sala), 200
