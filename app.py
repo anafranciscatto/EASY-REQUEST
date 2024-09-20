@@ -98,7 +98,6 @@ def pg_login(): # Função que executa o login
             session.clear()
             return redirect("/")
 
-
 # Criando rota para a tela de solicitacao
 @app.route("/RF003")
 def pg_solicitacao(): # Função que abre a tela de fazer solicitação
@@ -178,22 +177,6 @@ def pg_ADM_recebe_solicitacao():
 
     return render_template("RF004-ADMrecbSolic.html",campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
-# @app.route("/api/get_rf004/",methods=['GET'])
-# def api_get_solicitacao(id_servico):
-#     rf004=Solicitacao()
-#     solicitacoes=rf004.recebimento_servico(id_solicitacao=id_servico)
-#     servico=rf004.recebimento_servico(id_servico=id_servico)
-#     return jsonify(solicitacoes),200
-
-# @app.route("/api/get_rf004v2/",methods=['GET'])
-# def api_get_solicitacaov2():
-#     rf004v2=Solicitacao()
-#     Solicitacao=rf004v2.recebimento_servico()
-#     return jsonify (Solicitacao)
-
-
-                                           
-
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
      saibamais=Solicitacao()
@@ -202,15 +185,6 @@ def pg_ver_solicitacao(rowid):
      print(encaminha)
 
      return render_template("RF004A-detlSolic.html", campo_sala = encaminha[2], campo_servico = encaminha[1], campo_nome_solicitante = encaminha[4], campo_funcao_solicitante = encaminha[5], campo_descricao = encaminha[3])
-
-
-# @app.route('/api/RF004A/<id_solicitacao>',methods=['GET'])
-# def api_get_solicitacao(id_solicitacao):
-#     saibamais=Solicitacao()
-#     encaminha=saibamais.recebimento_solicitacao(id_solicitacao=id_solicitacao)
-#     # Modificar a lista de produtos para incluir os trailers
-    
-#     return jsonify(encaminha),200
 
 @app.route("/RF005")
 def pg_encaminhar_solicitacao():
