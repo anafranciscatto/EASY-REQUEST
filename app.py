@@ -161,7 +161,7 @@ def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
         mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas")
     else:
         mycursor.execute(f"SELECT id_sala, nome_sala FROM tb_salas WHERE bloco = '{bloco}'")
-    
+
     sala = mycursor.fetchall()
 
     return jsonify(sala), 200
@@ -189,6 +189,9 @@ def pg_ver_solicitacao(rowid):
 @app.route("/RF005")
 def pg_encaminhar_solicitacao():
     return render_template("RF005-encamSolic.html")
+
+
+
 
 @app.route("/RF006")
 def pg_manutencao():
