@@ -54,21 +54,23 @@ CREATE TABLE tb_solicitacoes (
 );
 
 #Criar a tabela que armazena os serviços a serem realizados pelos técnicos
-CREATE TABLE tb_manutencao (
- id_manutencao INT PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE tb_encaminhamento (
+ id_encaminhamento INT PRIMARY KEY AUTO_INCREMENT,
  CPF_funcionario VARCHAR(14) NOT NULL,
  id_solicitacao INT NOT NULL,
  urgencia VARCHAR(5) NOT NULL,
  status VARCHAR(12) NOT NULL,
- CONSTRAINT FK_tb_manutencao_funcionario FOREIGN KEY (CPF_funcionario) REFERENCES tb_funcionarios (CPF_funcionario),
- CONSTRAINT FK_tb_manutencao_solicitacao FOREIGN KEY (id_solicitacao) REFERENCES tb_solicitacoes (id_solicitacao)
+ status_final VARCHAR(255),
+ adendo VARCHAR(2048),
+ CONSTRAINT FK_tb_encaminhamento_funcionario FOREIGN KEY (CPF_funcionario) REFERENCES tb_funcionarios (CPF_funcionario),
+ CONSTRAINT FK_tb_encaminhamento_solicitacao FOREIGN KEY (id_solicitacao) REFERENCES tb_solicitacoes (id_solicitacao)
 );
 
 #Criar a tabela que armazena as Ordens de Serviço
 CREATE TABLE tb_ordens_de_servico (
  id_os INT PRIMARY KEY AUTO_INCREMENT,
- id_manutencao INT NOT NULL,
- CONSTRAINT FK_tb_os_manutencao FOREIGN KEY (id_manutencao) REFERENCES tb_manutencao (id_manutencao)
+ id_encaminhamento INT NOT NULL,
+ CONSTRAINT FK_tb_os_encaminhamento FOREIGN KEY (id_encaminhamento) REFERENCES tb_encaminhamento (id_encaminhamento)
 );
 
 INSERT INTO tb_funcoes (nome) VALUES ("Técnico de Manutenção"), ("Instrutor"), ("Secretaria"), ("OPP"), ("Coordenador"), ("Diretor"), ("Outros");
@@ -79,3 +81,4 @@ SELECT * FROM tb_funcionarios;
 SELECT * FROM tb_solicitacoes;
 SELECT * FROM tb_servicos;
 SELECT * FROM tb_salas;
+SELECT * FROM tb_encaminhamento;
