@@ -1,0 +1,35 @@
+header{
+    width: 100vw;
+    height: 20vh;
+
+}
+
+
+/* Estilização da area "Serviço de Hoje" */
+main{
+    width: 100vw;
+    height: 70vh;
+    background-color: var(--color06);
+    border-top-left-radius: 5rem;  
+    border-top-right-radius: 5rem; 
+}
+
+h1{
+    color: var(--color01);
+    display: flex;
+    margin-left: 3rem;
+    padding-top: 2rem;
+}
+
+h1 p{
+    color:var(--color03);
+    margin-left: 0.5rem;
+  
+}
+
+hr{
+    color: var(--color01);
+    margin: 0rem 3rem 0rem 3rem;
+}
+
+/* Estilização "serviço a ser feito" */
