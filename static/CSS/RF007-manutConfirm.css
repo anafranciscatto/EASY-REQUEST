@@ -1,6 +1,7 @@
 /* Estilo do Cabeçalho */
-.cabecalho {
-    width: 100vw;
+.cabecalho,
+.principal__container {
+    width: 100%;
 }
 
 /* Container do Botão Voltar */
@@ -26,7 +27,6 @@
     margin-right: 0.5rem;
 }
 
-/* Mudança de cor do botão ao passar o cursor por cima */
 .cabecalho__botao-voltar:hover {
     background-color: var(--color02);
     color: var(--color01);
@@ -61,7 +61,7 @@
     border-radius: 5rem;
 }
 
-/* Container principal */
+/* Container principal  main*/
 .principal__container {
     width: 100vw;
     height: auto;
@@ -75,7 +75,6 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-evenly; */
 }
 
 /* Título principal */
@@ -108,7 +107,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding-left: 1rem;
 }
 
 .formulario-finalizar__input {
@@ -153,14 +151,39 @@
     background-color: var(--color03);
 }
 
-/* Media Query para telas (acima de 1200px) */
-@media (min-width: 1200px) {
+ input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 2rem; 
+    height: 2rem; 
+    border: 2px solid var(--color01); 
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+  }
+    input[type="radio"]:checked {
+        background-color: var(--color05);
+        border: 2px solid var(--color05);
+    }
+
+@media (min-width: 768px) {
+    html {
+        font-size: 72.5%; 
+        
+    }
     .formulario-finalizar  {
         width: 100%;
         padding: 1.5rem;
         display: flex;
         gap: 1.5rem;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .formulario-finalizar__texto {
+        color: var(--color01);
+        font-size: 1.6rem;
+        padding: 1.1rem;
     }
 }
