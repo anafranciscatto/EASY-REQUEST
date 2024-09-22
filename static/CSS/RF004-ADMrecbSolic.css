@@ -1,11 +1,6 @@
 /* Importação de fonte */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Aplicação da fonte Montserrat para inputs e selects */
-input, select {
-    font-family: "Montserrat", sans-serif;
-}
-
 /* Estilo do Header */
 .header {
     width: 100vw; 
