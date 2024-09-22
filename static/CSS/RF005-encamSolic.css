@@ -84,7 +84,7 @@ main{
   position: relative;
 }
 
-.caixa-option {
+.caixa-opcao {
     padding: 8px;
     margin: 1rem 3rem 2rem 3rem;
     cursor: pointer;
@@ -99,21 +99,21 @@ main{
     
     
 }
-.caixa-option img{
+.caixa-opcao img{
   width: auto;
   height: 7rem;
   padding: 0.5rem;
   border-radius: 100%;
 }
 
-.option_user{
+.opcao_user{
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
 }
-.option_user p{
+.opcao_user p{
   background-color: var(--color05);
   text-align: center;
   margin-bottom: 0.5rem;
@@ -123,11 +123,11 @@ main{
 }
 
 /* Transição do select */
-.option{
+.opcao{
   transition-duration: 0.2s;
 }
 
-.option.selected {
+.opcao.selected {
     border: 2px solid var(--color03);
     box-shadow: none;
   }
@@ -178,14 +178,17 @@ main{
 
 }
 
-.urgency{
+.opcaoUrgencia{
     padding: 1rem;
     border: solid 2px var(--color01);
     border-radius: 1rem;
+    transition-duration: 0.2s;
 }
 
-.urgency.selected{
+.opcaoUrgencia.selected{
   color: var(--color03);
+  border: solid 2px var(--color03);
+
 }
 
 /* Estilo do botão 'Enviar Solicitação' */
