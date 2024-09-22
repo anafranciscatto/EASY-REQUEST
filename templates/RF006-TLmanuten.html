@@ -12,6 +12,8 @@
          <link rel="stylesheet" href="/static/CSS/RF006-TLmanuten.css">
          <!-- Link Arquivo JS -->
          <script defer src="/static/JS/RF006-TLmanuten.js"></script>
+         <!-- Link para os ICONS -->
+        <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
 
     </head>
     <body>
@@ -35,8 +37,39 @@
             </section>
         </header>
         <main>
+            <!-- Serviços a serem feitos no dia -->
             <h1>Serviço de <p>hoje</p></h1>
-            section.container-
+            <hr/>
+            <section class="container-servico">
+            <!-- Serviço á ser feito -->
+                <div class="servico">
+                    <div class="servico_hora-local">
+                        <p class="hora">13h35</p>
+                        <p class="local">Bloco A | Sala 01</p>
+                   </div>
+                   <div class="servico_urgencia">
+                        <p class="urgencia">Urgencia</p>
+                        <i class="fa-solid fa-arrow-right"></i>
+                   </div>
+                </div>
+            </section>
+
+            <!-- Serviços encaminhados -->
+             <section class="container-servico-encaminhado">
+                <div class="servico-encaminhado">
+                    <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
+                    <p class="servico-encaminhado-local">Bloco B | Sala 09</p>
+                </div>
+             </section>
         </main>
+
+        <!-- Rodape -->
+        <footer>
+            <section class="container-footer">
+                <h2>Quer fazer uma Solicitação?</h2>
+                <p>Solicite com o botão abaixo!</p>
+                <button class="btn-fazer-solicitacao">Fazer Solicitação</button>
+            </section>
+        </footer>
     </body>
 </html>
