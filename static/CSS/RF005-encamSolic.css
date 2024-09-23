@@ -54,7 +54,7 @@ nav{
   align-items: center;
 }
 
-nav button{
+.container-header_btn-voltar{
   margin: 1rem;
   padding: 0.5rem;
   width: 10rem;
@@ -66,11 +66,11 @@ nav button{
   color: var(--color02);
 }
 
-nav button i{
+.container-header_btn-voltar i{
   margin-right: 0.5rem;
 }
 
-nav button:hover{
+.container-header_btn-voltar:hover{
   border-color: none;
   background-color: var(--color02);
   color: var(--color01);
@@ -192,10 +192,18 @@ main{
 }
 
 /* Estilo do botão 'Enviar Solicitação' */
-.btn-enviar{
+.container_btn-enviar{
   text-align: center;
 }
-button{
+
+.btn-enviar{
+  background: none;
+  border: none;
+  margin: 3rem 10rem 0rem 10rem;
+}
+
+.btn-enviar a{
+    text-decoration: none;
     width: 20rem;
     padding: 0.9rem;
     text-align: center;
@@ -205,13 +213,13 @@ button{
     cursor: pointer;
     background-color: var(--color03); 
     color: var(--color01); 
-    margin: 1rem 10rem 0rem 10rem;
+    
     transition-duration: 0.2s;
 }
 
-button:hover{
+.btn-enviar a:hover{
       background: none;
-      border: none;
+      border: 2px solid var(--color03);
       color: var(--color03);
 }
 
@@ -222,7 +230,7 @@ button:hover{
     padding: 0.4rem 0.5rem 0.4rem 0.5rem;
     
   }  
-  .urgency{
+  .opcaoUrgencia{
    font-size: 1.2rem;
     }
 }
