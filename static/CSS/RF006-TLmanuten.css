@@ -91,8 +91,11 @@ hr{
 /* Estilização "serviço a ser feito" */
 
 .container-servico{
-    margin: 2rem 1rem 0rem 1rem;
+    margin: 1rem 1rem 0rem 1rem;
     height: 45%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     
 }
 
