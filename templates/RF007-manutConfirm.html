@@ -2,14 +2,20 @@
 <html lang="pt-br">
 
 <head>
+    <!-- Definindo a codificação de caracteres e a responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link para o CSS Global -->
     <link rel="stylesheet" href="/static/CSS/global.css">
+    <!-- Link para o CSS específico desta página -->
     <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    
+    <!-- Título da página -->
     <title>Finalizar Tarefa</title>
 </head>
 <body>
-    <!-- Cabeçalho com informações do usuário -->
+    <!-- Cabeçalho com informações do usuário e botão de voltar -->
     <header class="cabecalho">
         <div class="cabecalho__botao-container">
             <button class="cabecalho__botao-voltar" href=''>
@@ -17,7 +23,7 @@
             </button>
         </div>
 
-        <!-- Informações do usuário logado -->
+        <!-- Seção com os detalhes do usuário logado -->
         <section class="cabecalho__info-usuario">
             <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil de Claudio Silva" class="cabecalho__imagem-usuario">
             <div class="cabecalho__detalhes-usuario">
@@ -27,33 +33,42 @@
         </section>
     </header>
 
-    <!-- Conteúdo principal -->
+    <!-- Conteúdo principal da página -->
     <main class="principal">
         <div class="principal__container">
+            <!-- Título da seção principal -->
             <p class="principal__titulo">Confirmar finalização de serviço</p>
+            
+            <!-- Formulário de finalização de tarefa -->
             <form class="formulario-finalizar">
+                <!-- Opções de finalização da tarefa -->
                 <div class="formulario-finalizar__opcoes">
                     <p class="formulario-finalizar__titulo">Escolha uma das opções:</p>
 
+                    <!-- Opção: Não foi possível realizar a tarefa -->
                     <label class="formulario-finalizar__opcao">
                         <input type="radio" name="opcao" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Não foi possível realizar a tarefa</span>
                     </label>
 
+                    <!-- Opção: Foi realizado, mas necessita de outros cuidados -->
                     <label class="formulario-finalizar__opcao">
                         <input type="radio" name="opcao" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Foi realizado mas necessita de outros cuidados</span>
                     </label>
 
+                    <!-- Opção: Tarefa foi totalmente realizada -->
                     <label class="formulario-finalizar__opcao">
                         <input type="radio" name="opcao" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Tarefa foi totalmente realizada</span>
                     </label>
                 </div>
 
+                <!-- Caixa de texto para informações adicionais -->
                 <div class="formulario-finalizar__caixa-texto">
                     <p class="formulario-finalizar__titulo">Inserir informações adicionais (caso houver):</p>
                     <textarea class="formulario-finalizar__comentarios" placeholder="Digite aqui"></textarea>
+                    <!-- Botão para finalizar a tarefa -->
                     <button type="submit" class="formulario-finalizar__botao">Finalizar tarefa</button>
                 </div>
             </form>
