@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden; 
+}
 header{
     width: 100vw;
     height: 18vh;    
@@ -63,8 +66,8 @@ header{
 
 /* Estilização da area "Serviço de Hoje" */
 main{
-    width: 100vw;
-    height: 70vh;
+    width: 100%;
+    height: 100vh;
     background-color: var(--color06);
     border-top-left-radius: 5rem;  
     border-top-right-radius: 5rem; 
@@ -75,6 +78,8 @@ h1{
     display: flex;
     margin-left: 3rem;
     padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
 }
 
 h1 p{
@@ -138,8 +143,8 @@ hr{
 /* Estilo serviços encaminhados */
 
 .container-servico-encaminhado{
-    height: 45%;
-    margin:2rem 1rem 0rem 1rem;
+    height:auto;
+    margin:3rem 1.5rem 0rem 1rem;
 }
 
 .container-servico-encaminhado h2{
@@ -147,9 +152,12 @@ hr{
     color: var(--color01);
 }
 
-.container-encaminhamento{
-    display: flex;
-    height: 100%;
+/* Para telas normais (padrão) */
+.container-encaminhamento {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr; /* Uma coluna */
+    gap: 1rem; /* Espaço entre os itens */
 }
 
 .servico-encaminhado{
@@ -169,7 +177,7 @@ hr{
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
-    padding-top: 2rem;
+    padding-top: 4rem;
 
 }
 
@@ -194,16 +202,13 @@ hr{
 
 /* Estilização rodapé "Fazer solicitação"*/
 
-.container-footer{
-    width: 100vw;
-    height: 12vh;
-    background-color: var(--color06);
+.container-solicitacao{
     color: var(--color01);
     text-align: center;
     
 }
 
-.container-footer p{
+.container-solicitacao p{
     padding: 0.5rem;
 }
 
@@ -223,3 +228,50 @@ hr{
     background: var(--color03);
     color: var(--color01);
 }
+/* Para telas normais (padrão) */
+.container-encaminhamento {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr; 
+    grid-auto-rows: auto; 
+    gap: 1rem; 
+    padding: 1rem; 
+}
+
+.servico-encaminhado {
+    width: 100%; 
+    height: auto; 
+    padding: 1rem; 
+    box-sizing: border-box; 
+}
+/* -------------------------RESPONSIVIDADE----------------------- */
+/* Estilos para telas maiores */
+@media (min-width:1000px) {
+    main {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container-servico {
+        width: 50%;
+    }
+    .container-servico-encaminhado  {
+        width: 50%;
+    }
+    .container-solicitacao{
+        width: auto;
+        text-align: center;
+        
+    }
+    .container-encaminhamento {
+        grid-template-columns: 1fr 1fr; 
+        gap: 2rem; 
+    }
+    .container-encaminhamento {
+        grid-template-columns: 1fr 1fr; 
+        grid-auto-rows: minmax(150px, auto); 
+        gap: 2rem; 
+        padding: 1rem; 
+    }
+}
+
