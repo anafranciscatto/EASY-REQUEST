@@ -16,6 +16,8 @@
         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
         <!-- link Arquivo JS função data -->
          <script defer src="/static/JS/funcao-data.js"></script>
+         <!-- Link para o Ajax -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     </head>
     <body>
@@ -38,22 +40,8 @@
         </nav>
         <main>
             <section class="container-main">
-                    <div value="form_select-user" id="form_select-user" name="form_select-user" data-name="Heitor Lima" data-cargo="Pintor">
+                    <div value="form_select-user" id="form_select-user" name="form_select-user">
                         
-                        <div class="opcao caixa-opcao">
-                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                            <p class="status_disponivel">Disponível</p>
-                            <p class="status_n-disponivel">Não Disponível</p>
-                        </div>
-
-                        <div class="opcao caixa-opcao">
-                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                            <p class="status_disponivel">Disponível</p>
-                            <p class="status_n-disponivel">Não Disponível</p>
-                        </div>
-
                         <div class="opcao caixa-opcao">
                             <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
                             <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
@@ -73,9 +61,9 @@
                     <div class="form_btn-emergencia">
                         <div class="form_btn-emergencia__titulo">Prioridade:</div>
                         <div class="botoes">
-                            <div class="opcaoUrgencia" data-urgency="baixa">Baixa Urgência</div>
-                            <div class="opcaoUrgencia" data-urgency="media">Média Urgência</div>
-                            <div class="opcaoUrgencia" data-urgency="alta">Alta Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="baixa" id="baixa">Baixa Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="media" id="media">Média Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="alta" id="alta">Alta Urgência</div>
                         </div>
                         <div class="container_btn-enviar">
                             <button class="btn-enviar" type="submit"><a  href="realizar-encaminhamento/{{campo_id_solicitacao}}">Enviar Solicitação</a></button>
