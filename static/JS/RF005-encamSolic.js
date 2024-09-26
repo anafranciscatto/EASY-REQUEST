@@ -74,3 +74,5 @@ function selecaoFuncionario(){
     }
 });
 }
+
+selecaoFuncionario();

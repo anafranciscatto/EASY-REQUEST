@@ -1,0 +1,113 @@
+.cabecalho {
+    text-align: center;
+    padding: 2rem 2rem 3rem 2rem;
+    background-color: var(--color06);
+    color: var(--color01);
+    border-bottom-left-radius: 2rem;  
+    border-bottom-right-radius: 2rem;  
+}
+
+.cabecalho__titulo {
+    font-size: 2.4rem;
+    margin: 0;
+}
+
+.cabecalho__pesquisa {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.cabecalho__input {
+    padding: 1rem;
+    border: none;
+    border-radius: 0.4rem 0 0 0.4rem;
+    width: 70%;
+}
+
+.cabecalho__botao {
+    background-color: var(--color01);
+    border: none;
+    padding: 1rem;
+    border-radius: 0 0.4rem 0.4rem 0;
+    cursor: pointer;
+}
+
+.cabecalho__icone {
+    width: 2rem;
+}
+
+.conteudo {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    grid-template-columns: 1fr;
+}
+
+.conteudo__card {
+    display: flex;
+    background-color: var(--color04);
+    border-radius: 1rem;
+    padding: 1rem;
+    color: var(--color06);
+}
+
+.conteudo__imagem {
+    border-radius: 50%;
+    width: 8rem;
+    height: 8rem;
+    margin-right: 1rem;
+}
+
+.conteudo__informacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.conteudo__nome {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.conteudo__profissao {
+    background-color: var(--color05);
+    padding: 0.7rem 0.8rem;
+    border-radius: 0.4rem;
+    color: var(--color01);
+    font-size: 1.2rem;
+    margin-left: 0.5rem;
+}
+
+.conteudo__descricao {
+    font-size: 1.7rem;
+    margin: 1rem 0;
+}
+
+.conteudo__datas {
+    font-size: 1.6rem;
+}
+
+.conteudo__botao {
+    width: 100%;
+    background-color: var(--color03);
+    border: none;
+    padding: 0.5rem 2rem;
+    color: var(--color06);
+    cursor: pointer;
+    border-radius: 0.4rem;
+    align-self: flex-start;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+    .conteudo {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 900px) {
+    .conteudo {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

@@ -31,3 +31,15 @@ class Encaminhamento:
             return True
         except:
             return False
+
+    def mostra_funcionarios(self):
+
+        myBD = Connection.conectar()
+
+        mycursor = myBD.cursor()
+
+        mycursor.execute(f"SELECT fn.nome, f.nome from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao;") 
+
+        mostra_funcionarios = mycursor.fetchall()
+
+        return mostra_funcionarios
