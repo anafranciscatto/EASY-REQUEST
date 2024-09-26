@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Definindo a codificação de caracteres e a responsividade -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link para o CSS global e o CSS específico desta página -->
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF008-fimchamado.css">
+    <!-- Biblioteca de ícones Font Awesome -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+    
+    <!-- Título da página -->
     <title>Finalizar Chamado</title>
 </head>
 <body>
+    <!-- Cabeçalho da página -->
     <header class="cabecalho">
         <div class="cabecalho__container">
+            <!-- Botão para voltar à página anterior -->
             <button class="cabecalho__botao cabecalho__botao--voltar" onclick="window.history.back();">
                 <i class="fa-solid fa-arrow-left"></i> Voltar
             </button>
         </div>
     </header>
+
+    <!-- Conteúdo principal da página -->
     <main class="conteudo-principal">
+        <!-- Título principal e subtítulo da seção -->
         <h2 class="conteudo-principal__titulo">Finalizar Chamado</h2>
-        <h4 class="conteudo-principal__subtitulo">Finalize os chamados que ja foram concluidos</h4>
+        <h4 class="conteudo-principal__subtitulo">Finalize os chamados que já foram concluídos</h4>
+        
         <!-- Barra de Filtro -->
         <div class="filtro">
+            <!-- Filtro por status do chamado -->
             <label for="status" class="filtro__label">Filtrar por status:</label>
             <select id="status" class="filtro__select">
                 <option value="todos">Todos</option>
@@ -29,6 +41,7 @@
                 <option value="concluido">Concluído</option>
             </select>
             
+            <!-- Filtro por tipo de chamado -->
             <label for="tipo" class="filtro__label">Filtrar por tipo:</label>
             <select id="tipo" class="filtro__select">
                 <option value="todos">Todos</option>
@@ -37,21 +50,27 @@
                 <option value="outros">Outros</option>
             </select>
         </div>
+
+        <!-- Galeria de chamados -->
         <div class="galeria">
             <article class="galeria__item">
+                <!-- Seção superior do item da galeria com imagem de perfil e informações do chamado -->
                 <div class="galeria__topo">
                     <img class="galeria__imagem-perfil" src="https://miro.medium.com/v2/resize:fit:1200/1*g09N-jl7JtVjVZGcd-vL2g.jpeg" alt="Foto de perfil do responsável pelo chamado" width="100">
                     <div class="galeria__info">
                         <div class="galeria__status" aria-label="Status do chamado"><p>STATUS</p></div>
                         <div class="galeria__tipo" aria-label="Tipo de chamado"><p>TIPO</p></div>
-                        <div class="galeria__localizacao" aria-label="Localização do chamado"><P>Aonde está</P></div>
+                        <div class="galeria__localizacao" aria-label="Localização do chamado"><p>Aonde está</p></div>
                     </div>
                 </div>
+
+                <!-- Descrição do chamado -->
                 <div class="galeria__descricao" aria-label="Descrição do chamado"><p>Descrição do chamado</p></div>
+                
+                <!-- Botões para encerrar o chamado e ver mais detalhes -->
                 <button class="galeria__botao-encerrar" aria-label="Botão para encerrar o chamado"><p>Encerrar chamado</p></button>
-                <button class="galeria__botao-Mais " aria-label="Botão para encerrar o chamado"><p>Mais</p></button>
+                <button class="galeria__botao-Mais" aria-label="Botão para ver mais detalhes do chamado"><p>Mais</p></button>
             </article>  
-          
         </div>
     </main>
 </body>
