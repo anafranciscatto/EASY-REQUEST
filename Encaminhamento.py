@@ -10,6 +10,7 @@ class Encaminhamento:
         self.status = None
         self.status_final = None
         self.adendo = None
+
     def realizar_encaminhamento(self, id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo):
         try:
             myBD = Connection.conectar()
@@ -30,16 +31,15 @@ class Encaminhamento:
             return True
         except:
             return False
-    
+
     def mostra_funcionarios(self):
 
         myBD = Connection.conectar()
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT fn.nome, f.nome from tb_funcionarios f, tb_funcoes fn WHERE fn.id_funcao = f.id_funcao;")
+        mycursor.execute(f"SELECT fn.nome, f.nome from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao;") 
 
-        mycursor.execute(mycursor)
         mostra_funcionarios = mycursor.fetchall()
 
         return mostra_funcionarios

@@ -209,7 +209,7 @@ def realizar_encaminhamento(id_solicitacao):
 @app.route("/RF005-retorna-funcionarios")
 def retorna_funcionarios():
     encaminhamento = Encaminhamento()
-    retorna_funcionario = encaminhamento.mostra_funcionario()
+    retorna_funcionario = encaminhamento.mostra_funcionarios()
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
 
