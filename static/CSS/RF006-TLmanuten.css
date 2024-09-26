@@ -92,7 +92,7 @@ hr{
 
 .container-servico{
     margin: 2rem 1rem 0rem 1rem;
-    height: 50%;
+    height: 45%;
     
 }
 
@@ -137,7 +137,60 @@ hr{
 
 /* Estilo serviços encaminhados */
 
+.container-servico-encaminhado{
+    height: 45%;
+    margin:2rem 1rem 0rem 1rem;
+}
 
+.container-servico-encaminhado h2{
+    font-size: 2rem;
+    color: var(--color01);
+}
+
+.container-encaminhamento{
+    display: flex;
+    height: 100%;
+}
+
+.servico-encaminhado{
+    background-color: var(--color01);
+    height: 46%;
+    width: 45%;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+   
+}
+
+.servico-encaminhado-local{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 2rem;
+
+}
+
+.servico-encaminhado-data{
+    background-color: var(--color04);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    padding: 1rem 3rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem ;
+    box-shadow: 2px 2px 8px var(--color02);
+    
+}
+
+.servico-encaminhado-dia-semana{
+    font-weight: bold;
+}
 
 /* Estilização rodapé "Fazer solicitação"*/
 
