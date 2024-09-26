@@ -96,9 +96,16 @@ main{
     border: none;
     border-radius: 5rem;
     box-shadow:  5px 8px 18px var(--color02);
-    
+    transition-duration: 0.2s;
     
 }
+
+/* Transição do select */
+.caixa-opcao.selected {
+  border: 2px solid var(--color03);
+  box-shadow: none;
+}
+
 .caixa-opcao img{
   width: auto;
   height: 7rem;
@@ -122,15 +129,7 @@ main{
   font-weight: 600;
 }
 
-/* Transição do select */
-.opcao{
-  transition-duration: 0.2s;
-}
 
-.opcao.selected {
-    border: 2px solid var(--color03);
-    box-shadow: none;
-  }
 
 .status_disponivel{
   padding: 0.5rem 1rem 0.5rem 1rem;
