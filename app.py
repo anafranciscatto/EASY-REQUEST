@@ -181,14 +181,29 @@ def pg_ADM_recebe_solicitacao():
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
      saibamais=Solicitacao()
-     encaminha = saibamais.recebimento_solicitacao(id_solicitacao=rowid)
+     detalhes = saibamais.recebimento_solicitacao(id_solicitacao=rowid)
 
-     print(encaminha)
+     print(detalhes)
 
-     return render_template("RF004A-detlSolic.html", campo_sala = encaminha[2], campo_servico = encaminha[1], campo_nome_solicitante = encaminha[4], campo_funcao_solicitante = encaminha[5], campo_descricao = encaminha[3])
+     return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0])
 
-@app.route("/RF005")
-def pg_encaminhar_solicitacao():
+@app.route("/RF005/<id_solicitacao>")
+def pg_encaminhar_solicitacao(id_solicitacao):
+    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
+
+@app.route("/realizar-encaminhamento/<id_solicitacao>")
+def realizar_encaminhamento(id_solicitacao):
+    dados = request.get_json()
+    CPF_funcionario = dados["CPF_funcionario"]
+    prioridade = dados["prioridade"]
+    status = dados["status"]
+    status_final = dados["status_final"]
+    adendo = dados["adendo"]
+
+    encaminhamento = Encaminhamento()
+
+    encaminhamento.realizar_encaminhamento(id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo)
+
     return render_template("RF005-encamSolic.html")
 
 @app.route("/RF005-retorna-funcionarios")

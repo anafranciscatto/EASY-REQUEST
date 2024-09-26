@@ -14,6 +14,8 @@
         <script defer src="/static/JS/RF005-encamSolic.js"></script>
         <!-- Link para os ICONS -->
         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+        <!-- link Arquivo JS função data -->
+         <script defer src="/static/JS/funcao-data.js"></script>
 
     </head>
     <body>
@@ -27,7 +29,7 @@
             </section>
             <section class="container-header-data">
                 <div class="data">
-                    <p class="dia-semana">Qui</p><p class="dia">10</p><p class="mes">Set</p>
+                    <p class="dia-semana" id="dia-semana">Qui</p><p class="dia" id="dia">10</p><p class="mes" id="mes">Set</p>
                 </div>
             </section>
         </header>
@@ -36,48 +38,32 @@
         </nav>
         <main>
             <section class="container-main">
-                <form action="" method="POST">
-
                     <div value="form_select-user" id="form_select-user" name="form_select-user" data-name="Heitor Lima" data-cargo="Pintor">
                         
-                        <div class="option caixa-option">
+                        <div class="opcao caixa-opcao">
                             <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>
                         </div>
 
-                        <div class="option caixa-option">
+                        <div class="opcao caixa-opcao">
                             <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>
                         </div>
 
-                        <div class="option caixa-option">
+                        <div class="opcao caixa-opcao">
                             <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>
                         </div>
 
-                        <div class="option caixa-option">
+                        <div class="opcao caixa-opcao">
                             <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
-                            <p class="status_disponivel">Disponível</p>
-                            <p class="status_n-disponivel">Não Disponível</p>
-                        </div>
-
-                        <div class="option caixa-option">
-                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
-                            <p class="status_disponivel">Disponível</p>
-                            <p class="status_n-disponivel">Não Disponível</p>
-                        </div>
-
-                        <div class="option caixa-option">
-                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="option_user"><p>Pintor</p>Heitor Lima </div>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>
                         </div>
@@ -87,16 +73,15 @@
                     <div class="form_btn-emergencia">
                         <div class="form_btn-emergencia__titulo">Prioridade:</div>
                         <div class="botoes">
-                            <div class="option urgency" data-urgency="baixa">Baixa Urgência</div>
-                            <div class="option urgency" data-urgency="media">Média Urgência</div>
-                            <div class="option urgency" data-urgency="alta">Alta Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="baixa">Baixa Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="media">Média Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="alta">Alta Urgência</div>
                         </div>
-                        <div class="btn-enviar">
-                            <button href="/" type="submit">Enviar Solicitação</button>
+                        <div class="container_btn-enviar">
+                            <button class="btn-enviar" type="submit"><a  href="realizar-encaminhamento/{{campo_id_solicitacao}}">Enviar Solicitação</a></button>
                         </div>
                     </div>
 
-                </form>
             </section>
         </main>        
     </body>

@@ -1,18 +1,30 @@
-const options = document.querySelectorAll('.option');
-const urgencyOptions = document.querySelectorAll('.urgency');
-let selectedOptions = [];
-let selectedUrgency = null;
 
-options.forEach(option => {
-  option.addEventListener('click', () => {
-    // Adiciona ou remove a classe 'selected' dependendo do estado atual
-    option.classList.toggle('selected');
+const opcao = document.querySelectorAll('.opcao');
+const opcaoUrgencia  = document.querySelectorAll('.opcaoUrgencia');
 
-    // Adiciona ou remove a opção do array de opções selecionadas
-    if (option.classList.contains('selected')) {
-      selectedOptions.push(option);
-    } else {
-      selectedOptions = selectedOptions.filter(opt => opt !== option);
-    }
+let selecionaOpcao = '';
+let selecionaUrgencia = '';
+
+
+function selecaoFuncionario(){
+  // seleção dos funcionários
+  opcao.forEach(opcao => {
+    opcao.addEventListener('change', () => {
+     
+      for(const option of opcao.options)
+
+    });
   });
-});
+
+    //seleção da urgencia
+  opcaoUrgencia.forEach(opcaoUrgencia =>{
+    opcaoUrgencia.addEventListener('click', () =>{  
+      
+      
+    })
+  });
+}
+
+// Executando todas as funções
+selecaoFuncionario();
+

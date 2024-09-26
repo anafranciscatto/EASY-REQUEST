@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
-      <!-- Link para o CSS global -->
     <link rel="stylesheet" href="/static/CSS/global.css">
-     <!-- Link para os ICONS -->
-     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
-
-    <script src="/static/JS/RF007-manutConfirm.js"></script>
-
-    <title></title>
+    <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    <title>Finalizar Tarefa</title>
 </head>
 <body>
+    <!-- Cabeçalho com informações do usuário -->
+    <header class="cabecalho">
+        <div class="cabecalho__botao-container">
+            <button class="cabecalho__botao-voltar" href=''>
+                <i class="fa-solid fa-arrow-left"></i>Voltar
+            </button>
+        </div>
 
-    <main>
+        <!-- Informações do usuário logado -->
+        <section class="cabecalho__info-usuario">
+            <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil de Claudio Silva" class="cabecalho__imagem-usuario">
+            <div class="cabecalho__detalhes-usuario">
+                <h2 class="cabecalho__nome-usuario">João Vitor</h2>
+                <p class="cabecalho__cargo-usuario">Chefe de manutenção</p>
+            </div>
+        </section>
+    </header>
 
-        <nav>
-            <div class="container-nav">
-                <div class="usuario">
-                    <h4>Administrador</h4><img src="https://i.pinimg.com/564x/d9/d8/8e/d9d88e3d1f74e2b8ced3df051cecb81d.jpg" alt="" class="usuario__imagem">
+    <!-- Conteúdo principal -->
+    <main class="principal">
+        <div class="principal__container">
+            <p class="principal__titulo">Confirmar finalização de serviço</p>
+            <form class="formulario-finalizar">
+                <div class="formulario-finalizar__opcoes">
+                    <p class="formulario-finalizar__titulo">Escolha uma das opções:</p>
+
+                    <label class="formulario-finalizar__opcao">
+                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <span class="formulario-finalizar__texto">Não foi possível realizar a tarefa</span>
+                    </label>
+
+                    <label class="formulario-finalizar__opcao">
+                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <span class="formulario-finalizar__texto">Foi realizado mas necessita de outros cuidados</span>
+                    </label>
+
+                    <label class="formulario-finalizar__opcao">
+                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <span class="formulario-finalizar__texto">Tarefa foi totalmente realizada</span>
+                    </label>
                 </div>
-          
-                <div class="botaoVoltar">
-                    <button><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div class="formulario-finalizar__caixa-texto">
+                    <p class="formulario-finalizar__titulo">Inserir informações adicionais (caso houver):</p>
+                    <textarea class="formulario-finalizar__comentarios" placeholder="Digite aqui"></textarea>
+                    <button type="submit" class="formulario-finalizar__botao">Finalizar tarefa</button>
                 </div>
-            </div>
-        </nav>
-    
-
-
-        <div class="container-main">
-            <h3 class="texto-confirmar">Confirmar finalização de serviço</h3>
-
-            <div class="container__situacao-tarefa">
-                <p><strong>Escolha uma das opções:</strong></p>
-                <div id="opcoes" class="opcoes">
-                    <label for="naoFoiPossivel"><input type="radio" name="escolhaFinalizacao" id="naoFoiPossivel" value="opcao01" class="opcoes-input">  Não foi possível realizar a tarefa.</label><br>
-                    <label for="necessitaOutrosCuidados"><input type="radio" name="escolhaFinalizacao" id="necessitaOutrosCuidados" value="opcao02" class="opcoes-input">  Foi realizado mas necessita de outros cuidados.</label><br>
-                    <label for="totalmenteRealizada"><input type="radio" name="escolhaFinalizacao" id="totalmenteRealizada" value="opcao03" class="opcoes-input">  Tarefa foi totalmente realizada.</label><br>
-                </div>
-            </div>
-
-      
-            <div class="container__caixa-de-texto">
-                <h3 class="texto-infoAdici">Inserir informações adicionais (caso houver)</h3>
-                <textarea id="texto" class="caixa-texto" placeholder="Digite aqui"></textarea><br>
-            </div>
-
-            <div  class="container__botao-finalizar">
-                <button onclick="enviarTexto()">Finalizar tarefa</button>
-            </div>
-
+            </form>
         </div>
     </main>
-
-    <footer>
-    </footer>
-
 </body>
 </html>
