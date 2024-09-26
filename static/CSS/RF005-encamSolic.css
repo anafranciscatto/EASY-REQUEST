@@ -196,12 +196,21 @@ main{
 }
 
 .btn-enviar{
-  background: none;
-  border: none;
-  margin: 3rem 10rem 0rem 10rem;
+    background-color: var(--color03); 
+    color: var(--color01); 
+    width: 20rem;
+    padding: 0.9rem;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 3rem 10rem 0rem 10rem;
+    transition-duration: 0.2s;
 }
 
-.btn-enviar a{
+/* .btn-enviar a{
     text-decoration: none;
     width: 20rem;
     padding: 0.9rem;
@@ -212,9 +221,8 @@ main{
     cursor: pointer;
     background-color: var(--color03); 
     color: var(--color01); 
-    
     transition-duration: 0.2s;
-}
+} */
 
 .btn-enviar a:hover{
       background: none;

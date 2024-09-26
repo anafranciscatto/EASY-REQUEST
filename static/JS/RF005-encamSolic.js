@@ -1,48 +1,6 @@
-// const opcao = document.querySelectorAll('.opcao');
-// const urgencyOptions = document.querySelectorAll('.urgency');
-// let selectedOptions = [];
-// let selectedUrgency = null;
-
-// opcao.forEach(opcao => {
-//   opcao.addEventListener('click', () => {
-//     // Adiciona ou remove a classe 'selected' dependendo do estado atual
-//     opcao.classList.toggle('selected');
-
-//     // Adiciona ou remove a opção do array de opções selecionadas
-//     if (opcao.classList.contains('selected')) {
-//       selectedOptions.push(opcao);
-//     } else {
-//       selectedOptions = selectedOptions.filter(opt => opt !== opcao);
-//     }
-//   });
-// });
-
-// console.log(selectedOptions)
-
-// // function selecaoFuncionario(){
-// //   // seleção dos funcionários
-// //   opcao.forEach(opcao => {
-// //     opcao.addEventListener('change', () => {
-     
-// //       for(const option of opcao.options)
-
-// //     });
-// //   });
-
-// //     //seleção da urgencia
-// //   opcaoUrgencia.forEach(opcaoUrgencia =>{
-// //     opcaoUrgencia.addEventListener('click', () =>{  
-      
-      
-// //     })
-// //   });
-// // }
-
-// // // Executando todas as funções
-// // selecaoFuncionario();
-
 const divFuncionarios = document.getElementById('form_select-user');
 var funcionarioSelecionado;
+var prioridadeSelecionada;
 
 function mostraFuncionarios(){
   $.ajax({
@@ -57,15 +15,11 @@ function mostraFuncionarios(){
           div.className = 'caixa-opcao';
           div.id = `${retorna_funcionarios[x][2]}`
           div.setAttribute('onclick', `selecionarFuncionario('${retorna_funcionarios[x][2]}');`);
-          div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2aHeitor Lima 60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+          div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
                             <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>`;
           divFuncionarios.append(div);
-            // var option = document.createElement('option');
-            // option.value = servicos[x][0];
-            // option.textContent = servicos[x][1];
-            // inputServico.append(option);
         }
     },
     error: function(){
@@ -84,6 +38,40 @@ function selecionarFuncionario(id_funcionario){
     document.getElementById(`${id_funcionario}`).classList.add('selected');
   }
   console.log(funcionarioSelecionado)
+}
+
+function selecionarPrioridade(id_prioridade) {
+  if (prioridadeSelecionada == id_prioridade) {
+    prioridadeSelecionada = '';
+    document.getElementsByName('prioridade').classList.remove('selected');
+  }
+  else{
+    prioridadeSelecionada = id_prioridade;
+    document.getElementsByName('prioridade').classList.add('selected');
+  }
+  console.log(prioridadeSelecionada);
+}
+
+function realizarEncaminhamento(id_solicitacao) {
+  var dados = {
+    id_solicitacao:id_solicitacao,
+    CPF_funcionario:funcionarioSelecionado,
+    prioridade:prioridadeSelecionada
+  }
+
+  $.ajax({
+    url: '/realizar-encaminhamento',
+    type: 'POST',
+    data: JSON.stringify(dados),
+    contentType: 'application/json',
+    success: function(){
+        window.location.href = '/RF006';
+    },
+    error: function(){
+        alert("ERRO AO CADASTRAR!")
+    }
+
+  })
 }
 
 mostraFuncionarios();
