@@ -42,6 +42,7 @@
 // // selecaoFuncionario();
 
 const divFuncionarios = document.getElementById('form_select-user');
+var funcionarioSelecionado;
 
 function mostraFuncionarios(){
   $.ajax({
@@ -54,6 +55,7 @@ function mostraFuncionarios(){
           var div = document.createElement('div');
 
           div.className = 'caixa-opcao';
+          div.id = `${retorna_funcionarios[x][2]}`
           div.setAttribute('onclick', `selecionarFuncionario(${retorna_funcionarios[x][2]})`);
           div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2aHeitor Lima 60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
                             <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
@@ -76,9 +78,9 @@ function mostraFuncionarios(){
 });
 }
  
-function selecaoFuncionario(){
-
-
+function selecionarFuncionario(id_funcionario){
+  funcionarioSelecionado = id_funcionario;
+  document.getElementById(id_funcionario).classList.add('selected');
 }
 
 
