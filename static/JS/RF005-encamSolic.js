@@ -43,7 +43,7 @@
 
 const divFuncionarios = document.getElementById('form_select-user');
 
-function selecaoFuncionario(){
+function mostraFuncionarios(){
   $.ajax({
     url: '/RF005-retorna-funcionarios',
     type: 'GET',
@@ -75,4 +75,6 @@ function selecaoFuncionario(){
 });
 }
 
-selecaoFuncionario();
+
+// 
+mostraFuncionarios();
