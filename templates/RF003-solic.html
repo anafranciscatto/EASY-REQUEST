@@ -3,24 +3,22 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Solicitação</title>
-
-        <!-- Link Arquivo CSS Global -->
+        <!-- Estilos CSS: Importação do CSS global e específico da página -->
         <link rel="stylesheet" href="/static/CSS/global.css">
-        <!-- Link Arquivo CSS -->
-         <link rel="stylesheet" href="/static/CSS/RF003-solic.css">
-        <!-- Link Arquivos JS -->
-         <script defer src="/static/JS/RF003-solic.js"></script>
-         <script defer src="/static/JS/funcao-data.js"></script>
-         <!-- Link para os ICONS -->
-         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
-         <!-- Link para o Ajax -->
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="/static/CSS/RF003-solic.css">
+        <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
+        <script defer src="/static/JS/RF003-solic.js"></script>
+        <script defer src="/static/JS/funcao-data.js"></script>
+        <!-- Biblioteca de ícones do Font Awesome para uso de ícones na página -->
+        <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+        <!-- Biblioteca jQuery para facilitar o uso de Ajax e manipulação de DOM -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
-        <!-- Área de Informação do Usuario -->
+        <!-- Cabeçalho: Informações do usuário e data -->
         <header>
+            <!-- Contêiner do cabeçalho com botão de voltar e data atual -->
             <section class="container-header">
                 <div class="container-header_btn">
                     <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
@@ -29,6 +27,7 @@
                     <p class="dia-semana" id="dia-semana">Qui</p><p class="dia" id="dia">10</p><p class="mes" id="mes">Set</p>
                 </div>
             </section>
+            <!-- Área de perfil do usuário com foto, nome e cargo -->
             <section class="container-header-user">
                 <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
                 <div class="container-header-user_info">
@@ -37,13 +36,18 @@
                 </div>
             </section>
         </header>
+        
+        <!-- Conteúdo principal da página -->
         <main>
             <section class="container-main">
+                <!-- Título e subtítulo da área de solicitação -->
                 <div class="main-titulo-subtitulo">
                     <h1>Área de <p>Solicitação</p></h1>
                     <p class="subtitulo">Coloque as Informações sobre o Serviço...</p>
                 </div>
+                <!-- Formulário de solicitação de serviço -->
                 <div class="container-main_form">
+                    <!-- Seleção de opções como tipo de serviço, bloco e sala -->
                     <div class="form_select">
                         <select name="tipo-servico" id="tipo-servico">
                             <option value="">Tipo de Serviço</option>
@@ -55,14 +59,17 @@
                             <option value="0">Sala</option>
                         </select>
                     </div>
+                    <!-- Upload de arquivo (opcional) -->
                     <div class="form_input-arquivo">
                         <label for="arquivo">Foto (Opcional):</label>
                         <input type="file" name="arquivo" id="arquivo">
                     </div>
+                    <!-- Campo de texto para informações adicionais -->
                     <div class="form_adendo">
                         <label for="adendo">Adendo:</label>
                         <input type="text" id="adendo" name="adendo" placeholder="Digite informações adicionais...">
                     </div>
+                    <!-- Botão de envio da solicitação -->
                     <button type="submit" class="form_btn-enviar" onclick="fazerSolicitacao()">Enviar Solicitação</button>
                 </div>
             </section>
