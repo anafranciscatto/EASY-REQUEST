@@ -1,105 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <!-- Configurações de codificação de caracteres e responsividade -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designação</title>
-    <!-- Importação de arquivos CSS globais e específicos para estilização -->
-    <link rel="stylesheet" href="/static/CSS/global.css">
-    <link rel="stylesheet" href="/static/CSS/RF005-encamSolic.css">
-    <!-- Importação de arquivos JavaScript -->
-    <script defer src="/static/JS/RF005-encamSolic.js"></script>
-    <!-- Biblioteca de ícones Font Awesome para uso de ícones na página -->
-    <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
-    <!-- Importação de função para manipulação de data -->
-    <script defer src="/static/JS/funcao-data.js"></script>
-</head>
-<body>
-    <header>
-        <!-- Seção do cabeçalho com informações do usuário -->
-        <section class="container-header">
-            <!-- Imagem de perfil do usuário -->
-            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-            
-            <!-- Informações do usuário: nome e cargo -->
-            <div class="container-header_user-info">
-                <h2 class="container-header_user-nome">Paulo de Oliveira</h2>
-                <p class="container-header_user-cargo">Supervisor de Manutenção</p>
-            </div>
-        </section>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- Seção para exibir a data atual -->
-        <section class="container-header-data">
-            <div class="data">
-                <p class="dia-semana" id="dia-semana">Qui</p><p class="dia" id="dia">10</p><p class="mes" id="mes">Set</p>
-            </div>
-        </section>
-    </header>
+        <title>Designação</title>
 
-    <!-- Botão de navegação para voltar à página anterior -->
-    <nav>
-        <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
-    </nav>
+        <!-- Link Arquivo CSS Global -->
+        <link rel="stylesheet" href="/static/CSS/global.css">
+        <!-- Link Arquivo CSS -->
+        <link rel="stylesheet" href="/static/CSS/RF005-encamSolic.css">
+        <!-- Link Arquivo JS -->
+        <script defer src="/static/JS/RF005-encamSolic.js"></script>
+        <!-- Link para os ICONS -->
+        <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+        <!-- link Arquivo JS função data -->
+         <script defer src="/static/JS/funcao-data.js"></script>
+         <!-- Link para o Ajax -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    <main>
-        <section class="container-main">
-            <!-- Contêiner para exibir as opções de usuários -->
-            <div value="form_select-user" id="form_select-user" name="form_select-user" data-name="Heitor Lima" data-cargo="Pintor">
-                
-                <!-- Cada div abaixo representa uma opção de usuário para designação -->
-                <div class="opcao caixa-opcao">
-                    <!-- Imagem de perfil do usuário -->
-                    <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                    <!-- Informações do usuário: nome e cargo -->
-                    <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                    <!-- Status de disponibilidade do usuário -->
-                    <p class="status_disponivel">Disponível</p>
-                    <p class="status_n-disponivel">Não Disponível</p>
+    </head>
+    <body>
+        <header>
+            <section class="container-header">
+                <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                <div class="container-header_user-info">
+                    <h2 class="container-header_user-nome">Paulo de Oliveira</h2>
+                    <p class="container-header_user-cargo">Supervisor de Manutenção</p>
                 </div>
-
-                <!-- Repetição das opções de usuário - exemplo com Heitor Lima -->
-                <div class="opcao caixa-opcao">
-                    <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                    <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                    <p class="status_disponivel">Disponível</p>
-                    <p class="status_n-disponivel">Não Disponível</p>
+            </section>
+            <section class="container-header-data">
+                <div class="data">
+                    <p class="dia-semana" id="dia-semana">Qui</p><p class="dia" id="dia">10</p><p class="mes" id="mes">Set</p>
                 </div>
+            </section>
+        </header>
+        <nav>
+            <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+        </nav>
+        <main>
+            <section class="container-main">
+                    <div value="form_select-user" id="form_select-user" name="form_select-user">
+                        
+                        <div class="opcao caixa-opcao">
+                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
+                            <p class="status_disponivel">Disponível</p>
+                            <p class="status_n-disponivel">Não Disponível</p>
+                        </div>
 
-                <div class="opcao caixa-opcao">
-                    <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                    <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                    <p class="status_disponivel">Disponível</p>
-                    <p class="status_n-disponivel">Não Disponível</p>
-                </div>
+                        <div class="opcao caixa-opcao">
+                            <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                            <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
+                            <p class="status_disponivel">Disponível</p>
+                            <p class="status_n-disponivel">Não Disponível</p>
+                        </div>
 
-                <div class="opcao caixa-opcao">
-                    <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                    <div class="opcao_user"><p>Pintor</p>Heitor Lima </div>
-                    <p class="status_disponivel">Disponível</p>
-                    <p class="status_n-disponivel">Não Disponível</p>
-                </div>
-            </div>
-            
-            <!-- Contêiner para seleção da prioridade da designação -->
-            <div class="form_btn-emergencia">
-                <div class="form_btn-emergencia__titulo">Prioridade:</div>
+                    </div>
+                    
+                    <div class="form_btn-emergencia">
+                        <div class="form_btn-emergencia__titulo">Prioridade:</div>
+                        <div class="botoes">
+                            <div class="opcaoUrgencia" data-urgency="baixa" id="baixa">Baixa Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="media" id="media">Média Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="alta" id="alta">Alta Urgência</div>
+                        </div>
+                        <div class="container_btn-enviar">
+                            <button class="btn-enviar" type="submit"><a  href="realizar-encaminhamento/{{campo_id_solicitacao}}">Enviar Solicitação</a></button>
+                        </div>
+                    </div>
 
-                <!-- Botões para selecionar o nível de urgência -->
-                <div class="botoes">
-                    <div class="opcaoUrgencia" data-urgency="baixa">Baixa Urgência</div>
-                    <div class="opcaoUrgencia" data-urgency="media">Média Urgência</div>
-                    <div class="opcaoUrgencia" data-urgency="alta">Alta Urgência</div>
-                </div>
-
-                <!-- Botão para enviar a designação -->
-                <div class="container_btn-enviar">
-                    <button class="btn-enviar" type="submit">
-                        <a href="realizar-encaminhamento/{{campo_id_solicitacao}}">Enviar Solicitação</a>
-                    </button>
-                </div>
-            </div>
-        </section>
-    </main>        
-</body>
+            </section>
+        </main>        
+    </body>
 </html>
