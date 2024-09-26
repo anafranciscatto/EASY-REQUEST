@@ -15,7 +15,7 @@ header{
 
 #cumprimentacao{
     align-self: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: lighter;
 }
 
@@ -66,8 +66,13 @@ header{
 
 /* Estilização da area "Serviço de Hoje" */
 main{
+<<<<<<< HEAD
     width: 100%;
     height: 100vh;
+=======
+    width: 100vw;
+    height: 65vh;
+>>>>>>> 03aff906f14992d6ef8aa1e2a90d4a5bca68cc5d
     background-color: var(--color06);
     border-top-left-radius: 5rem;  
     border-top-right-radius: 5rem; 
@@ -96,8 +101,11 @@ hr{
 /* Estilização "serviço a ser feito" */
 
 .container-servico{
-    margin: 2rem 1rem 0rem 1rem;
+    margin: 1rem 1rem 0rem 1rem;
     height: 45%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     
 }
 
@@ -143,13 +151,19 @@ hr{
 /* Estilo serviços encaminhados */
 
 .container-servico-encaminhado{
+<<<<<<< HEAD
     height:auto;
     margin:3rem 1.5rem 0rem 1rem;
+=======
+    height: 45%;
+    margin: 0rem 1rem 0rem 1rem;
+>>>>>>> 03aff906f14992d6ef8aa1e2a90d4a5bca68cc5d
 }
 
 .container-servico-encaminhado h2{
     font-size: 2rem;
     color: var(--color01);
+    margin-left: 1rem;
 }
 
 /* Para telas normais (padrão) */
@@ -162,7 +176,7 @@ hr{
 
 .servico-encaminhado{
     background-color: var(--color01);
-    height: 46%;
+    height: 60%;
     width: 45%;
     margin: 0.5rem;
     border-radius: 1rem;
@@ -202,25 +216,41 @@ hr{
 
 /* Estilização rodapé "Fazer solicitação"*/
 
+<<<<<<< HEAD
 .container-solicitacao{
+=======
+.container-footer{
+    width: 100vw;
+    height: 17vh;
+    background-color: var(--color06);
+>>>>>>> 03aff906f14992d6ef8aa1e2a90d4a5bca68cc5d
     color: var(--color01);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
 }
 
+<<<<<<< HEAD
 .container-solicitacao p{
     padding: 0.5rem;
+=======
+.container-footer p{
+    padding: 1rem;
+>>>>>>> 03aff906f14992d6ef8aa1e2a90d4a5bca68cc5d
 }
 
 /* Estilo do btn-fazer-solicitacao */
 .btn-fazer-solicitacao{
     border: var(--color03) solid 0.1rem;
     border-radius: 5rem;
-    padding: 0.5rem 8rem 0.5rem 8rem;
+    padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.158);
     color: var(--color03);
     font-weight: bold;
     transition-duration: 0.2s;
+    margin: 0rem 3rem 0rem 3rem;
 }
 
 .btn-fazer-solicitacao:hover{
