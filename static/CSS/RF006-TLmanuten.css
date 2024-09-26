@@ -1,9 +1,65 @@
 header{
     width: 100vw;
-    height: 20vh;
-
+    height: 18vh;    
 }
 
+/* Estilo do cabeçalho */
+.container-cumprimentacao{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+#cumprimentacao{
+    align-self: center;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/* Estilo da data */
+.container-header-data{
+    margin: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.data{
+    display: flex;
+    gap: 0.5rem;
+}
+.dia-semana{
+    color: var(--color05);
+    font-weight: 600;
+}
+
+/* Estilo da Área Usuario */
+.container-header-user{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 5rem;
+}
+
+.container-header-user img{
+    width: auto;
+    height: 5rem;
+    border-radius: 100%;
+}
+
+.container-header-user_nome{
+    font-size: 2rem;
+}
+
+.container-header-user_cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 5rem;
+}
 
 /* Estilização da area "Serviço de Hoje" */
 main{
@@ -33,3 +89,137 @@ hr{
 }
 
 /* Estilização "serviço a ser feito" */
+
+.container-servico{
+    margin: 2rem 1rem 0rem 1rem;
+    height: 45%;
+    
+}
+
+.servico{
+    background-color: var(--color01);
+    border-radius: 1rem;
+    height: 35%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+.local{
+    font-weight: bold;
+}
+
+.servico_urgencia{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.urgencia{
+    border: var(--color02) solid 0.1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.servico_urgencia i{
+    color: var(--color05);
+    border: var(--color05) solid 0.2rem;
+    padding: 0.5rem;
+    border-radius: 5rem ;
+    transition-duration: 0.2s;
+}
+
+.servico_urgencia i:hover{
+   font-size: 2rem;
+}
+
+/* Estilo serviços encaminhados */
+
+.container-servico-encaminhado{
+    height: 45%;
+    margin:2rem 1rem 0rem 1rem;
+}
+
+.container-servico-encaminhado h2{
+    font-size: 2rem;
+    color: var(--color01);
+}
+
+.container-encaminhamento{
+    display: flex;
+    height: 100%;
+}
+
+.servico-encaminhado{
+    background-color: var(--color01);
+    height: 46%;
+    width: 45%;
+    margin: 0.5rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+   
+}
+
+.servico-encaminhado-local{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 2rem;
+
+}
+
+.servico-encaminhado-data{
+    background-color: var(--color04);
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    padding: 1rem 3rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.5rem ;
+    box-shadow: 2px 2px 8px var(--color02);
+    
+}
+
+.servico-encaminhado-dia-semana{
+    font-weight: bold;
+}
+
+/* Estilização rodapé "Fazer solicitação"*/
+
+.container-footer{
+    width: 100vw;
+    height: 12vh;
+    background-color: var(--color06);
+    color: var(--color01);
+    text-align: center;
+    
+}
+
+.container-footer p{
+    padding: 0.5rem;
+}
+
+/* Estilo do btn-fazer-solicitacao */
+.btn-fazer-solicitacao{
+    border: var(--color03) solid 0.1rem;
+    border-radius: 5rem;
+    padding: 0.5rem 8rem 0.5rem 8rem;
+    background-color: rgba(0, 0, 0, 0.158);
+    color: var(--color03);
+    font-weight: bold;
+    transition-duration: 0.2s;
+}
+
+.btn-fazer-solicitacao:hover{
+    border: none;
+    background: var(--color03);
+    color: var(--color01);
+}
