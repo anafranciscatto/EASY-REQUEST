@@ -13,6 +13,7 @@ class Encaminhamento:
 
     def realizar_encaminhamento(self, id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo):
         try:
+            # função para encaminhar as ordens de serviço 
             myBD = Connection.conectar()
 
             mycursor = myBD.cursor()
@@ -33,6 +34,7 @@ class Encaminhamento:
             return False
 
     def mostra_funcionarios(self):
+        # pegando os valores do banco de dados e mostrando os funcionarios
 
         myBD = Connection.conectar()
 

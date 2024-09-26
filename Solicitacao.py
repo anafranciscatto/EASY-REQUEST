@@ -41,6 +41,7 @@ class Solicitacao:
             return recebimento
     
     def recebimento_solicitacao(self,id_solicitacao):
+            # função para ele receber as solicitação de serviço
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 

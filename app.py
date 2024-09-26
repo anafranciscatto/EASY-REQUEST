@@ -180,6 +180,7 @@ def pg_ADM_recebe_solicitacao():
 
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
+    # pegar o ID das solicitações das serviços
      saibamais=Solicitacao()
      detalhes = saibamais.recebimento_solicitacao(id_solicitacao=rowid)
 
@@ -188,11 +189,13 @@ def pg_ver_solicitacao(rowid):
      return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0])
 
 @app.route("/RF005/<id_solicitacao>")
+# puxando o ID das solicitação
 def pg_encaminhar_solicitacao(id_solicitacao):
     return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
 
 @app.route("/realizar-encaminhamento/<id_solicitacao>")
 def realizar_encaminhamento(id_solicitacao):
+    # realizando os encaminhamentos das solicitação do serviço
     dados = request.get_json()
     CPF_funcionario = dados["CPF_funcionario"]
     prioridade = dados["prioridade"]
@@ -208,6 +211,7 @@ def realizar_encaminhamento(id_solicitacao):
 
 @app.route("/RF005-retorna-funcionarios")
 def retorna_funcionarios():
+    # mostrando os funcionarios
     encaminhamento = Encaminhamento()
     retorna_funcionario = encaminhamento.mostra_funcionarios()
     print(retorna_funcionario)
