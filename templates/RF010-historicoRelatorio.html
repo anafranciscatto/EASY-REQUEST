@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Definindo a codificação de caracteres e a responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Links para os estilos CSS globais e específicos da página -->
+    <link rel="stylesheet" href="/static/CSS/global.css">
+    <link rel="stylesheet" href="/static/CSS/RF010-historicoRelatorio.css">
+    <!-- Link para a biblioteca de ícones Font Awesome -->
+    <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+    <!-- Título da página -->
+    <title>Histórico de Relatório</title>
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <header class="cabecalho">
+        <!-- Título do cabeçalho -->
+        <h1 class="cabecalho__titulo">Histórico de serviços</h1>
+
+        <!-- Barra de pesquisa no cabeçalho -->
+        <nav class="cabecalho__pesquisa">
+            <input type="text" class="cabecalho__input" placeholder="Pesquisar...">
+            <button class="cabecalho__botao">
+                <i class="cabecalho__icone fa-solid fa-magnifying-glass"></i>
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Conteúdo principal da página -->
+    <main class="conteudo">
+        <!-- Cartão de histórico de serviço -->
+        <div class="conteudo__card">
+            <!-- Imagem do profissional responsável pelo serviço -->
+            <img src="heitor.jpg" alt="Foto de Heitor Lima" class="conteudo__imagem">
+            
+            <!-- Informações sobre o serviço realizado -->
+            <div class="conteudo__informacao">
+                <h2 class="conteudo__nome">Heitor Lima <span class="conteudo__profissao">Pintor</span></h2>
+                
+                <!-- Descrição do serviço -->
+                <p class="conteudo__descricao">Descrição: It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout</p>
+                
+                <hr>
+                
+                <!-- Datas do serviço -->
+                <p class="conteudo__datas">Tarefa atribuída em: 22/07/2023</p>
+                <p class="conteudo__datas">Tarefa finalizada em: 05/08/2023</p>
+                
+                <!-- Botão para ver mais detalhes sobre o serviço -->
+                <button class="conteudo__botao">Ver mais</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
