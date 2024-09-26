@@ -66,13 +66,8 @@ header{
 
 /* Estilização da area "Serviço de Hoje" */
 main{
-<<<<<<< HEAD
     width: 100%;
     height: 100vh;
-=======
-    width: 100vw;
-    height: 65vh;
->>>>>>> 03aff906f14992d6ef8aa1e2a90d4a5bca68cc5d
     background-color: var(--color06);
     border-top-left-radius: 5rem;  
     border-top-right-radius: 5rem; 
