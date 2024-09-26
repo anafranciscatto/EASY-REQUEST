@@ -1,9 +1,65 @@
 header{
     width: 100vw;
-    height: 20vh;
-
+    height: 18vh;    
 }
 
+/* Estilo do cabeçalho */
+.container-cumprimentacao{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+#cumprimentacao{
+    align-self: center;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+/* Estilo da data */
+.container-header-data{
+    margin: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.data{
+    display: flex;
+    gap: 0.5rem;
+}
+.dia-semana{
+    color: var(--color05);
+    font-weight: 600;
+}
+
+/* Estilo da Área Usuario */
+.container-header-user{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 5rem;
+}
+
+.container-header-user img{
+    width: auto;
+    height: 5rem;
+    border-radius: 100%;
+}
+
+.container-header-user_nome{
+    font-size: 2rem;
+}
+
+.container-header-user_cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 5rem;
+}
 
 /* Estilização da area "Serviço de Hoje" */
 main{
@@ -33,3 +89,14 @@ hr{
 }
 
 /* Estilização "serviço a ser feito" */
+
+
+
+
+/* Estilização rodapé "Fazer solicitação"*/
+
+.container-footer{
+    width: 100vw;
+    height: 12vh;
+    background-color: var(--color06);
+}
