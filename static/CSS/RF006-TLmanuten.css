@@ -90,6 +90,52 @@ hr{
 
 /* Estilização "serviço a ser feito" */
 
+.container-servico{
+    margin: 2rem 1rem 0rem 1rem;
+    height: 50%;
+    
+}
+
+.servico{
+    background-color: var(--color01);
+    border-radius: 1rem;
+    height: 35%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+.local{
+    font-weight: bold;
+}
+
+.servico_urgencia{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.urgencia{
+    border: var(--color02) solid 0.1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.servico_urgencia i{
+    color: var(--color05);
+    border: var(--color05) solid 0.2rem;
+    padding: 0.5rem;
+    border-radius: 5rem ;
+    transition-duration: 0.2s;
+}
+
+.servico_urgencia i:hover{
+   font-size: 2rem;
+}
+
+/* Estilo serviços encaminhados */
 
 
 
@@ -99,4 +145,28 @@ hr{
     width: 100vw;
     height: 12vh;
     background-color: var(--color06);
+    color: var(--color01);
+    text-align: center;
+    
+}
+
+.container-footer p{
+    padding: 0.5rem;
+}
+
+/* Estilo do btn-fazer-solicitacao */
+.btn-fazer-solicitacao{
+    border: var(--color03) solid 0.1rem;
+    border-radius: 5rem;
+    padding: 0.5rem 8rem 0.5rem 8rem;
+    background-color: rgba(0, 0, 0, 0.158);
+    color: var(--color03);
+    font-weight: bold;
+    transition-duration: 0.2s;
+}
+
+.btn-fazer-solicitacao:hover{
+    border: none;
+    background: var(--color03);
+    color: var(--color01);
 }
