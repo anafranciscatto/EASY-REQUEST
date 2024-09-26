@@ -31,3 +31,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // Adiciona um evento que chama a função updateImages sempre que o valor do dropdown mudar
     profissao.addEventListener('change', updateImages);
 });
+
