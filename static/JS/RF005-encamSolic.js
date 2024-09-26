@@ -85,5 +85,5 @@ function selecionarFuncionario(id_funcionario){
   }
   console.log(funcionarioSelecionado)
 }
- 
+
 mostraFuncionarios();
