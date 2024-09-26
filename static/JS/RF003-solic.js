@@ -19,9 +19,10 @@ function fazerSolicitacao() {
         contentType: 'application/json',
         success: function(){
             window.location.href = '/RF004';
+            swal("Good job!", "Enviado com sucesso!", "success");
         },
         error: function(){
-            alert("ERRO AO CADASTRAR!")
+            swal ( "Oops!" ,  "O enviao deu errado!" ,  "error" );
         }
 
     })
@@ -41,7 +42,7 @@ function retornaServicos() {
             }
         },
         error: function(){
-            alert(')X ERROOOOOOOOOO X(');
+            swal ( "Oops!" ,  "Erro no retorno do Serviço!" ,  "error" );
         }
     });
 }
@@ -60,7 +61,7 @@ function retornaBlocos() {
             }
         },
         error: function(){
-            alert(')X ERROOOOOOOOOO X(');
+            swal ( "Oops!" ,  "Erro no retorno dos blocos!" ,  "error" );
         }
     });
 }
@@ -80,7 +81,7 @@ function retornaSalas(bloco) {
             }
         },
         error: function(){
-            alert(')X ERROOOOOOOOOO X(');
+            swal ( "Oops!" ,  "Erro no retorno das Salas!" ,  "error" );
         }
     });
 }
