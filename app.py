@@ -5,6 +5,7 @@ from Solicitacao import Solicitacao
 from conexao_SQL import Connection
 # Importando a classe Usuario
 from Usuario import Usuario
+from Encaminhamento import Encaminhamento
 
 # Instanciando o WebService
 app = Flask(__name__)
@@ -190,7 +191,12 @@ def pg_ver_solicitacao(rowid):
 def pg_encaminhar_solicitacao():
     return render_template("RF005-encamSolic.html")
 
-
+@app.route("/RF005-retorna-funcionarios")
+def retorna_funcionarios():
+    encaminhamento = Encaminhamento()
+    retorna_funcionario = encaminhamento.mostra_funcionario()
+    print(retorna_funcionario)
+    return jsonify(retorna_funcionario), 200
 
 
 @app.route("/RF006")
