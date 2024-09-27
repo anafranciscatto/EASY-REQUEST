@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
     <script defer src="/static/JS/funcao-data.js"></script>
-    <!-- link JS biblioteca SweetAlert -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script defer src = "/static/JS/funcao-horas.js"></script>
+
+        <!-- link JS biblioteca SweetAlert -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>EASY-REQUEST - Inicial</title>
 </head>
 <body>
@@ -16,6 +18,9 @@
         <!-- Container para a data e botão de menu -->
         <div class="header__date-container">
             <div class="header__button"></div>
+            <div class="horas">
+                <h2 class="saudacao" id="saudacao"></h2>
+            </div>
             <div class="header__date">
                 <!-- Dia da semana -->
                 <p class="header__day-of-week" aria-label="Dia da semana" id="dia-semana">Qui</p>
@@ -24,6 +29,7 @@
                 <!-- Mês -->
                 <p class="header__month" aria-label="Mês" id="mes">Set</p>
             </div>
+
         </div>
         <!-- Informações do usuário logado -->
         <section class="header__user-info">
