@@ -1,3 +1,11 @@
+::-webkit-scrollbar {
+    width: 0; /* Para navegadores baseados em WebKit */
+}
+
+body {
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+}
 /* Container nav */
 nav {
     display: flex;
@@ -15,7 +23,7 @@ nav {
 
 /* Container principal na parte inferior da tela */
 .container-abaixo{
-    width: 100vw;
+    width: 100%;
     height: 50rem;
     background-color: var(--color06);
     margin-bottom: 0;
@@ -120,4 +128,11 @@ nav {
     font-size: 1.6rem;
     color: var(--color01);
     margin: 1rem 0;
+}
+/* -----------------------EFEITO DE TRANSIÇAÕ------------------ */
+#logo{
+    visibility: hidden;
+}
+#container-abaixo{
+    visibility: hidden;
 }
