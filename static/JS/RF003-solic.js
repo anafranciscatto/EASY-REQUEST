@@ -18,8 +18,14 @@ function fazerSolicitacao() {
         data: JSON.stringify(dados),
         contentType: 'application/json',
         success: function(){
-            window.location.href = '/RF004';
-            swal("Good job!", "Enviado com sucesso!", "success");
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Solicitação Enviada!",
+                showConfirmButton: false,
+                timer: 1500
+              });
+
         },
         error: function(){
             swal ( "Oops!" ,  "O enviao deu errado!" ,  "error" );

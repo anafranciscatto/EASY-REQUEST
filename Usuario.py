@@ -38,6 +38,7 @@ class Usuario:
 
             return True
         except:
+            
             return False
 
     def logar(self, sn, senha): # Função que executa o login do usuário no sistema.
