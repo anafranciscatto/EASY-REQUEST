@@ -11,7 +11,7 @@ class Encaminhamento:
         self.status_final = None
         self.adendo = None
 
-    def realizar_encaminhamento(self, id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo):
+    def realizar_encaminhamento(self, id_solicitacao, CPF_funcionario, prioridade):
         try:
             myBD = Connection.conectar()
 
@@ -20,11 +20,9 @@ class Encaminhamento:
             self.id_solicitacao = id_solicitacao
             self.CPF_funcionario = CPF_funcionario
             self.prioridade = prioridade
-            self.status = status
-            self.status_final = status_final
-            self.adendo = adendo
+            status = 'à fazer'
 
-            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo) VALUES ({id_solicitacao}, {CPF_funcionario}, {prioridade}, {status}, {status_final}, {adendo})")
+            mycursor.execute(f"INSERT INTO tb_encaminhamento (id_solicitacao, CPF_funcionario, urgencia, status) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}');")
 
             myBD.commit()
 

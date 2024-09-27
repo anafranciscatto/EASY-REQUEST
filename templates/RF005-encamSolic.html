@@ -67,12 +67,12 @@
                     <div class="form_btn-emergencia">
                         <div class="form_btn-emergencia__titulo">Prioridade:</div>
                         <div class="botoes">
-                            <div class="opcaoUrgencia" data-urgency="baixa" id="baixa">Baixa Urgência</div>
-                            <div class="opcaoUrgencia" data-urgency="media" id="media">Média Urgência</div>
-                            <div class="opcaoUrgencia" data-urgency="alta" id="alta">Alta Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="baixa" id="baixa" name="prioridade" onclick="selecionarPrioridade('baixa')">Baixa Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="media" id="media" name="prioridade" onclick="selecionarPrioridade('media')">Média Urgência</div>
+                            <div class="opcaoUrgencia" data-urgency="alta" id="alta" name="prioridade" onclick="selecionarPrioridade('alta')">Alta Urgência</div>
                         </div>
                         <div class="container_btn-enviar">
-                            <button class="btn-enviar" type="submit"><a  href="realizar-encaminhamento/{{campo_id_solicitacao}}">Enviar Solicitação</a></button>
+                            <button class="btn-enviar" type="submit" onclick="realizarEncaminhamento({{campo_id_solicitacao}})">Enviar Solicitação</button>
                         </div>
                     </div>
 

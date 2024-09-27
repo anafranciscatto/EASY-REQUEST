@@ -191,20 +191,21 @@ def pg_ver_solicitacao(rowid):
 def pg_encaminhar_solicitacao(id_solicitacao):
     return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
 
-@app.route("/realizar-encaminhamento/<id_solicitacao>")
-def realizar_encaminhamento(id_solicitacao):
+@app.route("/realizar-encaminhamento", methods=["POST"])
+def realizar_encaminhamento():
     dados = request.get_json()
+    id_solicitacao = dados["id_solicitacao"]
     CPF_funcionario = dados["CPF_funcionario"]
     prioridade = dados["prioridade"]
-    status = dados["status"]
-    status_final = dados["status_final"]
-    adendo = dados["adendo"]
 
     encaminhamento = Encaminhamento()
 
-    encaminhamento.realizar_encaminhamento(id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo)
+    if encaminhamento.realizar_encaminhamento(id_solicitacao, CPF_funcionario, prioridade):
+        return jsonify({'mensagem':'Encaminhamento OK'}), 200
+    else:
+        return {'mensagem':'ERRO'}, 500
 
-    return render_template("RF005-encamSolic.html")
+    # return render_template("RF006-TLmanuten.html")
 
 @app.route("/RF005-retorna-funcionarios")
 def retorna_funcionarios():
