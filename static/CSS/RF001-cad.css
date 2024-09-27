@@ -3,9 +3,14 @@
     display: none;
 }
 
-/* Classe para ocultar a rolagem horizontal */
+
 body {
-    overflow-x: hidden;
+    overflow-x: hidden;/* ocultar a rolagem horizontal */
+    scrollbar-width: none; /* Para Firefox */
+    -ms-overflow-style: none; /* Para Internet Explorer e Edge */
+}
+::-webkit-scrollbar {
+    width: 0; /* Para navegadores baseados em WebKit */
 }
 
 /* Container principal do formulário, define o layout da página */
@@ -169,3 +174,4 @@ body {
         transform: scale(1.02); 
     }
 }
+/* -----------------------EFEITO DE TRANSIÇAÕ------------------ */
