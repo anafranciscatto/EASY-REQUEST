@@ -43,11 +43,14 @@ function selecionarFuncionario(id_funcionario){
 function selecionarPrioridade(id_prioridade) {
   if (prioridadeSelecionada == id_prioridade) {
     prioridadeSelecionada = '';
-    document.getElementsByName('prioridade').classList.remove('selected');
+    document.getElementById(`${id_prioridade}`).classList.remove('selected');
   }
   else{
+    document.getElementById('baixa').classList.remove('selected');
+    document.getElementById('media').classList.remove('selected');
+    document.getElementById('alta').classList.remove('selected');
     prioridadeSelecionada = id_prioridade;
-    document.getElementsByName('prioridade').classList.add('selected');
+    document.getElementById(`${id_prioridade}`).classList.add('selected');
   }
   console.log(prioridadeSelecionada);
 }
@@ -58,6 +61,8 @@ function realizarEncaminhamento(id_solicitacao) {
     CPF_funcionario:funcionarioSelecionado,
     prioridade:prioridadeSelecionada
   }
+
+  console.log(dados);
 
   $.ajax({
     url: '/realizar-encaminhamento',

@@ -191,20 +191,17 @@ def pg_ver_solicitacao(rowid):
 def pg_encaminhar_solicitacao(id_solicitacao):
     return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
 
-@app.route("/realizar-encaminhamento")
+@app.route("/realizar-encaminhamento", methods=["POST"])
 def realizar_encaminhamento():
     dados = request.get_json()
     id_solicitacao = dados["id_solicitacao"]
     CPF_funcionario = dados["CPF_funcionario"]
     prioridade = dados["prioridade"]
-    status = None
-    status_final = None
-    adendo = None
 
     encaminhamento = Encaminhamento()
 
-    if encaminhamento.realizar_encaminhamento(id_solicitacao, CPF_funcionario, prioridade, status, status_final, adendo):
-        return jsonify({'mensagem':'Cadastro OK'}), 200
+    if encaminhamento.realizar_encaminhamento(id_solicitacao, CPF_funcionario, prioridade):
+        return jsonify({'mensagem':'Encaminhamento OK'}), 200
     else:
         return {'mensagem':'ERRO'}, 500
 
