@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
 
     <link rel="stylesheet" href="/static/CSS/RF001-cad.css">
+    <!-- Biblioteca jQuery para facilitar o uso de Ajax e manipulação de DOM -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- link JS biblioteca SweetAlert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -16,7 +18,6 @@
     <main class="main">
         <section class="form-container">
             <h2 class="form-container__title">Cadastro</h2>
-            <form class="form-container__form" action="/RF001" method="post">
                 
                 <!-- Seção que exibe as imagens baseadas na seleção da profissão -->
                 <div class="form-container__images">
@@ -78,8 +79,7 @@
                 </div>
 
                 <!-- Botão de submissão do formulário -->
-                <button type="submit" class="form-container__button">Cadastrar</button>
-            </form>
+                <button class="form-container__button" onclick="cadastrar()">Cadastrar</button>
         </section>
     </main>
     <script src="/static/JS/RF001-cad.js"></script>
