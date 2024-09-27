@@ -189,7 +189,9 @@ def pg_ver_solicitacao(rowid):
 
 @app.route("/RF005/<id_solicitacao>")
 def pg_encaminhar_solicitacao(id_solicitacao):
-    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/realizar-encaminhamento", methods=["POST"])
 def realizar_encaminhamento():
