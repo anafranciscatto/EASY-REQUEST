@@ -39,6 +39,7 @@ const senha = document.getElementById('senha');
 const sn = document.getElementById('sn');
 const foto = document.getElementById('foto');
 const id_funcao = document.getElementById('funcao');
+const permissao = '';
 
 function cadastrar(){
     var dados = {
@@ -57,21 +58,24 @@ function cadastrar(){
         data: JSON.stringify(dados),
         contentType: 'application/json',
         success: function(){
-        // if ( == "administrador"{
-        //     window.location.href = '/RF00'
-        // }
-            
-        // else if() session["usuario"]["permissao"] == "manutencao"{
-        //     window.location.href = '/RF00'
-        // }
-            
-        // else if() session["usuario"]["permissao"] == "solicitante"{
-        //     window.location.href = '/RF00'
-        // }
+            if (parseInt(id_funcao.value) >= 2 && parseInt(id_funcao.value) <= 7){
+                permissao = 'solicitante';
+            }
+            else if( parseInt(id_funcao.value) == 1){
+                permissao = 'manutencao';
+            }
+
+            if(permissao == "manutencao"){
+                window.location.href = '/RF006';
+            }
+
+            else if(permissao == "solicitante"){
+                window.location.href = '/RF003';
+            }
 
         },
         error: function(){
-            swal ( "Oops!" ,  "O enviao deu errado!" ,  "error" );
+            swal ( "Oops!" ,  "O envio deu errado!" ,  "error" );
         }
     })
 }
