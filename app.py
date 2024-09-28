@@ -211,7 +211,6 @@ def retorna_funcionarios():
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
 
-
 @app.route("/RF006")
 def pg_manutencao():
     return render_template("RF006-TLmanuten.html")
