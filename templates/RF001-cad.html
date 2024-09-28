@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
 
     <link rel="stylesheet" href="/static/CSS/RF001-cad.css">
+    <!-- Biblioteca jQuery para facilitar o uso de Ajax e manipulação de DOM -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- link JS biblioteca SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -16,7 +18,6 @@
     <main class="main">
         <section class="form-container">
             <h2 class="form-container__title">Cadastro</h2>
-            <form class="form-container__form" action="/RF001" method="post">
                 
                 <!-- Seção que exibe as imagens baseadas na seleção da profissão -->
                 <div class="form-container__images">
@@ -29,7 +30,7 @@
                     <!-- Rótulo para a seleção da profissão -->
                     <label for="funcao" class="form-container__label">Informe sua profissão:</label>
                     <!-- Campo de seleção com opções de profissão -->
-                    <select id="funcao" name="funcao" class="form-container__select" onchange="toggleImages()">
+                    <select id="funcao" name="funcao" class="form-container__select">
                         <option value="">Selecione...</option>
                         <option value="1">Técnico de Manutenção</option>
                         <option value="2">Instrutor</option>
@@ -78,10 +79,9 @@
                 </div>
 
                 <!-- Botão de submissão do formulário -->
-                <button type="submit" class="form-container__button">Cadastrar</button>
-            </form>
+                <button class="form-container__button" onclick="cadastrar()">Cadastrar</button>
         </section>
     </main>
-    <script src="/static/JS/RF001-cad.js"></script>
+    <script src="/static/JS/RF001-cad.js" defer></script>
 </body>
 </html>
