@@ -39,7 +39,7 @@ const senha = document.getElementById('senha');
 const sn = document.getElementById('sn');
 const foto = document.getElementById('foto');
 const id_funcao = document.getElementById('funcao');
-const permissao = '';
+var permissao = '';
 
 function cadastrar(){
     var dados = {
@@ -58,18 +58,22 @@ function cadastrar(){
         data: JSON.stringify(dados),
         contentType: 'application/json',
         success: function(){
-            if (parseInt(id_funcao.value) >= 2 && parseInt(id_funcao.value) <= 7){
+            if (parseInt(funcao.value) >= 2 && parseInt(funcao.value) <= 7){
                 permissao = 'solicitante';
             }
-            else if( parseInt(id_funcao.value) == 1){
+            else if( parseInt(funcao.value) == 1){
                 permissao = 'manutencao';
             }
 
-            if(permissao == "manutencao"){
+            console.log(parseInt(funcao.value))
+            console.log(permissao);
+
+
+            if(permissao == 'manutencao'){
                 window.location.href = '/RF006';
             }
 
-            else if(permissao == "solicitante"){
+            else if(permissao == 'solicitante'){
                 window.location.href = '/RF003';
             }
 

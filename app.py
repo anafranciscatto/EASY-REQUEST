@@ -24,7 +24,7 @@ def pg_cadastro():
 
 # Criando rota para a tela de cadastro
 @app.route("/cadastrar-usuario", methods=["POST"])
-def cadastrar(): # Função que executa o cadastro
+def cadastrarUsuario(): # Função que executa o cadastro
     dados = request.get_json()
     cpf = dados["cpf"]
     nome = dados["nome"]
