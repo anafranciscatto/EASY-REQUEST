@@ -246,3 +246,7 @@ input,select{
     }
    
 }
+/* -----------------------EFEITO DE TRANSIÇAÕ------------------ */
+#container-header,#container-header-user, #container-main{
+    visibility: hidden;
+}

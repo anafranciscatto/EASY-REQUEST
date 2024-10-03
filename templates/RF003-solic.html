@@ -7,6 +7,8 @@
         <!-- Estilos CSS: Importação do CSS global e específico da página -->
         <link rel="stylesheet" href="/static/CSS/global.css">
         <link rel="stylesheet" href="/static/CSS/RF003-solic.css">
+        <!-- link JS biblioteca scrollrevealjs -->
+        <script src="https://unpkg.com/scrollreveal"></script>
         <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
         <script defer src="/static/JS/RF003-solic.js"></script>
         <script defer src="/static/JS/funcao-data.js"></script>
@@ -18,11 +20,12 @@
         <!-- link JS biblioteca SweetAlert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
+
     <body>
         <!-- Cabeçalho: Informações do usuário e data -->
         <header>
             <!-- Contêiner do cabeçalho com botão de voltar e data atual -->
-            <section class="container-header">
+            <section class="container-header" id="container-header">
                 <div class="container-header_btn">
                     <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
                 </div>
@@ -34,7 +37,7 @@
                 </div>
             </section>
             <!-- Área de perfil do usuário com foto, nome e cargo -->
-            <section class="container-header-user">
+            <section class="container-header-user" id="container-header-user">
                 <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
                 <div class="container-header-user_info">
                     <h2 class="container-header-user_nome">{{campo_nome}}</h2>
@@ -45,7 +48,7 @@
         
         <!-- Conteúdo principal da página -->
         <main>
-            <section class="container-main">
+            <section class="container-main" id="container-main">
                 <!-- Título e subtítulo da área de solicitação -->
                 <div class="main-titulo-subtitulo">
                     <h1>Área de <p>Solicitação</p></h1>
