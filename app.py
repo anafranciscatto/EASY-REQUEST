@@ -65,13 +65,13 @@ def pg_login():
         return render_template("RF002-log.html")
 
 # Criando rota para a tela de login
-@app.route("/realizar-login",methods=["POST"])
+@app.route("/realizar-login", methods=["POST"])
 def realizar_login(): # Função que executa o login
     usuario = Usuario()
 
     dados = request.get_json()
-    sn = dados["SN"]
-    senha = request.form["senha"]
+    sn = dados["sn"]
+    senha = dados["senha"]
 
     usuario.logar(sn, senha)
 
@@ -80,14 +80,20 @@ def realizar_login(): # Função que executa o login
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {usuario.id_funcao}")
+        try:
+            mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {usuario.id_funcao}")
+            funcao = mycursor.fetchone()
+            login = True
+        except:
+            login = False
 
-        funcao = mycursor.fetchone()
-
-        session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":funcao[0], "permissao":usuario.permissao}
+        if login:
+            session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":funcao[0], "permissao":usuario.permissao}
+        else:
+            session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":"Administrador", "permissao":usuario.permissao}
 
         return jsonify({'permissao':session["usuario"]["permissao"]}), 200
-        
+
         # if session["usuario"]["permissao"] == "administrador":
         #     return redirect("/")
         

@@ -1,5 +1,5 @@
-const sn = document.getElementById('sn');
-const senha = document.getElementById('senha');
+const sn = document.getElementById('inp-SN');
+const senha = document.getElementById('inp-senha');
 var permissao = '';
 
 function logar(){
@@ -13,8 +13,14 @@ function logar(){
         type: 'POST',
         data: JSON.stringify(dados),
         contentType: 'application/json',
-        success: function(dados){
-            console.log(dados)
+        success: function(dados_login){
+            console.log(dados_login)
+        },
+        error: function(){
+            swal("Oops!" , "O envio deu errado!" , "error" );
+        }
+    })
+}
             // if (parseInt(funcao.value) >= 2 && parseInt(funcao.value) <= 7){
             //     permissao = 'solicitante';
             // }
@@ -25,18 +31,14 @@ function logar(){
             // console.log(parseInt(funcao.value))
             // console.log(permissao);
 
-
-            // if(permissao == 'manutencao'){
+            // if(permissao == 'administrador'){
             //     window.location.href = '/RF006';
+            // }
+
+            // else if(permissao == 'manutencao'){
+            //     window.location.href = '/RF003';
             // }
 
             // else if(permissao == 'solicitante'){
             //     window.location.href = '/RF003';
             // }
-
-        },
-        error: function(){
-            swal ( "Oops!" ,  "O envio deu errado!" ,  "error" );
-        }
-    })
-}
