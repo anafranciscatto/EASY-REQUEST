@@ -18,48 +18,43 @@ app.secret_key = "capivara"
 def pg_inicio():
     return render_template("index.html")
 
+@app.route("/RF001")
+def pg_cadastro():
+    return render_template("RF001-cad.html")
+
 # Criando rota para a tela de cadastro
-@app.route("/RF001", methods=["GET", "POST"])
-def pg_cadastro(): # Função que executa o cadastro
-    if request.method == "GET":
-        return render_template("RF001-cad.html")
+@app.route("/cadastrar-usuario", methods=["POST"])
+def cadastrarUsuario(): # Função que executa o cadastro
+    dados = request.get_json()
+    cpf = dados["cpf"]
+    nome = dados["nome"]
+    email = dados["email"]
+    senha = dados["senha"]
+    sn = dados["sn"]
+    foto = dados["foto"]
+    id_funcao = dados["id_funcao"]
+
+    if id_funcao >= 2 and id_funcao <= 7:
+        permissao = "solicitante"
+    elif id_funcao == 1:
+        permissao = "manutencao"
+
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {id_funcao}")
+
+    funcao = mycursor.fetchone()
+
+    usuario = Usuario()
+
+    if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
+        session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
+
+        return jsonify({'mensagem':'Cadastro OK'}), 200
     else:
-        cpf = request.form["cpf"]
-        nome = request.form["nome"]
-        email = request.form["email"]
-        senha = request.form["senha"]
-        sn = request.form["sn"]
-        foto = request.form["foto"]
-        id_funcao = int(request.form["funcao"])
-
-        if id_funcao >= 2 and id_funcao <= 7:
-            permissao = "solicitante"
-        elif id_funcao == 1:
-            permissao = "manutencao"
-
-        myBD = Connection.conectar()
-
-        mycursor = myBD.cursor()
-
-        mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {id_funcao}")
-
-        funcao = mycursor.fetchone()
-
-        usuario = Usuario()
-
-        if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
-            session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
-
-            if session["usuario"]["permissao"] == "administrador":
-                return redirect("/RF002")
-            
-            elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/RF003")
-            
-            elif session["usuario"]["permissao"] == "solicitante":
-                return redirect("/RF003")
-        else:
-            return redirect("/")
+        return {'mensagem':'ERRO'}, 500
 
 # Criando rota para a tela de login
 @app.route("/RF002",methods=["GET","POST"])
@@ -189,7 +184,9 @@ def pg_ver_solicitacao(rowid):
 
 @app.route("/RF005/<id_solicitacao>")
 def pg_encaminhar_solicitacao(id_solicitacao):
-    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao)
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/realizar-encaminhamento", methods=["POST"])
 def realizar_encaminhamento():
@@ -213,7 +210,6 @@ def retorna_funcionarios():
     retorna_funcionario = encaminhamento.mostra_funcionarios()
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
-
 
 @app.route("/RF006")
 def pg_manutencao():

@@ -206,25 +206,11 @@ main{
     font-size: 1.4rem;
     font-weight: bold;
     cursor: pointer;
-    margin: 3rem 10rem 0rem 10rem;
+    margin: 1rem 10rem 0rem 10rem;
     transition-duration: 0.2s;
 }
 
-/* .btn-enviar a{
-    text-decoration: none;
-    width: 20rem;
-    padding: 0.9rem;
-    text-align: center;
-    border-radius: 50px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: var(--color03); 
-    color: var(--color01); 
-    transition-duration: 0.2s;
-} */
-
-.btn-enviar a:hover{
+.btn-enviar:hover{
       background: none;
       border: 2px solid var(--color03);
       color: var(--color03);
