@@ -175,3 +175,6 @@ body {
     }
 }
 /* -----------------------EFEITO DE TRANSIÇAÕ------------------ */
+#form-container{
+    visibility: hidden;
+}
