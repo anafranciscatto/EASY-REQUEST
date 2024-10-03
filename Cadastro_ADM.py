@@ -24,6 +24,7 @@ def cadastrarAdm():
         return True
     except:
         return False
+
 if cadastrarAdm():
     print("Usuário cadastrado com Sucesso")
 else:
