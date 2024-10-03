@@ -149,3 +149,6 @@ footer{
     }
 }
 /* -----------------------EFEITO DE TRANSIÇAÕ------------------ */
+#container-main,#container-footer{
+    visibility: hidden;
+}
