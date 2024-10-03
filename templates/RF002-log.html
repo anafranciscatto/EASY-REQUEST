@@ -23,14 +23,14 @@
             </section>
             <!-- Container para o Formulario de Login -->
             <div class="container-form">
-                <form action="/RF002" method="POST">
+                <div class="form">
                     <h1>Login</h1>
                     <label for="inp-SN">SN:</label>
                     <input placeholder="Digite seu SN" type="text" name="inp-SN" id="inp-SN" required>
                     <label for="inp-senha">Senha:</label>
                     <input placeholder="Digite sua senha" type="password" name="inp-senha" id="inp-senha" required>
-                    <button type="submit" class="container-form__btn-envio">Concluir Login</button>
-                </form>
+                    <button onclick="logar()" class="container-form__btn-envio">Concluir Login</button>
+                </div>
             </div>
         </main>
         <footer>
