@@ -46,16 +46,18 @@
             <h1>Serviço de <p>hoje</p></h1>
             <hr/>
             <!-- Serviço á ser feito -->
+                {% for x in campo_encaminhamentos_pendentes %}
                 <div class="servico">
                     <div class="servico_hora-local">
                         <p class="hora">13h35</p>
-                        <p class="local">Bloco A | Sala 01</p>
+                        <p class="local">{{x[1]}} | {{x[0]}}</p>
                    </div>
                    <div class="servico_urgencia">
-                        <p class="urgencia">Baixa Urgencia</p>
-                        <a href=""><i class="fa-solid fa-arrow-right"></i></a>
+                        <p class="urgencia">{{x[2]}}</p>
+                        <a href="/RF007"><i class="fa-solid fa-arrow-right"></i></a>
                    </div>
                 </div>
+                {%endfor%}
 
                 <div class="servico">
                     <div class="servico_hora-local">
@@ -75,13 +77,13 @@
                 <h2>Serviços Encaminhados</h2>
                 <div class="container-encaminhamento">
                     {% for x in campo_encaminhamentos_pendentes %}
-                    <a href="/RF006A/{{x[2]}}/{{x[3]}}">
+                    <a href="/RF006A/{{x[3]}}/{{x[4]}}">
                         <div class="servico-encaminhado">
                             <div class="servico-encaminhado-data">
                                 <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
                             </div>
                             <p class="servico-encaminhado-local">{{x[1]}} | {{x[0]}}</p>
-                            <p class="urgencia">Baixa Urgencia</p>
+                            <p class="urgencia">{{x[2]}}</p>
                         </div>
                     </a>
                     {%endfor%}

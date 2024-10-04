@@ -50,7 +50,7 @@ class Encaminhamento:
         self.status = status
         self.cpf_funcionario = cpf_funcionario
 
-        mycursor.execute(f"SELECT s.id_sala, s.bloco, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
+        mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.urgencia, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
         mostra_encaminhamentos = mycursor.fetchall()
 
