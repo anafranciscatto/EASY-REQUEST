@@ -183,7 +183,9 @@ def pg_ADM_recebe_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
 
-    return render_template("RF004-ADMrecbSolic.html",campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
+    print(recebimento)
+
+    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
@@ -225,6 +227,22 @@ def retorna_funcionarios():
 
 @app.route("/RF006")
 def pg_manutencao():
+    # encaminhamento = Encaminhamento()
+
+    # cpf = session["usuario"]["CPF"]
+
+    # status = 'à fazer'
+
+    # retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
+
+    # status = 'fazendo'
+    
+    # retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
+
+    # print(retorna_encaminhamentos_fazendo)
+    # print(retorna_encaminhamentos_pendentes)
+
+    # return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
     return render_template("RF006-TLmanuten.html")
 
 @app.route("/RF007")

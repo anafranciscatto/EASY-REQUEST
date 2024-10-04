@@ -34,17 +34,17 @@ class Solicitacao:
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
-            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, fn.nome from tb_solicitacoes s, tb_funcionarios f, tb_funcoes fn, tb_servicos sv WHERE f.CPF_funcionario = s.CPF_funcionario AND fn.id_funcao = f.id_funcao AND sv.id_servico = s.id_servico;") 
+            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, IF(fn.id_funcao IS NULL, 'Administrador', fn.nome) AS nome_funcao FROM tb_solicitacoes s JOIN tb_funcionarios f ON f.CPF_funcionario = s.CPF_funcionario LEFT JOIN tb_funcoes fn ON fn.id_funcao = f.id_funcao JOIN tb_servicos sv ON sv.id_servico = s.id_servico;")
             mycursor.execute(sql)
-            recebimento= mycursor.fetchall()
+            recebimento = mycursor.fetchall()
 
             return recebimento
-    
+
     def recebimento_solicitacao(self,id_solicitacao):
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
-            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, fn.nome from tb_solicitacoes s, tb_funcionarios f, tb_funcoes fn, tb_servicos sv WHERE f.CPF_funcionario = s.CPF_funcionario AND fn.id_funcao = f.id_funcao AND sv.id_servico = s.id_servico and s.id_solicitacao={id_solicitacao};") 
+            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, IF(fn.id_funcao IS NULL, 'Administrador', fn.nome) AS nome_funcao FROM tb_solicitacoes s JOIN tb_funcionarios f ON f.CPF_funcionario = s.CPF_funcionario LEFT JOIN tb_funcoes fn ON fn.id_funcao = f.id_funcao JOIN tb_servicos sv ON sv.id_servico = s.id_servico and s.id_solicitacao={id_solicitacao};")
             mycursor.execute(sql)
             recebimento= mycursor.fetchone()
 
