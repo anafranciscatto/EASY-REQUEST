@@ -154,3 +154,7 @@ nav{
         max-width: 70rem;
     }
 }
+/* ---------------TRANSIÇÃO------------------- */
+#container-header,#detalhes-solicitacao{
+    visibility: hidden;
+}
