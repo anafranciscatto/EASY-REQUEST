@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
     <!-- Link para o CSS específico desta página -->
     <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    <script src="/static/JS/RF007-manutConfirm.js"></script>
+    <!-- link JS biblioteca scrollrevealjs -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- link JS biblioteca SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -18,7 +21,7 @@
 </head>
 <body>
     <!-- Cabeçalho com informações do usuário e botão de voltar -->
-    <header class="cabecalho">
+    <header class="cabecalho" id="cabecalho">
         <div class="cabecalho__botao-container">
             <button class="cabecalho__botao-voltar" href=''>
                 <i class="fa-solid fa-arrow-left"></i>Voltar
@@ -36,8 +39,8 @@
     </header>
 
     <!-- Conteúdo principal da página -->
-    <main class="principal">
-        <div class="principal__container">
+    <main class="principal" id="principal">
+        <div class="principal__container" id="principal__container">
             <!-- Título da seção principal -->
             <p class="principal__titulo">Confirmar finalização de serviço</p>
             
