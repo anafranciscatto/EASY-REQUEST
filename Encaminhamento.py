@@ -64,6 +64,8 @@ class Encaminhamento:
 
             mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
 
+            myBD.commit()
+
             return True
         except:
             return False

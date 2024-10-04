@@ -10,6 +10,10 @@ function iniciarServico(id_encaminhamento) {
             showConfirmButton: false,
             timer: 1500
           });
+
+          setTimeout(() => {
+            window.location.href = '/RF006';
+        }, 1500);
       },
       error: function(){
         swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
