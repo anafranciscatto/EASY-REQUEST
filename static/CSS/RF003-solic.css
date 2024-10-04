@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html, body {
+    overflow: hidden; /* Desabilita rolagem padrão em ambos os eixos */
+    height: 100%; /* Garante que o body ocupe toda a altura da página */
+}
+
+body {
+    position: relative; /* Para conter o conteúdo e trabalhar com o hack */
+    overflow-x: hidden; /* Remove a barra de rolagem horizontal */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -1.5rem; /* Ajusta essa margem para controlar a largura invisível da rolagem */
+    width: 1.5rem; /* Largura da barra de rolagem invisível */
+    background: transparent; /* Mantém a área invisível */
+    overflow-y: scroll; /* Mantém a funcionalidade de rolagem */
+}
+
 
 input,select{
     font-family: "Montserrat", sans-serif;

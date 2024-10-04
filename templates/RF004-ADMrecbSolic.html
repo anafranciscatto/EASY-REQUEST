@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
     <script defer src="/static/JS/funcao-data.js"></script>
     <script defer src = "/static/JS/funcao-horas.js"></script>
-
+    <!-- link JS biblioteca scrollrevealjs -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!-- link JS biblioteca SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>EASY-REQUEST - Inicial</title>
@@ -16,7 +17,7 @@
     <!-- Área de Informação do Usuário -->
     <header class="header">
         <!-- Container para a data e botão de menu -->
-        <div class="header__date-container">
+        <div class="header__date-container" id="header__date-container">
             <div class="header__button"></div>
             <div class="horas">
                 <h2 class="saudacao" id="saudacao"></h2>
@@ -32,7 +33,7 @@
 
         </div>
         <!-- Informações do usuário logado -->
-        <section class="header__user-info">
+        <section class="header__user-info" id="header__user-info">
             <!-- Imagem de perfil do usuário com descrição acessível -->
             <img src="/static/IMG/image 17exImgRogerio.png" alt="Imagem de Perfil de Claudio Silva" class="header__user-image">
             <div class="header__user-details">
@@ -46,7 +47,7 @@
 
     <main>
         <!-- Área Inferior do site -->
-        <section class="sectionBaixo">
+        <section class="sectionBaixo" id="sectionBaixo">
             <!-- Barra de Pesquisa -->
             <div class="sectionBaixo__search-container">
                 <!-- Campo de pesquisa com espaço para inserir texto -->
@@ -70,7 +71,7 @@
             <section class="sectionBaixo__grid-section">
                 {%for x in campo_recebimento%}
                 <article class="sectionBaixo__grid-item">
-                    <div class="card">
+                    <div class="card" id="card">
                         <!-- Cabeçalho do card com localização do prédio -->
                         <header class="card__header">
                             <span class="card__building" aria-label="Localização do prédio">{{x[2]}} - {{x[1]}}</span>
@@ -98,6 +99,7 @@
                 {%endfor%}
             </section>
         </section>
+        <script src="/static/JS/RF004-ADMrecbSolic.js"></script>
     </main>
 </body>
 </html>

@@ -1,6 +1,9 @@
 /* Importação de fonte */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+body {
+    overflow-x: hidden;
+}
 /* Estilo do Header */
 .header {
     width: 100vw; 
@@ -244,7 +247,7 @@
         max-width: 31.5rem; 
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 1e08111336b064b1f7c9487922fe7240d7721cfe
+/* -----------------TRANSIÇÃO----------------- */
+#header__date-container, #header__user-info, #sectionBaixo, #card{
+    visibility: hidden;
+}

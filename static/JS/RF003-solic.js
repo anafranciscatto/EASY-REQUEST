@@ -6,20 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Aplica o efeito de revelação ao elemento com o ID 'container-main'
     sr.reveal('#container-header', {
-        duration: 1000,  // Duração da animação em milissegundos
+        duration: 500,  // Duração da animação em milissegundos
         origin: 'top',   // Elemento surge do topo
         distance: '50px' // Distância percorrida pelo elemento
     });
      // Aplica o efeito de revelação ao elemento com o ID 'container-main'
      sr.reveal('#container-header-user', {
-        duration: 1000,  // Duração da animação em milissegundos
+        duration: 500,  // Duração da animação em milissegundos
         origin: 'top',   // Elemento surge do topo
         distance: '50px' // Distância percorrida pelo elemento
     });
 
     // Aplica o efeito de revelação ao #container-footer (surgindo de baixo para cima)
     sr.reveal('#container-main', {
-        duration: 1000,   // Duração da animação (1 segundo)
+        duration: 500,   // Duração da animação (1 segundo)
         origin: 'bottom', // O rodapé aparece de baixo para cima
         distance: '100px', // Distância que o rodapé percorre ao surgir
         easing: 'ease-in-out',

@@ -7,7 +7,7 @@ window.sr = ScrollReveal({
 // Aplica o efeito de revelação ao elemento com o ID 'logo'
 sr.reveal('#logo', {
      // Define a duração da animação para 1000 milissegundos (1 segundo)
-    duration: 1000,    
+    duration: 500,    
     // Define a origem da animação como sendo do topo, fazendo o elemento aparecer de cima para baixo
     origin: 'top',   
      // Define a distância que o elemento percorrerá (50px) ao surgir na tela   
@@ -17,7 +17,7 @@ sr.reveal('#logo', {
 // Aplica o efeito de revelação ao elemento com o ID 'container-abaixo'
 sr.reveal('#container-abaixo', {
     // Define a duração da animação para 1000 milissegundos (1 segundo)
-    duration: 1000,   
+    duration: 500,   
     // Define a origem da animação como sendo da parte inferior, fazendo o elemento aparecer de baixo para cima  
     origin: 'bottom',
     // Define a distância que o elemento percorrerá (50px) ao surgir na tela   
