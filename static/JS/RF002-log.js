@@ -14,31 +14,21 @@ function logar(){
         data: JSON.stringify(dados),
         contentType: 'application/json',
         success: function(dados_login){
-            console.log(dados_login)
+            if(dados_login['permissao'] == 'administrador'){
+                window.location.href = '/RF004';
+            }
+
+            else if(dados_login['permissao'] == 'manutencao'){
+                window.location.href = '/RF006';
+            }
+
+            else if(dados_login['permissao'] == 'solicitante'){
+                window.location.href = '/RF003';
+            }
+            console.log(dados_login["permissao"])
         },
         error: function(){
             swal("Oops!" , "O envio deu errado!" , "error" );
         }
     })
 }
-            // if (parseInt(funcao.value) >= 2 && parseInt(funcao.value) <= 7){
-            //     permissao = 'solicitante';
-            // }
-            // else if( parseInt(funcao.value) == 1){
-            //     permissao = 'manutencao';
-            // }
-
-            // console.log(parseInt(funcao.value))
-            // console.log(permissao);
-
-            // if(permissao == 'administrador'){
-            //     window.location.href = '/RF006';
-            // }
-
-            // else if(permissao == 'manutencao'){
-            //     window.location.href = '/RF003';
-            // }
-
-            // else if(permissao == 'solicitante'){
-            //     window.location.href = '/RF003';
-            // }
