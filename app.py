@@ -237,12 +237,20 @@ def pg_manutencao():
 
 @app.route("/RF006A/<id_solicitacao>/<id_encaminhamento>")
 def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
-     saibamais=Solicitacao()
-     detalhes = saibamais.recebimento_solicitacao(id_solicitacao)
+    saibamais=Solicitacao()
+    detalhes = saibamais.recebimento_solicitacao(id_solicitacao)
 
-     print(detalhes)
+    myBD = Connection.conectar()
 
-     return render_template("RF006A-aceitaSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_id_encaminhamento = id_encaminhamento)
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT urgencia FROM tb_encaminhamentos WHERE id_encaminhamento = {id_encaminhamento}")
+
+    urgencia = mycursor.fetchone()
+
+    print(detalhes)
+
+    return render_template("RF006A-aceitaSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_id_encaminhamento = id_encaminhamento, campo_urgencia = urgencia[0])
 
 @app.route("/iniciar-servico/<id_encaminhamento>")
 def iniciar_servico(id_encaminhamento):
