@@ -36,25 +36,23 @@ main{
     border-radius: 5rem;
     position: absolute;
     box-shadow:  5px 10px 18px var(--color02);
-    
 }
 
-.container-form form{
+.container-form .form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin: 3rem;
-   
 }
 
 /* Estilo do Titulo Login */
-.container-form form h1{
+.container-form .form h1{
     margin-bottom: 1rem;
     font-size: 3.5rem;
 }
 
-.container-form form label{
+.container-form .form label{
     margin:1rem 23rem 1rem 0;
     font-weight: bold;
     font-size: 1.5rem;
