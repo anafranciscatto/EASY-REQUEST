@@ -227,23 +227,33 @@ def retorna_funcionarios():
 
 @app.route("/RF006")
 def pg_manutencao():
-    # encaminhamento = Encaminhamento()
+    encaminhamento = Encaminhamento()
 
-    # cpf = session["usuario"]["CPF"]
+    cpf = session["usuario"]["CPF"]
 
-    # status = 'à fazer'
+    status = 'à fazer'
 
-    # retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
+    retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
 
-    # status = 'fazendo'
+    status = 'fazendo'
     
-    # retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
+    retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
 
-    # print(retorna_encaminhamentos_fazendo)
-    # print(retorna_encaminhamentos_pendentes)
+    print(retorna_encaminhamentos_fazendo)
+    print(retorna_encaminhamentos_pendentes)
 
-    # return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
-    return render_template("RF006-TLmanuten.html")
+    return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
+
+@app.route("/RF006A/<id_encaminhamento>")
+def pg_ver_encaminhamento(id_encaminhamento):
+     saibamais=Solicitacao()
+     detalhes = saibamais.recebimento_solicitacao(id_solicitacao=id_encaminhamento)
+
+     print(detalhes)
+
+     return render_template("RF006A-aceitaSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0])
+
+
 
 @app.route("/RF007")
 def pg_manutencao_confirmacao():

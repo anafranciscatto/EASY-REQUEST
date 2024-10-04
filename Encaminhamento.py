@@ -41,30 +41,18 @@ class Encaminhamento:
         mostra_funcionarios = mycursor.fetchall()
 
         return mostra_funcionarios
-    def mostra_encaminhamentos(self,status,cpf_funcionario):
-
+  
+    def mostrar_encaminhamentos(self, status, cpf_funcionario):
         myBD = Connection.conectar()
 
         mycursor = myBD.cursor()
 
         self.status = status
         self.cpf_funcionario = cpf_funcionario
-        mycursor.execute(f"SELECT id_sala,bloco FROM tb_encaminhamento enc, tb_solicitacoes sol,  tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala= s.id_sala AND.enc.status'{status}' AND enc.cpf_funcionario = '{cpf_funcionario}';")
 
-        mostra_enca = mycursor.fetchall()
+        mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
-    
-    # def mostrar_encaminhamentos(self, status, cpf_funcionario):
-    #     myBD = Connection.conectar()
+        mostra_encaminhamentos = mycursor.fetchall()
 
-    #     mycursor = myBD.cursor()
-
-    #     self.status = status
-    #     self.cpf_funcionario = cpf_funcionario
-
-    #     mycursor.execute(f"SELECT id_sala s, bloco s FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
-
-    #     mostra_encaminhamentos = mycursor.fetchall()
-
-    #     return mostra_encaminhamentos
+        return mostra_encaminhamentos
 

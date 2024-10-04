@@ -76,19 +76,17 @@
              <section class="container-servico-encaminhado">
                 <h2>Serviços Encaminhados</h2>
                 <div class="container-encaminhamento">
-                    <div class="servico-encaminhado">
-                        <div class="servico-encaminhado-data">
-                            <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
+                    {% for x in campo_encaminhamentos_pendentes %}
+                    <a href="/RF006A/{{x[2]}}">
+                        <div class="servico-encaminhado">
+                            <div class="servico-encaminhado-data">
+                                <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
+                            </div>
+                            <p class="servico-encaminhado-local">{{x[1]}} | {{x[0]}}</p>
                         </div>
-                        <p class="servico-encaminhado-local">Bloco B | Sala 09</p>
-                    </div>
-
-                    <div class="servico-encaminhado">
-                        <div class="servico-encaminhado-data">
-                            <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
-                        </div>
-                        <p class="servico-encaminhado-local">Bloco B | Sala 09</p>
-                    </div>
+                    </a>
+                    {%endfor%}
+                    
                 </div>
                 <div class="container-solicitacao">
                     <h2>Quer fazer uma Solicitação?</h2>
