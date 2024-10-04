@@ -253,6 +253,7 @@
     text-decoration: none;
 }
 
+
 /* 2 colunas para telas médias */
 @media (min-width: 740px) {
     .sectionBaixo__grid-section {
