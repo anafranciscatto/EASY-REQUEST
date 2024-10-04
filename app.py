@@ -18,86 +18,93 @@ app.secret_key = "capivara"
 def pg_inicio():
     return render_template("index.html")
 
+@app.route("/RF001")
+def pg_cadastro():
+    return render_template("RF001-cad.html")
+
 # Criando rota para a tela de cadastro
-@app.route("/RF001", methods=["GET", "POST"])
-def pg_cadastro(): # Função que executa o cadastro
-    if request.method == "GET":
-        return render_template("RF001-cad.html")
+@app.route("/cadastrar-usuario", methods=["POST"])
+def cadastrarUsuario(): # Função que executa o cadastro
+    dados = request.get_json()
+    cpf = dados["cpf"]
+    nome = dados["nome"]
+    email = dados["email"]
+    senha = dados["senha"]
+    sn = dados["sn"]
+    foto = dados["foto"]
+    id_funcao = dados["id_funcao"]
+
+    if id_funcao >= 2 and id_funcao <= 7:
+        permissao = "solicitante"
+    elif id_funcao == 1:
+        permissao = "manutencao"
+
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {id_funcao}")
+
+    funcao = mycursor.fetchone()
+
+    usuario = Usuario()
+
+    if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
+        session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
+
+        return jsonify({'mensagem':'Cadastro OK'}), 200
     else:
-        cpf = request.form["cpf"]
-        nome = request.form["nome"]
-        email = request.form["email"]
-        senha = request.form["senha"]
-        sn = request.form["sn"]
-        foto = request.form["foto"]
-        id_funcao = int(request.form["funcao"])
+        return {'mensagem':'ERRO'}, 500
 
-        if id_funcao >= 2 and id_funcao <= 7:
-            permissao = "solicitante"
-        elif id_funcao == 1:
-            permissao = "manutencao"
+# Criando a rota para a tela de login
+@app.route("/RF002")
+def pg_login():
+    if session.get("usuario","erro") == "Autenticado": 
+        return redirect("/")
+    else:
+        return render_template("RF002-log.html")
 
+# Criando rota para a tela de login
+@app.route("/realizar-login", methods=["POST"])
+def realizar_login(): # Função que executa o login
+    usuario = Usuario()
+
+    dados = request.get_json()
+    sn = dados["sn"]
+    senha = dados["senha"]
+
+    usuario.logar(sn, senha)
+
+    if usuario.logado:
         myBD = Connection.conectar()
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {id_funcao}")
-
-        funcao = mycursor.fetchone()
-
-        usuario = Usuario()
-
-        if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
-            session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
-
-            if session["usuario"]["permissao"] == "administrador":
-                return redirect("/RF002")
-            
-            elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/RF003")
-            
-            elif session["usuario"]["permissao"] == "solicitante":
-                return redirect("/RF003")
-        else:
-            return redirect("/")
-
-# Criando rota para a tela de login
-@app.route("/RF002",methods=["GET","POST"])
-def pg_login(): # Função que executa o login
-    usuario = Usuario()
-    if request.method == "GET":
-        if session.get("usuario","erro") == "Autenticado": 
-            return redirect("/")
-        else:
-            return render_template("RF002-log.html")
-    else:
-        sn = request.form["inp-SN"]
-        senha = request.form["inp-senha"]
-
-        usuario.logar(sn, senha)
-
-        if usuario.logado:
-            myBD = Connection.conectar()
-
-            mycursor = myBD.cursor()
-
+        try:
             mycursor.execute(f"SELECT nome FROM tb_funcoes WHERE id_funcao = {usuario.id_funcao}")
-
             funcao = mycursor.fetchone()
+            login = True
+        except:
+            login = False
 
+        if login:
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":funcao[0], "permissao":usuario.permissao}
-            
-            if session["usuario"]["permissao"] == "administrador":
-                return redirect("/")
-            
-            elif session["usuario"]["permissao"] == "manutencao":
-                return redirect("/RF003")
-            
-            elif session["usuario"]["permissao"] == "solicitante":
-                return redirect("/RF003")
         else:
-            session.clear()
-            return redirect("/")
+            session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":"Administrador", "permissao":usuario.permissao}
+
+        return jsonify({'permissao':session["usuario"]["permissao"]}), 200
+
+        # if session["usuario"]["permissao"] == "administrador":
+        #     return redirect("/")
+        
+        # elif session["usuario"]["permissao"] == "manutencao":
+        #     return redirect("/RF003")
+        
+        # elif session["usuario"]["permissao"] == "solicitante":
+        #     return redirect("/RF003")
+    else:
+        session.clear()
+        return {'mensagem':'ERRO'}, 500
 
 # Criando rota para a tela de solicitacao
 @app.route("/RF003")
@@ -176,7 +183,9 @@ def pg_ADM_recebe_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
 
-    return render_template("RF004-ADMrecbSolic.html",campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
+    print(recebimento)
+
+    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
@@ -216,9 +225,24 @@ def retorna_funcionarios():
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
 
-
 @app.route("/RF006")
 def pg_manutencao():
+    # encaminhamento = Encaminhamento()
+
+    # cpf = session["usuario"]["CPF"]
+
+    # status = 'à fazer'
+
+    # retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
+
+    # status = 'fazendo'
+    
+    # retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
+
+    # print(retorna_encaminhamentos_fazendo)
+    # print(retorna_encaminhamentos_pendentes)
+
+    # return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
     return render_template("RF006-TLmanuten.html")
 
 @app.route("/RF007")
