@@ -10,8 +10,6 @@
          <link rel="stylesheet" href="/static/CSS/global.css">
          <!-- Link Arquivo CSS -->
          <link rel="stylesheet" href="/static/CSS/RF006-TLmanuten.css">
-         <!-- Link Arquivo JS -->
-         <script defer src="/static/JS/RF006-TLmanuten.js"></script>
          <!-- Link para os ICONS -->
         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
         <!-- link Arquivo JS data -->
@@ -77,7 +75,7 @@
                 <h2>Serviços Encaminhados</h2>
                 <div class="container-encaminhamento">
                     {% for x in campo_encaminhamentos_pendentes %}
-                    <a href="/RF006A/{{x[2]}}">
+                    <a href="/RF006A/{{x[2]}}/{{x[3]}}">
                         <div class="servico-encaminhado">
                             <div class="servico-encaminhado-data">
                                 <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>

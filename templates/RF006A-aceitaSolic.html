@@ -7,6 +7,8 @@
     <!-- Importação de arquivos CSS: global e específico desta página -->
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF006A-aceitaSolic.css">
+    <!-- Link Arquivo JS -->
+    <script defer src="/static/JS/RF006-TLmanuten.js"></script>
     <!-- Biblioteca jQuery para manipulação de DOM e requisições Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Biblioteca Font Awesome para uso de ícones na página -->
@@ -44,7 +46,8 @@
                     {{campo_descricao}}
                 </p>
                 <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
-                <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">ACEITAR</button></a>
+                <button class="botao botao-cadastro" onclick="iniciarServico({{campo_id_encaminhamento}})">ACEITAR</button>
+                <!-- <a href="/iniciar-servico/{{campo_id_encaminhamento}}"></a> -->
             </div>
         </section>
     </main>
