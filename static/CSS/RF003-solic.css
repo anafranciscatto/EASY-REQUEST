@@ -95,6 +95,7 @@ input,select{
     flex-direction: column;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
+    box-shadow:  4px 1px 30px  black;
 
 }
 

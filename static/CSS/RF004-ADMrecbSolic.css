@@ -101,7 +101,8 @@
     align-content: center; 
     flex-wrap: nowrap; 
     overflow-y: auto; 
-    overflow-x: hidden; 
+    overflow-x: hidden;
+    box-shadow:  4px 1px 30px  black;
 }
 
 /* Estilo da Barra de Pesquisa */
