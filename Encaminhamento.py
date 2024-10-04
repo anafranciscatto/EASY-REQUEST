@@ -22,7 +22,7 @@ class Encaminhamento:
             self.prioridade = prioridade
             status = 'à fazer'
 
-            mycursor.execute(f"INSERT INTO tb_encaminhamento (id_solicitacao, CPF_funcionario, urgencia, status) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}');")
+            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, urgencia, status) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}');")
 
             myBD.commit()
 
