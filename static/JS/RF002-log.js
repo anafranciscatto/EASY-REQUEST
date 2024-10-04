@@ -28,7 +28,7 @@ function logar(){
             console.log(dados_login["permissao"])
         },
         error: function(){
-            swal("Oops!" , "O envio deu errado!" , "error" );
+            swal("Oops!" , "SN ou senha inválidos!" , "error" );
         }
     })
 }

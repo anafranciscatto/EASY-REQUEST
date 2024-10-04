@@ -25,10 +25,9 @@ function fazerSolicitacao() {
                 showConfirmButton: false,
                 timer: 1500
               });
-
         },
         error: function(){
-            swal ( "Oops!" ,  "O enviao deu errado!" ,  "error" );
+            swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
         }
 
     })

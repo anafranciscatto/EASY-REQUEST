@@ -79,7 +79,7 @@ function cadastrar(){
 
         },
         error: function(){
-            swal ( "Oops!" ,  "O envio deu errado!" ,  "error" );
+            swal ( "Oops!" ,  "Erro ao cadastrar!" ,  "error" );
         }
     })
 }
