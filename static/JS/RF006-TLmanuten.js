@@ -19,4 +19,8 @@ function iniciarServico(id_encaminhamento) {
         swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
       }
     })
-  }
+}
+
+function redirectSolicitacao() {
+  window.location.href = '/RF003';
+}

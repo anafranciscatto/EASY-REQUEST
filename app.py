@@ -221,6 +221,8 @@ def pg_manutencao():
     encaminhamento = Encaminhamento()
 
     cpf = session["usuario"]["CPF"]
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
 
     status = 'à fazer'
 
@@ -233,7 +235,7 @@ def pg_manutencao():
     print(retorna_encaminhamentos_fazendo)
     print(retorna_encaminhamentos_pendentes)
 
-    return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
+    return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo, campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/RF006A/<id_solicitacao>/<id_encaminhamento>")
 def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
