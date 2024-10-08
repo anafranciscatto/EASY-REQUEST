@@ -281,12 +281,21 @@ hr{
 }
 /* -------------------------RESPONSIVIDADE----------------------- */
 /* Estilos para telas maiores */
+@media(max-width:1000px) {
+    main{
+        height: 100%;
+    }
+
+}
+
 @media (min-width:1000px) {
+    body{
+        overflow: hidden;
+    }
     main {
         display: flex;
         justify-content: space-between;
         height: 100vh;
-    }
     }
     .horas h2{
         font-size: 4rem;
@@ -306,6 +315,13 @@ hr{
     .container-servico {
         width: 50%;
     }
+
+    .container-header-user{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem ;
+    }
+
     .container-servico-encaminhado  {
         width: 50%;
         margin-top: 3rem;
@@ -325,5 +341,5 @@ hr{
         gap: 2rem; 
         padding: 1rem; 
     }
-
+}
 
