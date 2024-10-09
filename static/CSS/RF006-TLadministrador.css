@@ -1,0 +1,262 @@
+body{
+    overflow-x: hidden; 
+}
+header{
+    width: 100vw;
+    height: 18vh;    
+}
+
+/* Estilo do cabeçalho */
+.container-cumprimentacao{
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#cumprimentacao{
+    align-self: center;
+    font-size: 2.5rem;
+    font-weight: lighter;
+}
+
+/* Estilo da Saudação */
+.horas h2{
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+/* Estilo da data */
+.container-header-data{
+    margin: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+.data{
+    display: flex;
+    gap: 0.5rem;
+    border-radius: 5rem;
+    box-shadow:  4px 3px 10px  rgb(135, 135, 135);
+    padding: 0.5rem;
+}
+.dia-semana{
+    color: var(--color05);
+    font-weight: 600;
+}
+
+/* Estilo da Área Usuario */
+.container-header-user{
+    width: 100vw;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 5rem;
+}
+
+.container-header-user img{
+    width: auto;
+    height: 5rem;
+    border-radius: 100%;
+}
+
+.container-header-user_nome{
+    font-size: 2.5rem;
+}
+
+.container-header-user_cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    margin-right: 10rem;
+    text-align: center;
+    padding: 0.4rem;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+}
+
+/* Estilização da area "Serviço de Hoje" */
+main{
+    width: 100%;
+    background-color: var(--color06);
+    border-top-left-radius: 5rem;  
+    border-top-right-radius: 5rem; 
+    box-shadow:  4px 1px 30px  black;
+}
+
+h1{
+    color: var(--color01);
+    display: flex;
+    margin-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 2rem;
+}
+
+h1 p{
+    color:var(--color03);
+    margin-left: 0.5rem;
+  
+}
+
+hr{
+    color: var(--color01);
+    margin: 0rem 3rem 1rem 3rem;
+}
+
+/* Estilização "serviço a ser feito" */
+
+.container-servico{
+    margin: 1rem 1rem 0rem 1rem;
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+
+.servico{
+    background-color: var(--color01);
+    border-radius: 1rem;
+    height: 30%;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+.local{
+    font-weight: bold;
+}
+
+.servico_urgencia{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.urgencia{
+    border: var(--color02) solid 0.1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    text-transform: capitalize;
+}
+
+.servico_urgencia i{
+    color: var(--color05);
+    border: var(--color05) solid 0.2rem;
+    padding: 0.5rem;
+    border-radius: 5rem ;
+    transition-duration: 0.2s;
+}
+
+.servico_urgencia i:hover{
+   font-size: 2rem;
+}
+
+
+/* Estilização "Fazer solicitação"*/
+
+.container-solicitacao{
+    color: var(--color01);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 2rem;
+    
+}
+
+.container-solicitacao p{
+    padding: 0.5rem;
+}
+
+/* Estilo do btn-fazer-solicitacao */
+.btn-fazer-solicitacao{
+    border: var(--color03) solid 0.1rem;
+    border-radius: 5rem;
+    padding: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.158);
+    color: var(--color03);
+    font-weight: bold;
+    transition-duration: 0.2s;
+    margin: 0rem 3rem 0rem 3rem;
+}
+
+.btn-fazer-solicitacao:hover{
+    border: none;
+    background: var(--color03);
+    color: var(--color01);
+}
+/* Para telas normais (padrão) */
+.container-encaminhamento {
+    display: grid;
+    height: auto;
+    grid-template-columns: 1fr; 
+    grid-auto-rows: auto; 
+    gap: 1rem; 
+    padding: 1rem; 
+}
+
+.servico-encaminhado {
+    width: 100%; 
+    height: 12rem; 
+    padding: 1rem; 
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
+}
+
+.servico-urgencia{
+    font-weight: bold;
+    font-size: medium;
+    border: black solid 1px;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+/* -------------------------RESPONSIVIDADE----------------------- */
+/* Estilos para telas maiores */
+@media(max-width:1000px) {
+    main{
+        height: 100vh;
+    }
+
+}
+
+@media (min-width:1000px) {
+    body{
+        overflow: hidden;
+    }
+    main {
+        display: flex;
+        justify-content: space-between;
+        height: 100vh;
+    }
+
+    .data{
+        font-size: 2.5rem;
+       
+    }
+
+    .container-servico {
+        width: 50%;
+    }
+
+    .container-header-user{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem ;
+    }
+
+    .container-solicitacao{
+        width: auto;
+        text-align: center;
+        
+    }
+}
+
