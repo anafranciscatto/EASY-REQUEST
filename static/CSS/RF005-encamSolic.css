@@ -227,3 +227,38 @@ main{
    font-size: 1.2rem;
     }
 }
+
+@media (min-width:1000px){
+  .container-header_user-nome{
+    font-size: 2rem;
+  }
+  .container-header_user-cargo{
+    font-size: 1.5rem;
+  }
+  .data{
+        gap: 0.5rem;
+        border-radius: 5rem;
+        box-shadow: 4px 3px 10px rgb(135, 135, 135);
+        padding: 1rem;
+        font-size: 2.5rem;
+  }
+  .form_btn-emergencia{
+    height: 30vh;
+  }
+  .form_btn-emergencia__titulo{
+    font-size: 2rem;
+  }
+  .botoes{
+    margin-top: 4rem;
+  }
+  .opcaoUrgencia {
+    font-size: 2rem;
+  }
+
+  .btn-enviar {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    margin: 3rem 10rem 0rem 10rem;
+
+  }
+}
