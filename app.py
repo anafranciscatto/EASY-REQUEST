@@ -93,15 +93,6 @@ def realizar_login(): # Função que executa o login
             session["usuario"] = {"CPF":usuario.cpf, "nome":usuario.nome, "sn":sn, "foto":usuario.foto,"funcao":"Administrador", "permissao":usuario.permissao}
 
         return jsonify({'permissao':session["usuario"]["permissao"]}), 200
-
-        # if session["usuario"]["permissao"] == "administrador":
-        #     return redirect("/")
-        
-        # elif session["usuario"]["permissao"] == "manutencao":
-        #     return redirect("/RF003")
-        
-        # elif session["usuario"]["permissao"] == "solicitante":
-        #     return redirect("/RF003")
     else:
         session.clear()
         return {'mensagem':'ERRO'}, 500
@@ -227,23 +218,49 @@ def retorna_funcionarios():
 
 @app.route("/RF006")
 def pg_manutencao():
-    # encaminhamento = Encaminhamento()
+    encaminhamento = Encaminhamento()
 
-    # cpf = session["usuario"]["CPF"]
+    cpf = session["usuario"]["CPF"]
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
 
-    # status = 'à fazer'
+    status = 'à fazer'
 
-    # retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
+    retorna_encaminhamentos_pendentes = encaminhamento.mostrar_encaminhamentos(status, cpf)
 
-    # status = 'fazendo'
-    
-    # retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
+    status = 'fazendo'
 
-    # print(retorna_encaminhamentos_fazendo)
-    # print(retorna_encaminhamentos_pendentes)
+    retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
 
-    # return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo)
-    return render_template("RF006-TLmanuten.html")
+    print(retorna_encaminhamentos_fazendo)
+    print(retorna_encaminhamentos_pendentes)
+
+    return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo, campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/RF006A/<id_solicitacao>/<id_encaminhamento>")
+def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
+    saibamais=Solicitacao()
+    detalhes = saibamais.recebimento_solicitacao(id_solicitacao)
+
+    myBD = Connection.conectar()
+
+    mycursor = myBD.cursor()
+
+    mycursor.execute(f"SELECT urgencia FROM tb_encaminhamentos WHERE id_encaminhamento = {id_encaminhamento}")
+
+    urgencia = mycursor.fetchone()
+
+    print(detalhes)
+
+    return render_template("RF006A-aceitaSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_id_encaminhamento = id_encaminhamento, campo_urgencia = urgencia[0])
+
+@app.route("/iniciar-servico/<id_encaminhamento>")
+def iniciar_servico(id_encaminhamento):
+    encaminhamento = Encaminhamento()
+    if encaminhamento.aceitar_encaminhamento(id_encaminhamento):
+        return jsonify({'mensagem':'Encaminhamento OK'}), 200
+    else:
+        return {'mensagem':'ERRO'}, 500
 
 @app.route("/RF007")
 def pg_manutencao_confirmacao():
