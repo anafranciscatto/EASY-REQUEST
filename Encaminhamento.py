@@ -55,3 +55,8 @@ class Encaminhamento:
     #     mostra_encaminhamentos = mycursor.fetchall()
 
     #     return mostra_encaminhamentos
+
+
+    def finaliza_servico():
+
+        return True
