@@ -224,3 +224,15 @@ hr{
   .Btn:active {
     transform: translate(2px ,2px);
   }
+  /* -------------MEDIA---------------- */
+  @media (max-width: 926px){
+    /* Estilo da Área Usuario */
+.container-header-user{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 1rem;
+    justify-content: space-between;
+}
+
+}
