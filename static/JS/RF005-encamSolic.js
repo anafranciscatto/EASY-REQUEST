@@ -19,6 +19,10 @@ function mostraFuncionarios(){
                             <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
                             <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>`;
+          // div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+          //                   <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
+          //                   <p class="status_disponivel">Disponível</p>
+          //                   <p class="status_n-disponivel">Não Disponível</p>`;
           divFuncionarios.append(div);
         }
     },
