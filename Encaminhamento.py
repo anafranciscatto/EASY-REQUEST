@@ -53,15 +53,7 @@ class Encaminhamento:
         mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.urgencia, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
         mostra_encaminhamentos = mycursor.fetchall()
-
-<<<<<<< HEAD
-    #     return mostra_encaminhamentos
-
-
-    def finaliza_servico():
-
-        return True
-=======
+        
         return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento):
@@ -77,4 +69,20 @@ class Encaminhamento:
             return True
         except:
             return False
->>>>>>> 038c0cd79b1f53b1548bea61f98f3982bd53064e
+        
+    # def finalizacao_encaminhamento(id_encaminhamento):
+
+    #     try:
+    #         myBD = Connection.conectar()
+
+    #         mycursor = myBD.cursor()
+
+    #         mycursor.execute(f"UPDATE tb_encaminhamentos SET status_final = 'finalizado' WHERE id_encaminhamento = {id_encaminhamento};")
+
+    #         myBD.commit()
+
+    #         return True
+    #     except:
+    #         return False 
+
+
