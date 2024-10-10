@@ -3,11 +3,11 @@ function obterSaudacao() {
     const hora = agora.getHours();
 
     if (hora >= 6 && hora < 12) {
-        return "Bom dia!";
+        return "Bom Dia!";
     } else if (hora >= 12 && hora < 18) {
-        return "Boa tarde!";
+        return "Boa Tarde!";
     } else {
-        return "Boa noite!";
+        return "Boa Noite!";
     }
 }
 
