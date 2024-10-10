@@ -48,7 +48,7 @@
             <h1>Serviço de <p>hoje</p></h1>
             <hr/>
             <!-- Serviço á ser feito -->
-                {% for x in campo_encaminhamentos_pendentes %}
+                {% for x in campo_encaminhamentos_fazendo %}
                 <div class="servico">
                     <div class="servico_hora-local">
                         <p class="hora">13h35</p>
@@ -56,7 +56,7 @@
                    </div>
                    <div class="servico_urgencia">
                         <p class="urgencia">{{x[2]}}</p>
-                        <a href="/RF007"><i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="/RF007/{{x[4]}}"><i class="fa-solid fa-arrow-right"></i></a>
                    </div>
                 </div>
                 {%endfor%}
