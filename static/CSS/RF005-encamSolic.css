@@ -129,14 +129,11 @@ main{
   font-weight: 600;
 }
 
-
-
 .status_disponivel{
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: var(--colorGreen);
   font-size: 1.5rem;
   border-radius: 0.5rem;
-  display: none;
 }
 
 .status_n-disponivel{
@@ -145,7 +142,6 @@ main{
   border-radius: 0.5rem;
   font-size: 1.5rem;
   text-align: center;
-  
 }
 
 /* Estilo da Escolha da urgencia/emergencia */

@@ -15,14 +15,16 @@ function mostraFuncionarios(){
           div.className = 'caixa-opcao';
           div.id = `${retorna_funcionarios[x][2]}`
           div.setAttribute('onclick', `selecionarFuncionario('${retorna_funcionarios[x][2]}');`);
-          div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+          if (x[3] = 'à fazer') {
+            div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
+                                        <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
+                                        <p class="status_disponivel">Disponível</p>`;
+          } else {
+            div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
                             <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
-                            <p class="status_disponivel">Disponível</p>
                             <p class="status_n-disponivel">Não Disponível</p>`;
-          // div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-          //                   <div class="opcao_user"><p>${retorna_funcionarios[x][0]}</p>${retorna_funcionarios[x][1]}</div>
-          //                   <p class="status_disponivel">Disponível</p>
-          //                   <p class="status_n-disponivel">Não Disponível</p>`;
+          }
+          
           divFuncionarios.append(div);
         }
     },

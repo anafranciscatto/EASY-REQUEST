@@ -190,16 +190,7 @@ def pg_ver_solicitacao(rowid):
 @app.route("/RF005/<id_solicitacao>")
 def pg_encaminhar_solicitacao(id_solicitacao):
     nome = session["usuario"]["nome"]
-    cpf = session["usuario"]["CPF"]
     funcao = session["usuario"]["funcao"]
-
-    myBD = Connection.conectar()
-
-    mycursor = myBD.cursor()
-
-    mycursor.execute(f"SELECT * FROM tb_encmainhamentos WHERE CPF_funcionario = '{cpf}' AND status = 'fazendo';")
-
-    status = mycursor.fetchone()
 
     return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao)
 
@@ -223,6 +214,8 @@ def realizar_encaminhamento():
 def retorna_funcionarios():
     encaminhamento = Encaminhamento()
     retorna_funcionario = encaminhamento.mostra_funcionarios()
+    cpf = session["usuario"]["CPF"]
+
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
 
