@@ -95,6 +95,7 @@ input,select{
     flex-direction: column;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
+    box-shadow:  4px 1px 30px  black;
 
 }
 
@@ -244,5 +245,29 @@ input,select{
         margin-bottom: 1rem;
         margin-top: 1.5rem;
     }
-   
+    .container-header{
+        display: flex;
+        justify-content: space-around;
+    }
+    .container-header_data{
+        gap: 0.5rem;
+        border-radius: 5rem;
+        box-shadow: 4px 3px 10px rgb(135, 135, 135);
+        padding: 1.5rem;
+        font-size: 2.5rem;
+    }
+    .container-header-user{
+        display: flex;
+        justify-content: center;
+    }
+   .container-header-user_nome{
+    font-size: 3rem;
+   }
+   .container-header-user_cargo{
+    font-size: 1.5rem;
+   }
+   .container-main h1{
+    font-size: 5rem;
+    margin: 2rem;
+   }
 }

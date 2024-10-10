@@ -37,7 +37,7 @@ CREATE TABLE tb_funcionarios (
  SN VARCHAR(9) NOT NULL,
  foto VARCHAR(2048),
  permissao VARCHAR(30) NOT NULL,
- id_funcao INT NOT NULL,
+ id_funcao INT,
  CONSTRAINT FK_funcionarios_funcao FOREIGN KEY (id_funcao) REFERENCES tb_funcoes (id_funcao)
 );
 
@@ -54,7 +54,7 @@ CREATE TABLE tb_solicitacoes (
 );
 
 #Criar a tabela que armazena os serviços a serem realizados pelos técnicos
-CREATE TABLE tb_encaminhamento (
+CREATE TABLE tb_encaminhamentos (
  id_encaminhamento INT PRIMARY KEY AUTO_INCREMENT,
  CPF_funcionario VARCHAR(14) NOT NULL,
  id_solicitacao INT NOT NULL,
@@ -70,7 +70,7 @@ CREATE TABLE tb_encaminhamento (
 CREATE TABLE tb_ordens_de_servico (
  id_os INT PRIMARY KEY AUTO_INCREMENT,
  id_encaminhamento INT NOT NULL,
- CONSTRAINT FK_tb_os_encaminhamento FOREIGN KEY (id_encaminhamento) REFERENCES tb_encaminhamento (id_encaminhamento)
+ CONSTRAINT FK_tb_os_encaminhamento FOREIGN KEY (id_encaminhamento) REFERENCES tb_encaminhamentos (id_encaminhamento)
 );
 
 INSERT INTO tb_funcoes (nome) VALUES ("Técnico de Manutenção"), ("Instrutor"), ("Secretaria"), ("OPP"), ("Coordenador"), ("Diretor"), ("Outros");
@@ -81,4 +81,4 @@ SELECT * FROM tb_funcionarios;
 SELECT * FROM tb_solicitacoes;
 SELECT * FROM tb_servicos;
 SELECT * FROM tb_salas;
-SELECT * FROM tb_encaminhamento;
+SELECT * FROM tb_encaminhamentos;

@@ -41,22 +41,40 @@ class Encaminhamento:
         mostra_funcionarios = mycursor.fetchall()
 
         return mostra_funcionarios
-    
-    # def mostrar_encaminhamentos(self, status, cpf_funcionario):
-    #     myBD = Connection.conectar()
+  
+    def mostrar_encaminhamentos(self, status, cpf_funcionario):
+        myBD = Connection.conectar()
 
-    #     mycursor = myBD.cursor()
+        mycursor = myBD.cursor()
 
-    #     self.status = status
-    #     self.cpf_funcionario = cpf_funcionario
+        self.status = status
+        self.cpf_funcionario = cpf_funcionario
 
-    #     mycursor.execute(f"SELECT id_sala s, bloco s FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
+        mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.urgencia, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
-    #     mostra_encaminhamentos = mycursor.fetchall()
+        mostra_encaminhamentos = mycursor.fetchall()
 
+<<<<<<< HEAD
     #     return mostra_encaminhamentos
 
 
     def finaliza_servico():
 
         return True
+=======
+        return mostra_encaminhamentos
+
+    def aceitar_encaminhamento(self, id_encaminhamento):
+        try:
+            myBD = Connection.conectar()
+
+            mycursor = myBD.cursor()
+
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
+
+            myBD.commit()
+
+            return True
+        except:
+            return False
+>>>>>>> 038c0cd79b1f53b1548bea61f98f3982bd53064e
