@@ -10,23 +10,28 @@
          <link rel="stylesheet" href="/static/CSS/global.css">
          <!-- Link Arquivo CSS -->
          <link rel="stylesheet" href="/static/CSS/RF006-TLmanuten.css">
+         <!-- Link Arquivo JS -->
+         <script defer src="/static/JS/RF006-TLmanuten.js"></script>
          <!-- Link para os ICONS -->
         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
-        <!-- Link Arquivo JS -->
-        <script defer src="/static/JS/RF006-TLmanuten.js"></script>
         <!-- link Arquivo JS data -->
          <script defer src="/static/JS/funcao-data.js"></script>
-         <!-- Link Arquivo JS saudação -->
          <script defer src = "/static/JS/funcao-horas.js"></script>
+
+         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" />
         <!-- link JS biblioteca SweetAlert -->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     </head>
     <body>
         <header>
-            <section class="container-cumprimentacao">
-                <div class="horas">
-                    <h2 class="saudacao" id="saudacao"></h2>
+            <section class="container-header-user">
+                <div class="info-usuario">
+                    <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
+                    <div class="container-header-user_info horas">
+                        <h2 class="container-header-user_nome"> <span class="saudacao" id="saudacao"> </span>{{campo_nome}}</h2>
+                        <p class="container-header-user_cargo">{{campo_funcao}}</p>
+                    </div>
                 </div>
                 <div class="container-header-data">
                     <div class="data">
@@ -34,38 +39,31 @@
                     </div>
                 </div>
             </section>
-            <section class="container-header-user">
-                <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
-                <div class="container-header-user_info">
-                    <h2 class="container-header-user_nome">{{campo_nome}}</h2>
-                    <p class="container-header-user_cargo">{{campo_funcao}}</p>
-                </div>
-            </section>
         </header>
-        <main>
-            <section class="container-servico">
-            <!-- Serviços a serem feitos no dia -->
-            <h1>Serviço de <p>hoje</p></h1>
-            <hr/>
-            <!-- Serviço á ser feito -->
-                {% for x in campo_encaminhamentos_pendentes %}
-                <div class="servico">
-                    <div class="servico_hora-local">
-                        <p class="hora">13h35</p>
-                        <p class="local">{{x[1]}} | {{x[0]}}</p>
-                   </div>
-                   <div class="servico_urgencia">
-                        <p class="urgencia">{{x[2]}}</p>
-                        <a href="/RF007"><i class="fa-solid fa-arrow-right"></i></a>
-                   </div>
+        <main class="container-baixo">
+            <section class="container_baixo-ladoEsquerdo">
+                <div class="ladoEsquerdo-txt">
+                    <h2>Serviço em <span class="destaque-txt">Aberto</span></h2>
+                    <hr>
                 </div>
-                {%endfor%}
-
+                <!-- Serviço á ser feito -->
+                <div class="ladoEsquerdo-conteudo">
+                    {% for x in campo_encaminhamentos_pendentes %}
+                    <div class="ladoEsquerdo-card">
+                        <p class="horario">10:30am</p>
+                        <div class="card-conteudo">
+                            <p class="bloco">{{x[1]}} | {{x[0]}}</p>
+                            <p class="urgencia">{{x[2]}}</p>
+                            <a href="/RF007"><i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
             </section>
-
             <!-- Serviços encaminhados -->
-             <section class="container-servico-encaminhado">
+            <section class="container-servico-encaminhado">
                 <h2>Serviços Encaminhados</h2>
+                <hr>
                 <div class="container-encaminhamento">
                     {% for x in campo_encaminhamentos_pendentes %}
                     <a href="/RF006A/{{x[3]}}/{{x[4]}}">
@@ -78,14 +76,17 @@
                         </div>
                     </a>
                     {%endfor%}
-
-                </div>
-                <div class="container-solicitacao">
-                    <h2>Quer fazer uma Solicitação?</h2>
-                    <p>Solicite com o botão abaixo!</p>
-                    <button class="btn-fazer-solicitacao" onclick="redirectSolicitacao()">Fazer Solicitação</button>
-                </div>
-             </section>
+            <section>
+                <button onclick="redirectSolicitacao()" class="Btn" >
+                  
+                  <div class="sign">
+                    <span class="material-symbols-outlined">
+                        add
+                        </span>
+                  
+                  <div class="text">Chamado</div>
+                </button>                                                  
+            </section>
         </main>
     </body>
 </html>
