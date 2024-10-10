@@ -52,6 +52,7 @@ nav{
   height: 6vh;
   display: flex;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .container-header_btn-voltar{
@@ -84,21 +85,23 @@ main{
   position: relative;
 }
 
+
 .caixa-opcao {
-    padding: 8px;
-    margin: 1rem 3rem 2rem 3rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--color01);
-    background-color: var(--color06);
-    border: none;
-    border-radius: 5rem;
-    box-shadow:  5px 8px 18px var(--color02);
-    transition-duration: 0.2s;
+  padding: 8px;
+  margin: 1rem 2rem 1rem 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color01);
+  background-color: var(--color06);
+  border: none;
+  border-radius: 5rem;
+  box-shadow: 0px -1px 7px rgba(20,23,53,0.3);
+  transition-duration: 0.2s;
     
 }
+
 
 /* Transição do select */
 .caixa-opcao.selected {
@@ -129,11 +132,15 @@ main{
   font-weight: 600;
 }
 
+
+
 .status_disponivel{
   padding: 0.5rem 1rem 0.5rem 1rem;
   background-color: var(--colorGreen);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   border-radius: 0.5rem;
+  text-align: center;
+  
 }
 
 .status_n-disponivel{
@@ -142,34 +149,41 @@ main{
   border-radius: 0.5rem;
   font-size: 1.5rem;
   text-align: center;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    background-color: var(--colorRed);
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    
+  
 }
 
 /* Estilo da Escolha da urgencia/emergencia */
 
 .form_btn-emergencia{
-  width: 100vw;
-  height: 18vh;
-  position: fixed;
-  bottom: 0;
-  z-index: 1;
-  background-color: var(--color06);
-  border-top-left-radius: 4rem ;
-  border-top-right-radius: 4rem;
-  color: var(--color01);
+    width: 100vw;
+    height: 25vh;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--color06);
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    color: var(--color01);
   
 }
 
 .form_btn-emergencia__titulo{
-  margin: 1rem 0rem 0rem 3rem;
-  font-size: 1.2rem;
+  margin: 2rem 0rem 0rem 3rem;
+  font-size: 1.5rem;
 }
 
 .botoes{
-  display: flex;
-  width: 100vw;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 1rem;
+    display: flex;
+    width: 100vw;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 2rem;
 
 }
 
@@ -192,18 +206,18 @@ main{
 }
 
 .btn-enviar{
-    background-color: var(--color03); 
-    color: var(--color01); 
-    width: 20rem;
-    padding: 0.9rem;
-    text-align: center;
-    border: none;
-    border-radius: 50px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 1rem 10rem 0rem 10rem;
-    transition-duration: 0.2s;
+  background-color: var(--color03);
+  color: var(--color01);
+  width: 20rem;
+  padding: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1.5rem 10rem 0rem 10rem;
+  transition-duration: 0.2s;
 }
 
 .btn-enviar:hover{
@@ -225,6 +239,16 @@ main{
 }
 
 @media (min-width:1000px){
+  .main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+  }
+  #form_select-user{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 3rem 9rem 0rem 9rem;
+  }
   .container-header_user-nome{
     font-size: 2rem;
   }
@@ -242,7 +266,8 @@ main{
     height: 30vh;
   }
   .form_btn-emergencia__titulo{
-    font-size: 2rem;
+      margin: 2rem 0rem 0rem 12rem;
+      font-size: 2rem;
   }
   .botoes{
     margin-top: 4rem;
@@ -257,4 +282,27 @@ main{
     margin: 3rem 10rem 0rem 10rem;
 
   }
+
+  .caixa-opcao {
+    padding: 20px;
+  }
+
+  .caixa-opcao img {
+    height: 8rem; 
+  }
+
+  .opcao_user{
+    font-size: 1.9rem
+  }
+
+  .status_n-disponivel {
+    
+    font-size: 1.7rem;
+  }
+
+  .status_disponivel {
+    font-size: 1.7rem;
+  }
+
 }
+  

@@ -29,7 +29,7 @@ function mostraFuncionarios(){
         }
     },
     error: function(){
-        alert(')X ERROOOOOOOOOO X(');
+      swal ( "Oops!" ,  "Falha no emcaminhamento!" ,  "error" );;
     }
 });
 }
