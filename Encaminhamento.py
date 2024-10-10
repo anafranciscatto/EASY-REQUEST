@@ -56,16 +56,21 @@ class Encaminhamento:
 
         return mostra_encaminhamentos
 
-    def aceitar_encaminhamento(self, id_encaminhamento):
+    def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
         try:
             myBD = Connection.conectar()
 
             mycursor = myBD.cursor()
 
-            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
+            self.cpf_funcionario = cpf_funcionario
 
-            myBD.commit()
+            mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario}")
 
-            return True
+            if mycursor.fetchall != None:
+                mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
+                myBD.commit()
+                return True
+            else:
+                return False
         except:
             return False

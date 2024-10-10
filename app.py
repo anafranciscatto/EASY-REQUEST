@@ -257,7 +257,10 @@ def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
 @app.route("/iniciar-servico/<id_encaminhamento>")
 def iniciar_servico(id_encaminhamento):
     encaminhamento = Encaminhamento()
-    if encaminhamento.aceitar_encaminhamento(id_encaminhamento):
+
+    cpf_funcionario = session["usuario"]["CPF"]
+
+    if encaminhamento.aceitar_encaminhamento(id_encaminhamento,cpf_funcionario):
         return jsonify({'mensagem':'Encaminhamento OK'}), 200
     else:
         return {'mensagem':'ERRO'}, 500
