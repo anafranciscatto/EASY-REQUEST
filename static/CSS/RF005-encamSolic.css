@@ -52,6 +52,7 @@ nav{
   height: 6vh;
   display: flex;
   align-items: center;
+  margin-top: 1rem;
 }
 
 .container-header_btn-voltar{
@@ -91,7 +92,7 @@ main{
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   color: var(--color01);
   background-color: var(--color06);
   border: none;
@@ -234,7 +235,7 @@ main{
   #form_select-user{
     display: grid;
     grid-template-columns: auto auto;
-    margin: 0rem 4rem 0rem 4rem;
+    margin: 3rem 9rem 0rem 9rem;
   }
   .container-header_user-nome{
     font-size: 2rem;
@@ -256,8 +257,6 @@ main{
       margin: 2rem 0rem 0rem 12rem;
       font-size: 2rem;
   }
-    
-  }
   .botoes{
     margin-top: 4rem;
   }
@@ -271,4 +270,27 @@ main{
     margin: 3rem 10rem 0rem 10rem;
 
   }
+
+  .caixa-opcao {
+    padding: 20px;
+  }
+
+  .caixa-opcao img {
+    height: 8rem; 
+  }
+
+  .opcao_user{
+    font-size: 1.9rem
+  }
+
+  .status_n-disponivel {
+    
+    font-size: 1.7rem;
+  }
+
+  .status_disponivel {
+    font-size: 1.7rem;
+  }
+
 }
+  
