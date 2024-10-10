@@ -63,7 +63,7 @@ header{
 }
 
 .container-header-user_nome{
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .container-header-user_cargo{
@@ -73,12 +73,12 @@ header{
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
+    font-size: 1.5rem;
 }
 
 /* Estilização da area "Serviço de Hoje" */
 main{
     width: 100%;
-    height: 100vh;
     background-color: var(--color06);
     border-top-left-radius: 5rem;  
     border-top-right-radius: 5rem; 
@@ -102,14 +102,14 @@ h1 p{
 
 hr{
     color: var(--color01);
-    margin: 0rem 3rem 0rem 3rem;
+    margin: 0rem 3rem 1rem 3rem;
 }
 
 /* Estilização "serviço a ser feito" */
 
 .container-servico{
     margin: 1rem 1rem 0rem 1rem;
-    height: 45%;
+    height: 45vh;
     display: flex;
     flex-direction: column;
    
@@ -141,6 +141,7 @@ hr{
     border: var(--color02) solid 0.1rem;
     border-radius: 0.5rem;
     padding: 1rem;
+    text-transform: capitalize;
 }
 
 .servico_urgencia i{
@@ -193,7 +194,6 @@ hr{
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
-    padding-top: 2rem;
 
 }
 
@@ -262,19 +262,50 @@ hr{
 
 .servico-encaminhado {
     width: 100%; 
-    height: 8rem; 
+    height: 12rem; 
     padding: 1rem; 
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: none;
 }
-/* -------------------------RESPONSIVIDADE----------------------- */
+
+.servico-urgencia{
+    font-weight: bold;
+    font-size: medium;
+    border: black solid 1px;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+/* -------------------------RESPONSIVIDADE-------------------- */
 /* Estilos para telas maiores */
+@media(max-width:1000px) {
+    main{
+        height: 100%;
+    }
+
+}
+
 @media (min-width:1000px) {
+    body{
+        overflow: hidden;
+    }
     main {
         display: flex;
         justify-content: space-between;
+        height: 100vh;
     }
     .horas h2{
         font-size: 4rem;
+    }
+
+    .servico-encaminhado{
+        height: 18rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 
     .data{
@@ -284,6 +315,13 @@ hr{
     .container-servico {
         width: 50%;
     }
+
+    .container-header-user{
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1rem ;
+    }
+
     .container-servico-encaminhado  {
         width: 50%;
         margin-top: 3rem;

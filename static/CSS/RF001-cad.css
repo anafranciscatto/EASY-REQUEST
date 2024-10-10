@@ -134,16 +134,25 @@ body {
 
 /* Media Query para telas (acima de 1200px) */
 @media (min-width: 1200px) {
+    body{
+        background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
     .form-container {
         width: 70vw; 
         max-width: 1000px; 
-        padding: 2.4rem; 
+        padding: 2.4rem;
+        box-shadow: 0px 9px 15px var(--color02); 
+        
     }
 
     .form-container__input {
         display: flex; 
         flex-direction: column; 
         margin-bottom: 1rem; 
+        
     }
 
     .form-container__label {

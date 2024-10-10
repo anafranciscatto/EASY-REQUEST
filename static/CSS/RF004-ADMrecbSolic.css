@@ -276,4 +276,13 @@
     .card { 
         max-width: 31.5rem; 
     }
+
+    .header__date{
+        margin-top: 3rem;
+        gap: 0.5rem;
+        border-radius: 5rem;
+        box-shadow: 4px 3px 10px rgb(135, 135, 135);
+        padding: 1rem;
+        font-size: 2.5rem;
+    }
 }
