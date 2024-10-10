@@ -73,7 +73,7 @@ function realizarEncaminhamento(id_solicitacao) {
         window.location.href = '/RF006';
     },
     error: function(){
-        alert("ERRO AO CADASTRAR!")
+        alert("ERRO AO ENCAMINHAR!")
     }
 
   })
