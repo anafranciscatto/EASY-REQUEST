@@ -74,6 +74,7 @@ header{
 /* Estilo serviços encaminhados */
 
 .container-servico-encaminhado{
+    width: 100%;
     height:auto;
     margin:1rem 1.5rem 0rem 1rem;
 }
@@ -142,8 +143,8 @@ header{
     position: absolute;
     bottom: 0;
     left: 0;
-    border-top-left-radius: 10rem;
-    border-top-right-radius: 10rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
     padding: 1.8rem;
     box-shadow: 0 -4px 10px rgba(20, 23, 53, 0.3); 
 }

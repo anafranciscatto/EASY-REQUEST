@@ -41,12 +41,12 @@
             </section>
         </header>
         <main class="container-baixo">
-            <section class="container_baixo-ladoEsquerdo">
+            <!-- <section class="container_baixo-ladoEsquerdo">
                 <div class="ladoEsquerdo-txt">
                     <h2>Serviço em <span class="destaque-txt">Aberto</span></h2>
                     <hr>
                 </div>
-                <!-- Serviço á ser feito -->
+                Serviço á ser feito 
                 <div class="ladoEsquerdo-conteudo">
                     {% for x in campo_encaminhamentos_pendentes %}
                     <div class="ladoEsquerdo-card">
@@ -58,13 +58,14 @@
                         </div>
                     </div>
                     {%endfor%}
-                </div>
-               
+                </div>-->
             </section>
             <!-- Serviços encaminhados -->
             <section class="container-servico-encaminhado">
-                <h2>Serviços Encaminhados</h2>
-                <hr>
+                <div class="container-servico-encaminhado_subtitulo">
+                    <h2>Serviços Encaminhados</h2>
+                    <hr>
+                </div>
                 <div class="container-encaminhamento">
                     {% for x in campo_encaminhamentos_pendentes %}
                     <a href="/RF006A/{{x[3]}}/{{x[4]}}">
@@ -77,6 +78,7 @@
                         </div>
                     </a>
                     {%endfor%}
+                </div>
             <section>
                 <button onclick="redirectSolicitacao()" class="Btn" >
                   
