@@ -18,8 +18,10 @@ def pg_inicio():
     return render_template("index.html")
 
 @app.route("/tl-administrador")
-def pg_administrador():
-    return render_template("TLadministrador.html")
+def tl_administrador():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/RF001")
 def pg_cadastro():
