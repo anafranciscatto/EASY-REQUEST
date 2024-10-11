@@ -18,6 +18,10 @@ app.secret_key = "capivara"
 def pg_inicio():
     return render_template("index.html")
 
+@app.route("/tl-administrador")
+def pg_administrador():
+    return render_template("TLadministrador.html")
+
 @app.route("/RF001")
 def pg_cadastro():
     return render_template("RF001-cad.html")
