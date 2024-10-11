@@ -18,6 +18,12 @@ app.secret_key = "capivara"
 def pg_inicio():
     return render_template("index.html")
 
+@app.route("/tl-administrador")
+def tl_administrador():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
+
 @app.route("/RF001")
 def pg_cadastro():
     return render_template("RF001-cad.html")
