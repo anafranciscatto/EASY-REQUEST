@@ -66,7 +66,9 @@ class Encaminhamento:
 
             mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario}")
 
-            if mycursor.fetchall != None:
+            print(mycursor.fetchall())
+
+            if mycursor.fetchall() != None:
                 mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
                 myBD.commit()
                 return True
