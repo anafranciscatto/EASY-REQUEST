@@ -64,7 +64,7 @@ class Encaminhamento:
 
             self.cpf_funcionario = cpf_funcionario
 
-            mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario}")
+            mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario} AND status = 'fazendo'")
 
             print(mycursor.fetchall())
 
@@ -73,6 +73,6 @@ class Encaminhamento:
                 myBD.commit()
                 return True
             else:
-                return False
+                return "Você só pode fazer um serviço por vez!"
         except:
             return False
