@@ -279,7 +279,7 @@ hr{
     padding: 0.5rem;
     margin: 0.5rem;
 }
-/* -------------------------RESPONSIVIDADE----------------------- */
+/* -------------------------RESPONSIVIDADE-------------------- */
 /* Estilos para telas maiores */
 @media(max-width:1000px) {
     main{
