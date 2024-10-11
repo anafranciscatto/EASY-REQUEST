@@ -91,6 +91,10 @@ function retornaSalas(bloco) {
     });
 }
 
+function funcVoltar() {
+    window.history.back();
+}
+
 // Executando todas as funções
 retornaServicos();
 retornaBlocos();

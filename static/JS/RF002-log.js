@@ -15,7 +15,7 @@ function logar(){
         contentType: 'application/json',
         success: function(dados_login){
             if(dados_login['permissao'] == 'administrador'){
-                window.location.href = '/RF004';
+                window.location.href = '/tl-administrador';
             }
 
             else if(dados_login['permissao'] == 'manutencao'){
