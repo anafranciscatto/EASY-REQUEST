@@ -25,25 +25,48 @@ header {
 .info-usuario{
     display: flex;
 }
-/* Estilo da data */
-.container-header-data{
-    margin: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
+/* Estilos gerais do menu */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.data{
-    display: flex;
-    gap: 0.5rem;
-    margin-right: 3rem;
-    font-size: 1.8rem;
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-right: 1.6rem;
 }
-.dia-semana{
-    color: var(--color05);
-    font-weight: 600;
+
+.nav ul li a {
+  text-decoration: none;
+  color: var(--color05);
+  font-size: 1.5rem;
+  font-weight: 600;
 }
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color06);
+}
+
+#menu-toggle {
+  display: none;
+}
+.img-menu img{
+  width: auto;
+  height: 2.5rem;
+}
+
 
 /* Estilo da Área Usuario */
 .container-header-user{
@@ -87,6 +110,7 @@ header {
     border-top-right-radius: 2rem;
     padding: 0 1.8rem;
     box-shadow: 0 -4px 10px rgba(20, 23, 53, 0.3); 
+    /* display: none; */
 }
 .container_baixo-ladoEsquerdo,.container_baixo-ladoDireito{
     min-height: 50%;
@@ -240,67 +264,33 @@ hr{
 }
 
 }
+/* Para dispositivos menores, como tablets */
+@media (max-width: 768px) {
+  .nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 200px;
+      background-color: var(--color04);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
 
+  .menu-icon {
+      display: flex;
+  }
 
-.button-container {
-    display: flex;
-    background-color: var(--color05);
-    color: #000;
-    width: 250px;
-    height: 40px;
-    align-items: center;
-    justify-content: space-around;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) -4px 11px 15px, rgba(0, 73, 144, 0.5) 8px 17px 15px;
-    transition: all 0.5s;
-    position: fixed;
-    left: 50%;
-    bottom: 20px;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 1rem;
+  /* Quando o checkbox é clicado, mostra o menu */
+  #menu-toggle:checked + .menu-icon + .menu {
+      display: flex;
+      z-index: +10000;
+  }
 }
-  .button-container:hover {
-    width: 300px;
-    transition: all 0.5s;
-  }
-  
-  .button {
-    outline: 0 !important;
-    border: 0 !important;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
-    transition: all ease-in-out 0.3s;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .button:hover {
-    transform: translateY(-3px);
-    height: 50px;
-    
-  }
- /* Inicialmente ocultando o texto */
-.btn-txt {
-    display: none;
-  }
-  
-  /* Mostrar o texto quando o botão for hover
-  .button:hover .btn-txt {
-    display: block;
-  } */
-  
-  img{
-    width: 35px;
-    height: 35px;
-  }
-  .icon {
-    font-size: 20px;
-  }
+.menu img{
+  width: 2.5rem;
+  height: auto;
+  border-radius: 0;
+}
