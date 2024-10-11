@@ -284,7 +284,19 @@ hr{
   
   .button:hover {
     transform: translateY(-3px);
+    height: 50px;
+    
   }
+ /* Inicialmente ocultando o texto */
+.btn-txt {
+    display: none;
+  }
+  
+  /* Mostrar o texto quando o botão for hover
+  .button:hover .btn-txt {
+    display: block;
+  } */
+  
   img{
     width: 35px;
     height: 35px;
@@ -292,4 +304,3 @@ hr{
   .icon {
     font-size: 20px;
   }
-  
