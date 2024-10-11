@@ -16,7 +16,7 @@ function iniciarServico(id_encaminhamento) {
         }, 1500);
       },
       error: function(){
-        swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
+        swal ( "Oops!" ,  "Erro ao iniciar serviço!" ,  "error" );
       }
     })
 }
