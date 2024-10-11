@@ -8,7 +8,7 @@ function obterSaudacao() {
         return "Boa tarde, ";
     } else {
         return "Boa noite, ";
-    }
+}
 }
 
 document.getElementById('saudacao').textContent = obterSaudacao();

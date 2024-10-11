@@ -1,10 +1,12 @@
 body{
     overflow-x: hidden; 
 }
-header{
+header {
     width: 100vw;
-    height: 18vh;    
+    height: 18vh;
     display: flex;
+    align-items: flex-start;
+    padding-top: 2rem;
 }
 
 /* Estilo do cabeçalho */
@@ -81,9 +83,9 @@ header{
     position: absolute;
     bottom: 0;
     left: 0;
-    border-top-left-radius: 10rem;
-    border-top-right-radius: 10rem;
-    padding: 1.8rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 0 1.8rem;
     box-shadow: 0 -4px 10px rgba(20, 23, 53, 0.3); 
 }
 .container_baixo-ladoEsquerdo,.container_baixo-ladoDireito{
@@ -121,10 +123,12 @@ hr{
 .horario{
     padding-left: 1.4rem;
 }
-.urgencia{
-    padding: 0.5rem;
+.urgencia {
+    padding: 0.1rem 0.5rem;
     border: 0.2rem solid var(--colorRed);
     border-radius: 3rem;
+    background: var(--colorRed);
+    color: var(--color04);
 }
 .fa-arrow-right:before {
     content: "\f061";
@@ -236,3 +240,56 @@ hr{
 }
 
 }
+
+
+.button-container {
+    display: flex;
+    background-color: var(--color05);
+    color: #000;
+    width: 250px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) -4px 11px 15px, rgba(0, 73, 144, 0.5) 8px 17px 15px;
+    transition: all 0.5s;
+    position: fixed;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+}
+  .button-container:hover {
+    width: 300px;
+    transition: all 0.5s;
+  }
+  
+  .button {
+    outline: 0 !important;
+    border: 0 !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .button:hover {
+    transform: translateY(-3px);
+  }
+  img{
+    width: 35px;
+    height: 35px;
+  }
+  .icon {
+    font-size: 20px;
+  }
+  

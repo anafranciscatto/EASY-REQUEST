@@ -70,10 +70,10 @@ function realizarEncaminhamento(id_solicitacao) {
     data: JSON.stringify(dados),
     contentType: 'application/json',
     success: function(){
-        window.location.href = '/RF006';
+        window.location.href = '/RF004';
     },
     error: function(){
-        alert("ERRO AO CADASTRAR!")
+        alert("ERRO AO ENCAMINHAR!")
     }
 
   })
