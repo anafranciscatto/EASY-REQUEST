@@ -19,7 +19,7 @@ function logar(){
             }
 
             else if(dados_login['permissao'] == 'manutencao'){
-                window.location.href = '/RF006';
+                window.location.href = '/RF003';
             }
 
             else if(dados_login['permissao'] == 'solicitante'){
