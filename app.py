@@ -262,8 +262,10 @@ def iniciar_servico(id_encaminhamento):
     else:
         return {'mensagem':'ERRO'}, 500
 
-@app.route("/RF007")
-def pg_manutencao_confirmacao():
+@app.route("/RF007/<id_solicitacao>")
+def pg_manutencao_confirmacao(id_solicitacao):
+    finaliza=Encaminhamento()
+    finaliza.finalizacao_encaminhamento(id_solicitacao)
     return render_template("RF007-manutConfirm.html")
 
 @app.route("/RF008")
