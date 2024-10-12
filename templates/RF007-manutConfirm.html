@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
     <!-- Link para o CSS específico desta página -->
     <link rel="stylesheet" href="/static/CSS/RF007-manutConfirm.css">
+    <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
+    <script defer src="/static/JS/funcao-voltar.js"></script>
     <!-- link JS biblioteca SweetAlert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
@@ -20,7 +22,7 @@
     <!-- Cabeçalho com informações do usuário e botão de voltar -->
     <header class="cabecalho">
         <div class="cabecalho__botao-container">
-            <button class="cabecalho__botao-voltar" href=''>
+            <button class="cabecalho__botao-voltar" onclick="funcVoltar()">
                 <i class="fa-solid fa-arrow-left"></i>Voltar
             </button>
         </div>
