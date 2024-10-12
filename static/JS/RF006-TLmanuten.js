@@ -16,7 +16,14 @@ function iniciarServico(id_encaminhamento) {
         }, 1500);
       },
       error: function(mensagem){
-        swal ( "Oops!" ,  mensagem ,  "error" );
+        console.log(mensagem)
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: mensagem['responseText'],
+          showConfirmButton: false,
+          timer: 3500
+        });
       }
     })
 }

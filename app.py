@@ -265,14 +265,14 @@ def iniciar_servico(id_encaminhamento):
 
     cpf_funcionario = session["usuario"]["CPF"]
 
-    retorno = encaminhamento.aceitar_encaminhamento(id_encaminhamento,cpf_funcionario)
+    retorno = encaminhamento.aceitar_encaminhamento(id_encaminhamento, cpf_funcionario)
 
     if retorno == 'Você só pode fazer um serviço por vez!':
-        return {'Você só pode fazer um serviço por vez!'}, 500
+        return 'Você só pode fazer um serviço por vez!', 500
     elif retorno:
         return jsonify({'mensagem':'Encaminhamento OK'}), 200
     else:
-        return {'Erro ao iniciar serviço!'}, 500
+        return 'Erro ao iniciar serviço!', 500
 
 @app.route("/RF007")
 def pg_manutencao_confirmacao():
