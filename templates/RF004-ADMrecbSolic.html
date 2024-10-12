@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004-ADMrecbSolic.css">
+    <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
     <script defer src="/static/JS/funcao-data.js"></script>
     <script defer src = "/static/JS/funcao-horas.js"></script>
+    <script defer src="/static/JS/funcao-voltar.js"></script>
     <!-- Biblioteca de ícones do Font Awesome para uso de ícones na página -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
     <!-- link JS biblioteca SweetAlert -->
@@ -19,7 +21,7 @@
         <!-- Container para a data e botão de menu -->
         <div class="header__date-container">
             <div class="header__button">
-                <button class="header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <button class="header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
             </div>
         </div>
         <!-- Informações do usuário logado -->

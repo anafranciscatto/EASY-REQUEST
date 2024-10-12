@@ -7,6 +7,8 @@
     <!-- Importação de arquivos CSS: global e específico desta página -->
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004A-detlSolic.css">
+    <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
+    <script defer src="/static/JS/funcao-voltar.js"></script>
     <!-- Biblioteca jQuery para manipulação de DOM e requisições Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Biblioteca Font Awesome para uso de ícones na página -->
@@ -21,7 +23,7 @@
     <nav>
         <section class="container-header">
             <div class="container-header_btn">
-                <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                <button class="container-header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
             </div>
         </section>
     </nav>
