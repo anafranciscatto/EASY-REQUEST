@@ -15,7 +15,17 @@ app.secret_key = "capivara"
 # Criando rota para a página inicial
 @app.route("/")
 def pg_inicio():
-    return render_template("index.html")
+    if "usuario" in session:
+        permissao = session["usuario"]["permissao"]
+
+        if permissao == "administrador":
+            return redirect("/tl-administrador")
+        elif permissao == "manutencao":
+            return redirect("/RF006")
+        elif permissao == "solicitante":
+            return redirect("/RF003")
+    else:
+        return render_template("index.html")
 
 @app.route("/tl-administrador")
 def tl_administrador():
@@ -64,8 +74,15 @@ def cadastrarUsuario(): # Função que executa o cadastro
 # Criando a rota para a tela de login
 @app.route("/RF002")
 def pg_login():
-    if session.get("usuario","erro") == "Autenticado": 
-        return redirect("/")
+    if "usuario" in session:
+        permissao = session["usuario"]["permissao"]
+
+        if permissao == "administrador":
+            return redirect("/tl-administrador")
+        elif permissao == "manutencao":
+            return redirect("/RF006")
+        elif permissao == "solicitante":
+            return redirect("/RF003")
     else:
         return render_template("RF002-log.html")
 
