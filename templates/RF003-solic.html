@@ -10,7 +10,7 @@
         <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
         <script defer src="/static/JS/RF003-solic.js"></script>
         <script defer src="/static/JS/funcao-data.js"></script>
-        
+        <script defer src="/static/JS/funcao-voltar.js"></script>
         <!-- Biblioteca de ícones do Font Awesome para uso de ícones na página -->
         <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
         <!-- Biblioteca jQuery para facilitar o uso de Ajax e manipulação de DOM -->
@@ -24,7 +24,7 @@
             <!-- Contêiner do cabeçalho com botão de voltar e data atual -->
             <section class="container-header">
                 <div class="container-header_btn">
-                    <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+                    <button class="container-header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
                 </div>
                 <div class="horas">
                     <h2 class="saudacao" id="saudacao"></h2>

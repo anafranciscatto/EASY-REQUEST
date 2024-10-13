@@ -15,11 +15,11 @@ function logar(){
         contentType: 'application/json',
         success: function(dados_login){
             if(dados_login['permissao'] == 'administrador'){
-                window.location.href = '/RF004';
+                window.location.href = '/tl-administrador';
             }
 
             else if(dados_login['permissao'] == 'manutencao'){
-                window.location.href = '/RF003';
+                window.location.href = '/RF006';
             }
 
             else if(dados_login['permissao'] == 'solicitante'){
@@ -28,7 +28,13 @@ function logar(){
             console.log(dados_login["permissao"])
         },
         error: function(){
-            swal("Oops!" , "SN ou senha inválidos!" , "error" );
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "SN ou senha inválidos!",
+                showConfirmButton: false,
+                timer: 3500
+              });
         }
     })
 }

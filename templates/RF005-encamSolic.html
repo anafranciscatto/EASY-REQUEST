@@ -17,6 +17,7 @@
         <!-- link Arquivo JS função data -->
          <script defer src="/static/JS/funcao-data.js"></script>
          <script defer src = "/static/JS/funcao-horas.js"></script>
+         <script defer src="/static/JS/funcao-voltar.js"></script>
          <!-- Link para o Ajax -->
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
          <!-- link JS biblioteca SweetAlert -->
@@ -24,22 +25,8 @@
 
     </head>
     <body>
-        <header>
-            <section class="container-header">
-                <figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                <div class="container-header_user-info">
-                    <h2 class="container-header_user-nome">{{campo_nome}}</h2>
-                    <p class="container-header_user-cargo">{{campo_funcao}}</p>
-                </div>
-            </section>
-            <section class="container-header-data">
-                <div class="data">
-                    <p class="dia-semana" id="dia-semana">Qui</p><p class="dia" id="dia">10</p><p class="mes" id="mes">Set</p>
-                </div>
-            </section>
-        </header>
         <nav>
-            <button class="container-header_btn-voltar" href=''><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+            <button class="container-header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
         </nav>
         <main>
             <section class="container-main">

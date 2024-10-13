@@ -1,4 +1,3 @@
-
 # Criando as importações do Flask
 from flask import Flask, render_template, request, redirect, session, jsonify
 from Solicitacao import Solicitacao
@@ -17,6 +16,12 @@ app.secret_key = "capivara"
 @app.route("/")
 def pg_inicio():
     return render_template("index.html")
+
+@app.route("/tl-administrador")
+def tl_administrador():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/RF001")
 def pg_cadastro():
@@ -257,10 +262,17 @@ def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
 @app.route("/iniciar-servico/<id_encaminhamento>")
 def iniciar_servico(id_encaminhamento):
     encaminhamento = Encaminhamento()
-    if encaminhamento.aceitar_encaminhamento(id_encaminhamento):
+
+    cpf_funcionario = session["usuario"]["CPF"]
+
+    retorno = encaminhamento.aceitar_encaminhamento(id_encaminhamento, cpf_funcionario)
+
+    if retorno == 'Você só pode fazer um serviço por vez!':
+        return 'Você só pode fazer um serviço por vez!', 500
+    elif retorno:
         return jsonify({'mensagem':'Encaminhamento OK'}), 200
     else:
-        return {'mensagem':'ERRO'}, 500
+        return 'Erro ao iniciar serviço!', 500
 
 @app.route("/RF007")
 def pg_manutencao_confirmacao():
