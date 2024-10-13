@@ -286,5 +286,10 @@ def pg_fim_chamado():
 def pg_relatorio():
     return render_template("RF009-relatorio.html")
 
+@app.route("/logout")
+def logoff():
+    session.clear()
+    return redirect("/")
+
 #Rodando o WebService
 app.run(debug=True)
