@@ -196,9 +196,13 @@ def pg_ADM_recebe_solicitacao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
 
-    print(recebimento)
-
     return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/retorna-solicitacoes")
+def mostrar_solicitacoes():
+    servico = Solicitacao()
+    solicitacoes = servico.recebimento_solicitacoes()
+    return jsonify(solicitacoes), 200
 
 @app.route('/RF004A/<rowid>')
 def pg_ver_solicitacao(rowid):
