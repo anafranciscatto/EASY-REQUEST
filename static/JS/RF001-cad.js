@@ -95,7 +95,6 @@ const id_funcao = document.getElementById('funcao');
 var permissao = '';
 
 function cadastrar(){
-    console.log(sn.value)
     if (cpf.value === '' || nome.value === '' || email.value === '' || senha.value === '' || sn.value === '' || id_funcao.value === '') {
         Swal.fire({
             icon: "error",
