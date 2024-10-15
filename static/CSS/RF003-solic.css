@@ -190,7 +190,13 @@ input,select{
     width: 100%;
     height: 9rem;
     border-radius: 2rem;  
-    margin-top: 1rem;  
+    margin-top: 1rem;
+    padding: 1rem;
+    resize: none; /* Impede redimensionamento */
+}
+
+#descricao::-webkit-scrollbar {
+    display: none; /* Oculta a barra de rolagem */
 }
 
 /* Estilo do Botão "Enviar Solicitação" */
