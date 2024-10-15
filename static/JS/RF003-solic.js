@@ -27,7 +27,13 @@ function fazerSolicitacao() {
               });
         },
         error: function(){
-            swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Erro ao fazer solicitação!",
+                showConfirmButton: false,
+                timer: 3500
+              });
         }
 
     })
