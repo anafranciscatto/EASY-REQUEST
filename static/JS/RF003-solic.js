@@ -2,15 +2,29 @@
 inputServico = document.getElementById('tipo-servico');
 inputBloco = document.getElementById('bloco');
 inputSalas = document.getElementById('sala');
-inputAdendo = document.getElementById('adendo');
+inputDescricao = document.getElementById('descricao');
 
 // Função que usa os dados do formulário para cadastrar uma solicitação
 function fazerSolicitacao() {
+
+    if (inputServico.value == '' || inputSalas == '0' || inputDescricao == '') {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Você deve preencher todos os campos obrigatórios!",
+            showConfirmButton: false,
+            timer: 3500
+          });
+          return;
+    }
+
     var dados = {
         id_servico:inputServico.value,
         id_sala:inputSalas.value,
-        descricao:inputAdendo.value
+        descricao:inputDescricao.value
     }
+
+    console.log(dados)
 
     $.ajax({
         url: '/fazer_solicitacao',
@@ -27,7 +41,13 @@ function fazerSolicitacao() {
               });
         },
         error: function(){
-            swal ( "Oops!" ,  "Erro ao enviar solicitação!" ,  "error" );
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Erro ao fazer solicitação!",
+                showConfirmButton: false,
+                timer: 3500
+              });
         }
 
     })

@@ -15,8 +15,15 @@ function iniciarServico(id_encaminhamento) {
             window.location.href = '/RF006';
         }, 1500);
       },
-      error: function(){
-        swal ( "Oops!" ,  "Erro ao iniciar serviço!" ,  "error" );
+      error: function(mensagem){
+        console.log(mensagem)
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: mensagem['responseText'],
+          showConfirmButton: false,
+          timer: 3500
+        });
       }
     })
 }

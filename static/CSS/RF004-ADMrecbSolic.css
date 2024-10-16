@@ -93,8 +93,8 @@
     background-color: var(--color06); 
     margin-bottom: 0;
     position: relative; 
-    border-top-left-radius: 5rem; 
-    border-top-right-radius: 5rem;
+    border-top-left-radius: 2rem; 
+    border-top-right-radius: 2rem;
     padding: 1.5rem; 
     display: flex; 
     flex-direction: column; 
