@@ -143,8 +143,9 @@ header{
 
 .container-servico-encaminhado{
     width: 100%;
-    height:auto;
+    height: 42vh;
     margin:1rem 1.5rem 0rem 1rem;
+    overflow-y: auto;
 }
 
 .container-servico-encaminhado h2{
@@ -163,9 +164,9 @@ header{
 
 .servico-encaminhado{
     background-color: var(--color01);
-    height: 60%;
-    width: 45%;
-    margin: 0.5rem;
+    height: 100%;
+    width: 95%;
+    margin: 1rem 0rem 7rem 0rem;
     border-radius: 1rem;
     position: relative;
     display: flex;
