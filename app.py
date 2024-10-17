@@ -1,7 +1,12 @@
 # Criando as importações do Flask
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session, jsonify, url_for
 from Solicitacao import Solicitacao
 from conexao_SQL import Connection
+# Criando importações do Bloob
+from azure.storage.blob import BlobServiceClient
+# import uuid
+# import os
+from upload_file import upload_file
 # Importando a classe Usuario
 from Usuario import Usuario
 from Encaminhamento import Encaminhamento
@@ -46,14 +51,23 @@ def pg_cadastro():
 # Criando rota para a tela de cadastro
 @app.route("/cadastrar-usuario", methods=["POST"])
 def cadastrarUsuario(): # Função que executa o cadastro
-    dados = request.get_json()
-    cpf = dados["cpf"]
-    nome = dados["nome"]
-    email = dados["email"]
-    senha = dados["senha"]
-    sn = dados["sn"]
-    foto = dados["foto"]
-    id_funcao = dados["id_funcao"]
+    # dados = request.get_json()
+    # cpf = dados["cpf"]
+    # nome = dados["nome"]
+    # email = dados["email"]
+    # senha = dados["senha"]
+    # sn = dados["sn"]
+    # foto = dados["foto"]
+    # id_funcao = dados["id_funcao"]
+
+    cpf = request.form.get('cpf')
+    nome = request.form.get('nome')
+    email = request.form.get('email')
+    senha = request.form.get('senha')
+    foto = request.files['foto']
+    sn = request.form.get('sn')
+    id_funcao = request.form.get('id_funcao')
+    link_arquivo_foto = upload_file(foto)
 
     if id_funcao >= 2 and id_funcao <= 7:
         permissao = "solicitante"
@@ -70,8 +84,8 @@ def cadastrarUsuario(): # Função que executa o cadastro
 
     usuario = Usuario()
 
-    if usuario.cadastrar(cpf, nome, email, senha, sn, foto, permissao, id_funcao):
-        session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":foto, "funcao":funcao[0],"permissao":permissao}
+    if usuario.cadastrar(cpf, nome, email, senha, sn, link_arquivo_foto, permissao, id_funcao):
+        session["usuario"] = {"CPF":cpf ,"nome":nome,"sn":sn, "foto":link_arquivo_foto, "funcao":funcao[0],"permissao":permissao}
 
         return jsonify({'mensagem':'Cadastro OK'}), 200
     else:
@@ -201,6 +215,7 @@ def pg_ADM_recebe_solicitacao():
 
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
+    foto =
 
     return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
 
@@ -316,6 +331,14 @@ def pg_fim_chamado():
 @app.route("/RF009")
 def pg_relatorio():
     return render_template("RF009-relatorio.html")
+
+@app.route('/upload', methods=['POST'])
+def upload_file2():
+
+    file = request.files['file']
+    link_arquivo = upload_file(file)
+
+    return link_arquivo, 200
 
 @app.route("/logout")
 def logoff():

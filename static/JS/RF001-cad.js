@@ -114,21 +114,24 @@ function cadastrar(){
           });
         return
     }
-    var dados = {
-        cpf:cpf.value,
-        nome:nome.value,
-        email:email.value,
-        senha:senha.value,
-        sn:sn.value,
-        foto:foto.value,
-        id_funcao:parseInt(funcao.value)
-    }
+
+    var dados = new FormData(); // Cria um novo FormData
+
+    // Adiciona os dados ao FormData
+    dados.append('cpf', cpf.val());
+    dados.append('nome', nome.val());
+    dados.append('email', email.val());
+    dados.append('senha', senha.val());
+    dados.append('sn', sn.val());
+    dados.append('foto', foto.files[0]); // Adiciona a foto
+    dados.append('id_funcao', parseInt(id_funcao.val())); // Adiciona id_funcao
 
     $.ajax({
         url: '/cadastrar-usuario',
         type: 'POST',
-        data: JSON.stringify(dados),
-        contentType: 'application/json',
+        data: dados,
+        contentType: false, // Importante para enviar arquivos
+        processData: false, // Não processar os dados
         success: function(){
             if (parseInt(funcao.value) >= 2 && parseInt(funcao.value) <= 7){
                 permissao = 'solicitante';
