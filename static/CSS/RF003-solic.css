@@ -10,6 +10,7 @@ input,select{
     height: 5vh;
     display: flex;
     justify-content: space-between;
+    padding-top: 1.5rem;
 }
 
 .container-header_btn{
@@ -78,24 +79,24 @@ input,select{
 .container-header-user_cargo{
     background-color: var(--color05);
     color: var(--color01);
-    margin-right: 10rem;
     text-align: center;
-    padding: 0.4rem;
+    padding: 0.5rem;
     border-radius: 5rem;
+    font-size: 1.5rem;
 }
 
 /* Estilo da Área de Solicitação */
 .container-main{
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
     background-color: var(--color06);
     color: var(--color01);
     display: flex;
     align-items: center;
     flex-direction: column;
-    border-top-left-radius: 5rem;
-    border-top-right-radius: 5rem;
-    box-shadow:  4px 1px 30px  black;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    box-shadow: 0 -4px 8px rgba(20, 23, 53, 0.3); 
 
 }
 
@@ -136,7 +137,7 @@ input,select{
     display: flex;
     flex-direction: column;
     margin: 0.5rem;
-    gap: 4rem;
+    gap: 2.5rem;
 }
 
 .form_select select{
@@ -144,8 +145,11 @@ input,select{
     color: var(--color06);
     font-weight: 700;
     border: none;
-    padding: 0.2rem;
+    padding: 0.7rem;
     border-radius: 2rem;
+}
+.form_select option{
+    /* s */
 }
 
 /* Estilo input Arquivo */
@@ -153,7 +157,7 @@ input,select{
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin:  2rem 0.5rem 2rem 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .form_input-arquivo label{
@@ -188,7 +192,7 @@ input,select{
 
 #descricao{
     width: 100%;
-    height: 9rem;
+    height: 8rem;
     border-radius: 2rem;  
     margin-top: 1rem;
     padding: 1rem;
@@ -227,53 +231,14 @@ input,select{
 }
 
 /* ------------RESPONSIVIDADE------------------- */
-
-
-
-@media (min-width:900px){
-    .container-main{
-        height:80vh ;
+@media (min-width:700px) {
+    .container-main_form {
+        width: 75%;
     }
 
-    .form_select{
-        gap: 2rem;
-        display: flex;
+    #descricao {
+        height: 11rem;
     }
-
-    .form_input-arquivo{
-        margin:  1rem 0.5rem 1rem 0.5rem;
-    }
-    
-    .form_btn-enviar{
-        display: inline-block;
-        width: 20rem;
-        padding: 0.5rem;
-        margin-bottom: 1rem;
-        margin-top: 1.5rem;
-    }
-    .container-header{
-        display: flex;
-        justify-content: space-around;
-    }
-    .container-header_data{
-        gap: 0.5rem;
-        border-radius: 5rem;
-        box-shadow: 4px 3px 10px rgb(135, 135, 135);
-        padding: 1.5rem;
-        font-size: 2.5rem;
-    }
-    .container-header-user{
-        display: flex;
-        justify-content: center;
-    }
-   .container-header-user_nome{
-    font-size: 3rem;
-   }
-   .container-header-user_cargo{
-    font-size: 1.5rem;
-   }
-   .container-main h1{
-    font-size: 5rem;
-    margin: 2rem;
-   }
 }
+
+
