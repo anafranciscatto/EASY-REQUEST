@@ -177,7 +177,7 @@ header {
 .container-header-user_cargo{
     background-color: var(--color05);
     color: var(--color01);
-    margin-right: 10rem;
+    min-width: 2rem;
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
