@@ -51,6 +51,10 @@ function mostrarSolicitacoes() {
     });
 }
 
+function funcVoltar() {
+    window.location.href = '/tl-administrador'
+}
+
 $(document).ready(mostrarSolicitacoes)
 
 setInterval(function(){

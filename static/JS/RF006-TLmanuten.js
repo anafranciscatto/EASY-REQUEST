@@ -28,6 +28,10 @@ function iniciarServico(id_encaminhamento) {
     })
 }
 
+function funcVoltar() {
+  window.location.href = '/RF006'
+}
+
 function redirectSolicitacao() {
   window.location.href = '/RF003';
 }
