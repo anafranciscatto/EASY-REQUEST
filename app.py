@@ -33,6 +33,12 @@ def tl_administrador():
     funcao = session["usuario"]["funcao"]
     return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
 
+@app.route("/tl-solicitante")
+def tl_solicitante():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao)
+
 @app.route("/RF001")
 def pg_cadastro():
     return render_template("RF001-cad.html")

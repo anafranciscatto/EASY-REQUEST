@@ -146,7 +146,7 @@ function cadastrar(){
             }
 
             else if(permissao == 'solicitante'){
-                window.location.href = '/RF006A';
+                window.location.href = '/tl-solicitante';
             }
 
         },
