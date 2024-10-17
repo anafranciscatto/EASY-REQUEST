@@ -1,3 +1,7 @@
+html {
+    font-size:70.5%; 
+    
+}
 /* Classe para esconder elementos quando necessário */
 .hidden {
     display: none;
@@ -15,11 +19,11 @@ body {
     padding: 3.6rem;
     background-color: var(--color06); 
     color: var(--color01); 
-    border-bottom-left-radius: 8rem;  
-    border-bottom-right-radius: 8rem;
+    border-bottom-left-radius: 2rem;  
+    border-bottom-right-radius: 2rem;
     overflow: hidden; 
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 }
-
 /* Estilo do título do formulário */
 .form-container__title {
     font-size: 3.3rem;
@@ -101,6 +105,18 @@ body {
 /* ------MEDIA------ */
 /* Estilo para telas de notebook e computadores */
 @media (min-width: 768px) {
+    html {
+        font-size:75.5%; 
+        
+    }
+    body{
+        width: 100vw;
+        height: 100vh;
+        background: url(/static/IMG/Telacad.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+       
+    }
     .form-container {
         width: 100vw; 
         max-width: 800px; 
@@ -134,8 +150,12 @@ body {
 
 /* Media Query para telas (acima de 1200px) */
 @media (min-width: 1200px) {
+    html {
+        font-size: 72.5%; 
+        
+    }
     body{
-        background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+        background: url(/static/IMG/Telacad.png);
         background-repeat: no-repeat;
         background-size: cover;
        
@@ -144,7 +164,6 @@ body {
         width: 70vw; 
         max-width: 1000px; 
         padding: 2.4rem;
-        box-shadow: 0px 9px 15px var(--color02); 
         
     }
 
