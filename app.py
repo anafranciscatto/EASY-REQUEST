@@ -309,6 +309,8 @@ def pg_manutencao_confirmacao():
 
 @app.route("/RF008")
 def pg_fim_chamado():
+    
+
     return render_template("RF008-fimchamado.html")
 
 @app.route("/RF009")
