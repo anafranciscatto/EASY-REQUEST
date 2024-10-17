@@ -162,6 +162,25 @@ option{
     background-color: transparent !important; /* Fundo transparente */
 }
 
+/* Ideias de teste */
+.senha-requisitos {
+    margin-top: 0.5rem;
+}
+
+.requisito {
+    color: red; /* Inicialmente em vermelho */
+    font-size: 1.1rem;
+}
+
+.requisito.validado {
+    color: green; /* Verde quando validado */
+}
+
+.mensagem {
+    margin-top: 0.5rem;
+    color: green; /* Mensagem de validação em verde */
+}
+
 
 /* ------MEDIA------ */
 /* Estilo para telas de notebook e computadores */
