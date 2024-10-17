@@ -145,7 +145,13 @@ header{
     width: 100%;
     height: 45vh;
     margin:1rem 1.5rem 0rem 1rem;
-    overflow-y: auto;
+    overflow-y: scroll;
+  
+}
+
+/* estilo da barra de rolagem */
+::-webkit-scrollbar {
+  background-color: transparent;
 }
 
 .container-servico-encaminhado h2{
@@ -164,6 +170,7 @@ header{
     gap: 1rem; /* Espaço entre os itens */
     width: 100%;
     justify-items: center;
+    
 }
 
 .container-encaminhamento a{
@@ -385,5 +392,16 @@ hr{
     transform: translate(2px ,2px);
   }
 
+@media (min-width: 700px){
+  .container-encaminhamento {
+    grid-template-columns: 1fr 1fr; 
+   
+    
+}
+}
 
-  
+@media (min-width: 1000px){
+  .container-encaminhamento {
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+}
