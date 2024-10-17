@@ -93,3 +93,8 @@ setInterval(function(){
   retornaEncaminhamentos()
   console.log('Recarregando...')
 }, 5000);
+
+// Função para deslogar da conta
+function logout() {
+  window.location.href = '/logout';
+}
