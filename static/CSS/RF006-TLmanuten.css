@@ -66,7 +66,6 @@ header{
 .container-header-user_cargo{
     background-color: var(--color05);
     color: var(--color01);
-    margin-right: 10rem;
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
@@ -159,14 +158,19 @@ header{
 /* Para telas normais (padrão) */
 .container-encaminhamento {
     display: grid;
+    text-align: center;
     height: auto;
     grid-template-columns: 1fr; /* Uma coluna */
     gap: 1rem; /* Espaço entre os itens */
+    width: 100%;
+    justify-items: center;
 }
 
 .container-encaminhamento a{
     text-decoration: none;
     color: var(--color02);
+    width: 100%;
+    margin: 0rem 1rem 0rem 1rem;
     
 }
 
@@ -182,7 +186,13 @@ header{
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    border: solid 3px transparent;
+    transition: 0.3s ease-in-out;
    
+}
+
+.servico-encaminhado:hover{
+ border: solid var(--color03) 3px;
 }
 
 .servico-encaminhado-local{
@@ -224,7 +234,7 @@ header{
 /* Estilo do css do man do site */
 .container-baixo{
     width: 100vw;
-    min-height: 55rem;
+    min-height: 80vh;
     height: auto;
     background-color: var(--color06);
     margin-bottom: 0;
