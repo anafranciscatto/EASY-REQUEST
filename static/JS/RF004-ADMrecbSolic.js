@@ -31,7 +31,7 @@ function mostrarSolicitacoes() {
                     <!-- Rodapé do card com botão de ação -->
 
                     <footer class="card__footer">
-                        <button class="card__button" aria-label="Encaminhar solicitação"><a href="/RF004A/${solicitacoes[x][0]}">Detalhes</a></button>
+                        <a href="/RF004A/${solicitacoes[x][0]}"><button class="card__button" aria-label="Encaminhar solicitação">Detalhes</button></a>
                     </footer>
                 </div>
 
