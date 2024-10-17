@@ -165,7 +165,7 @@ header {
 
 .container-header-user img{
     width: auto;
-    height: 5rem;
+    height: 6rem;
     border-radius: 100%;
 }
 
@@ -178,6 +178,7 @@ header {
     background-color: var(--color05);
     color: var(--color01);
     min-width: 2rem;
+    margin-right: 1rem;
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
@@ -186,8 +187,7 @@ header {
 /* Estilo do css do man do site */
 .container-baixo{
     width: 100vw;
-    min-height: 55rem;
-    height: auto;
+    height: 80vh;
     background-color: var(--color06);
     margin-bottom: 0;
     position: absolute;
@@ -351,7 +351,7 @@ hr{
 }
 .container-baixo{
   width: 100vw;
-  min-height: 55rem;
+  min-height: 80vh;
 
 }
 
@@ -384,7 +384,7 @@ hr{
 
   .container-baixo{
     width: 100vw;
-    min-height: 56rem;
+    min-height: 80vh;
   
   }
 
