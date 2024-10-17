@@ -11,11 +11,11 @@ body{
     width: 100vw;
     height: 30vh;
     z-index: -1;
-    background: url(https://images.unsplash.com/photo-1676311396794-f14881e9daaa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGhhbW1lcnxlbnwwfHwwfHx8MA%3D%3D);
+    background: url(/static/IMG/Telacad.png);
     background-repeat: no-repeat;
     background-size: cover;
-    border-bottom-left-radius: 5rem;
-    border-bottom-right-radius: 5rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
 }
 
 /* Estilo do Forms */
@@ -33,7 +33,7 @@ main{
     background-color: var(--color01);
     width: 37rem;
     height: 40rem;
-    border-radius: 5rem;
+    border-radius: 2rem;
     position: absolute;
     box-shadow:  5px 10px 18px var(--color02);
 }
@@ -98,12 +98,12 @@ footer{
 }
 .container-footer{
     background-color: var(--color01);
-    width: 50vw;
+    width: 45vw;
     height: 10rem;
     position: fixed;
     bottom: 0;
-    border-top-right-radius: 6rem;
-    border-top-left-radius:6rem ;
+    border-top-right-radius: 2rem;
+    border-top-left-radius:2rem ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +128,7 @@ footer{
     }
 
     .container-form{
-        top: 10rem;
+        top: 15rem;
         width: 32rem;
         height: 31rem;
     }
@@ -144,5 +144,21 @@ footer{
         top: 10rem;
         width: 35rem;
         height: 37rem;
+    }
+
+    .container-footer{
+        width: 32vw;
+    }
+}
+
+@media(min-width:1100px){
+    .container-form{
+        top: 15rem;
+        width: 38rem;
+        height: 37rem;
+    }
+
+    .container-footer{
+        width: 29vw;
     }
 }
