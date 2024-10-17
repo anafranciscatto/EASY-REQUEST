@@ -218,16 +218,6 @@ main{
 
 /* ----------RESPONSIVIDADE----------- */
 
-@media (min-width: 360px){
-  .status_n-disponivel{
-    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-    
-  }  
-  .opcaoUrgencia{
-   font-size: 1.2rem;
-    }
-}
-
 @media (min-width:1000px){
   .main{
     display: grid;
@@ -239,60 +229,3 @@ main{
     grid-template-columns: auto auto;
     margin: 3rem 9rem 0rem 9rem;
   }
-  .container-header_user-nome{
-    font-size: 2rem;
-  }
-  .container-header_user-cargo{
-    font-size: 1.5rem;
-  }
-  .data{
-        gap: 0.5rem;
-        border-radius: 5rem;
-        box-shadow: 4px 3px 10px rgb(135, 135, 135);
-        padding: 1rem;
-        font-size: 2.5rem;
-  }
-  .form_btn-emergencia{
-    height: 30vh;
-  }
-  .form_btn-emergencia__titulo{
-      margin: 2rem 0rem 0rem 12rem;
-      font-size: 2rem;
-  }
-  .botoes{
-    margin-top: 4rem;
-  }
-  .opcaoUrgencia {
-    font-size: 2rem;
-  }
-
-  .btn-enviar {
-    padding: 1.5rem;
-    font-size: 1.5rem;
-    margin: 3rem 10rem 0rem 10rem;
-
-  }
-
-  .caixa-opcao {
-    padding: 20px;
-  }
-
-  .caixa-opcao img {
-    height: 8rem; 
-  }
-
-  .opcao_user{
-    font-size: 1.9rem
-  }
-
-  .status_n-disponivel {
-    
-    font-size: 1.7rem;
-  }
-
-  .status_disponivel {
-    font-size: 1.7rem;
-  }
-
-}
-  
