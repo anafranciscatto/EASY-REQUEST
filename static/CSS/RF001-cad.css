@@ -22,7 +22,7 @@ body {
     border-bottom-left-radius: 2rem;  
     border-bottom-right-radius: 2rem;
     overflow: hidden; 
-    box-shadow: -2px -1px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 }
 /* Estilo do título do formulário */
 .form-container__title {
