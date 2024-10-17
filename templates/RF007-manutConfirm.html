@@ -42,26 +42,28 @@
             <p class="principal__titulo">Confirmar finalização de serviço</p>
             
             <!-- Formulário de finalização de tarefa -->
-            <form class="formulario-finalizar">
+
+            <form class="formulario-finalizar" action="/RF007" method="post">
+                <input type="hidden" name="id_solicitacao" value="{{campo_id_encaminhamento}}">
                 <!-- Opções de finalização da tarefa -->
                 <div class="formulario-finalizar__opcoes">
                     <p class="formulario-finalizar__titulo">Escolha uma das opções:</p>
 
                     <!-- Opção: Não foi possível realizar a tarefa -->
                     <label class="formulario-finalizar__opcao">
-                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <input type="radio" name="opcao" value="pendente" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Não foi possível realizar a tarefa</span>
                     </label>
 
                     <!-- Opção: Foi realizado, mas necessita de outros cuidados -->
                     <label class="formulario-finalizar__opcao">
-                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <input type="radio" name="opcao" value="realizado mas com pendencia" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Foi realizado mas necessita de outros cuidados</span>
                     </label>
 
                     <!-- Opção: Tarefa foi totalmente realizada -->
                     <label class="formulario-finalizar__opcao">
-                        <input type="radio" name="opcao" class="formulario-finalizar__input" />
+                        <input type="radio" name="opcao" value="realizado" class="formulario-finalizar__input" />
                         <span class="formulario-finalizar__texto">Tarefa foi totalmente realizada</span>
                     </label>
                 </div>
@@ -69,7 +71,7 @@
                 <!-- Caixa de texto para informações adicionais -->
                 <div class="formulario-finalizar__caixa-texto">
                     <p class="formulario-finalizar__titulo">Inserir informações adicionais (caso houver):</p>
-                    <textarea class="formulario-finalizar__comentarios" placeholder="Digite aqui"></textarea>
+                    <textarea name="adendo" class="formulario-finalizar__comentarios" placeholder="Digite aqui"></textarea>
                     <!-- Botão para finalizar a tarefa -->
                     <button type="submit" class="formulario-finalizar__botao">Finalizar tarefa</button>
                 </div>

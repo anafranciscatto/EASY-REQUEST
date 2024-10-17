@@ -70,14 +70,17 @@ class Encaminhamento:
         except:
             return False
         
-    def finalizacao_encaminhamento(self,id_encaminhamento):
+    def finalizacao_encaminhamento(self,id_encaminhamento,adendo,opcao):
 
         try:
+            self.adendo = adendo
+            self.opcao = opcao
+            
             myBD = Connection.conectar()
 
             mycursor = myBD.cursor()
 
-            mycursor.execute(f"UPDATE tb_encaminhamentos SET status_final = 'finalizado' WHERE id_encaminhamento = {id_encaminhamento};")
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status_final = '{opcao}',adendo = '{adendo}' WHERE id_encaminhamento = {id_encaminhamento};")
 
             myBD.commit()
 
