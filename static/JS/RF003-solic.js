@@ -39,6 +39,9 @@ function fazerSolicitacao() {
                 showConfirmButton: false,
                 timer: 1500
               });
+              setTimeout(() => {
+                window.location.href = '/RF003';
+            }, 1500);
         },
         error: function(){
             Swal.fire({
