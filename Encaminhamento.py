@@ -78,3 +78,13 @@ class Encaminhamento:
             return "Você só pode fazer um serviço por vez!"
         # except:
         #     return False
+
+        def mostrar_encaminhamentos_finalizacao(self):
+            myBD = Connection.conectar()
+
+            mycursor = myBD.cursor()
+
+            mycursor.execute(f"SELECT status_final, fn.nome, id_sala, descricao FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_funcoes fn WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_servico = fn.id_servico AND enc.status = 'feito' ") 
+            mostrar_encaminhamentos_finalizacao = mycursor.fetchall()
+
+            return mostrar_encaminhamentos_finalizacao
