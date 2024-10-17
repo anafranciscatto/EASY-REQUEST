@@ -76,7 +76,7 @@ function logar(){
             }
 
             else if(dados_login['permissao'] == 'solicitante'){
-                window.location.href = '/RF003';
+                window.location.href = '/tl-solicitante';
             }
             console.log(dados_login["permissao"])
         },
