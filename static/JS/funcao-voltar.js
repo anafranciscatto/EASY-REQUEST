@@ -1,3 +1,3 @@
-function funcVoltar() {
+function funcVoltar(tela) {
     window.history.back();
 }

@@ -1,3 +1,4 @@
+// Função Para a o Recebimento dos serviços
 function iniciarServico(id_encaminhamento) {
     $.ajax({
       url: `/iniciar-servico/${id_encaminhamento}`,
@@ -28,6 +29,15 @@ function iniciarServico(id_encaminhamento) {
     })
 }
 
+function funcVoltar() {
+  window.location.href = '/RF006'
+}
+
 function redirectSolicitacao() {
   window.location.href = '/RF003';
+}
+
+// Função para deslogar da conta
+function logout() {
+  window.location.href = '/logout';
 }
