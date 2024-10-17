@@ -80,12 +80,10 @@ class Encaminhamento:
 
             mycursor = myBD.cursor()
 
-            mycursor.execute(f"UPDATE tb_encaminhamentos SET status_final = '{opcao}',adendo = '{adendo}' WHERE id_encaminhamento = {id_encaminhamento};")
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'feito',status_final = '{opcao}',adendo = '{adendo}' WHERE id_encaminhamento = {id_encaminhamento};")
 
             myBD.commit()
 
             return True
         except:
-            return False 
-
-
+            return False
