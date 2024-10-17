@@ -70,6 +70,7 @@ header{
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
+    font-size: 1.2rem;
 }
 
 .button {
@@ -143,7 +144,7 @@ header{
 
 .container-servico-encaminhado{
     width: 100%;
-    height: 42vh;
+    height: 45vh;
     margin:1rem 1.5rem 0rem 1rem;
     overflow-y: auto;
 }
@@ -154,6 +155,7 @@ header{
     margin-left: 1rem;
 }
 
+
 /* Para telas normais (padrão) */
 .container-encaminhamento {
     display: grid;
@@ -161,6 +163,13 @@ header{
     grid-template-columns: 1fr; /* Uma coluna */
     gap: 1rem; /* Espaço entre os itens */
 }
+
+.container-encaminhamento a{
+    text-decoration: none;
+    color: var(--color02);
+    
+}
+
 
 .servico-encaminhado{
     background-color: var(--color01);
@@ -171,7 +180,8 @@ header{
     position: relative;
     display: flex;
     justify-content: center;
-    flex-direction: column-reverse;
+    align-items: center;
+    text-decoration: none;
    
 }
 
@@ -194,12 +204,21 @@ header{
     display: flex;
     gap: 0.5rem;
     font-size: 1.5rem ;
-    box-shadow: 2px 2px 8px var(--color02);
+    box-shadow: -1px 2px 8px var(--color02);
     
 }
 
 .servico-encaminhado-dia-semana{
     font-weight: bold;
+}
+
+.servico-encaminhamento-urgencia .urgencia{
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.urgencia{
+    text-transform: capitalize;
 }
 
 /* Estilo do css do man do site */
@@ -219,7 +238,7 @@ header{
 }
 .container_baixo-ladoEsquerdo,.container_baixo-ladoDireito{
     min-height: 50%;
-    margin-top: 3rem;
+    margin-top: 1rem;
     padding: 1rem;
 }
 h2{
@@ -355,3 +374,6 @@ hr{
   .Btn:active {
     transform: translate(2px ,2px);
   }
+
+
+  

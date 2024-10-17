@@ -62,7 +62,7 @@
                         <p class="horario">10:30am</p>
                         <div class="card-conteudo">
                             <p class="bloco">{{x[1]}} | {{x[0]}}</p>
-                            <p class="urgencia">{{x[2]}}</p>
+                            <p class="urgencia">{{x[2]}} urgência</p>
                             <a href="/RF007/{{x[4]}}"><i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -83,8 +83,12 @@
                             <div class="servico-encaminhado-data">
                                 <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
                             </div>
-                            <p class="servico-encaminhado-local">{{x[1]}} | {{x[0]}}</p>
-                            <p class="urgencia">{{x[2]}}</p>
+                            <div class="servico-encaminhado-info">
+                                <p class="servico-encaminhado-local">{{x[1]}} | {{x[0]}}</p>
+                                <div class="servico-encaminhamento-urgencia">
+                                    <p class="urgencia">{{x[2]}} urgência</p>
+                                </div>
+                            </div>
                         </div>
                     </a>
                     {%endfor%}
@@ -97,7 +101,7 @@
                         add
                         </span>
                   
-                  <div class="text">Chamado</div>
+                  <div class="text">Solicitar</div>
                 </button>                                                  
             </section>
         </main>
