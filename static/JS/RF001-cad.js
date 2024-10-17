@@ -142,11 +142,11 @@ function cadastrar(){
 
 
             if(permissao == 'manutencao'){
-                window.location.href = '/RF003';
+                window.location.href = '/RF006';
             }
 
             else if(permissao == 'solicitante'){
-                window.location.href = '/RF003';
+                window.location.href = '/tl-solicitante';
             }
 
         },

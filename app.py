@@ -7,7 +7,7 @@ from Usuario import Usuario
 from Encaminhamento import Encaminhamento
 
 # Instanciando o WebService
-app = Flask(__name__)
+app = Flask(__name__)   
 
 # Criando uma senha para criptografar sessão
 app.secret_key = "capivara"
@@ -32,6 +32,12 @@ def tl_administrador():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/tl-solicitante")
+def tl_solicitante():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+    return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao)
 
 @app.route("/RF001")
 def pg_cadastro():
@@ -244,11 +250,16 @@ def retorna_funcionarios():
 
 @app.route("/RF006")
 def pg_manutencao():
+    nome = session["usuario"]["nome"]
+    funcao = session["usuario"]["funcao"]
+
+    return render_template("RF006-TLmanuten.html", campo_nome = nome, campo_funcao = funcao)
+
+@app.route("/retorna-encaminhamentos")
+def retorna_encaminhamentos():
     encaminhamento = Encaminhamento()
 
     cpf = session["usuario"]["CPF"]
-    nome = session["usuario"]["nome"]
-    funcao = session["usuario"]["funcao"]
 
     status = 'à fazer'
 
@@ -258,10 +269,7 @@ def pg_manutencao():
 
     retorna_encaminhamentos_fazendo = encaminhamento.mostrar_encaminhamentos(status, cpf)
 
-    print(retorna_encaminhamentos_fazendo)
-    print(retorna_encaminhamentos_pendentes)
-
-    return render_template("RF006-TLmanuten.html", campo_encaminhamentos_pendentes = retorna_encaminhamentos_pendentes, campo_encaminhamentos_fazendo = retorna_encaminhamentos_fazendo, campo_nome = nome, campo_funcao = funcao)
+    return jsonify([retorna_encaminhamentos_fazendo, retorna_encaminhamentos_pendentes])
 
 @app.route("/RF006A/<id_solicitacao>/<id_encaminhamento>")
 def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
