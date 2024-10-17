@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Definições básicas de meta tags: caracteres e responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Importação de arquivos CSS: global e específico desta página -->
+    <link rel="stylesheet" href="/static/CSS/global.css">
+    <link rel="stylesheet" href="/static/CSS/RF006B-detalheSolic.css">
+    <!-- Link Arquivo JS -->
+    <script defer src="/static/JS/RF006-TLmanuten.js"></script>
+    <script defer src="/static/JS/funcao-voltar.js"></script>
+    <!-- Biblioteca jQuery para manipulação de DOM e requisições Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Biblioteca Font Awesome para uso de ícones na página -->
+    <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+    <!-- link JS biblioteca SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>EASY-REQUEST</title>
+</head>
+<body>
+    <!-- Navegação principal com botão de voltar -->
+    <nav>
+        <section class="container-header">
+            <div class="container-header_btn">
+                <button class="container-header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
+            </div>
+        </section>
+    </nav>
+
+    <!-- Conteúdo principal da página -->
+    <main class="conteudo-principal">
+        <section class="detalhes-solicitacao">
+            <!-- Cabeçalho da solicitação com título e autor -->
+            <div class="detalhes-solicitacao__cabecalho">
+                <h1 class="detalhes-solicitacao__titulo">{{campo_sala}} - {{campo_servico}}</h1>
+                <p class="detalhes-solicitacao__autor">{{campo_nome_solicitante}} - {{campo_funcao_solicitante}}</p>
+                <p class="detalhes-solicitacao__urgencia">{{campo_urgencia}}</p>
+            </div>
+            <!-- Linha divisora entre o cabeçalho e o corpo da solicitação -->
+            <hr class="detalhes-solicitacao__divisor">
+
+            <!-- Corpo da solicitação com a descrição do serviço e botão de encaminhamento -->
+            <div class="detalhes-solicitacao__corpo">
+                <p class="detalhes-solicitacao__rotulo-descricao">Descrição</p>
+                <p class="detalhes-solicitacao__texto-descricao">
+                    {{campo_descricao}}
+                </p>
+                <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
+                <button class="botao botao-cadastro" onclick="iniciarServico({{campo_id_encaminhamento}})">Finalizar</button>
+                <!-- <a href="/iniciar-servico/{{campo_id_encaminhamento}}"></a> -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -24,7 +24,6 @@ body {
     overflow: hidden; 
     box-shadow: -2px -1px 10px rgba(0, 0, 0, 0.5);
 }
-
 /* Estilo do título do formulário */
 .form-container__title {
     font-size: 3.3rem;
