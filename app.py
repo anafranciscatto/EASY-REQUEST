@@ -7,7 +7,7 @@ from Usuario import Usuario
 from Encaminhamento import Encaminhamento
 
 # Instanciando o WebService
-app = Flask(__name__)
+app = Flask(__name__)   
 
 # Criando uma senha para criptografar sessão
 app.secret_key = "capivara"
