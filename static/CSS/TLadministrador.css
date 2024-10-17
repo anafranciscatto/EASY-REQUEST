@@ -152,8 +152,6 @@ header {
   transform: translate(2px, 2px);
 }
 
-
-
 /* Estilo da Área Usuario */
 .container-header-user{
     width: 100vw;
@@ -164,8 +162,9 @@ header {
 }
 
 .container-header-user img{
-    width: auto;
+    width: 6rem;
     height: 6rem;
+    object-fit: cover;
     border-radius: 100%;
 }
 

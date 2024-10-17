@@ -118,13 +118,13 @@ function cadastrar(){
     var dados = new FormData(); // Cria um novo FormData
 
     // Adiciona os dados ao FormData
-    dados.append('cpf', cpf.val());
-    dados.append('nome', nome.val());
-    dados.append('email', email.val());
-    dados.append('senha', senha.val());
-    dados.append('sn', sn.val());
+    dados.append('cpf', cpf.value);
+    dados.append('nome', nome.value);
+    dados.append('email', email.value);
+    dados.append('senha', senha.value);
+    dados.append('sn', sn.value);
     dados.append('foto', foto.files[0]); // Adiciona a foto
-    dados.append('id_funcao', parseInt(id_funcao.val())); // Adiciona id_funcao
+    dados.append('id_funcao', parseInt(id_funcao.value)); // Adiciona id_funcao
 
     $.ajax({
         url: '/cadastrar-usuario',
@@ -133,14 +133,14 @@ function cadastrar(){
         contentType: false, // Importante para enviar arquivos
         processData: false, // Não processar os dados
         success: function(){
-            if (parseInt(funcao.value) >= 2 && parseInt(funcao.value) <= 7){
+            if (parseInt(id_funcao.value) >= 2 && parseInt(id_funcao.value) <= 7){
                 permissao = 'solicitante';
             }
-            else if( parseInt(funcao.value) == 1){
+            else if( parseInt(id_funcao.value) == 1){
                 permissao = 'manutencao';
             }
 
-            console.log(parseInt(funcao.value))
+            console.log(parseInt(id_funcao.value))
             console.log(permissao);
 
 

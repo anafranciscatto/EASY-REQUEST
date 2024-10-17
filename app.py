@@ -42,7 +42,8 @@ def tl_administrador():
 def tl_solicitante():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-    return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao)
+    foto = session["usuario"]["foto"]    
+    return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
 @app.route("/RF001")
 def pg_cadastro():
@@ -66,8 +67,10 @@ def cadastrarUsuario(): # Função que executa o cadastro
     senha = request.form.get('senha')
     foto = request.files['foto']
     sn = request.form.get('sn')
-    id_funcao = request.form.get('id_funcao')
+    id_funcao = int(request.form.get('id_funcao'))
     link_arquivo_foto = upload_file(foto)
+
+    print(id_funcao)
 
     if id_funcao >= 2 and id_funcao <= 7:
         permissao = "solicitante"
@@ -144,8 +147,9 @@ def realizar_login(): # Função que executa o login
 def pg_solicitacao(): # Função que abre a tela de fazer solicitação
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
+    foto = session["usuario"]["foto"]
 
-    return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao)
+    return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando rota para a função que executa a solicitação
 @app.route("/fazer_solicitacao", methods=["POST"])
@@ -215,9 +219,9 @@ def pg_ADM_recebe_solicitacao():
 
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-    foto =
+    foto = session["usuario"]["foto"]
 
-    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao)
+    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
 @app.route("/retorna-solicitacoes")
 def mostrar_solicitacoes():
@@ -238,7 +242,8 @@ def pg_ver_solicitacao(rowid):
 def pg_encaminhar_solicitacao(id_solicitacao):
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao)
+    foto = session["usuario"]["foto"]
+    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
 @app.route("/realizar-encaminhamento", methods=["POST"])
 def realizar_encaminhamento():
@@ -267,8 +272,9 @@ def retorna_funcionarios():
 def pg_manutencao():
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
+    foto = session["usuario"]["foto"]
 
-    return render_template("RF006-TLmanuten.html", campo_nome = nome, campo_funcao = funcao)
+    return render_template("RF006-TLmanuten.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
 @app.route("/retorna-encaminhamentos")
 def retorna_encaminhamentos():
