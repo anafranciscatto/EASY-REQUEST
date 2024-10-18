@@ -35,41 +35,10 @@
     color: var(--color01);
 }
 
-/* Estilo da Seção de Informações do Usuário */
-.cabecalho__info-usuario {
-    height: 15vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100vw;
-    padding-left: 4rem;
-}
-
-.cabecalho__imagem-usuario {
-    width: 6rem;
-    height: 6rem;
-    object-fit: cover;
-    border-radius: 100%;
-    margin-right: 1.5rem;
-}
-
-.cabecalho__nome-usuario {
-    font-size: 2rem;
-}
-
-.cabecalho__cargo-usuario {
-    background-color: var(--color05);
-    color: var(--color01);
-    margin-right: 10rem;
-    text-align: center;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-}
-
 /* Container principal  main*/
 .principal__container {
     width: 100vw;
-    min-height: 71vh;
+    min-height: 79vh;
     height: auto;
     background-color: var(--color06);
     margin-bottom: 0;

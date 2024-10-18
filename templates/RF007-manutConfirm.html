@@ -29,14 +29,6 @@
             </button>
         </div>
 
-        <!-- Seção com os detalhes do usuário logado -->
-        <section class="cabecalho__info-usuario">
-            <img src="{{ campo_foto if campo_foto else 'https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg' }}" alt="Foto de Perfil" class="cabecalho__imagem-usuario">
-            <div class="cabecalho__detalhes-usuario">
-                <h2 class="cabecalho__nome-usuario">{{ campo_nome }}</h2>
-                <p class="cabecalho__cargo-usuario">{{ session["usuario"]["funcao"] }}</p>
-            </div>
-        </section>
     </header>
 
     <!-- Conteúdo principal da página -->
