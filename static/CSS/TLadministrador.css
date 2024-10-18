@@ -6,6 +6,7 @@ header {
     height: 18vh;
     display: flex;
     align-items: flex-start;
+    align-items: center;
     padding-top: 2rem;
 }
 
@@ -176,12 +177,14 @@ header {
 .container-header-user_cargo{
     background-color: var(--color05);
     color: var(--color01);
-    min-width: 2rem;
+    min-width: 1rem;
+    width: 20rem;
     margin-right: 1rem;
     text-align: center;
     padding: 0.4rem;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     font-size: 1.3rem;
+    margin-top: 0.5rem;
 }
 /* Estilo do css do man do site */
 .container-baixo{
@@ -236,7 +239,7 @@ hr{
 .urgencia {
     padding: 0.1rem 0.5rem;
     border: 0.2rem solid var(--colorRed);
-    border-radius: 3rem;
+    border-radius: 0.5rem;
     background: var(--colorRed);
     color: var(--color04);
 }

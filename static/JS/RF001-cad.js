@@ -1,37 +1,3 @@
-// // Adiciona um evento para executar o código assim que o conteúdo do DOM estiver completamente carregado
-// document.addEventListener('DOMContentLoaded', function () {
-
-//     // Seleciona o elemento de dropdown de seleção de profissão
-//     const profissao = document.querySelector('.form-container__select');
-    
-//     // Seleciona as imagens para manutenção e solicitante
-//     const imgMan = document.querySelector('#img-man');
-//     const imgSoli = document.querySelector('#img-soli');
-
-//     // Função para atualizar a visibilidade das imagens com base na seleção do dropdown
-//     function updateImages() {
-//         // Obtém o valor selecionado no dropdown
-//         const selectedValue = profissao.value;
-
-//         // Mostra ambas as imagens inicialmente
-//         imgMan.classList.remove('hidden');
-//         imgSoli.classList.remove('hidden');
-
-//         // Oculta a imagem que não corresponde à seleção
-//         if (selectedValue === 'manutencao') {
-//             imgSoli.classList.add('hidden'); // Oculta a imagem do solicitante se "Manutenção" for selecionado
-//         } else if (selectedValue === 'solicitante') {
-//             imgMan.classList.add('hidden'); // Oculta a imagem da manutenção se "Solicitante" for selecionado
-//         }
-//     }
-
-//     // Inicializa a visibilidade das imagens com base na seleção inicial do dropdown
-//     updateImages();
-
-//     // Adiciona um evento que chama a função updateImages sempre que o valor do dropdown mudar
-//     profissao.addEventListener('change', updateImages);
-// });
-
 // Função para o campo de CPF
 document.getElementById('cpf').addEventListener('input', function (e) {
     let cpf = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
@@ -161,15 +127,54 @@ function cadastrar(){
                 showConfirmButton: false,
                 timer: 3500
               });
+          
+$(document).ready(function() {
+    const senhaInput = $('#senha');
+    const requisitos = {
+        minLength: false,
+        hasLetter: false,
+        hasNumber: false,
+        hasSpecialChar: false
+    };
+
+    const requisito1 = $('#requisito1');
+    const requisito2 = $('#requisito2');
+    const requisito3 = $('#requisito3');
+    const requisito4 = $('#requisito4');
+    const mensagem = $('#mensagem');
+
+    senhaInput.on('focus', function() {
+        $('#senha-requisitos').removeClass('hidden');
+    });
+
+    senhaInput.on('input', function() {
+        const senha = senhaInput.val();
+        requisitos.minLength = senha.length >= 6;
+        requisitos.hasLetter = /[a-zA-Z]/.test(senha);
+        requisitos.hasNumber = /\d/.test(senha);
+        requisitos.hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(senha);
+
+        // Atualiza os requisitos
+        requisito1.toggleClass('validado', requisitos.minLength);
+        requisito2.toggleClass('validado', requisitos.hasLetter);
+        requisito3.toggleClass('validado', requisitos.hasNumber);
+        requisito4.toggleClass('validado', requisitos.hasSpecialChar);
+
+        // Verifica se todos os requisitos foram atendidos
+        if (requisitos.minLength && requisitos.hasLetter && requisitos.hasNumber && requisitos.hasSpecialChar) {
+            // Limpa os outros textos e mostra apenas a mensagem de validação
+            requisito1.addClass('hidden');
+            requisito2.addClass('hidden');
+            requisito3.addClass('hidden');
+            requisito4.addClass('hidden');
+            mensagem.removeClass('hidden').text('Senha validada');
+        } else {
+            // Restaura os textos dos requisitos se a senha não for válida
+            mensagem.addClass('hidden');
+            requisito1.removeClass('hidden');
+            requisito2.removeClass('hidden');
+            requisito3.removeClass('hidden');
+            requisito4.removeClass('hidden');
         }
-    })
-}
-
-// cpf = request.form["cpf"]
-// nome = request.form["nome"]
-// email = request.form["email"]
-// senha = request.form["senha"]
-// sn = request.form["sn"]
-// foto = request.form["foto"]
-// id_funcao = int(request.form["funcao"])
-
+    });
+});
