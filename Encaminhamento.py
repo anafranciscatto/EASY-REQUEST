@@ -53,7 +53,7 @@ class Encaminhamento:
         mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.urgencia, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
         mostra_encaminhamentos = mycursor.fetchall()
-
+        
         return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
@@ -74,6 +74,7 @@ class Encaminhamento:
             mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
             myBD.commit()
             return True
+
         elif retorno[0] == "fazendo":
             return "Você só pode fazer um serviço por vez!"
         # except:
@@ -88,3 +89,25 @@ class Encaminhamento:
         mostrar_encaminhamentos_finalizacao = mycursor.fetchall()
 
         return mostrar_encaminhamentos_finalizacao
+
+        
+        
+    def finalizacao_encaminhamento(self,id_encaminhamento,adendo,opcao):
+
+        try:
+            self.adendo = adendo
+            self.opcao = opcao
+            
+            myBD = Connection.conectar()
+
+            mycursor = myBD.cursor()
+
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'feito',status_final = '{opcao}',adendo = '{adendo}' WHERE id_encaminhamento = {id_encaminhamento};")
+
+            myBD.commit()
+
+            return True
+        except:
+            return False
+
+
