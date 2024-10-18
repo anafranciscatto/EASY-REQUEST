@@ -9,6 +9,7 @@
     <script defer src="/static/JS/funcao-data.js"></script>
     <script defer src = "/static/JS/funcao-horas.js"></script>
     <script defer src="/static/JS/RF004-ADMrecbSolic.js"></script>
+    <script defer src="/static/JS/barraPesquisa.js"></script>
     <!-- Biblioteca de ícones do Font Awesome para uso de ícones na página -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
     <!-- Biblioteca jQuery para facilitar o uso de Ajax e manipulação de DOM -->
@@ -45,9 +46,7 @@
             <p  class="espacoP">Pesquisar por Tipo de Serviço:</p>
             <!-- Barra de Pesquisa -->
             <div class="sectionBaixo__search-container">
-                <!-- Campo de pesquisa com espaço para inserir texto -->
-                <input type="search" id="search" name="search" placeholder="Pesquisar..." class="sectionBaixo__search-input" aria-label="Campo de pesquisa">
-                <!-- Botão de pesquisa -->
+                <input type="search" id="search" name="search" placeholder="Pesquisar por tipo de serviço..." class="sectionBaixo__search-input" aria-label="Campo de pesquisa" oninput="filtrarServicos()">
                 <button type="submit" class="sectionBaixo__search-button" aria-label="Pesquisar">Pesquisar</button>
             </div>
             <p class="espacoP">Filtrar por Bloco</p>

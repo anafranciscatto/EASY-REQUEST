@@ -61,3 +61,22 @@ setInterval(function(){
     mostrarSolicitacoes()
     console.log('Recarregando...')
 }, 5000);
+
+
+function filtrarServicos() {
+    // Obtém o valor do campo de pesquisa
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    // Obtém todos os serviços
+    const servicos = document.querySelectorAll('.sectionBaixo__grid-item');
+
+    // Itera sobre os serviços e oculta ou exibe conforme a pesquisa
+    servicos.forEach(servico => {
+        const serviceText = servico.textContent.toLowerCase();
+        if (serviceText.includes(searchInput)) {
+            servico.style.display = ''; // Exibe o serviço
+        } else {
+            servico.style.display = 'none'; // Oculta o serviço
+        }
+    });
+}
+
