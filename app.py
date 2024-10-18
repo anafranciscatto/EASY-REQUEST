@@ -394,13 +394,29 @@ def iniciar_servico(id_encaminhamento): # Função que inicia o serviço
     else:
         return 'Erro ao iniciar serviço!', 500
 
-@app.route("/RF007")
-def pg_manutencao_confirmacao():
+@app.route("/RF007/<id_encaminhamento>", methods=["GET"])
+def pg_manutencao_confirmacao_get(id_encaminhamento):
+    
+    return render_template("RF007-manutConfirm.html",campo_id_encaminhamento=id_encaminhamento)
+
+@app.route("/RF007", methods=["POST"])
+def pg_manutencao_confirmacao_post():
+    id_encaminhamento= request.form.get("id_solicitacao")
+    adendo= request.form.get("adendo")
+    opcao= request.form.get("opcao")
+    finaliza=Encaminhamento()
+    finaliza.finalizacao_encaminhamento(id_encaminhamento,adendo,opcao )
+    
     return render_template("RF007-manutConfirm.html")
+
 
 @app.route("/RF008")
 def pg_fim_chamado():
-    return render_template("RF008-fimchamado.html")
+    fim_chamado = Encaminhamento()
+    finalizando = fim_chamado.mostrar_encaminhamentos_finalizacao()
+    return render_template("RF008-fimchamado.html", encaminhamento=finalizando)
+
+
 
 @app.route("/RF009")
 def pg_relatorio():
