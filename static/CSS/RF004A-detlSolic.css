@@ -60,6 +60,7 @@ nav{
     flex-direction: column;
     align-content: center;
     justify-content: space-evenly;
+    box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
 }
 
 

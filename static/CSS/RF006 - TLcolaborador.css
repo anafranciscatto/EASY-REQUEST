@@ -53,8 +53,9 @@ header{
 }
 
 .container-header-user img{
-    width: auto;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
+    object-fit:cover;
     border-radius: 100%;
 }
 
@@ -66,16 +67,16 @@ header{
 .container-header-user_cargo{
     background-color: var(--color05);
     color: var(--color01);
-    margin-right: 10rem;
+    margin-right: 1rem;
     text-align: center;
     padding: 0.4rem;
     border-radius: 5rem;
+    font-size: 1.5rem;
 }
 /* Estilo do css do man do site */
 .container-baixo{
     width: 100vw;
-    min-height: 55rem;
-    height: auto;
+    height: 80vh;
     background-color: var(--color06);
     margin-bottom: 0;
     position: absolute;
@@ -223,6 +224,74 @@ hr{
   /* button click effect*/
   .Btn:active {
     transform: translate(2px ,2px);
+  }
+  
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 4rem; /* Largura inicial do botão */
+    height: 4rem;
+    border: none;
+    border-radius: 50%;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: var(--color05);
+    margin-right: 1.5rem;
+  }
+  
+  .button:hover {
+    width: 10rem; /* Limita o tamanho no hover para 10rem */
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .button__icon {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button__icon svg {
+    width: 1.5rem;
+  }
+  
+  .button__icon svg path {
+    fill: white;
+  }
+  
+  .button__text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  
+  .button:hover .button__icon {
+    width: 26%;
+    transition-duration: .3s;
+    padding-left: 10px;
+  }
+  
+  .button:hover .button__text {
+    opacity: 1;
+    width: 60%; /* Reduz a expansão do texto */
+    transition-duration: .3s;
+    padding-right: 1rem; /* Ajusta o espaçamento do texto */
+  }
+  
+  .button:active {
+    transform: translate(2px, 2px);
   }
   /* -------------MEDIA---------------- */
   @media (max-width: 926px){

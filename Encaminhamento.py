@@ -36,7 +36,7 @@ class Encaminhamento:
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT fn.nome, f.nome, f.CPF_funcionario from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
+        mycursor.execute(f"SELECT f.nome, f.CPF_funcionario, f.foto from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
 
         mostra_funcionarios = mycursor.fetchall()
 
@@ -57,14 +57,13 @@ class Encaminhamento:
         return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
-        # try:
         myBD = Connection.conectar()
 
         mycursor = myBD.cursor()
 
         self.cpf_funcionario = cpf_funcionario
 
-        mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario} AND status = 'fazendo'")
+        mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = '{cpf_funcionario}' AND status = 'fazendo'")
 
         retorno = mycursor.fetchone()
 
@@ -77,18 +76,7 @@ class Encaminhamento:
 
         elif retorno[0] == "fazendo":
             return "Você só pode fazer um serviço por vez!"
-        # except:
-        #     return False
 
-    # def mostrar_encaminhamentos_finalizacao():
-    #     myBD = Connection.conectar()
-
-    #     mycursor = myBD.cursor()
-
-    #     mycursor.execute(f"SELECT status_final, fn.nome, id_sala, adendo FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_funcoes fn WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_servico = fn.id_servico AND enc.status = 'feito' ") 
-    #     mostrar_encaminhamentos_finalizacao = mycursor.fetchall()
-
-    #     return mostrar_encaminhamentos_finalizacao
     def mostrar_encaminhamentos_finalizacao(self):
         myBD = Connection.conectar()
 
@@ -108,10 +96,6 @@ class Encaminhamento:
             })
 
         return lista_finalizacao
-
-
-
-        
         
     def finalizacao_encaminhamento(self,id_encaminhamento,adendo,opcao):
 
@@ -130,5 +114,3 @@ class Encaminhamento:
             return True
         except:
             return False
-
-

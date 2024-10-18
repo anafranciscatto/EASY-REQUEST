@@ -29,7 +29,7 @@
         <header>
             <section class="container-header-user">
                 <div class="info-usuario">
-                    <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
+                    <figure><img src="{{ campo_foto if campo_foto else 'https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg' }}" alt="Foto de Perfil"></figure>
                     <div class="container-header-user_info horas">
                         <h2 class="container-header-user_nome"> <span class="saudacao" id="saudacao"> </span>{{campo_nome}}</h2>
                         <p class="container-header-user_cargo">{{campo_funcao}}</p>
@@ -58,16 +58,6 @@
                     <hr>
                 </div>
                 <div class="ladoEsquerdo-conteudo" id="encaminhamentos_fazendo">
-                    <!-- {% for x in campo_encaminhamentos_fazendo %}
-                    <div class="ladoEsquerdo-card">
-                        <p class="horario">10:30am</p>
-                        <div class="card-conteudo">
-                            <p class="bloco">{{x[1]}} | {{x[0]}}</p>
-                            <p class="urgencia">{{x[2]}} urgência</p>
-                            <a href="/RF007/{{x[4]}}"><i class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    {%endfor%} -->
                 </div>
             </section>
             <!-- Serviços encaminhados -->
@@ -78,21 +68,6 @@
             <section class="container-servico-encaminhado">
                 
                 <div class="container-encaminhamento" id="encaminhamentos_pendentes">
-                    <!-- {% for x in campo_encaminhamentos_pendentes %}
-                    <a href="/RF006A/{{x[3]}}/{{x[4]}}">
-                        <div class="servico-encaminhado">
-                            <div class="servico-encaminhado-data">
-                                <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
-                            </div>
-                            <div class="servico-encaminhado-info">
-                                <p class="servico-encaminhado-local">{{x[1]}} | {{x[0]}}</p>
-                                <div class="servico-encaminhamento-urgencia">
-                                    <p class="urgencia">{{x[2]}} urgência</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    {%endfor%} -->
                 </div>
             <section>
                 <button onclick="redirectSolicitacao()" class="Btn" >
