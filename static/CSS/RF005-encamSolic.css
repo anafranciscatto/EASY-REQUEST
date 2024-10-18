@@ -78,16 +78,20 @@ nav{
 }
 
 /* Estilo da Escolha de Funcionario */
-main{
+.form_select-user{
   width: 100vw;
-  height: 74vh;
+  height: 60vh;
   overflow-x: auto;
   position: relative;
 }
 
+/* estilo da barra de rolagem */
+::-webkit-scrollbar {
+  background-color: transparent;
+}
 
 .caixa-opcao {
-  padding: 8px;
+  padding: 1rem 4rem 1rem 1rem;
   margin: 1rem 2rem 1rem 2rem;
   cursor: pointer;
   display: flex;
@@ -99,6 +103,7 @@ main{
   border-radius: 5rem;
   box-shadow: 0px -1px 7px rgba(20,23,53,0.3);
   transition-duration: 0.2s;
+  border: 2px solid transparent;
     
 }
 
@@ -122,28 +127,6 @@ main{
   flex-direction: column;
   align-items: center;
   font-size: 1.5rem;
-}
-
-
-
-.status_disponivel{
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  background-color: var(--colorGreen);
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  display: none;
-  
-}
-
-.status_n-disponivel{
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: var(--colorRed);
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
-    text-align: center;
-    
-  
 }
 
 /* Estilo da Escolha da urgencia/emergencia */
@@ -193,6 +176,7 @@ main{
 /* Estilo do botão 'Enviar Solicitação' */
 .container_btn-enviar{
   text-align: center;
+  padding-left: 1rem;
 }
 
 .btn-enviar{
@@ -208,6 +192,7 @@ main{
   cursor: pointer;
   margin-top: 1.5rem;
   transition-duration: 0.2s;
+  
 }
 
 .btn-enviar:hover{
@@ -217,15 +202,32 @@ main{
 }
 
 /* ----------RESPONSIVIDADE----------- */
-
-@media (min-width:1000px){
-  .main{
+@media (min-width:800px){
+  .form_select-user{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
+    padding: 0rem 2rem;
+
   }
-  #form_select-user{
+  .opcaoUrgencia {
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .form_btn-emergencia__titulo {
+    margin-left: 4rem;
+  }
+}
+
+@media (min-width:1000px){
+  .form_select-user{
     display: grid;
-    grid-template-columns: auto auto;
-    margin: 3rem 9rem 0rem 9rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 0rem 5rem;
+
   }
+
+  .form_btn-emergencia__titulo {
+    margin-left: 7rem;
+  }
+}
