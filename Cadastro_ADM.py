@@ -13,11 +13,10 @@ def cadastrarAdm():
         email = "gabriel.moraes4299@gmail.com"
         senha = "gabriel123"
         sn = "SN123456"
-        foto = "foto"
         permissao = "administrador"
         senha_criptografada = sha256(senha.encode()).hexdigest()
 
-        mycursor.execute(f"INSERT INTO tb_funcionarios (CPF_funcionario, nome, email, senha, SN, foto, permissao) VALUES ('{cpf}','{nome}', '{email}', '{senha_criptografada}', '{sn}', '{foto}', '{permissao}');")
+        mycursor.execute(f"INSERT INTO tb_funcionarios (CPF_funcionario, nome, email, senha, SN, permissao) VALUES ('{cpf}','{nome}', '{email}', '{senha_criptografada}', '{sn}', '{permissao}');")
 
         myBD.commit()
 

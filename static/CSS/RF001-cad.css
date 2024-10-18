@@ -22,9 +22,8 @@ body {
     border-bottom-left-radius: 2rem;  
     border-bottom-right-radius: 2rem;
     overflow: hidden; 
-    box-shadow: -2px -1px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 }
-
 /* Estilo do título do formulário */
 .form-container__title {
     font-size: 3.3rem;
@@ -102,6 +101,86 @@ body {
     transform: scale(1.02); 
     border: 2px solid var(--color03);
 }
+/* Estilo dos campos de texto do formulário */
+.form-container__input-text,
+.form-container__input-file,
+.form-container__select,
+.senha {
+    width: 100%;
+    padding: 0.5rem;
+    border: none; /* Remove todas as bordas */
+    border-bottom: 2px solid var(--color03); /* Adiciona borda apenas na parte inferior */
+    background-color: transparent; /* Torna o fundo transparente */
+    outline: none; /* Remove o contorno padrão ao focar */
+}
+
+/* Adiciona um efeito de foco para os inputs */
+.form-container__input-text:focus, 
+.form-container__input-file:focus,
+.form-container__select:focus {
+    border-bottom: 2px solid var(--color01); /* Muda a cor da borda inferior ao focar */
+}
+option{
+    color: black;
+    background-color: rgba(19, 43, 46, 0.332);
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+/* Estilo dos campos de texto do formulário */
+.form-container__input-text,
+.form-container__input-file,
+.form-container__select {
+    width: 100%;
+    padding: 0.5rem;
+    border: none; /* Remove todas as bordas */
+    border-bottom: 2px solid var(--color03); /* Adiciona borda apenas na parte inferior */
+    background-color: transparent; /* Torna o fundo transparente */
+    outline: none; /* Remove o contorno padrão ao focar */
+    color: white; /* Cor do texto digitado */
+}
+
+/* Muda a cor do placeholder para branco */
+.form-container__input-text::placeholder,
+.form-container__input-file::placeholder,
+.form-container__select::placeholder {
+    color: white; /* Cor do placeholder */
+    opacity: 1; /* Garantir opacidade total */
+}
+
+/* Para garantir a cor do texto no select */
+.form-container__select {
+    color: white; /* Cor do texto no select */
+    background-color: transparent; /* Fundo transparente */
+}
+/* Estilo para inputs preenchidos automaticamente */
+.form-container__input-text:-webkit-autofill,
+.form-container__input-file:-webkit-autofill,
+.form-container__select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px transparent inset; /* Remove o fundo automático */
+    box-shadow: 0 0 0 1000px transparent inset; /* Remove o fundo automático */
+    color: white; /* Cor do texto */
+    background-color: transparent !important; /* Fundo transparente */
+}
+
+/* Ideias de teste */
+.senha-requisitos {
+    margin-top: 0.5rem;
+}
+
+.requisito {
+    color: red; /* Inicialmente em vermelho */
+    font-size: 1.1rem;
+}
+
+.requisito.validado {
+    color: green; /* Verde quando validado */
+}
+
+.mensagem {
+    margin-top: 0.5rem;
+    color: green; /* Mensagem de validação em verde */
+}
+
 
 /* ------MEDIA------ */
 /* Estilo para telas de notebook e computadores */
@@ -140,7 +219,7 @@ body {
 
     .form-container__button {
         padding: 8px; 
-        font-size: 1rem; 
+        font-size: 1.6rem; 
         margin-bottom: 3rem;
     }
 
@@ -190,7 +269,7 @@ body {
     }
     .form-container__button {
         padding: 12px; 
-        font-size: 1.1rem; 
+        font-size: 1.5rem; 
         margin-bottom: 3rem;
     }
 

@@ -1,7 +1,8 @@
+
 /* Estilo do Cabeçalho */
 .cabecalho,
 .principal__container {
-    width: 100%;
+    width: 100vw;
     
 }
 
@@ -11,6 +12,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    height: 11vh;
 }
 
 .cabecalho__botao-voltar {
@@ -44,8 +46,10 @@
 }
 
 .cabecalho__imagem-usuario {
-    height: 7rem;
-    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    object-fit: cover;
+    border-radius: 100%;
     margin-right: 1.5rem;
 }
 
@@ -58,25 +62,30 @@
     color: var(--color01);
     margin-right: 10rem;
     text-align: center;
-    padding: 0.4rem;
-    border-radius: 5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }
 
 /* Container principal  main*/
 .principal__container {
     width: 100vw;
+    min-height: 71vh;
     height: auto;
     background-color: var(--color06);
     margin-bottom: 0;
     position: absolute;
     bottom: 0;
     left: 0;
-    border-top-left-radius: 7rem;
-    border-top-right-radius: 7rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    box-shadow:  4px 1px 30px  black;
+    max-height: calc(100vh - [altura do header]); /* Ajuste conforme necessário */
+    box-shadow: -7px 7px 16px black;
+    flex: 1; /* Permitir que o container principal ocupe o espaço restante */
+    overflow-y: auto; /* Habilitar rolagem vertical */
+    max-height: calc(100vh - 15vh);
 }
 
 /* Título principal */
@@ -188,4 +197,15 @@
         font-size: 1.6rem;
         padding: 1.1rem;
     }
+}
+@media (max-width: 400px) {
+
+    html {
+        font-size: 67.5%; 
+        
+    }
+    .principal__container{
+        height: 60vh ;
+    }
+
 }

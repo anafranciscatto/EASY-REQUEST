@@ -27,7 +27,7 @@
         <header>
             <section class="container-header-user">
                 <div class="info-usuario">
-                    <figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Imagem de Perfil"></figure>
+                    <figure><img src="{{ campo_foto if campo_foto else 'https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg' }}" alt="Imagem de Perfil"></figure>
                     <div class="container-header-user_info horas">
                         <h2 class="container-header-user_nome"> <span class="saudacao" id="saudacao"> </span>{{campo_nome}}</h2>
                         <p class="container-header-user_cargo">{{campo_funcao}}</p>
