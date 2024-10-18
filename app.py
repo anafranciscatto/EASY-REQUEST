@@ -321,7 +321,11 @@ def pg_manutencao_confirmacao_post():
 
 @app.route("/RF008")
 def pg_fim_chamado():
-    return render_template("RF008-fimchamado.html")
+    fim_chamado = Encaminhamento()
+    finalizando = fim_chamado.mostrar_encaminhamentos_finalizacao()
+    return render_template("RF008-fimchamado.html", encaminhamento=finalizando)
+
+
 
 @app.route("/RF009")
 def pg_relatorio():
