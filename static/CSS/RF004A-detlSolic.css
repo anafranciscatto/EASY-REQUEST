@@ -4,11 +4,12 @@ body{
 a{
     text-decoration: none
 }
-nav{
+nav {
     width: 100vw;
-    height: 5vh;
+    height: 11vh;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .container-header_btn{
@@ -45,7 +46,9 @@ nav{
 /* Seção de detalhes da solicitação */
 .detalhes-solicitacao {
     width: 100vw;
-    height: 55rem;
+    min-height: 55rem; 
+    max-height: 58rem;
+    overflow-y: auto; 
     background-color: var(--color06);
     margin-bottom: 0;
     position: absolute;
@@ -61,6 +64,7 @@ nav{
     align-content: center;
     justify-content: space-evenly;
     box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
+    overflow-wrap: break-word;
 }
 
 
@@ -72,46 +76,66 @@ nav{
     font-size: 4rem;
     color: var(--color05);
     margin-bottom: 0.5rem;
+    overflow-wrap: break-word; 
 }
 
 .detalhes-solicitacao__autor {
     font-size: 3.5rem;
     color: var(--color01);
+    overflow-wrap: break-word; /* Quebra palavras longas */
 }
 
 .detalhes-solicitacao__divisor {
     border: none;
     border-top: 2px solid var(--color05);
     margin: 1.8rem 0;
+
 }
 
 .detalhes-solicitacao__corpo {
     padding: 0 3rem;
     font-size: 2.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: justify;
+    overflow-wrap: break-word; /* Quebra palavras longas */
 }
 
 .detalhes-solicitacao__rotulo-descricao {
     font-weight: bold;
     color: var(--color01);
     font-size: 3rem;
+    overflow-wrap: break-word; /* Quebra palavras longas */
 }
 
 .detalhes-solicitacao__texto-descricao {
+    max-width: 60rem;
     margin-bottom: 1rem;
     line-height: 1.6;
     color: var(--color04);
     text-overflow: ellipsis;
     font-size: 1.7rem;
+    overflow-wrap: break-word; /* Quebra palavras longas */
 }
-
+.detalhes-solicitacao__corpo img{
+    align-items: center;
+}
+.detalhes-solicitacao img{
+    max-width: 40rem;
+    display: block;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
 /* Estilos dos botões */
 .botao {
     display: inline-block;
     width: 30rem;
     padding: 1.2rem;
     text-align: center;
-    border-radius: 50px;
+    border-radius: 2rem;
     font-size: 1.6rem;
     font-weight: bold;
     text-decoration: none;
@@ -121,6 +145,14 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.botao-excluir{
+    background-color: var(--colorRed);
+    color: var(--color01);
+    border: 2px solid var(--colorRed);
+}
+.botao-excluir:hover{
+    background-color: transparent;
 }
 .botao-cadastro {
     background-color: transparent;
@@ -136,22 +168,47 @@ nav{
     transform: scale(1.05); 
 }
 
-
+.container-botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+}
 
 /* Responsividade */
 @media (max-width: 700px) {
-    .detalhes-solicitacao {
-
+    .detalhes-solicitacao__corpo img{
+        align-items: center;
+    }
+    .detalhes-solicitacao img{
+        max-width: 30rem;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
     }
 
     .detalhes-solicitacao__titulo {
         font-size: 1.5rem;
     }
 
-    .detalhes-solicitacao__texto-descricao {
-        font-size: 0.9rem;
-    }
+
     .detalhes-solicitacao{
         max-width: 70rem;
     }
+    .container-botao{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .detalhes-solicitacao__titulo, .detalhes-solicitacao__rotulo-descricao{
+        font-size: 2.5rem;
+    }
+    .detalhes-solicitacao__autor,.detalhes-solicitacao__texto-descricao {
+        font-size: 2rem;
+    }
+
 }
