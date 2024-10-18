@@ -2,11 +2,11 @@
 from flask import Flask, render_template, request, redirect, session, jsonify, url_for
 from Solicitacao import Solicitacao
 from conexao_SQL import Connection
-# Criando importações do Bloob
+
+# Criando importações do Bloob do Azure
 from azure.storage.blob import BlobServiceClient
-# import uuid
-# import os
 from upload_file import upload_file
+
 # Importando a classe Usuario
 from Usuario import Usuario
 from Encaminhamento import Encaminhamento
@@ -19,7 +19,7 @@ app.secret_key = "capivara"
 
 # Criando rota para a página inicial
 @app.route("/")
-def pg_inicio():
+def pg_inicio(): # Função que renderiza a tela inicial
     if "usuario" in session:
         permissao = session["usuario"]["permissao"]
 
@@ -32,35 +32,29 @@ def pg_inicio():
     else:
         return render_template("index.html")
 
+# Criando a rota para a tela do administrador
 @app.route("/tl-administrador")
-def tl_administrador():
+def tl_administrador(): # Função que renderiza a tela do administrador
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
 
+# Criando a rota para a tela do solicitante
 @app.route("/tl-solicitante")
-def tl_solicitante():
+def tl_solicitante(): # Função que renderiza a tela do solicitante
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]    
     return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
+# Criando rota para a tela de cadastro
 @app.route("/RF001")
-def pg_cadastro():
+def pg_cadastro(): # Função que renderiza a tela de cadastro
     return render_template("RF001-cad.html")
 
-# Criando rota para a tela de cadastro
+# Criando rota para realizar o cadastro
 @app.route("/cadastrar-usuario", methods=["POST"])
 def cadastrarUsuario(): # Função que executa o cadastro
-    # dados = request.get_json()
-    # cpf = dados["cpf"]
-    # nome = dados["nome"]
-    # email = dados["email"]
-    # senha = dados["senha"]
-    # sn = dados["sn"]
-    # foto = dados["foto"]
-    # id_funcao = dados["id_funcao"]
-
     cpf = request.form.get('cpf')
     nome = request.form.get('nome')
     email = request.form.get('email')
@@ -96,7 +90,7 @@ def cadastrarUsuario(): # Função que executa o cadastro
 
 # Criando a rota para a tela de login
 @app.route("/RF002")
-def pg_login():
+def pg_login(): # Função que renderiza a tela de login
     if "usuario" in session:
         permissao = session["usuario"]["permissao"]
 
@@ -109,7 +103,7 @@ def pg_login():
     else:
         return render_template("RF002-log.html")
 
-# Criando rota para a tela de login
+# Criando rota para realizar o login
 @app.route("/realizar-login", methods=["POST"])
 def realizar_login(): # Função que executa o login
     usuario = Usuario()
@@ -211,8 +205,9 @@ def retorna_salas(bloco): # Função que retorna todas as salas do SENAI
 
     return jsonify(sala), 200
 
+# Criando rota para a tela em que o administrador recebe as solicitações
 @app.route("/RF004",methods=["GET"])
-def pg_ADM_recebe_solicitacao():
+def pg_ADM_recebe_solicitacao(): # Função que renderiza a tela em que o administrador recebe as solicitações
     # id_solicitacao=request.args.get(servico)
     servico = Solicitacao()
     recebimento = servico.recebimento_solicitacoes()
@@ -223,14 +218,16 @@ def pg_ADM_recebe_solicitacao():
 
     return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
+# Criando rota que retorna as solicitações
 @app.route("/retorna-solicitacoes")
-def mostrar_solicitacoes():
+def mostrar_solicitacoes(): # Função que retorna as solicitações
     servico = Solicitacao()
     solicitacoes = servico.recebimento_solicitacoes()
     return jsonify(solicitacoes), 200
 
+# Criando rota para os detalhes da solicitação
 @app.route('/RF004A/<rowid>')
-def pg_ver_solicitacao(rowid):
+def pg_ver_solicitacao(rowid): # Função que renderiza a tela de detalhes da solicitação
      saibamais=Solicitacao()
      detalhes = saibamais.recebimento_solicitacao(id_solicitacao=rowid)
 
@@ -238,15 +235,17 @@ def pg_ver_solicitacao(rowid):
 
      return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0])
 
+# Criando rota para a tela de encaminhamento das solicitações
 @app.route("/RF005/<id_solicitacao>")
-def pg_encaminhar_solicitacao(id_solicitacao):
+def pg_encaminhar_solicitacao(id_solicitacao): # Função que renderiza a tela de encaminhamento das solicitações
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
     return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
+# Criando rota para efetuar o encaminhamento
 @app.route("/realizar-encaminhamento", methods=["POST"])
-def realizar_encaminhamento():
+def realizar_encaminhamento(): # Função para realizar o encaminhamento
     dados = request.get_json()
     id_solicitacao = dados["id_solicitacao"]
     CPF_funcionario = dados["CPF_funcionario"]
@@ -259,25 +258,26 @@ def realizar_encaminhamento():
     else:
         return {'mensagem':'ERRO'}, 500
 
-    # return render_template("RF006-TLmanuten.html")
-
+# Criando rota para a tela que retorna funcionários
 @app.route("/RF005-retorna-funcionarios")
-def retorna_funcionarios():
+def retorna_funcionarios(): # Função que retorna todos os funcionários da manutenção
     encaminhamento = Encaminhamento()
     retorna_funcionario = encaminhamento.mostra_funcionarios()
     print(retorna_funcionario)
     return jsonify(retorna_funcionario), 200
 
+# Criando a rota para a tela inicial dos técnicos da manutenção
 @app.route("/RF006")
-def pg_manutencao():
+def pg_manutencao(): # Função que renderiza a tela inicial dos técnicos da manutenção
     nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
 
     return render_template("RF006-TLmanuten.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
 
+# Criando a rota que retorna todos os encaminhamentos
 @app.route("/retorna-encaminhamentos")
-def retorna_encaminhamentos():
+def retorna_encaminhamentos(): # Função que retorna todos os encaminhamentos
     encaminhamento = Encaminhamento()
 
     cpf = session["usuario"]["CPF"]
@@ -292,8 +292,9 @@ def retorna_encaminhamentos():
 
     return jsonify([retorna_encaminhamentos_fazendo, retorna_encaminhamentos_pendentes])
 
+# Criando rota para a tela coms os detalhes do encaminhamento
 @app.route("/RF006A/<id_solicitacao>/<id_encaminhamento>")
-def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
+def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento): # Função que renderiza a tela de detalhes do encaminhamento
     saibamais=Solicitacao()
     detalhes = saibamais.recebimento_solicitacao(id_solicitacao)
 
@@ -309,8 +310,9 @@ def pg_ver_encaminhamento(id_solicitacao, id_encaminhamento):
 
     return render_template("RF006A-aceitaSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_id_encaminhamento = id_encaminhamento, campo_urgencia = urgencia[0])
 
+# Criando a rota para iniciar o serviço
 @app.route("/iniciar-servico/<id_encaminhamento>")
-def iniciar_servico(id_encaminhamento):
+def iniciar_servico(id_encaminhamento): # Função que inicia o serviço
     encaminhamento = Encaminhamento()
 
     cpf_funcionario = session["usuario"]["CPF"]
@@ -338,16 +340,9 @@ def pg_fim_chamado():
 def pg_relatorio():
     return render_template("RF009-relatorio.html")
 
-@app.route('/upload', methods=['POST'])
-def upload_file2():
-
-    file = request.files['file']
-    link_arquivo = upload_file(file)
-
-    return link_arquivo, 200
-
+# Criando rota para sair da conta
 @app.route("/logout")
-def logoff():
+def logoff(): # Função que sai da conta do usuário
     session.clear()
     return redirect("/")
 
