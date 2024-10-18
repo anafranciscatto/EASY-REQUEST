@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF008-fimchamado.css">
     <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
-    <script defer src="/static/JS/funcao-voltar.js"></script>
+     <script defer src="/static/JS/RF008-fimchamado.js"></script>
     <!-- Biblioteca de ícones Font Awesome -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
     <!-- link JS biblioteca SweetAlert -->
@@ -71,7 +71,7 @@
                     <div class="galeria__descricao" aria-label="Descrição do chamado"><p>{{ item['adendo'] }}</p></div>
                     
                     <button class="galeria__botao-encerrar" aria-label="Botão para encerrar o chamado"><p>Encerrar chamado</p></button>
-                    <button class="galeria__botao-Mais" aria-label="Botão para ver mais detalhes do chamado"><p>Mais</p></button>
+                    <button class="galeria__botao-Mais" aria-label="Botão para ver mais detalhes do chamado" onclick="encDetalhes({{item['id_encaminhamento']}})"><p>Mais</p></button>
                 </article>
             {% endfor %}
         {% else %}

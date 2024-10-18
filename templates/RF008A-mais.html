@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/CSS/global.css">
     <link rel="stylesheet" href="/static/CSS/RF004A-detlSolic.css">
     <!-- Scripts JavaScript: Carregamento dos arquivos de script da página -->
-    <script defer src="/static/JS/RF004A-detlSolic.js"></script>
+    <script defer src="/static/JS/RF008A-mais.js"></script>
     <!-- Biblioteca jQuery para manipulação de DOM e requisições Ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Biblioteca Font Awesome para uso de ícones na página -->
@@ -33,21 +33,21 @@
         <section class="detalhes-solicitacao">
             <!-- Cabeçalho da solicitação com título e autor -->
             <div class="detalhes-solicitacao__cabecalho">
-                <h1 class="detalhes-solicitacao__titulo">Titulo</h1>
-                <p class="detalhes-solicitacao__autor">Autor | Situação que terminou o solicitação</p> 
+                <h1 class="detalhes-solicitacao__titulo">{{ campo_detalhes_encaminhamento[0] }} - {{ campo_detalhes_encaminhamento[1] }}</h1>
+                <p class="detalhes-solicitacao__autor">{{ campo_detalhes_encaminhamento[2] }} | {{ campo_detalhes_encaminhamento[3] }}</p> 
             </div>
             <!-- Linha divisora entre o cabeçalho e o corpo da solicitação -->
             <hr class="detalhes-solicitacao__divisor">
 
             <!-- Corpo da solicitação com a descrição do serviço e botão de encaminhamento -->
             <div class="detalhes-solicitacao__corpo">
-                <p class="detalhes-solicitacao__rotulo-descricao">Descrição</p>
+                <p class="detalhes-solicitacao__rotulo-descricao">Descrição da Solicitação</p>
                 <p class="detalhes-solicitacao__texto-descricao">
-                    Aqui vai a descrição
+                    {{ campo_detalhes_encaminhamento[4] }}
                 </p>
                 <p class="detalhes-solicitacao__rotulo-descricao">Observação do funcionario</p>
                 <p class="detalhes-solicitacao__texto-descricao">
-                    Descrição do funcionario
+                    {{ campo_detalhes_encaminhamento[5] }}
                 </p>
                 <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
                 <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Finalizar</button></a>
