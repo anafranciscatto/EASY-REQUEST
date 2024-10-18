@@ -62,8 +62,8 @@
     color: var(--color01);
     margin-right: 10rem;
     text-align: center;
-    padding: 0.4rem;
-    border-radius: 5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }
 
 /* Container principal  main*/
