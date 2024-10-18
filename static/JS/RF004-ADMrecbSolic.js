@@ -57,21 +57,19 @@ function funcVoltar() {
 
 $(document).ready(mostrarSolicitacoes)
 
-setInterval(function() {
-    const searchInput = document.getElementById('search').value;
-    if (searchInput.trim() === '') {
-        mostrarSolicitacoes(); // Atualiza todas as solicitações
-    } else {
-        mostrarSolicitacoes(true); // Atualiza com base no filtro
-    }
-    console.log('Recarregando...');
+setInterval(function(){
+    mostrarSolicitacoes()
+    console.log('Recarregando...')
 }, 5000);
 
 
 function filtrarServicos() {
+    // Obtém o valor do campo de pesquisa
     const searchInput = document.getElementById('search').value.toLowerCase();
+    // Obtém todos os serviços
     const servicos = document.querySelectorAll('.sectionBaixo__grid-item');
 
+    // Itera sobre os serviços e oculta ou exibe conforme a pesquisa
     servicos.forEach(servico => {
         const serviceText = servico.textContent.toLowerCase();
         if (serviceText.includes(searchInput)) {
@@ -80,9 +78,5 @@ function filtrarServicos() {
             servico.style.display = 'none'; // Oculta o serviço
         }
     });
-
-    if (searchInput.trim() === '') {
-        mostrarSolicitacoes(); // Se a barra de pesquisa estiver vazia, carrega todas as solicitações
-    }
 }
 
