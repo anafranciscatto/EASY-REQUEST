@@ -57,14 +57,13 @@ class Encaminhamento:
         return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
-        # try:
         myBD = Connection.conectar()
 
         mycursor = myBD.cursor()
 
         self.cpf_funcionario = cpf_funcionario
 
-        mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = {cpf_funcionario} AND status = 'fazendo'")
+        mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = '{cpf_funcionario}' AND status = 'fazendo'")
 
         retorno = mycursor.fetchone()
 
@@ -76,8 +75,3 @@ class Encaminhamento:
             return True
         elif retorno[0] == "fazendo":
             return "Você só pode fazer um serviço por vez!"
-        # except:
-        #     return False
-
-
-    
