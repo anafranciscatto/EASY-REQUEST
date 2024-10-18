@@ -36,7 +36,7 @@ class Encaminhamento:
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT fn.nome, f.nome, f.CPF_funcionario from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
+        mycursor.execute(f"SELECT f.nome, f.CPF_funcionario, f.foto from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
 
         mostra_funcionarios = mycursor.fetchall()
 

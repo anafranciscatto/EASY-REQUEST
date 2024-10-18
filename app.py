@@ -59,10 +59,14 @@ def cadastrarUsuario(): # Função que executa o cadastro
     nome = request.form.get('nome')
     email = request.form.get('email')
     senha = request.form.get('senha')
-    foto = request.files['foto']
+    foto = request.files.get('foto')
     sn = request.form.get('sn')
     id_funcao = int(request.form.get('id_funcao'))
-    link_arquivo_foto = upload_file(foto)
+
+    if foto:
+        link_arquivo_foto = upload_file(foto)
+    else:
+        link_arquivo_foto = None
 
     print(id_funcao)
 
