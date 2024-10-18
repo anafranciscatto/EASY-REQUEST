@@ -127,6 +127,9 @@ function cadastrar(){
                 showConfirmButton: false,
                 timer: 3500
               });
+            }
+    });
+}
           
 $(document).ready(function() {
     const senhaInput = $('#senha');
