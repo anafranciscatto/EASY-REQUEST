@@ -182,19 +182,36 @@ input,select{
     }
 }
 
-@media(max-width:400px){
-   
+@media(min-width:400px){
     .form_btn-enviar{
         margin: 3rem 0rem 1rem 0rem;
-        
     }
 }
 
 @media(min-width:1000px){
-    main{
-        overflow: hidden;
-    }
     .container-main h1 {
-        font-size: 3rem;
+        font-size: 4.6rem;
+    }
+    .subtitulo {
+        font-size: 2.1rem;
+    }
+    .container-main_form {
+        width: 55%;
+    }
+
+    .form_select select {
+       
+        font-size: 1.5rem;
+    }
+
+    .form_descricao label {
+        font-size: 1.6rem;
+    }
+
+    #descricao {
+        font-size: 1.5rem;
+    }
+    .form_btn-enviar {
+        margin: 2rem 0rem 1rem 0rem;
     }
 }
