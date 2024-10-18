@@ -396,8 +396,20 @@ def iniciar_servico(id_encaminhamento): # Função que inicia o serviço
 
 @app.route("/RF007/<id_encaminhamento>", methods=["GET"])
 def pg_manutencao_confirmacao_get(id_encaminhamento):
-    
-    return render_template("RF007-manutConfirm.html",campo_id_encaminhamento=id_encaminhamento)
+    foto = session["usuario"]["foto"]
+    nome_completo = session["usuario"]["nome"]
+
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("RF007-manutConfirm.html",campo_id_encaminhamento=id_encaminhamento, campo_foto = foto,campo_nome = primeiro_ultimo_nome)
 
 @app.route("/RF007", methods=["POST"])
 def pg_manutencao_confirmacao_post():
@@ -405,10 +417,11 @@ def pg_manutencao_confirmacao_post():
     adendo= request.form.get("adendo")
     opcao= request.form.get("opcao")
     finaliza=Encaminhamento()
-    finaliza.finalizacao_encaminhamento(id_encaminhamento,adendo,opcao )
-    
-    return render_template("RF007-manutConfirm.html")
+    finaliza.finalizacao_encaminhamento(id_encaminhamento, adendo, opcao)
 
+    
+
+    return render_template("RF007-manutConfirm.html")
 
 @app.route("/RF008")
 def pg_fim_chamado():
@@ -416,7 +429,11 @@ def pg_fim_chamado():
     finalizando = fim_chamado.mostrar_encaminhamentos_finalizacao()
     return render_template("RF008-fimchamado.html", encaminhamento=finalizando)
 
-
+@app.route("/RF008A/<id_encaminhamento>")
+def pg_detalhes_finalizacao(id_encaminhamento):
+    encaminhamento = Encaminhamento()
+    detalhes_ecaminhamento = encaminhamento.mostrar_detalhes_encaminhamento(id_encaminhamento)
+    return render_template("RF008A-mais.html", campo_detalhes_encaminhamento = detalhes_ecaminhamento)
 
 @app.route("/RF009")
 def pg_relatorio():
