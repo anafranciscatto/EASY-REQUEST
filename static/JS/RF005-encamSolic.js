@@ -32,14 +32,19 @@ function mostraFuncionarios(){
 });
 }
 
-function selecionarFuncionario(id_funcionario){
-  if (funcionarioSelecionado == id_funcionario) {
-    funcionarioSelecionado = '';
-    document.getElementById(`${id_funcionario}`).classList.remove('selected');
+function selecionarFuncionario(id_funcionario) {
+  // Se já houver um funcionário selecionado, remove a classe 'selected' dele
+  if (funcionarioSelecionado) {
+    document.getElementById(`${funcionarioSelecionado}`).classList.remove('selected');
   }
-  else{
+
+  // Se o funcionário clicado for diferente do atualmente selecionado, adiciona a classe
+  if (funcionarioSelecionado !== id_funcionario) {
     funcionarioSelecionado = id_funcionario;
     document.getElementById(`${id_funcionario}`).classList.add('selected');
+  } else {
+    // Se o funcionário clicado já estiver selecionado, desmarca ele
+    funcionarioSelecionado = '';
   }
   console.log(funcionarioSelecionado)
 }
