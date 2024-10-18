@@ -203,7 +203,6 @@
     position: absolute; 
     top: -1rem; 
     left: 0; 
-    color: black;
 }
 
 /* Corpo do Card */
@@ -212,6 +211,12 @@
     text-align: left; 
     font-size: 1.6rem; 
     color: black;
+}
+
+.container-card{
+    display: flex;
+    justify-content:space-between;
+    
 }
 
 .card__service, .card__responsavel {

@@ -17,8 +17,11 @@ function mostrarSolicitacoes() {
                         <span class="card__building" aria-label="Localização do prédio">${solicitacoes[x][2]} - ${solicitacoes[x][1]}</span>
                     </header>
                     <div class="card__body">
+                        <div class="container-card">
                         <!-- Serviço descrito no card -->
                         <p class="card__service" aria-label="Serviço">${solicitacoes[x][5]}</p>
+                        <p class="card_data" aria-label="Horário do Serviço">13h45 |</p>
+                        </div>
                         <!-- Pessoa que fez a solicitação -->
                         <p class="card__responsavel" aria-label="Responsável pela solicitação">${solicitacoes[x][4]}</p>
                         <!-- Linha horizontal para separação visual -->
