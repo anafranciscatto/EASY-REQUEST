@@ -91,10 +91,9 @@
 /* ------------------------------------------------------------------------------------------------ */
 .sectionBaixo {
     width: 100vw;
-    height: calc(100vh - 5vh - 15vh); 
+    min-height: 55rem;
     background-color: var(--color06); 
     margin-bottom: 0;
-    position: relative; 
     border-top-left-radius: 2rem; 
     border-top-right-radius: 2rem;
     padding: 1.5rem; 
@@ -105,6 +104,14 @@
     overflow-y: auto; 
     overflow-x: hidden;
     box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
+    position: fixed;  /* Fixa a seção na parte inferior */
+    bottom: 0;        /* Alinha na parte inferior da janela */
+    left: 0;          /* Alinha à esquerda */
+    width: 100vw;     /* Largura total da janela */
+    height: auto;     /* Defina a altura conforme necessário *
+ 
+    padding: 1.5rem;
+    z-index: 1000;    /* Coloca a seção acima de outros elementos */
 }
 
 .espacoP{
