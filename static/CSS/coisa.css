@@ -16,12 +16,6 @@ header{
     padding-top: 1.5rem;
 }
 
-.container-header_btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container-header_btn-voltar{
     margin: 1rem;
     padding: 0.5rem;
@@ -43,21 +37,6 @@ header{
     border-color: none;
     background-color: var(--color02);
     color: var(--color01);
-}
-
-/* Estilo da Data */
-.container-header_data{
-    margin: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-}
-
-.dia-semana{
-    color: var(--color05);
-    font-weight: 600;
 }
 
 /* Estilo da Área Usuario */
@@ -151,9 +130,6 @@ main{
     border: none;
     padding: 0.7rem;
     border-radius: 2rem;
-}
-.form_select option{
-    /* s */
 }
 
 /* Estilo input Arquivo */
