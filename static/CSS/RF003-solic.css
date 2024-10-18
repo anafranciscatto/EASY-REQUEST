@@ -32,7 +32,7 @@ input,select{
 
 .container-header_btn-voltar i{
     margin-right: 0.5rem;
- }
+}
 
  /* Mudança de Cor do botão ao passar o cursor por cima */
 .container-header_btn-voltar:hover{
@@ -66,8 +66,9 @@ input,select{
 }
 
 .container-header-user img{
-    width: auto;
-    height: 5rem;
+    width: 6rem;
+    object-fit:fill;
+    height: 6rem;
     border-radius: 100%;
 }
 

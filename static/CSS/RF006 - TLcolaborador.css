@@ -53,8 +53,9 @@ header{
 }
 
 .container-header-user img{
-    width: auto;
+    width: 6rem;
     height: 6rem;
+    object-fit:cover;
     border-radius: 100%;
 }
 
