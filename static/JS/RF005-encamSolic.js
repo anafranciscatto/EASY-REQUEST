@@ -27,7 +27,13 @@ function mostraFuncionarios(){
         }
     },
     error: function(){
-      swal ( "Oops!" ,  "Falha no emcaminhamento!" ,  "error" );;
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Falha no Encaminhamento!",
+        showConfirmButton: false,
+        timer: 3500
+      });
     }
 });
 }
@@ -79,10 +85,23 @@ function realizarEncaminhamento(id_solicitacao) {
     data: JSON.stringify(dados),
     contentType: 'application/json',
     success: function(){
+      Swal.fire({
+        icon: "success",
+        title: "Perfeito",
+        text: "Serviço Encaminhado!",
+        showConfirmButton: false,
+        timer: 3500
+      });
         window.location.href = '/RF004';
     },
     error: function(){
-        alert("ERRO AO ENCAMINHAR!")
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Falha no Encaminhamento!",
+        showConfirmButton: false,
+        timer: 3500
+      });
     }
 
   })

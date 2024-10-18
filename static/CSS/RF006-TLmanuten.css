@@ -189,11 +189,13 @@ header{
     border-radius: 1rem;
     position: relative;
     display: flex;
+    flex-direction:column ;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     border: solid 3px transparent;
     transition: 0.3s ease-in-out;
+    gap: 0.5rem;
    
 }
 
@@ -228,12 +230,15 @@ header{
     font-weight: bold;
 }
 
-.servico-encaminhamento-urgencia .urgencia{
+.urgencia-encaminhado{
     margin: 1rem;
-    font-size: 1.5rem;
+   font-size: 1.5rem;
+   padding: 0.5rem;
+    border: 0.2rem solid var(--colorRed);
+    border-radius: 3rem;
 }
 
-.urgencia{
+.urgencia,.urgencia-encaminhado{
     text-transform: capitalize;
 }
 
@@ -288,9 +293,10 @@ hr{
     padding-left: 1.4rem;
 }
 .urgencia{
-    padding: 0.5rem;
-    border: 0.2rem solid var(--colorRed);
-    border-radius: 3rem;
+    color: var(--color01);
+    background-color: var(--color05);
+    padding: 1rem;
+    border-radius: 1rem;
 }
 .fa-arrow-right:before {
     content: "\f061";

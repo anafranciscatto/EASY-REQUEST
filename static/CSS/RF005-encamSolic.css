@@ -78,16 +78,20 @@ nav{
 }
 
 /* Estilo da Escolha de Funcionario */
-main{
+.form_select-user{
   width: 100vw;
-  height: 74vh;
+  height: 60vh;
   overflow-x: auto;
   position: relative;
 }
 
+/* estilo da barra de rolagem */
+::-webkit-scrollbar {
+  background-color: transparent;
+}
 
 .caixa-opcao {
-  padding: 8px;
+  padding: 1rem 4rem 1rem 1rem;
   margin: 1rem 2rem 1rem 2rem;
   cursor: pointer;
   display: flex;
@@ -99,6 +103,7 @@ main{
   border-radius: 5rem;
   box-shadow: 0px -1px 7px rgba(20,23,53,0.3);
   transition-duration: 0.2s;
+  border: 2px solid transparent;
     
 }
 
@@ -124,45 +129,24 @@ main{
   font-size: 1.5rem;
 }
 
-
-
-.status_disponivel{
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  background-color: var(--colorGreen);
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  display: none;
-  
-}
-
-.status_n-disponivel{
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background-color: var(--colorRed);
-    border-radius: 0.5rem;
-    font-size: 1.2rem;
-    text-align: center;
-    
-  
-}
-
 /* Estilo da Escolha da urgencia/emergencia */
 
 .form_btn-emergencia{
     width: 100vw;
-    height: 25vh;
+    height: 33vh;
     position: fixed;
     bottom: 0;
     z-index: 1;
     background-color: var(--color06);
-    border-top-left-radius: 4rem;
-    border-top-right-radius: 4rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
     color: var(--color01);
+    align-content: center;
   
 }
 
 .form_btn-emergencia__titulo{
-  margin: 2rem 0rem 0rem 3rem;
+  margin-left: 2rem;
   font-size: 1.5rem;
 }
 
@@ -176,10 +160,11 @@ main{
 }
 
 .opcaoUrgencia{
-    padding: 1rem;
+    padding: 1.4rem;
     border: solid 2px var(--color01);
     border-radius: 1rem;
     transition-duration: 0.2s;
+    font-size: 1.1rem;
 }
 
 .opcaoUrgencia.selected{
@@ -191,21 +176,23 @@ main{
 /* Estilo do botão 'Enviar Solicitação' */
 .container_btn-enviar{
   text-align: center;
+  padding-left: 1rem;
 }
 
 .btn-enviar{
   background-color: var(--color03);
   color: var(--color01);
   width: 20rem;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
   border: none;
   border-radius: 50px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: bold;
   cursor: pointer;
-  margin: 1.5rem 10rem 0rem 10rem;
+  margin-top: 1.5rem;
   transition-duration: 0.2s;
+  
 }
 
 .btn-enviar:hover{
@@ -215,82 +202,32 @@ main{
 }
 
 /* ----------RESPONSIVIDADE----------- */
+@media (min-width:800px){
+  .form_select-user{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0rem 2rem;
 
-@media (min-width: 360px){
-  .status_n-disponivel{
-    padding: 0.4rem 0.5rem 0.4rem 0.5rem;
-    
-  }  
-  .opcaoUrgencia{
-   font-size: 1.2rem;
-    }
+  }
+  .opcaoUrgencia {
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .form_btn-emergencia__titulo {
+    margin-left: 4rem;
+  }
 }
 
 @media (min-width:1000px){
-  .main{
+  .form_select-user{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    height: 100%;
-  }
-  #form_select-user{
-    display: grid;
-    grid-template-columns: auto auto;
-    margin: 3rem 9rem 0rem 9rem;
-  }
-  .container-header_user-nome{
-    font-size: 2rem;
-  }
-  .container-header_user-cargo{
-    font-size: 1.5rem;
-  }
-  .data{
-        gap: 0.5rem;
-        border-radius: 5rem;
-        box-shadow: 4px 3px 10px rgb(135, 135, 135);
-        padding: 1rem;
-        font-size: 2.5rem;
-  }
-  .form_btn-emergencia{
-    height: 30vh;
-  }
-  .form_btn-emergencia__titulo{
-      margin: 2rem 0rem 0rem 12rem;
-      font-size: 2rem;
-  }
-  .botoes{
-    margin-top: 4rem;
-  }
-  .opcaoUrgencia {
-    font-size: 2rem;
-  }
-
-  .btn-enviar {
-    padding: 1.5rem;
-    font-size: 1.5rem;
-    margin: 3rem 10rem 0rem 10rem;
+    padding: 0rem 5rem;
 
   }
 
-  .caixa-opcao {
-    padding: 20px;
+  .form_btn-emergencia__titulo {
+    margin-left: 7rem;
   }
-
-  .caixa-opcao img {
-    height: 8rem; 
-  }
-
-  .opcao_user{
-    font-size: 1.9rem
-  }
-
-  .status_n-disponivel {
-    
-    font-size: 1.7rem;
-  }
-
-  .status_disponivel {
-    font-size: 1.7rem;
-  }
-
 }
-  

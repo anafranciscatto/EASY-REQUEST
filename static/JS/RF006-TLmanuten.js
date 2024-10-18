@@ -17,7 +17,7 @@ function retornaEncaminhamentos() {
                         <p class="horario">10:30am</p>
                         <div class="card-conteudo">
                             <p class="bloco">${encaminhamentos_fazendo[x][1]} | ${encaminhamentos_fazendo[x][0]}</p>
-                            <p class="urgencia">${encaminhamentos_fazendo[x][2]}</p>
+                            <p class="urgencia">${encaminhamentos_fazendo[x][2]} urgência</p>
                             <a href="/RF007/${encaminhamentos_fazendo[x][4]}"><i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>`;
@@ -31,7 +31,7 @@ function retornaEncaminhamentos() {
                                 <p class="servico-encaminhado-dia-semana">QUI</p><p class="servico-encaminhado-dia">10</p>
                             </div>
                             <p class="servico-encaminhado-local">${encaminhamentos_pendentes[x][1]} | ${encaminhamentos_pendentes[x][0]}</p>
-                            <p class="urgencia">${encaminhamentos_pendentes[x][2]}</p>
+                            <p class="urgencia-encaminhado">${encaminhamentos_pendentes[x][2]} urgência</p>
                         </div>
                     </a>`;
             document.getElementById('encaminhamentos_pendentes').innerHTML += infoEncaminhamentosPendentes;

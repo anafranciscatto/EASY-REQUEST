@@ -3,11 +3,17 @@
 input,select{
     font-family: "Montserrat", sans-serif;
 }
-
-/* Estilo do cabeçalho (btn voltar e informações do User) */
-.container-header{
+body{
     width: 100vw;
-    height: 20vh;
+    height: 100vh;
+}
+/* Estilo da Área do bnt-voltar e Data */
+header{
+    width: 100%;
+    height: 5%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
 }
 
 .container-header_btn-voltar{
@@ -18,6 +24,7 @@ input,select{
     border-radius: 5rem;
     background: none;
     font-weight: 700;
+    
     transition-duration: 0.2s;
 }
 
@@ -32,10 +39,39 @@ input,select{
     color: var(--color01);
 }
 
+/* Estilo da Área Usuario */
+.container-header-user{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    padding: 0rem 0rem 0rem 5rem;
+}
+
+.container-header-user img{
+    width: 6rem;
+    object-fit:fill;
+    height: 6rem;
+    border-radius: 100%;
+}
+
+.container-header-user_nome{
+    font-size: 2rem;
+}
+
+.container-header-user_cargo{
+    background-color: var(--color05);
+    color: var(--color01);
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+}
+
 /* Estilo da Área de Solicitação */
-.container-main{
-    width: 100vw;
-    height: 80vh;
+main{
+    width: 100%;
+    height: 70%;
     background-color: var(--color06);
     color: var(--color01);
     display: flex;
@@ -162,7 +198,8 @@ input,select{
     background-color: var(--color03); 
     border: 2px solid var(--color03); 
     color: var(--color01); 
-    margin: 0.5rem 0rem 1rem 0rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
 }
 
 .form_btn-enviar:hover{
@@ -172,46 +209,10 @@ input,select{
     transform: scale(1.02); 
     border: 2px solid var(--color03);
 }
+
 /* ------------RESPONSIVIDADE------------------- */
-@media (max-width:376px) {
-    .container-main {
-        height: 100vh;
-    }
-    .container-main h1 {
-        font-size: 2.5rem;
-    }
+@media (min-width:700px) {
+   
 }
 
-@media(min-width:400px){
-    .form_btn-enviar{
-        margin: 3rem 0rem 1rem 0rem;
-    }
-}
 
-@media(min-width:1000px){
-    .container-main h1 {
-        font-size: 4.6rem;
-    }
-    .subtitulo {
-        font-size: 2.1rem;
-    }
-    .container-main_form {
-        width: 55%;
-    }
-
-    .form_select select {
-       
-        font-size: 1.5rem;
-    }
-
-    .form_descricao label {
-        font-size: 1.6rem;
-    }
-
-    #descricao {
-        font-size: 1.5rem;
-    }
-    .form_btn-enviar {
-        margin: 2rem 0rem 1rem 0rem;
-    }
-}
