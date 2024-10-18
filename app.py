@@ -419,8 +419,6 @@ def pg_manutencao_confirmacao_post():
     finaliza=Encaminhamento()
     finaliza.finalizacao_encaminhamento(id_encaminhamento, adendo, opcao)
 
-    
-
     return render_template("RF007-manutConfirm.html")
 
 @app.route("/RF008")
