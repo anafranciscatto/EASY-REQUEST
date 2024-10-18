@@ -55,6 +55,21 @@ class Encaminhamento:
         mostra_encaminhamentos = mycursor.fetchall()
         
         return mostra_encaminhamentos
+    
+    def mostrar_detalhes_encaminhamento(self, id_encaminhamento):
+        myBD = Connection.conectar()
+
+        mycursor = myBD.cursor()
+
+        self.id_encaminhamento = id_encaminhamento
+
+        print(id_encaminhamento)
+
+        mycursor.execute(f"SELECT s.id_sala, sv.nome, f.nome, status_final, sol.descricao, adendo FROM tb_salas s, tb_servicos sv, tb_funcionarios f, tb_encaminhamentos enc, tb_solicitacoes sol WHERE sol.id_solicitacao = enc.id_solicitacao AND sv.id_servico = sol.id_servico AND s.id_sala = sol.id_sala AND f.CPF_funcionario = sol.CPF_funcionario AND enc.id_encaminhamento = {id_encaminhamento};")
+
+        mostra_encaminhamentos = mycursor.fetchone()
+        
+        return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
         myBD = Connection.conectar()
@@ -82,7 +97,7 @@ class Encaminhamento:
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT status_final, fn.nome, id_sala, adendo FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_servicos fn WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_servico = fn.id_servico AND enc.status = 'feito'") 
+        mycursor.execute(f"SELECT status_final, fn.nome, id_sala, adendo, id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_servicos fn WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_servico = fn.id_servico AND enc.status = 'feito'") 
         mostrar_encaminhamentos_finalizacao = mycursor.fetchall()
 
         lista_finalizacao=[]
@@ -92,6 +107,7 @@ class Encaminhamento:
                 "servico":encaminhamento[1],
                 "id_sala":encaminhamento[2],
                 "adendo":encaminhamento[3],
+                "id_encaminhamento":encaminhamento[4]
             })
 
         return lista_finalizacao
