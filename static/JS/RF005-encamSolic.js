@@ -13,10 +13,16 @@ function mostraFuncionarios(){
           var div = document.createElement('div');
 
           div.className = 'caixa-opcao';
-          div.id = `${retorna_funcionarios[x][2]}`
-          div.setAttribute('onclick', `selecionarFuncionario('${retorna_funcionarios[x][2]}');`);
-          div.innerHTML = `<figure><img src="https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp" alt="Imagem de Perfil"></figure>
-                            <div class="opcao_user">${retorna_funcionarios[x][1]}</div>`;
+          div.id = `${retorna_funcionarios[x][1]}`
+          div.setAttribute('onclick', `selecionarFuncionario('${retorna_funcionarios[x][1]}');`);
+          if (retorna_funcionarios[x][2]) {
+            div.innerHTML = `<figure><img src="${retorna_funcionarios[x][2]}" alt="Foto de Perfil"></figure>
+                            <div class="opcao_user">${retorna_funcionarios[x][0]}</div>`;
+          }else{
+            div.innerHTML = `<figure><img src="https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg" alt="Foto de Perfil"></figure>
+            <div class="opcao_user">${retorna_funcionarios[x][0]}</div>`;
+          }
+
           divFuncionarios.append(div);
         }
     },
@@ -32,14 +38,19 @@ function mostraFuncionarios(){
 });
 }
 
-function selecionarFuncionario(id_funcionario){
-  if (funcionarioSelecionado == id_funcionario) {
-    funcionarioSelecionado = '';
-    document.getElementById(`${id_funcionario}`).classList.remove('selected');
+function selecionarFuncionario(id_funcionario) {
+  // Se já houver um funcionário selecionado, remove a classe 'selected' dele
+  if (funcionarioSelecionado) {
+    document.getElementById(`${funcionarioSelecionado}`).classList.remove('selected');
   }
-  else{
+
+  // Se o funcionário clicado for diferente do atualmente selecionado, adiciona a classe
+  if (funcionarioSelecionado !== id_funcionario) {
     funcionarioSelecionado = id_funcionario;
     document.getElementById(`${id_funcionario}`).classList.add('selected');
+  } else {
+    // Se o funcionário clicado já estiver selecionado, desmarca ele
+    funcionarioSelecionado = '';
   }
   console.log(funcionarioSelecionado)
 }

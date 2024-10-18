@@ -35,17 +35,39 @@ def pg_inicio(): # Função que renderiza a tela inicial
 # Criando a rota para a tela do administrador
 @app.route("/tl-administrador")
 def tl_administrador(): # Função que renderiza a tela do administrador
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-    return render_template("TLadministrador.html", campo_nome = nome, campo_funcao = funcao)
+    nome_completo = session["usuario"]["nome"]
+
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("TLadministrador.html", campo_nome = primeiro_ultimo_nome, campo_funcao = funcao)
 
 # Criando a rota para a tela do solicitante
 @app.route("/tl-solicitante")
 def tl_solicitante(): # Função que renderiza a tela do solicitante
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
-    foto = session["usuario"]["foto"]    
-    return render_template("TLsolicitante.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
+    foto = session["usuario"]["foto"]
+    nome_completo = session["usuario"]["nome"]
+
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("TLsolicitante.html", campo_nome = primeiro_ultimo_nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando rota para a tela de cadastro
 @app.route("/RF001")
@@ -59,10 +81,14 @@ def cadastrarUsuario(): # Função que executa o cadastro
     nome = request.form.get('nome')
     email = request.form.get('email')
     senha = request.form.get('senha')
-    foto = request.files['foto']
+    foto = request.files.get('foto')
     sn = request.form.get('sn')
     id_funcao = int(request.form.get('id_funcao'))
-    link_arquivo_foto = upload_file(foto)
+
+    if foto:
+        link_arquivo_foto = upload_file(foto)
+    else:
+        link_arquivo_foto = None
 
     print(id_funcao)
 
@@ -139,11 +165,21 @@ def realizar_login(): # Função que executa o login
 # Criando rota para a tela de solicitacao
 @app.route("/RF003")
 def pg_solicitacao(): # Função que abre a tela de fazer solicitação
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
+    nome_completo = session["usuario"]["nome"]
 
-    return render_template("RF003-solic.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("RF003-solic.html", campo_nome = primeiro_ultimo_nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando rota para a função que executa a solicitação
 @app.route("/fazer_solicitacao", methods=["POST"])
@@ -212,11 +248,22 @@ def pg_ADM_recebe_solicitacao(): # Função que renderiza a tela em que o admini
     servico = Solicitacao()
     recebimento = servico.recebimento_solicitacoes()
 
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
 
-    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
+    nome_completo = session["usuario"]["nome"]
+
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("RF004-ADMrecbSolic.html", campo_recebimento = recebimento, campo_nome = primeiro_ultimo_nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando rota que retorna as solicitações
 @app.route("/retorna-solicitacoes")
@@ -238,10 +285,21 @@ def pg_ver_solicitacao(rowid): # Função que renderiza a tela de detalhes da so
 # Criando rota para a tela de encaminhamento das solicitações
 @app.route("/RF005/<id_solicitacao>")
 def pg_encaminhar_solicitacao(id_solicitacao): # Função que renderiza a tela de encaminhamento das solicitações
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
-    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
+    nome_completo = session["usuario"]["nome"]
+
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("RF005-encamSolic.html", campo_id_solicitacao = id_solicitacao, campo_nome = primeiro_ultimo_nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando rota para efetuar o encaminhamento
 @app.route("/realizar-encaminhamento", methods=["POST"])
@@ -269,11 +327,21 @@ def retorna_funcionarios(): # Função que retorna todos os funcionários da man
 # Criando a rota para a tela inicial dos técnicos da manutenção
 @app.route("/RF006")
 def pg_manutencao(): # Função que renderiza a tela inicial dos técnicos da manutenção
-    nome = session["usuario"]["nome"]
     funcao = session["usuario"]["funcao"]
     foto = session["usuario"]["foto"]
+    nome_completo = session["usuario"]["nome"]
 
-    return render_template("RF006-TLmanuten.html", campo_nome = nome, campo_funcao = funcao, campo_foto = foto)
+    # Dividindo o nome em partes
+    partes_nome = nome_completo.split()
+
+    # Verificando se o nome tem mais de uma parte
+    if len(partes_nome) > 1:
+        primeiro_ultimo_nome = f"{partes_nome[0]} {partes_nome[-1]}"
+    else:
+        # Caso o nome tenha apenas uma parte, retorna somente essa parte
+        primeiro_ultimo_nome = partes_nome[0]
+
+    return render_template("RF006-TLmanuten.html", campo_nome = primeiro_ultimo_nome, campo_funcao = funcao, campo_foto = foto)
 
 # Criando a rota que retorna todos os encaminhamentos
 @app.route("/retorna-encaminhamentos")
@@ -326,13 +394,29 @@ def iniciar_servico(id_encaminhamento): # Função que inicia o serviço
     else:
         return 'Erro ao iniciar serviço!', 500
 
-@app.route("/RF007")
-def pg_manutencao_confirmacao():
+@app.route("/RF007/<id_encaminhamento>", methods=["GET"])
+def pg_manutencao_confirmacao_get(id_encaminhamento):
+    
+    return render_template("RF007-manutConfirm.html",campo_id_encaminhamento=id_encaminhamento)
+
+@app.route("/RF007", methods=["POST"])
+def pg_manutencao_confirmacao_post():
+    id_encaminhamento= request.form.get("id_solicitacao")
+    adendo= request.form.get("adendo")
+    opcao= request.form.get("opcao")
+    finaliza=Encaminhamento()
+    finaliza.finalizacao_encaminhamento(id_encaminhamento,adendo,opcao )
+    
     return render_template("RF007-manutConfirm.html")
+
 
 @app.route("/RF008")
 def pg_fim_chamado():
-    return render_template("RF008-fimchamado.html")
+    fim_chamado = Encaminhamento()
+    finalizando = fim_chamado.mostrar_encaminhamentos_finalizacao()
+    return render_template("RF008-fimchamado.html", encaminhamento=finalizando)
+
+
 
 @app.route("/RF009")
 def pg_relatorio():

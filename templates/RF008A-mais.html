@@ -33,8 +33,8 @@
         <section class="detalhes-solicitacao">
             <!-- Cabeçalho da solicitação com título e autor -->
             <div class="detalhes-solicitacao__cabecalho">
-                <h1 class="detalhes-solicitacao__titulo">{{campo_sala}} - {{campo_servico}}</h1>
-                <p class="detalhes-solicitacao__autor">{{campo_nome_solicitante}} - {{campo_funcao_solicitante}}</p>
+                <h1 class="detalhes-solicitacao__titulo">Titulo</h1>
+                <p class="detalhes-solicitacao__autor">Autor | Situação que terminou o solicitação</p> 
             </div>
             <!-- Linha divisora entre o cabeçalho e o corpo da solicitação -->
             <hr class="detalhes-solicitacao__divisor">
@@ -43,51 +43,16 @@
             <div class="detalhes-solicitacao__corpo">
                 <p class="detalhes-solicitacao__rotulo-descricao">Descrição</p>
                 <p class="detalhes-solicitacao__texto-descricao">
-                    {{campo_descricao}}
+                    Aqui vai a descrição
                 </p>
-                <img src="https://t4.ftcdn.net/jpg/08/34/54/63/240_F_834546357_SoRzcgHyHPb9OLlsJ1fyRxtE4WgNAsWR.jpg" alt="Imagem que ilustra a solicitação">
-                <div class="container-botao">
-                    <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
-                <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Encaminhar</button></a>
-                <!-- Botão para excluir esta solicitação-->
-                <a href=""><button class="botao botao-excluir">Excluir</button></a>
-                </div>
-                
+                <p class="detalhes-solicitacao__rotulo-descricao">Observação do funcionario</p>
+                <p class="detalhes-solicitacao__texto-descricao">
+                    Descrição do funcionario
+                </p>
+                <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
+                <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Finalizar</button></a>
             </div>
         </section>
     </main>
 </body>
 </html>
-
-<!-- 
-    Script comentado que poderia exibir os detalhes da solicitação ao carregar a página 
-    utilizando uma requisição Ajax:
-    
-    <script type="text/javascript">
-        function mostraSolicitacao() {
-            // Obter a URL atual
-            var url_atual = window.location.href;
-        
-            // Criar um objeto URLSearchParams com a query string da URL
-            var params = new URLSearchParams(new URL(url_atual).search);
-        
-            // Obter o valor do parâmetro 'solicitacao'
-            var solicitacao = params.get('solicitacao');
-            
-            $.ajax({
-                url: "('/api/RF004A/" + solicitacao,
-                type: "GET",
-                success: function (encaminha){
-                    console.log(encaminha);
-                    var tag_nome = "<p>" + encaminha['nome'] + "</p>";
-                    var tag_descricao = "<p>" + encaminha['descricao'] + "</p>";
-                    $(".detalhes-solicitacao__autor").html(tag_nome);
-                    $(".detalhes-solicitacao__texto-descricao").html(tag_descricao);
-                }
-            })
-        }
-        
-        // Executar a função mostraSolicitacao assim que a página for carregada
-        $(document).ready(mostraSolicitacao);
-    </script>
--->

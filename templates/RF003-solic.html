@@ -26,7 +26,16 @@
                 <div class="container-header_btn">
                     <button class="container-header_btn-voltar" onclick="funcVoltar('solicitacao')"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
                 </div>
+              <!-- Área de perfil do usuário com foto, nome e cargo -->
+                <div class="container-header-user">
+                    <figure><img src="{{ campo_foto if campo_foto else 'https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg' }}" alt="Foto de Perfil"></figure>
+                    <div class="container-header-user_info">
+                        <h2 class="container-header-user_nome">{{campo_nome}}</h2>
+                        <p class="container-header-user_cargo">{{campo_funcao}}</p>
+                    </div>
+                </div>
             </section>
+           
         </header>
         
         <!-- Conteúdo principal da página -->

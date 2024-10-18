@@ -36,7 +36,7 @@ class Encaminhamento:
 
         mycursor = myBD.cursor()
 
-        mycursor.execute(f"SELECT fn.nome, f.nome, f.CPF_funcionario from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
+        mycursor.execute(f"SELECT f.nome, f.CPF_funcionario, f.foto from tb_funcionarios f, tb_funcoes fn WHERE f.id_funcao = fn.id_funcao AND permissao = 'manutencao';")
 
         mostra_funcionarios = mycursor.fetchall()
 
@@ -53,7 +53,7 @@ class Encaminhamento:
         mycursor.execute(f"SELECT s.id_sala, s.bloco, enc.urgencia, sol.id_solicitacao, enc.id_encaminhamento FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_salas s WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_sala = s.id_sala AND enc.status = '{status}' AND enc.CPF_funcionario = '{cpf_funcionario}'")
 
         mostra_encaminhamentos = mycursor.fetchall()
-
+        
         return mostra_encaminhamentos
 
     def aceitar_encaminhamento(self, id_encaminhamento, cpf_funcionario):
@@ -73,5 +73,43 @@ class Encaminhamento:
             mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
             myBD.commit()
             return True
+
         elif retorno[0] == "fazendo":
             return "Você só pode fazer um serviço por vez!"
+
+    def mostrar_encaminhamentos_finalizacao(self):
+        myBD = Connection.conectar()
+
+        mycursor = myBD.cursor()
+
+        mycursor.execute(f"SELECT status_final, fn.nome, id_sala, adendo FROM tb_encaminhamentos enc, tb_solicitacoes sol, tb_servicos fn WHERE enc.id_solicitacao = sol.id_solicitacao AND sol.id_servico = fn.id_servico AND enc.status = 'feito'") 
+        mostrar_encaminhamentos_finalizacao = mycursor.fetchall()
+
+        lista_finalizacao=[]
+        for encaminhamento in mostrar_encaminhamentos_finalizacao:
+            lista_finalizacao.append({
+                "status_final":encaminhamento[0],
+                "servico":encaminhamento[1],
+                "id_sala":encaminhamento[2],
+                "adendo":encaminhamento[3],
+            })
+
+        return lista_finalizacao
+        
+    def finalizacao_encaminhamento(self,id_encaminhamento,adendo,opcao):
+
+        try:
+            self.adendo = adendo
+            self.opcao = opcao
+            
+            myBD = Connection.conectar()
+
+            mycursor = myBD.cursor()
+
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'feito',status_final = '{opcao}',adendo = '{adendo}' WHERE id_encaminhamento = {id_encaminhamento};")
+
+            myBD.commit()
+
+            return True
+        except:
+            return False
