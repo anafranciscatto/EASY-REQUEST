@@ -3,6 +3,7 @@ inputServico = document.getElementById('tipo-servico');
 inputBloco = document.getElementById('bloco');
 inputSalas = document.getElementById('sala');
 inputDescricao = document.getElementById('descricao');
+inputFoto = document.getElementById('arquivo');
 
 // Função que usa os dados do formulário para cadastrar uma solicitação
 function fazerSolicitacao() {
@@ -18,19 +19,20 @@ function fazerSolicitacao() {
           return;
     }
 
-    var dados = {
-        id_servico:inputServico.value,
-        id_sala:inputSalas.value,
-        descricao:inputDescricao.value
-    }
+    var dados = new FormData(); // Cria um novo FormData
 
-    console.log(dados)
+    // Adiciona os dados ao FormData
+    dados.append('id_servico', inputServico.value);
+    dados.append('id_sala', inputSalas.value);
+    dados.append('descricao', inputDescricao.value);
+    dados.append('foto', inputFoto.files[0]); // Adiciona a foto
 
     $.ajax({
         url: '/fazer_solicitacao',
         type: 'POST',
-        data: JSON.stringify(dados),
-        contentType: 'application/json',
+        data: dados,
+        contentType: false, // Importante para enviar arquivos
+        processData: false, // Não processar os dados
         success: function(){
             Swal.fire({
                 position: "center",

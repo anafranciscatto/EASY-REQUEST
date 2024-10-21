@@ -45,7 +45,10 @@
                 <p class="detalhes-solicitacao__texto-descricao">
                     {{campo_descricao}}
                 </p>
-                <img src="https://t4.ftcdn.net/jpg/08/34/54/63/240_F_834546357_SoRzcgHyHPb9OLlsJ1fyRxtE4WgNAsWR.jpg" alt="Imagem que ilustra a solicitação">
+                {% if campo_foto == None %}
+                {%else%}
+                <img src="{{campo_foto}}" alt="Imagem que ilustra a solicitação">
+                {% endif %}
                 <div class="container-botao">
                     <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
                 <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Encaminhar</button></a>

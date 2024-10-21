@@ -184,15 +184,20 @@ def pg_solicitacao(): # Função que abre a tela de fazer solicitação
 # Criando rota para a função que executa a solicitação
 @app.route("/fazer_solicitacao", methods=["POST"])
 def fazer_solicitacao(): # Função que executa a solicitação
-    dados = request.get_json()
-    id_servico = int(dados["id_servico"])
-    id_sala = dados["id_sala"]
-    descricao = dados["descricao"]
+    id_servico = request.form.get('id_servico')
+    id_sala = request.form.get('id_sala')
+    descricao = request.form.get('descricao')
+    foto = request.files.get('foto')
     cpf = session["usuario"]["CPF"]
+
+    if foto:
+        link_arquivo_foto = upload_file(foto)
+    else:
+        link_arquivo_foto = None
 
     solicitacao = Solicitacao()
 
-    if solicitacao.solicitar_servico(id_servico, id_sala, descricao, cpf):
+    if solicitacao.solicitar_servico(id_servico, id_sala, descricao, cpf, link_arquivo_foto):
         return jsonify({'mensagem':'Cadastro OK'}), 200
     else:
         return {'mensagem':'ERRO'}, 500
@@ -280,7 +285,7 @@ def pg_ver_solicitacao(rowid): # Função que renderiza a tela de detalhes da so
 
      print(detalhes)
 
-     return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0])
+     return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_foto = detalhes[6])
 
 # Criando rota para a tela de encaminhamento das solicitações
 @app.route("/RF005/<id_solicitacao>")
