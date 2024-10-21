@@ -152,6 +152,12 @@ body::-webkit-scrollbar-track {
     padding: 1rem; 
 }
 
+.sectionBaixo__grid-section h3{
+    text-align: center;
+    color: white;
+    grid-column: span 3;
+}
+
 /* Estilo para os itens do grid */
 .sectionBaixo__grid-item {
     padding: 1rem; 
