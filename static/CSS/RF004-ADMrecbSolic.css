@@ -53,12 +53,8 @@
     overflow-y: auto; 
     overflow-x: hidden;
     box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
-    position: fixed;  /* Fixa a seção na parte inferior */
-    bottom: 0;        /* Alinha na parte inferior da janela */
-    left: 0;          /* Alinha à esquerda */
     width: 100vw;     /* Largura total da janela */
     height: auto;     /* Defina a altura conforme necessário *
- 
     padding: 1.5rem;
     z-index: 1000;    /* Coloca a seção acima de outros elementos */
 }
