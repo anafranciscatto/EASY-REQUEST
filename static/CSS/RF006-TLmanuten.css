@@ -172,6 +172,12 @@ header{
     
 }
 
+.container-encaminhamento h3{
+  color: white;
+  text-align: center;
+  grid-column: span 3;
+}
+
 .container-encaminhamento a{
     text-decoration: none;
     color: var(--color02);
@@ -267,6 +273,13 @@ h2{
     font-weight: bold;
     color: var(--color01);
 }
+
+.ladoEsquerdo-conteudo{
+  color: white;
+  text-align: center;
+  grid-column: span 3;
+}
+
 hr{
     margin-bottom: 2rem;
 }
