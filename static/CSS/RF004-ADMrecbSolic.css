@@ -1,5 +1,29 @@
 /* Importação de fonte */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Para remover a barra de rolagem horizontal */
+html, body {
+    overflow-x: hidden;
+}
+/* Tornar a barra de rolagem vertical transparente */
+body {
+    scrollbar-width: thin; /* Para navegadores como Firefox */
+    scrollbar-color: transparent transparent; /* Cor da barra e do trilho */
+
+    display: flex;
+    flex-direction: column;
+}
+
+body::-webkit-scrollbar {
+    width: 8px; /* Defina a largura da barra de rolagem */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0); /* Deixar transparente */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0); /* Deixar o trilho transparente */
+}
 
 /* Estilo do Header */
 .header {
@@ -8,12 +32,14 @@
 
 /* Container da Data e Botão */
 .header__date-container {
-    height: 5vh; 
+    height: 10vh; 
     display: flex; 
     justify-content: space-between;
     align-items: center;
 }
-
+.container-header-user_info {
+    margin-left: 1rem;
+}
 .header_btn-voltar{
     margin: 1rem;
     padding: 0.5rem;
@@ -40,23 +66,24 @@
 /* ------------------------------------------------------------------------------------------------ */
 .sectionBaixo {
     width: 100vw;
-    min-height: 55rem;
-    background-color: var(--color06); 
-    margin-bottom: 0;
-    border-top-left-radius: 2rem; 
+    min-height: 84vh;
+    background-color: var(--color06);
+    border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
-    padding: 1.5rem; 
-    display: flex; 
-    flex-direction: column; 
-    align-content: center; 
-    flex-wrap: nowrap; 
-    overflow-y: auto; 
-    overflow-x: hidden;
-    box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
-    width: 100vw;     /* Largura total da janela */
-    height: auto;     /* Defina a altura conforme necessário *
     padding: 1.5rem;
-    z-index: 1000;    /* Coloca a seção acima de outros elementos */
+    box-shadow: 1px -3px 10px rgba(0, 0, 0, 0.5);
+
+    /* Posicionamento */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    /* Altura dinâmica: calculada com base no espaço disponível */
+    height: 40%; /* Você pode ajustar este valor ou usar % */
+    max-height: 40rem; /* Limita a altura máxima */
+    overflow-y: auto; /* Habilita a rolagem vertical */
+    overflow-x: hidden;
+    z-index: 1000;
 }
 
 .espacoP{

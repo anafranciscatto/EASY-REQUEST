@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Tornar a barra de rolagem vertical transparente */
+body {
+    scrollbar-width: thin; /* Para navegadores como Firefox */
+    scrollbar-color: transparent transparent; /* Cor da barra e do trilho */
+}
+
+body::-webkit-scrollbar {
+    width: 8px; /* Defina a largura da barra de rolagem */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0); /* Deixar transparente */
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0); /* Deixar o trilho transparente */
+}
 
 input,select{
     font-family: "Montserrat", sans-serif;
@@ -35,7 +52,9 @@ input,select{
 /* Estilo da Área de Solicitação */
 .container-main{
     width: 100vw;
-    height: 80vh;
+    max-height: 80vh;
+    height: auto;
+    overflow-y: auto;
     background-color: var(--color06);
     color: var(--color01);
     display: flex;
@@ -43,8 +62,7 @@ input,select{
     flex-direction: column;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
-    box-shadow: 0 -4px 8px rgba(20, 23, 53, 0.3); 
-
+    box-shadow: 0 -4px 8px rgba(20, 23, 53, 0.3);
 }
 
 .main-titulo-subtitulo{
