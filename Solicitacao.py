@@ -47,11 +47,24 @@ class Solicitacao:
             return recebimento
 
     def recebimento_solicitacao(self,id_solicitacao):
+        myBD = Connection.conectar()
+        mycursor = myBD.cursor()
+
+        sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, IF(fn.id_funcao IS NULL, 'Administrador', fn.nome) AS nome_funcao, s.foto FROM tb_solicitacoes s JOIN tb_funcionarios f ON f.CPF_funcionario = s.CPF_funcionario LEFT JOIN tb_funcoes fn ON fn.id_funcao = f.id_funcao JOIN tb_servicos sv ON sv.id_servico = s.id_servico and s.id_solicitacao={id_solicitacao};")
+        mycursor.execute(sql)
+        recebimento= mycursor.fetchone()
+
+        return recebimento
+    
+    def deletar_solicitacao(self, id_solicitacao):
+        try:
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
 
-            sql =(f"SELECT id_solicitacao, sv.nome, id_sala, descricao, f.nome, IF(fn.id_funcao IS NULL, 'Administrador', fn.nome) AS nome_funcao, s.foto FROM tb_solicitacoes s JOIN tb_funcionarios f ON f.CPF_funcionario = s.CPF_funcionario LEFT JOIN tb_funcoes fn ON fn.id_funcao = f.id_funcao JOIN tb_servicos sv ON sv.id_servico = s.id_servico and s.id_solicitacao={id_solicitacao};")
-            mycursor.execute(sql)
-            recebimento= mycursor.fetchone()
+            mycursor.execute(f"DELETE FROM tb_solicitacoes WHERE id_solicitacao = {id_solicitacao}")
 
-            return recebimento
+            myBD.commit()
+
+            return True
+        except:
+            return False

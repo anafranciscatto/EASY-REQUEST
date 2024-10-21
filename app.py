@@ -287,6 +287,11 @@ def pg_ver_solicitacao(rowid): # Função que renderiza a tela de detalhes da so
 
      return render_template("RF004A-detlSolic.html", campo_sala = detalhes[2], campo_servico = detalhes[1], campo_nome_solicitante = detalhes[4], campo_funcao_solicitante = detalhes[5], campo_descricao = detalhes[3], campo_id_solicitacao = detalhes[0], campo_foto = detalhes[6])
 
+@app.route("/deletar-solicitacao/<id_solicitacao>")
+def deletarSolicitacao(id_solicitacao):
+    solicitacao = Solicitacao()
+    solicitacao.deletar_solicitacao(id_solicitacao)
+
 # Criando rota para a tela de encaminhamento das solicitações
 @app.route("/RF005/<id_solicitacao>")
 def pg_encaminhar_solicitacao(id_solicitacao): # Função que renderiza a tela de encaminhamento das solicitações
