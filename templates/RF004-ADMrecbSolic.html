@@ -27,17 +27,6 @@
                 <button class="header_btn-voltar" onclick="funcVoltar()"><i class="fa-solid fa-arrow-left"></i>Voltar</button>
             </div>
         </div>
-        <!-- Informações do usuário logado -->
-        <section class="header__user-info">
-            <!-- Imagem de perfil do usuário com descrição acessível -->
-            <img src="{{ campo_foto if campo_foto else 'https://st4.depositphotos.com/11574170/25191/v/450/depositphotos_251916955-stock-illustration-user-glyph-color-icon.jpg' }}" alt="Foto de Perfil" class="header__user-image">
-            <div class="header__user-details">
-                <!-- Nome do usuário -->
-                <h2 class="header__user-name">{{campo_nome}}</h2>
-                <!-- Cargo do usuário -->
-                <p class="header__user-position">{{campo_funcao}}</p>
-            </div>
-        </section>
     </header>
 
     <main>

@@ -5,6 +5,7 @@ function mostrarSolicitacoes() {
         success: function(solicitacoes){
             console.log(solicitacoes)
             document.getElementById('solicitacoes').innerHTML = '';
+
             if (solicitacoes.length == 0) {
                 document.getElementById('solicitacoes').innerHTML = '<h3>Não há solicitações</h3>';
             }else{
