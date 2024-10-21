@@ -1,5 +1,6 @@
 # Importação das funções para conectar o MySQL
 from conexao_SQL import Connection
+from datetime import datetime
 
 # Crição da Classe Solicitacoes, que executa as funções relacionadas as solicitações de serviço
 class Solicitacao:
@@ -20,8 +21,9 @@ class Solicitacao:
             self.id_sala = id_sala
             self.descricao = descricao
             self.CPF_funcionario = CPF_funcionario
+            data_inicio = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             
-            mycursor.execute(f"INSERT INTO tb_solicitacoes (id_servico, id_sala, descricao, CPF_funcionario) VALUES ({id_servico},'{id_sala}', '{descricao}', '{CPF_funcionario}');")
+            mycursor.execute(f"INSERT INTO tb_solicitacoes (id_servico, id_sala, descricao, CPF_funcionario, data_inicio) VALUES ({id_servico},'{id_sala}', '{descricao}', '{CPF_funcionario}', '{data_inicio}');")
 
             myBD.commit()
 

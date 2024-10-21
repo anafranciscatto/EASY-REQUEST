@@ -8,11 +8,11 @@ def cadastrarAdm():
 
         mycursor = myBD.cursor()
 
-        cpf = "43660542806"
-        nome = "Gabriel Chagas Fernandes de Moraes"
-        email = "gabriel.moraes4299@gmail.com"
+        cpf = "12345678912"
+        nome = "Cleiton Aparecido da Silva"
+        email = "cleitin123@gmail.com"
         senha = "gabriel123"
-        sn = "SN123456"
+        sn = "SN123654"
         permissao = "administrador"
         senha_criptografada = sha256(senha.encode()).hexdigest()
 
