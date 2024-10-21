@@ -6,7 +6,7 @@ function mostrarSolicitacoes() {
             console.log(solicitacoes)
             document.getElementById('solicitacoes').innerHTML = '';
             if (solicitacoes.length == 0) {
-                document.getElementById('solicitacoes').innerHTML = 'Não há solicitações';
+                document.getElementById('solicitacoes').innerHTML = '<h3>Não há solicitações</h3>';
             }else{
                 for (let x = 0; x < solicitacoes.length; x++) {
                     // var option = document.createElement('option');
