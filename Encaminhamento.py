@@ -1,5 +1,6 @@
 # Importação das funções para conectar o MySQL
 from conexao_SQL import Connection
+from datetime import datetime
 
 class Encaminhamento:
     def __init__(self) -> None:
@@ -21,8 +22,9 @@ class Encaminhamento:
             self.CPF_funcionario = CPF_funcionario
             self.prioridade = prioridade
             status = 'à fazer'
+            data_inicio_encaminhamento = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, urgencia, status) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}');")
+            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, urgencia, status, data_inicio_encaminhamento) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}', '{data_inicio_encaminhamento}');")
 
             myBD.commit()
 
