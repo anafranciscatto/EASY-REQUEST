@@ -79,6 +79,7 @@ class Encaminhamento:
         mycursor = myBD.cursor()
 
         self.cpf_funcionario = cpf_funcionario
+        data_inicio_servico = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = '{cpf_funcionario}' AND status = 'fazendo'")
 
@@ -87,7 +88,7 @@ class Encaminhamento:
         print(retorno)
 
         if retorno is None:
-            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo', data_inicio_servico = '{data_inicio_servico}' WHERE id_encaminhamento = {id_encaminhamento};")
             myBD.commit()
             return True
 
