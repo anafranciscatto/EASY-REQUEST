@@ -37,6 +37,7 @@ header{
     gap: 0.5rem;
     margin-right: 3rem;
     font-size: 1.8rem;
+    
 }
 .dia-semana{
     color: var(--color05);
@@ -58,7 +59,9 @@ header{
     object-fit:cover;
     border-radius: 100%;
 }
-
+.container-header-user_info {
+  margin-left: 1rem;
+}
 .container-header-user_nome{
     font-size: 2rem;
     color: var(--color06);
@@ -70,7 +73,7 @@ header{
     margin-right: 1rem;
     text-align: center;
     padding: 0.4rem;
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     font-size: 1.5rem;
 }
 /* Estilo do css do man do site */

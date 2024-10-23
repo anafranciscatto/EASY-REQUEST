@@ -9,7 +9,9 @@ header {
     align-items: center;
     padding-top: 2rem;
 }
-
+.container-header-user_info{
+  margin-left: 1rem;
+}
 /* Estilo do cabeçalho */
 .container-cumprimentacao {
     width: 100vw;
