@@ -14,7 +14,7 @@
     <!-- Biblioteca Font Awesome para uso de ícones na página -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
     <!-- link JS biblioteca SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>EASY-REQUEST</title>
 </head>
@@ -53,7 +53,7 @@
                     <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
                 <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Encaminhar</button></a>
                 <!-- Botão para excluir esta solicitação-->
-                <a href="/deletar-solicitacao/{{campo_id_solicitacao}}"><button class="botao botao-excluir">Excluir</button></a>
+                <button class="botao botao-excluir" onclick="deletarSolicitacao({{campo_id_solicitacao}})">Excluir</button>
                 </div>
                 
             </div>

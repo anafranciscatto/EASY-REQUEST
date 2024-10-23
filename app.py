@@ -290,7 +290,10 @@ def pg_ver_solicitacao(rowid): # Função que renderiza a tela de detalhes da so
 @app.route("/deletar-solicitacao/<id_solicitacao>")
 def deletarSolicitacao(id_solicitacao):
     solicitacao = Solicitacao()
-    solicitacao.deletar_solicitacao(id_solicitacao)
+    if solicitacao.deletar_solicitacao(id_solicitacao):
+        return jsonify({'mensagem':'Cadastro OK'}), 200
+    else:
+        return {'mensagem':'ERRO'}, 500
 
 # Criando rota para a tela de encaminhamento das solicitações
 @app.route("/RF005/<id_solicitacao>")

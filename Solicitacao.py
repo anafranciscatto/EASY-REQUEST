@@ -9,7 +9,7 @@ class Solicitacao:
         self.id_sala = None
         self.descricao = None
         self.CPF_funcionario = None
-        
+
     # Função que adiciona uma nova solicitação de servico no Banco de Dados
     def solicitar_servico(self, id_servico, id_sala, descricao, CPF_funcionario, foto):
         try:
@@ -34,8 +34,8 @@ class Solicitacao:
             return True
         except:
             return False
-        
-         # Função que mostra a  solicitação de servico no Banco de Dados
+
+    # Função que mostra a  solicitação de servico no Banco de Dados
     def recebimento_solicitacoes(self):
             myBD = Connection.conectar()
             mycursor = myBD.cursor()
