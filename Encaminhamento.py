@@ -1,5 +1,6 @@
 # Importação das funções para conectar o MySQL
 from conexao_SQL import Connection
+from datetime import datetime
 
 class Encaminhamento:
     def __init__(self) -> None:
@@ -21,8 +22,9 @@ class Encaminhamento:
             self.CPF_funcionario = CPF_funcionario
             self.prioridade = prioridade
             status = 'à fazer'
+            data_inicio_encaminhamento = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, urgencia, status) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}');")
+            mycursor.execute(f"INSERT INTO tb_encaminhamentos (id_solicitacao, CPF_funcionario, urgencia, status, data_inicio_encaminhamento) VALUES ({id_solicitacao}, '{CPF_funcionario}', '{prioridade}', '{status}', '{data_inicio_encaminhamento}');")
 
             myBD.commit()
 
@@ -77,6 +79,7 @@ class Encaminhamento:
         mycursor = myBD.cursor()
 
         self.cpf_funcionario = cpf_funcionario
+        data_inicio_servico = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
         mycursor.execute(f"SELECT status FROM tb_encaminhamentos WHERE CPF_funcionario = '{cpf_funcionario}' AND status = 'fazendo'")
 
@@ -85,7 +88,7 @@ class Encaminhamento:
         print(retorno)
 
         if retorno is None:
-            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo' WHERE id_encaminhamento = {id_encaminhamento};")
+            mycursor.execute(f"UPDATE tb_encaminhamentos SET status = 'fazendo', data_inicio_servico = '{data_inicio_servico}' WHERE id_encaminhamento = {id_encaminhamento};")
             myBD.commit()
             return True
 

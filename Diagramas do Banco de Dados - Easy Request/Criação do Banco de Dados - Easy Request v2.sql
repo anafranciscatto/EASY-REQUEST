@@ -48,6 +48,8 @@ CREATE TABLE tb_solicitacoes (
  id_sala VARCHAR(10) NOT NULL,
  descricao VARCHAR(2048) NOT NULL,
  CPF_funcionario VARCHAR(14) NOT NULL,
+ foto VARCHAR(2048),
+ data_inicio DATETIME NOT NULL,
  CONSTRAINT FK_tb_solicitacoes_servicos FOREIGN KEY (id_servico) REFERENCES tb_servicos (id_servico),
  CONSTRAINT FK_tb_solicitacoes_sala FOREIGN KEY (id_sala) REFERENCES tb_salas (id_sala),
  CONSTRAINT FK_tb_solicitacoes_funcionario FOREIGN KEY (CPF_funcionario) REFERENCES tb_funcionarios (CPF_funcionario)
@@ -62,23 +64,27 @@ CREATE TABLE tb_encaminhamentos (
  status VARCHAR(12) NOT NULL,
  status_final VARCHAR(255),
  adendo VARCHAR(2048),
+ status_finalizacao VARCHAR(255),
+ data_inicio_encaminhamento DATETIME NOT NULL,
+ data_inicio_servico DATETIME DEFAULT NULL,
+ data_termino_servico DATETIME DEFAULT NULL,
  CONSTRAINT FK_tb_encaminhamento_funcionario FOREIGN KEY (CPF_funcionario) REFERENCES tb_funcionarios (CPF_funcionario),
  CONSTRAINT FK_tb_encaminhamento_solicitacao FOREIGN KEY (id_solicitacao) REFERENCES tb_solicitacoes (id_solicitacao)
 );
 
-#Criar a tabela que armazena as Ordens de Serviço
-CREATE TABLE tb_ordens_de_servico (
- id_os INT PRIMARY KEY AUTO_INCREMENT,
+#Criar a tabela que armazena os relatórios finais
+CREATE TABLE tb_relatorios (
+ id_relatorio INT PRIMARY KEY AUTO_INCREMENT,
  id_encaminhamento INT NOT NULL,
  CONSTRAINT FK_tb_os_encaminhamento FOREIGN KEY (id_encaminhamento) REFERENCES tb_encaminhamentos (id_encaminhamento)
 );
 
 INSERT INTO tb_funcoes (nome) VALUES ("Técnico de Manutenção"), ("Instrutor"), ("Secretaria"), ("OPP"), ("Coordenador"), ("Diretor"), ("Outros");
-INSERT INTO tb_servicos (nome) VALUES ("Elétrica"), ("Hidráulica"), ("Pintura"), ("Alvenaria");
+INSERT INTO tb_servicos (nome) VALUES ("Elétrica"), ("Hidráulica"), ("Pintura"), ("Alvenaria"), ("Maquinas");
 
 SELECT * FROM tb_funcoes;
 SELECT * FROM tb_funcionarios;
-SELECT * FROM tb_solicitacoes;
 SELECT * FROM tb_servicos;
 SELECT * FROM tb_salas;
+SELECT * FROM tb_solicitacoes;
 SELECT * FROM tb_encaminhamentos;

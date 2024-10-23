@@ -14,7 +14,7 @@
     <!-- Biblioteca Font Awesome para uso de ícones na página -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
     <!-- link JS biblioteca SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>EASY-REQUEST</title>
 </head>
@@ -45,12 +45,15 @@
                 <p class="detalhes-solicitacao__texto-descricao">
                     {{campo_descricao}}
                 </p>
-                <img src="https://t4.ftcdn.net/jpg/08/34/54/63/240_F_834546357_SoRzcgHyHPb9OLlsJ1fyRxtE4WgNAsWR.jpg" alt="Imagem que ilustra a solicitação">
+                {% if campo_foto == None %}
+                {%else%}
+                <img src="{{campo_foto}}" alt="Imagem que ilustra a solicitação">
+                {% endif %}
                 <div class="container-botao">
                     <!-- Botão para encaminhar a solicitação, redirecionando para outra página -->
                 <a href="/RF005/{{campo_id_solicitacao}}"><button class="botao botao-cadastro">Encaminhar</button></a>
                 <!-- Botão para excluir esta solicitação-->
-                <a href=""><button class="botao botao-excluir">Excluir</button></a>
+                <button class="botao botao-excluir" onclick="deletarSolicitacao({{campo_id_solicitacao}})">Excluir</button>
                 </div>
                 
             </div>
