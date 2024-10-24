@@ -127,3 +127,40 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
+
+/* Estilo do modal */
+.modal {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    z-index: 1; /* Fica em cima de outros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+}
+
+/* Conteúdo do modal */
+.modal__conteudo {
+    background-color: #fff;
+    margin: 15% auto; /* Centraliza verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do modal */
+    border-radius: 0.5rem;
+}
+
+/* Botão de fechar */
+.modal__fechar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal__fechar:hover,
+.modal__fechar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

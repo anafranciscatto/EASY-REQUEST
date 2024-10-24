@@ -55,29 +55,30 @@
             </select>
         </div>
        <!-- Galeria de chamados -->
-       <div class="galeria">
-        {% if encaminhamento %}
-            {% for item in encaminhamento %}
-                <article class="galeria__item">
-                    <div class="galeria__topo">
-                        <img class="galeria__imagem-perfil" src="https://miro.medium.com/v2/resize:fit:1200/1*g09N-jl7JtVjVZGcd-vL2g.jpeg" alt="Foto de perfil do responsável pelo chamado" width="100">
-                        <div class="galeria__info">
-                            <div class="galeria__status" aria-label="Status do chamado"><p>{{ item['status_final'] }}</p></div>
-                            <div class="galeria__tipo" aria-label="Tipo de chamado"><p>{{ item['servico'] }}</p></div>
-                            <div class="galeria__localizacao" aria-label="Localização do chamado"><p>{{ item['id_sala'] }}</p></div>
-                        </div>
-                    </div>
 
-                    <div class="galeria__descricao" aria-label="Descrição do chamado"><p>{{ item['adendo'] }}</p></div>
-                    
-                    <button class="galeria__botao-encerrar" aria-label="Botão para encerrar o chamado"><p>Encerrar chamado</p></button>
-                    <button class="galeria__botao-Mais" aria-label="Botão para ver mais detalhes do chamado" onclick="encDetalhes({{item['id_encaminhamento']}})"><p>Mais</p></button>
-                </article>
-            {% endfor %}
-        {% else %}
-            <p>Nenhum chamado encontrado.</p>
-        {% endif %}
-    </div>
+        <div class="galeria">
+            {% if encaminhamento %}
+                {% for item in encaminhamento %}
+                    <article class="galeria__item">
+                        <div class="galeria__topo">
+                            <img class="galeria__imagem-perfil" src="https://miro.medium.com/v2/resize:fit:1200/1*g09N-jl7JtVjVZGcd-vL2g.jpeg" alt="Foto de perfil do responsável pelo chamado" width="100">
+                            <div class="galeria__info">
+                                <div class="galeria__status" aria-label="Status do chamado"><p>{{ item['status_final'] }}</p></div>
+                                <div class="galeria__tipo" aria-label="Tipo de chamado"><p>{{ item['servico'] }}</p></div>
+                                <div class="galeria__localizacao" aria-label="Localização do chamado"><p>{{ item['id_sala'] }}</p></div>
+                            </div>
+                        </div>
+
+                        <div class="galeria__descricao" aria-label="Descrição do chamado"><p>{{ item['adendo'] }}</p></div>
+                        
+                        <button class="galeria__botao-encerrar" aria-label="Botão para encerrar o chamado" onclick="abrirModal({{ item }})"><p>Encerrar chamado</p></button>
+                        <button class="galeria__botao-Mais" aria-label="Botão para ver mais detalhes do chamado" onclick="encDetalhes({{item['id_encaminhamento']}})"><p>Mais</p></button>
+                    </article>
+                {% endfor %}
+            {% else %}
+                <p>Nenhum chamado encontrado.</p>
+            {% endif %}
+        </div>
 
         
     </main>

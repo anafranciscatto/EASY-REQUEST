@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/CSS/RF010-historicoRelatorio.css">
     <!-- Link para a biblioteca de ícones Font Awesome -->
     <script src="https://kit.fontawesome.com/e9b74fb3c4.js" crossorigin="anonymous"></script>
+    <script defer src="/static/JS/RF010-historicoRelatorio.js"></script>
     <!-- Título da página -->
     <title>Histórico de Relatório</title>
 </head>
@@ -51,6 +52,17 @@
                 <button class="conteudo__botao">Ver mais</button>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal__conteudo">
+                <span class="modal__fechar" id="fecharModal">&times;</span>
+                <h2>Detalhes do Serviço</h2>
+                <p>Aqui estão mais informações sobre o serviço realizado por Heitor Lima.</p>
+                <!-- Adicione mais detalhes conforme necessário -->
+            </div>
+        </div>
+
     </main>
 </body>
 </html>
