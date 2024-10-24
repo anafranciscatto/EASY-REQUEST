@@ -52,8 +52,7 @@ input,select{
 /* Estilo da Área de Solicitação */
 .container-main{
     width: 100vw;
-    max-height: 80vh;
-    height: auto;
+    height: 80vh;
     overflow-y: auto;
     background-color: var(--color06);
     color: var(--color01);
@@ -192,15 +191,17 @@ input,select{
 }
 /* ------------RESPONSIVIDADE------------------- */
 @media (max-width:376px) {
-    .container-main {
-        height: 100vh;
-    }
+
     .container-main h1 {
         font-size: 2.5rem;
     }
 }
 
 @media(min-width:400px){
+    .container-main {
+        height: 100vh;
+    }
+
     .form_btn-enviar{
         margin: 3rem 0rem 1rem 0rem;
     }
