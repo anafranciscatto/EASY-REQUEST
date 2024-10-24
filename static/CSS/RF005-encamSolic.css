@@ -208,7 +208,10 @@ nav{
   .form_select-user{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 0rem 2rem;
+    padding: 0rem 5rem;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-evenly;
 
   }
   .opcaoUrgencia {
