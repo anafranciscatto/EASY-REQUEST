@@ -9,3 +9,5 @@ function redirectSolicitacao(params) {
 function logout() {
     window.location.href = '/logout';
 }
+
+

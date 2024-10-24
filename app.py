@@ -443,5 +443,7 @@ def logoff(): # Função que sai da conta do usuário
     session.clear()
     return redirect("/")
 
+
+
 #Rodando o WebService
 app.run(debug=True)
