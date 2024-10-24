@@ -12,7 +12,7 @@ function deletarSolicitacao(id_solicitacao) {
                 confirmButtonColor: "var(--colorGreen)",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Deletar",
-                cancelButtonText: "Cancelar!"
+                cancelButtonText: "Cancelar"
               }).then((result) => {
                 if (result.isConfirmed) {
                         $.ajax({
