@@ -90,9 +90,11 @@ function realizarEncaminhamento(id_solicitacao) {
         title: "Perfeito",
         text: "Serviço Encaminhado!",
         showConfirmButton: false,
-        timer: 3500
+        timer: 2500
       });
+      setTimeout(() => {
         window.location.href = '/RF004';
+      }, 2500);
     },
     error: function(){
       Swal.fire({

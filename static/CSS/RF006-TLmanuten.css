@@ -307,8 +307,14 @@ hr{
     font-weight: 700;
 }
 .horario{
+    display: none;
     padding-left: 1.4rem;
 }
+
+.bloco{
+  color: var(--color02);
+}
+
 .urgencia{
     color: var(--color01);
     background-color: var(--color05);

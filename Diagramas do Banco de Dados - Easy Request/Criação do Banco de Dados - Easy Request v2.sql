@@ -5,7 +5,7 @@ CREATE DATABASE bd_easyrequest;
 USE bd_easyrequest;
 
 #Criar usuário para acessar o Banco de Dados
-CREATE USER 'equipe'@'%' IDENTIFIED BY '4_b4t@t45_3_m31@';
+CREATE USER 'equipe_easyrequest'@'%' IDENTIFIED BY '4_b4t@t45_3_m31@';
 GRANT ALL PRIVILEGES ON bd_easyrequest.* TO 'equipe'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
