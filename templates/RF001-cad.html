@@ -61,10 +61,14 @@
                 </div>
 
                 <!-- Campo de entrada para a senha -->
-                <!-- Campo de entrada para a senha -->
                 <div class="form-container__input">
                     <label for="senha" class="form-container__label">Senha:</label>
-                    <input type="password" id="senha" name="senha" class="form-container__input-text senha" placeholder="Pelo menos 6 caracteres" required>
+                    <div class="senha-container">
+                        <input type="password" id="senha" name="senha" class="form-container__input-text senha" placeholder="Pelo menos 6 caracteres" required>
+                        <button type="button" id="toggleSenha" class="form-container__toggle-button">
+                            <img id="cadeadoIcone" src="/static/IMG/fechar-o-olho.png" alt="Mostrar senha" />
+                        </button>
+                    </div>
                     <div id="senha-requisitos" class="senha-requisitos hidden">
                         <p id="requisito1" class="requisito">Mínimo de 6 caracteres</p>
                         <p id="requisito2" class="requisito">Uma letra</p>
@@ -73,6 +77,7 @@
                         <p id="mensagem" class="mensagem hidden">Senha validada</p>
                     </div>
                 </div>
+
 
 
                 <!-- Campo de upload de foto -->

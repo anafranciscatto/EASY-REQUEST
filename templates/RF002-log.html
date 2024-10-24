@@ -30,7 +30,12 @@
                     <label for="inp-SN">SN:</label>
                     <input placeholder="Digite seu SN" type="text" name="inp-SN" id="inp-SN" required>
                     <label for="inp-senha">Senha:</label>
-                    <input placeholder="Digite sua senha" type="password" name="inp-senha" id="inp-senha" required>
+                    <div class="senha-container">
+                        <input placeholder="Digite sua senha" type="password" name="inp-senha" id="inp-senha" required>
+                        <button type="button" id="toggleSenha" class="container-form__toggle-button">
+                            <img id="cadeadoIcone" src="/static/IMG/fechar-o-olho.png" alt="Mostrar senha" />
+                        </button>
+                    </div>
                     <button onclick="logar()" class="container-form__btn-envio">Concluir Login</button>
                 </div>
             </div>
