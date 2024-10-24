@@ -11,7 +11,8 @@ function deletarSolicitacao(id_solicitacao) {
                 showCancelButton: true,
                 confirmButtonColor: "var(--colorGreen)",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Deletar"
+                confirmButtonText: "Deletar",
+                cancelButtonText: "Cancelar!"
               }).then((result) => {
                 if (result.isConfirmed) {
                         $.ajax({
