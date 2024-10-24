@@ -446,8 +446,10 @@ def pg_detalhes_finalizacao(id_encaminhamento):
     detalhes_ecaminhamento = encaminhamento.mostrar_detalhes_encaminhamento(id_encaminhamento)
     return render_template("RF008A-mais.html", campo_detalhes_encaminhamento = detalhes_ecaminhamento)
 
-@app.route("/RF009")
-def pg_relatorio():
+@app.route("/RF009/<id_encaminhamento>")
+def criar_relatorio(id_encaminhamento):
+    encaminhamento = Encaminhamento()
+    info_relatorio = encaminhamento.criar_relatorio(id_encaminhamento)
     return render_template("RF009-relatorio.html")
 
 # Criando rota para sair da conta

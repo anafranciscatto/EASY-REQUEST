@@ -132,3 +132,12 @@ class Encaminhamento:
             return True
         except:
             return False
+    
+    def criar_relatorio(self, id_encaminhamento):
+        self.id_encaminhamento = id_encaminhamento
+        
+        myBD = Connection.conectar()
+
+        mycursor = myBD.cursor()
+        
+        mycursor.execute(f"SELECT ")
