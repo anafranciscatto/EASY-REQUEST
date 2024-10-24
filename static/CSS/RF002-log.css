@@ -115,6 +115,9 @@ footer{
     height: auto;
 }
 
+
+
+
 /* -------------RESPONSIVIDADE-------------- */
 
 
@@ -161,4 +164,26 @@ footer{
     .container-footer{
         width: 29vw;
     }
+}
+
+.senha-container{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+.senha-container button{
+    width: 2rem;
+    height: auto;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1.2rem;
+}
+.senha-container img{
+    width: 2rem;
+    height: auto;
 }

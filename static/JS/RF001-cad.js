@@ -181,3 +181,18 @@ $(document).ready(function() {
         }
     });
 });
+
+document.getElementById('toggleSenha').addEventListener('click', function () {
+    const senhaInput = document.getElementById('senha');
+    const cadeadoIcone = document.getElementById('cadeadoIcone');
+    
+    if (senhaInput.type === 'password') {
+        senhaInput.type = 'text';
+        cadeadoIcone.src = '/static/IMG/olho-de-perto.png'; 
+        cadeadoIcone.alt = 'Ocultar senha';
+    } else {
+        senhaInput.type = 'password';
+        cadeadoIcone.src = '/static/IMG/fechar-o-olho.png'; 
+        cadeadoIcone.alt = 'Mostrar senha';
+    }
+});

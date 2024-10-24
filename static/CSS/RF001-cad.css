@@ -181,6 +181,23 @@ option{
     color: green; /* Mensagem de validação em verde */
 }
 
+.senha-container {
+    display: flex;
+    align-items: center;
+}
+
+.form-container__toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.form-container__toggle-button img {
+    width: 24px; /* Ajuste o tamanho do ícone conforme necessário */
+    height: 24px;
+    margin-left: 5px; /* Espaço entre o campo e o ícone */
+}
 
 /* ------MEDIA------ */
 /* Estilo para telas de notebook e computadores */
